@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_68417784601c4fbcb84fddc3dee46ae5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_68417784601c4fbcb84fddc3dee46ae5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_68417784601c4fbcb84fddc3dee46ae5 = L.map(
+                "map_68417784601c4fbcb84fddc3dee46ae5",
+                {
+                    center: [32.0, 44.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fc0a700abedeaeaf6df4a468d82b853f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fc0a700abedeaeaf6df4a468d82b853f.addTo(map_68417784601c4fbcb84fddc3dee46ae5);
+        
+    
+            var marker_cluster_b17efe06401c8db5e7b04f24182b0ae8 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_c2d42fcf734fdf115ee9855c02b46909 = L.marker(
+                [35.6892, 51.389],
+                {
+}
+            ).addTo(marker_cluster_b17efe06401c8db5e7b04f24182b0ae8);
+        
+    
+            var icon_bf6b2499cc3940676a903a5162484ec5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9e51a73cecd02e17b3160adffec6e01b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c31fdf6da4c20283f9181b018fd7f1f6 = $(`<div id="html_c31fdf6da4c20283f9181b018fd7f1f6" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: BBC (REINO UNIDO)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEHERÁN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Trump dice que la ofensiva en Irán va "por delante de lo previsto" mientras Teherán contraataca<br><br>                             <span style="font-size: 11px; color: #cccccc;">Los ataques en Medio Oriente continúan por segundo día y el número de muertes aumenta en el conflicto. Teherán, por su parte, anuncia líderes interinos tras la muerte del ayatolá Alí Jamenei.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Hora desconocida</span><br>                             <a href="https://www.bbc.co.uk/mundo/live/cj32z44n0nkt?at_medium=RSS&at_campaign=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
+                popup_9e51a73cecd02e17b3160adffec6e01b.setContent(html_c31fdf6da4c20283f9181b018fd7f1f6);
+            
+        
+
+        marker_c2d42fcf734fdf115ee9855c02b46909.bindPopup(popup_9e51a73cecd02e17b3160adffec6e01b)
+        ;
+
+        
+    
+    
+            marker_c2d42fcf734fdf115ee9855c02b46909.bindTooltip(
+                `<div>
+                     Reporte de BBC (Reino Unido)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c2d42fcf734fdf115ee9855c02b46909.setIcon(icon_bf6b2499cc3940676a903a5162484ec5);
+            
+    
+            var marker_92fe879d915084fe9739233c6993634b = L.marker(
+                [35.6892, 51.389],
+                {
+}
+            ).addTo(marker_cluster_b17efe06401c8db5e7b04f24182b0ae8);
+        
+    
+            var icon_61fbc85f6b43ddace1018fff1063d661 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3bc9d8d0ee82988c63e7a2b4c153b48c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_69c3854ebd9ccec2a1181ecd02d6fb2c = $(`<div id="html_69c3854ebd9ccec2a1181ecd02d6fb2c" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: BBC (REINO UNIDO)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEHERÁN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Irán ataca Israel, Qatar y otros países en Medio Oriente en respuesta a los bombardeos de EE.UU. e Israel en su territorio<br><br>                             <span style="font-size: 11px; color: #cccccc;">Tras los ataques estadounidenses e israelíes contra Irán, se han registrado represalias de Teherán en Medio Oriente, principalmente en lugares con bases militares estadounidenses o que son aliados de dicho país.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Sun, 01 Mar 2026 02:34:28 GMT</span><br>                             <a href="https://www.bbc.com/mundo/articles/c80j3833lrro?at_medium=RSS&at_campaign=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
+                popup_3bc9d8d0ee82988c63e7a2b4c153b48c.setContent(html_69c3854ebd9ccec2a1181ecd02d6fb2c);
+            
+        
+
+        marker_92fe879d915084fe9739233c6993634b.bindPopup(popup_3bc9d8d0ee82988c63e7a2b4c153b48c)
+        ;
+
+        
+    
+    
+            marker_92fe879d915084fe9739233c6993634b.bindTooltip(
+                `<div>
+                     Reporte de BBC (Reino Unido)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_92fe879d915084fe9739233c6993634b.setIcon(icon_61fbc85f6b43ddace1018fff1063d661);
+            
+    
+            var marker_b2497cdb9ab4704c2e0d0d49a191944a = L.marker(
+                [35.6892, 51.389],
+                {
+}
+            ).addTo(marker_cluster_b17efe06401c8db5e7b04f24182b0ae8);
+        
+    
+            var icon_2d3a99d2ea7d604ef8a29cc011d0e327 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b98d0488ba7fa154f9d1adb11c5bfc3a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a0e5f8de444abfeb8655d7109f187f4 = $(`<div id="html_1a0e5f8de444abfeb8655d7109f187f4" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: BBC (REINO UNIDO)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEHERÁN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Pánico en las calles y alivio para algunos: la reacción en Teherán al ataque de EE.UU. e Israel contra Irán<br><br>                             <span style="font-size: 11px; color: #cccccc;">Los iraníes han reaccionado de formas distintas a lo que ocurre en su país, desde el rechazo hasta la celebración.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Sat, 28 Feb 2026 18:02:14 GMT</span><br>                             <a href="https://www.bbc.com/mundo/articles/clyzx52wz9yo?at_medium=RSS&at_campaign=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
+                popup_b98d0488ba7fa154f9d1adb11c5bfc3a.setContent(html_1a0e5f8de444abfeb8655d7109f187f4);
+            
+        
+
+        marker_b2497cdb9ab4704c2e0d0d49a191944a.bindPopup(popup_b98d0488ba7fa154f9d1adb11c5bfc3a)
+        ;
+
+        
+    
+    
+            marker_b2497cdb9ab4704c2e0d0d49a191944a.bindTooltip(
+                `<div>
+                     Reporte de BBC (Reino Unido)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b2497cdb9ab4704c2e0d0d49a191944a.setIcon(icon_2d3a99d2ea7d604ef8a29cc011d0e327);
+            
+    
+            var marker_f536c5caeb0c9ceb237536a999729da2 = L.marker(
+                [35.6892, 51.389],
+                {
+}
+            ).addTo(marker_cluster_b17efe06401c8db5e7b04f24182b0ae8);
+        
+    
+            var icon_42de57d3bf34a231d89d664f073aa7e8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d9d12551fb33cdc7e4c5f5591a1fc256 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d0e4d0778d5e8f81152720dffd227c16 = $(`<div id="html_d0e4d0778d5e8f81152720dffd227c16" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: BBC (REINO UNIDO)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEHERÁN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> ¿Qué queda del programa nuclear de Irán y qué amenaza supone?<br><br>                             <span style="font-size: 11px; color: #cccccc;">Los ataques de Estados Unidos e Israel afectaron el año pasado el programa nuclear iraní, que vuelve a estar en el centro del pulso de Trump con Teherán.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Sun, 01 Mar 2026 02:45:05 GMT</span><br>                             <a href="https://www.bbc.com/mundo/articles/cgqg4vw4gj4o?at_medium=RSS&at_campaign=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
+                popup_d9d12551fb33cdc7e4c5f5591a1fc256.setContent(html_d0e4d0778d5e8f81152720dffd227c16);
+            
+        
+
+        marker_f536c5caeb0c9ceb237536a999729da2.bindPopup(popup_d9d12551fb33cdc7e4c5f5591a1fc256)
+        ;
+
+        
+    
+    
+            marker_f536c5caeb0c9ceb237536a999729da2.bindTooltip(
+                `<div>
+                     Reporte de BBC (Reino Unido)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f536c5caeb0c9ceb237536a999729da2.setIcon(icon_42de57d3bf34a231d89d664f073aa7e8);
+            
+    
+            var marker_c63b7799247fdc049446234821ff06ab = L.marker(
+                [35.6892, 51.389],
+                {
+}
+            ).addTo(marker_cluster_b17efe06401c8db5e7b04f24182b0ae8);
+        
+    
+            var icon_1b47ad7be074983be4d44199ec4c11ea = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d4e93278780379e5c34ae4bed79a5efc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b53f6fd317218950d96495ff24fc48de = $(`<div id="html_b53f6fd317218950d96495ff24fc48de" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: AL JAZEERA (QATAR - INGLÉS)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEHRAN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Los ataques con misiles continúan mientras los líderes iraníes proyectan un desafío a Jamenei<br><br>                             <span style="font-size: 11px; color: #cccccc;">Los ataques siguen golpeando a Teherán, pero los líderes supervivientes de Irán cierran filas y juran venganza tras la muerte del ayatolá Jamenei.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Sun, 01 Mar 2026 19:19:22 +0000</span><br>                             <a href="https://www.aljazeera.com/news/2026/3/1/missile-strikes-continue-as-iranian-leaders-project-defiance-after-khamenei?traffic_source=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
+                popup_d4e93278780379e5c34ae4bed79a5efc.setContent(html_b53f6fd317218950d96495ff24fc48de);
+            
+        
+
+        marker_c63b7799247fdc049446234821ff06ab.bindPopup(popup_d4e93278780379e5c34ae4bed79a5efc)
+        ;
+
+        
+    
+    
+            marker_c63b7799247fdc049446234821ff06ab.bindTooltip(
+                `<div>
+                     Reporte de Al Jazeera (Qatar - Inglés)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c63b7799247fdc049446234821ff06ab.setIcon(icon_1b47ad7be074983be4d44199ec4c11ea);
+            
+    
+            var marker_6b2f56a46cce3eb6d74211d03b0a9042 = L.marker(
+                [35.6892, 51.389],
+                {
+}
+            ).addTo(marker_cluster_b17efe06401c8db5e7b04f24182b0ae8);
+        
+    
+            var icon_be53871ae06945104479616b93583919 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d2f3c401b99f09916dcaf6ac69582785 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_74f798f2325102097e3c66e5172c714a = $(`<div id="html_74f798f2325102097e3c66e5172c714a" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: AL JAZEERA (QATAR - INGLÉS)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEHRAN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Ministro de Asuntos Exteriores de Irán sugiere que se podría elegir un nuevo líder supremo en unos días<br><br>                             <span style="font-size: 11px; color: #cccccc;">Abbas Araghchi dice que el proceso constitucional está en marcha mientras Teherán llora a Ali Khamenei y promete resistencia a Estados Unidos e Israel.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Sun, 01 Mar 2026 18:51:08 +0000</span><br>                             <a href="https://www.aljazeera.com/news/2026/3/1/iran-foreign-minister-suggests-new-supreme-leader-may-be-chosen-within-days?traffic_source=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
+                popup_d2f3c401b99f09916dcaf6ac69582785.setContent(html_74f798f2325102097e3c66e5172c714a);
+            
+        
+
+        marker_6b2f56a46cce3eb6d74211d03b0a9042.bindPopup(popup_d2f3c401b99f09916dcaf6ac69582785)
+        ;
+
+        
+    
+    
+            marker_6b2f56a46cce3eb6d74211d03b0a9042.bindTooltip(
+                `<div>
+                     Reporte de Al Jazeera (Qatar - Inglés)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6b2f56a46cce3eb6d74211d03b0a9042.setIcon(icon_be53871ae06945104479616b93583919);
+            
+    
+            var marker_6b727c5673fa078dd747984ce484948d = L.marker(
+                [32.0853, 34.7818],
+                {
+}
+            ).addTo(marker_cluster_b17efe06401c8db5e7b04f24182b0ae8);
+        
+    
+            var icon_dcc4828f6a99efe8837666c1756134f6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_75aac4d76beaeec9fe84c9542191b791 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_21bba0c528ed144aa418e488f361baf5 = $(`<div id="html_21bba0c528ed144aa418e488f361baf5" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: AL JAZEERA (QATAR - INGLÉS)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEL AVIV</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Ataque con misiles iraníes contra Beit Shemesh de Israel mata a nueve personas<br><br>                             <span style="font-size: 11px; color: #cccccc;">Se escuchan explosiones en Tel Aviv mientras los servicios de rescate israelíes informan de víctimas en el ataque con misiles de Beit Shemesh.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Sun, 01 Mar 2026 15:36:55 +0000</span><br>                             <a href="https://www.aljazeera.com/gallery/2026/3/1/iranian-missile-strike-on-israels-beit-shemesh-kills-nine-people?traffic_source=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
+                popup_75aac4d76beaeec9fe84c9542191b791.setContent(html_21bba0c528ed144aa418e488f361baf5);
+            
+        
+
+        marker_6b727c5673fa078dd747984ce484948d.bindPopup(popup_75aac4d76beaeec9fe84c9542191b791)
+        ;
+
+        
+    
+    
+            marker_6b727c5673fa078dd747984ce484948d.bindTooltip(
+                `<div>
+                     Reporte de Al Jazeera (Qatar - Inglés)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6b727c5673fa078dd747984ce484948d.setIcon(icon_dcc4828f6a99efe8837666c1756134f6);
+            
+    
+            var marker_16f50fc42bf22bd64c5d72d66b8cb89c = L.marker(
+                [31.7683, 35.2137],
+                {
+}
+            ).addTo(marker_cluster_b17efe06401c8db5e7b04f24182b0ae8);
+        
+    
+            var icon_77345a50c6f3824713ebb79a53e49b7b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "bullhorn",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61c3be5dda44bdb3e4128ffbf4b90d74 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_02395093912fef47f57f44547c5c636a = $(`<div id="html_02395093912fef47f57f44547c5c636a" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: RT (RUSIA - ESPAÑOL)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: JERUSALÉN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Irán ataca con misiles Jerusalén (VIDEOS)<br><br>                             <span style="font-size: 11px; color: #cccccc;"><img alt="Preview" src="https://mfes.b37m.ru/actualidad/public_images/2026.03/thumbnail/69a4ac03e9ff714c8c5388e5.jpg" style="float: left;" />         	Medios israelíes reportaron que un fragmento de uno de los misiles cayó sobre un vehículo que circulaba por las calles de la ciudad.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Sun, 01 Mar 2026 20:56:31 +0000</span><br>                             <a href="https://actualidad.rt.com/actualidad/589997-iran-ataca-misiles-jerusalen?utm_source=rss&utm_medium=rss&utm_campaign=all" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
+                popup_61c3be5dda44bdb3e4128ffbf4b90d74.setContent(html_02395093912fef47f57f44547c5c636a);
+            
+        
+
+        marker_16f50fc42bf22bd64c5d72d66b8cb89c.bindPopup(popup_61c3be5dda44bdb3e4128ffbf4b90d74)
+        ;
+
+        
+    
+    
+            marker_16f50fc42bf22bd64c5d72d66b8cb89c.bindTooltip(
+                `<div>
+                     Reporte de RT (Rusia - Español)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_16f50fc42bf22bd64c5d72d66b8cb89c.setIcon(icon_77345a50c6f3824713ebb79a53e49b7b);
+            
+    
+            marker_cluster_b17efe06401c8db5e7b04f24182b0ae8.addTo(map_68417784601c4fbcb84fddc3dee46ae5);
+        
+</script>
+</html>
