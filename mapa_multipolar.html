@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_9715eae2a9bbb7a8fc8e1db812f297e0 {
+                #map_8d2df3d99f3be259c4cd8cef5246c518 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -57,24 +57,25 @@
 <body>
     
     
-    <div style="position: fixed; bottom: 30px; left: 30px; width: 160px; height: 75px; 
-                background-color: rgba(0, 0, 0, 0.8); border: 2px solid #ff4444; z-index:9999; 
-                color: white; font-family: 'Courier New', Courier, monospace; text-align: center; 
-                padding-top: 10px; border-radius: 8px; box-shadow: 0 0 10px #ff4444;">
-        <b style="color: #ffcc00; font-size: 12px;">BARRIL BRENT</b><br>
-        <span style="font-size: 24px; font-weight: bold; color: #ffffff;">$79.01</span><br>
-        <span style="font-size: 10px; color: #aaaaaa;">En vivo (USD)</span>
+    <div style="position: fixed; bottom: 20px; left: 20px; width: 220px; height: 110px; 
+                background-color: rgba(0, 0, 0, 0.85); border: 2px solid #00ff41; z-index:9999; 
+                color: white; font-family: 'Courier New', Courier; padding: 10px; border-radius: 10px; box-shadow: 0 0 15px #00ff41;">
+        <b style="color: #ffcc00; font-size: 11px;">MERCADO ENERGÉTICO</b><br>
+        <hr style="border: 0.5px solid #333;">
+        <span style="font-size: 18px;">BRENT: <b>$79.39</b></span><br>
+        <span style="font-size: 13px; color: #ff4444;">PROY. GASOLINA COL:</span><br>
+        <span style="font-size: 18px; font-weight: bold; color: #ff4444;">+$738 / gal</span>
     </div>
     
     
-            <div class="folium-map" id="map_9715eae2a9bbb7a8fc8e1db812f297e0" ></div>
+            <div class="folium-map" id="map_8d2df3d99f3be259c4cd8cef5246c518" ></div>
         
 </body>
 <script>
     
     
-            var map_9715eae2a9bbb7a8fc8e1db812f297e0 = L.map(
-                "map_9715eae2a9bbb7a8fc8e1db812f297e0",
+            var map_8d2df3d99f3be259c4cd8cef5246c518 = L.map(
+                "map_8d2df3d99f3be259c4cd8cef5246c518",
                 {
                     center: [32.0, 44.0],
                     crs: L.CRS.EPSG3857,
@@ -91,7 +92,7 @@
 
         
     
-            var tile_layer_b67b4b4f4d11d52b33ca3b4cae04968e = L.tileLayer(
+            var tile_layer_7e700c57d202d95b70111ae5ec3b455d = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -108,23 +109,23 @@
             );
         
     
-            tile_layer_b67b4b4f4d11d52b33ca3b4cae04968e.addTo(map_9715eae2a9bbb7a8fc8e1db812f297e0);
+            tile_layer_7e700c57d202d95b70111ae5ec3b455d.addTo(map_8d2df3d99f3be259c4cd8cef5246c518);
         
     
-            var marker_cluster_f78b3df35452c75c7f60f79ca0ec179e = L.markerClusterGroup(
+            var marker_cluster_c088fa874c0d26b96a1158ad32795e7e = L.markerClusterGroup(
                 {
 }
             );
         
     
-            var marker_fdfa4e0c018dcd338ba30841964b9d3f = L.marker(
+            var marker_87ef6c426c4ff18f44bbe4ecf34f18d6 = L.marker(
                 [25.2048, 55.2708],
                 {
 }
-            ).addTo(marker_cluster_f78b3df35452c75c7f60f79ca0ec179e);
+            ).addTo(marker_cluster_c088fa874c0d26b96a1158ad32795e7e);
         
     
-            var icon_e877d4a819f132793a339e07462767e7 = L.AwesomeMarkers.icon(
+            var icon_24ed93402dc923f66415e12ea529ed9c = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -135,44 +136,34 @@
             );
         
     
-        var popup_1577e720f63263ee7babbe7058a50561 = L.popup({
-  "maxWidth": 300,
+        var popup_7fd3878d3d94629b577f3c26dcdc9682 = L.popup({
+  "maxWidth": 250,
 });
 
         
             
-                var html_8e89c270a046a35dddab926ee9803460 = $(`<div id="html_8e89c270a046a35dddab926ee9803460" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: BBC (REINO UNIDO)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: DUBÁI</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> "No es el Dubái que conocemos": el miedo y la incredulidad por los ataques de Irán en la meca del turismo de lujo de Medio Oriente<br><br>                             <span style="font-size: 11px; color: #cccccc;">Un turista británico calificó de "surrealista" ver a la gente intentando divertirse mientras el humo se eleva cerca.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Sun, 01 Mar 2026 23:36:11 GMT</span><br>                             <a href="https://www.bbc.com/mundo/articles/c8d5y292r2vo?at_medium=RSS&at_campaign=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
-                popup_1577e720f63263ee7babbe7058a50561.setContent(html_8e89c270a046a35dddab926ee9803460);
+                var html_46f7d34aa259080bd27087673b1981d5 = $(`<div id="html_46f7d34aa259080bd27087673b1981d5" style="width: 100.0%; height: 100.0%;"><b>BBC</b><br>"No es el Dubái que conocemos": el miedo y la incredulidad por los ataques de Irán en la meca del turismo de lujo de Medio Oriente<br><a href='https://www.bbc.com/mundo/articles/c8d5y292r2vo?at_medium=RSS&at_campaign=rss' target='_blank'>Leer más</a></div>`)[0];
+                popup_7fd3878d3d94629b577f3c26dcdc9682.setContent(html_46f7d34aa259080bd27087673b1981d5);
             
         
 
-        marker_fdfa4e0c018dcd338ba30841964b9d3f.bindPopup(popup_1577e720f63263ee7babbe7058a50561)
+        marker_87ef6c426c4ff18f44bbe4ecf34f18d6.bindPopup(popup_7fd3878d3d94629b577f3c26dcdc9682)
         ;
 
         
     
     
-            marker_fdfa4e0c018dcd338ba30841964b9d3f.bindTooltip(
-                `<div>
-                     Reporte de BBC (Reino Unido)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_fdfa4e0c018dcd338ba30841964b9d3f.setIcon(icon_e877d4a819f132793a339e07462767e7);
+                marker_87ef6c426c4ff18f44bbe4ecf34f18d6.setIcon(icon_24ed93402dc923f66415e12ea529ed9c);
             
     
-            var marker_508b3f0500728f2bfaa08c56a61d090f = L.marker(
+            var marker_ead7c90cc6401667c8cb7ae7984ef78d = L.marker(
                 [35.6892, 51.389],
                 {
 }
-            ).addTo(marker_cluster_f78b3df35452c75c7f60f79ca0ec179e);
+            ).addTo(marker_cluster_c088fa874c0d26b96a1158ad32795e7e);
         
     
-            var icon_e9752d2c798cf819ae9957b03d52a5a7 = L.AwesomeMarkers.icon(
+            var icon_5589af2f2fb0b9d13b0941f1e6b9ad96 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -183,44 +174,34 @@
             );
         
     
-        var popup_2bd464b04735e1ec4ceef271c68392a6 = L.popup({
-  "maxWidth": 300,
+        var popup_afff69827e6bf0d368c0d7fa592b99c7 = L.popup({
+  "maxWidth": 250,
 });
 
         
             
-                var html_0f0e2231a02d16cf1943a03a463ee596 = $(`<div id="html_0f0e2231a02d16cf1943a03a463ee596" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: BBC (REINO UNIDO)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEHERÁN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Así te lo contamos: Cómo fue la ofensiva de EE.UU. e Israel sobre Irán que desató un conflicto regional<br><br>                             <span style="font-size: 11px; color: #cccccc;">Los ataques en Medio Oriente continúan por segundo día y el número de muertes aumenta en el conflicto. Teherán, por su parte, anuncia líderes interinos tras la muerte del ayatolá Alí Jamenei.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Hora desconocida</span><br>                             <a href="https://www.bbc.co.uk/mundo/live/cj32z44n0nkt?at_medium=RSS&at_campaign=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
-                popup_2bd464b04735e1ec4ceef271c68392a6.setContent(html_0f0e2231a02d16cf1943a03a463ee596);
+                var html_965d6a667313958356be97ab6419b9a5 = $(`<div id="html_965d6a667313958356be97ab6419b9a5" style="width: 100.0%; height: 100.0%;"><b>BBC</b><br>Así te lo contamos: Cómo fue la ofensiva de EE.UU. e Israel sobre Irán que desató un conflicto regional<br><a href='https://www.bbc.co.uk/mundo/live/cj32z44n0nkt?at_medium=RSS&at_campaign=rss' target='_blank'>Leer más</a></div>`)[0];
+                popup_afff69827e6bf0d368c0d7fa592b99c7.setContent(html_965d6a667313958356be97ab6419b9a5);
             
         
 
-        marker_508b3f0500728f2bfaa08c56a61d090f.bindPopup(popup_2bd464b04735e1ec4ceef271c68392a6)
+        marker_ead7c90cc6401667c8cb7ae7984ef78d.bindPopup(popup_afff69827e6bf0d368c0d7fa592b99c7)
         ;
 
         
     
     
-            marker_508b3f0500728f2bfaa08c56a61d090f.bindTooltip(
-                `<div>
-                     Reporte de BBC (Reino Unido)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_508b3f0500728f2bfaa08c56a61d090f.setIcon(icon_e9752d2c798cf819ae9957b03d52a5a7);
+                marker_ead7c90cc6401667c8cb7ae7984ef78d.setIcon(icon_5589af2f2fb0b9d13b0941f1e6b9ad96);
             
     
-            var marker_368acb7dbbddcee78ade5f923fb72c16 = L.marker(
+            var marker_4cf82d8497b344b298e3733862b918e2 = L.marker(
                 [35.6892, 51.389],
                 {
 }
-            ).addTo(marker_cluster_f78b3df35452c75c7f60f79ca0ec179e);
+            ).addTo(marker_cluster_c088fa874c0d26b96a1158ad32795e7e);
         
     
-            var icon_a2e4bbfa75770e1dc617eacb54d305d8 = L.AwesomeMarkers.icon(
+            var icon_6a2ec4d29ca7760e5ab9457250fc53bb = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -231,44 +212,72 @@
             );
         
     
-        var popup_cd6542213b76e909173a0183caf0669d = L.popup({
-  "maxWidth": 300,
+        var popup_5fe59aa6ab1a7accbd543b78db963552 = L.popup({
+  "maxWidth": 250,
 });
 
         
             
-                var html_bda9be9588287d13ec6c9fcb01a0cbd8 = $(`<div id="html_bda9be9588287d13ec6c9fcb01a0cbd8" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: BBC (REINO UNIDO)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEHERÁN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> ¿Qué queda del programa nuclear de Irán y qué amenaza supone?<br><br>                             <span style="font-size: 11px; color: #cccccc;">Los ataques de Estados Unidos e Israel afectaron el año pasado el programa nuclear iraní, que vuelve a estar en el centro del pulso de Trump con Teherán.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Sun, 01 Mar 2026 02:45:05 GMT</span><br>                             <a href="https://www.bbc.com/mundo/articles/cgqg4vw4gj4o?at_medium=RSS&at_campaign=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
-                popup_cd6542213b76e909173a0183caf0669d.setContent(html_bda9be9588287d13ec6c9fcb01a0cbd8);
+                var html_66042eb4550244feb731a112c99a0101 = $(`<div id="html_66042eb4550244feb731a112c99a0101" style="width: 100.0%; height: 100.0%;"><b>BBC</b><br>¿Qué queda del programa nuclear de Irán y qué amenaza supone?<br><a href='https://www.bbc.com/mundo/articles/cgqg4vw4gj4o?at_medium=RSS&at_campaign=rss' target='_blank'>Leer más</a></div>`)[0];
+                popup_5fe59aa6ab1a7accbd543b78db963552.setContent(html_66042eb4550244feb731a112c99a0101);
             
         
 
-        marker_368acb7dbbddcee78ade5f923fb72c16.bindPopup(popup_cd6542213b76e909173a0183caf0669d)
+        marker_4cf82d8497b344b298e3733862b918e2.bindPopup(popup_5fe59aa6ab1a7accbd543b78db963552)
         ;
 
         
     
     
-            marker_368acb7dbbddcee78ade5f923fb72c16.bindTooltip(
-                `<div>
-                     Reporte de BBC (Reino Unido)
-                 </div>`,
+                marker_4cf82d8497b344b298e3733862b918e2.setIcon(icon_6a2ec4d29ca7760e5ab9457250fc53bb);
+            
+    
+            var marker_af4f1015064bd6cb8a3ff348155e0297 = L.marker(
+                [25.2048, 55.2708],
                 {
-  "sticky": true,
+}
+            ).addTo(marker_cluster_c088fa874c0d26b96a1158ad32795e7e);
+        
+    
+            var icon_e735ce70b58b7daad92b1e43ac8d012f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
 }
             );
         
     
-                marker_368acb7dbbddcee78ade5f923fb72c16.setIcon(icon_a2e4bbfa75770e1dc617eacb54d305d8);
+        var popup_ccb4d1c01d0bc1c2529d8084ea2b1b2e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_48f0675b377460cec52c09663785a247 = $(`<div id="html_48f0675b377460cec52c09663785a247" style="width: 100.0%; height: 100.0%;"><b>Al Jazeera</b><br>¿Por qué los Emiratos Árabes Unidos han cerrado sus bolsas de valores?<br><a href='https://www.aljazeera.com/economy/2026/3/2/why-has-the-uae-closed-its-stock-exchanges?traffic_source=rss' target='_blank'>Leer más</a></div>`)[0];
+                popup_ccb4d1c01d0bc1c2529d8084ea2b1b2e.setContent(html_48f0675b377460cec52c09663785a247);
+            
+        
+
+        marker_af4f1015064bd6cb8a3ff348155e0297.bindPopup(popup_ccb4d1c01d0bc1c2529d8084ea2b1b2e)
+        ;
+
+        
+    
+    
+                marker_af4f1015064bd6cb8a3ff348155e0297.setIcon(icon_e735ce70b58b7daad92b1e43ac8d012f);
             
     
-            var marker_1357e022a1556e1b24b700e344d4faf3 = L.marker(
+            var marker_9308de0a8ca5ca46501008ed37d14c8d = L.marker(
                 [31.5017, 34.4668],
                 {
 }
-            ).addTo(marker_cluster_f78b3df35452c75c7f60f79ca0ec179e);
+            ).addTo(marker_cluster_c088fa874c0d26b96a1158ad32795e7e);
         
     
-            var icon_6b0a996d56b76824058aadd177a2ecdc = L.AwesomeMarkers.icon(
+            var icon_bbbeded6764fea09be7aac7c7dd61c64 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -279,44 +288,34 @@
             );
         
     
-        var popup_7b5b4abd91f309a504fd724dc978f845 = L.popup({
-  "maxWidth": 300,
+        var popup_69f8627742466234d8738f41def83c03 = L.popup({
+  "maxWidth": 250,
 });
 
         
             
-                var html_a7db05055779c78a78573ebc96ec22c7 = $(`<div id="html_a7db05055779c78a78573ebc96ec22c7" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: AL JAZEERA (QATAR - INGLÉS)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: GAZA</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> “Otra vez no”: Gaza se apresura a acumular reservas en medio de la guerra con Irán y cierres de cruces<br><br>                             <span style="font-size: 11px; color: #cccccc;">Los cierres de cruces tras la guerra entre Estados Unidos e Israel con Irán provocan compras de pánico en Gaza, donde los residentes temen la escasez de alimentos.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Mon, 02 Mar 2026 09:03:00 +0000</span><br>                             <a href="https://www.aljazeera.com/features/2026/3/2/not-again-gaza-rushes-to-stockpile-amid-iran-war-crossing-closures?traffic_source=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
-                popup_7b5b4abd91f309a504fd724dc978f845.setContent(html_a7db05055779c78a78573ebc96ec22c7);
+                var html_2915a06544d83be6926454f1e00967b9 = $(`<div id="html_2915a06544d83be6926454f1e00967b9" style="width: 100.0%; height: 100.0%;"><b>Al Jazeera</b><br>“Otra vez no”: Gaza se apresura a acumular reservas en medio de la guerra con Irán y cierres de cruces<br><a href='https://www.aljazeera.com/features/2026/3/2/not-again-gaza-rushes-to-stockpile-amid-iran-war-crossing-closures?traffic_source=rss' target='_blank'>Leer más</a></div>`)[0];
+                popup_69f8627742466234d8738f41def83c03.setContent(html_2915a06544d83be6926454f1e00967b9);
             
         
 
-        marker_1357e022a1556e1b24b700e344d4faf3.bindPopup(popup_7b5b4abd91f309a504fd724dc978f845)
+        marker_9308de0a8ca5ca46501008ed37d14c8d.bindPopup(popup_69f8627742466234d8738f41def83c03)
         ;
 
         
     
     
-            marker_1357e022a1556e1b24b700e344d4faf3.bindTooltip(
-                `<div>
-                     Reporte de Al Jazeera (Qatar - Inglés)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_1357e022a1556e1b24b700e344d4faf3.setIcon(icon_6b0a996d56b76824058aadd177a2ecdc);
+                marker_9308de0a8ca5ca46501008ed37d14c8d.setIcon(icon_bbbeded6764fea09be7aac7c7dd61c64);
             
     
-            var marker_f2ee072dc39c9e50722e19dfcc84b696 = L.marker(
+            var marker_3ef11b1c4addf133cf78354c5d3ec362 = L.marker(
                 [25.2048, 55.2708],
                 {
 }
-            ).addTo(marker_cluster_f78b3df35452c75c7f60f79ca0ec179e);
+            ).addTo(marker_cluster_c088fa874c0d26b96a1158ad32795e7e);
         
     
-            var icon_34217bed99aa82d37334b93afb16fcfd = L.AwesomeMarkers.icon(
+            var icon_05eb44f26c8636608e2169109a31351e = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -327,44 +326,34 @@
             );
         
     
-        var popup_6a0311e3621761ea45a8a2027149f15b = L.popup({
-  "maxWidth": 300,
+        var popup_adce88776b2674a63109944e4d793cb4 = L.popup({
+  "maxWidth": 250,
 });
 
         
             
-                var html_244d1c12652b0ac173f920e2f83760bf = $(`<div id="html_244d1c12652b0ac173f920e2f83760bf" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: AL JAZEERA (QATAR - INGLÉS)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: DUBAI</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Lo que sabemos sobre el tercer día de los ataques de Estados Unidos e Israel contra Irán<br><br>                             <span style="font-size: 11px; color: #cccccc;">Un día después de que se confirmara el asesinato del líder supremo iraní, se informan de ataques en Dubai, Chipre y en toda la región.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Mon, 02 Mar 2026 08:31:25 +0000</span><br>                             <a href="https://www.aljazeera.com/news/2026/3/2/what-we-know-on-day-three-of-us-israeli-attacks-on-iran?traffic_source=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
-                popup_6a0311e3621761ea45a8a2027149f15b.setContent(html_244d1c12652b0ac173f920e2f83760bf);
+                var html_6b238a9ee705663264cfa9bed7afc380 = $(`<div id="html_6b238a9ee705663264cfa9bed7afc380" style="width: 100.0%; height: 100.0%;"><b>Al Jazeera</b><br>Lo que sabemos sobre el tercer día de los ataques de Estados Unidos e Israel contra Irán<br><a href='https://www.aljazeera.com/news/2026/3/2/what-we-know-on-day-three-of-us-israeli-attacks-on-iran?traffic_source=rss' target='_blank'>Leer más</a></div>`)[0];
+                popup_adce88776b2674a63109944e4d793cb4.setContent(html_6b238a9ee705663264cfa9bed7afc380);
             
         
 
-        marker_f2ee072dc39c9e50722e19dfcc84b696.bindPopup(popup_6a0311e3621761ea45a8a2027149f15b)
+        marker_3ef11b1c4addf133cf78354c5d3ec362.bindPopup(popup_adce88776b2674a63109944e4d793cb4)
         ;
 
         
     
     
-            marker_f2ee072dc39c9e50722e19dfcc84b696.bindTooltip(
-                `<div>
-                     Reporte de Al Jazeera (Qatar - Inglés)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_f2ee072dc39c9e50722e19dfcc84b696.setIcon(icon_34217bed99aa82d37334b93afb16fcfd);
+                marker_3ef11b1c4addf133cf78354c5d3ec362.setIcon(icon_05eb44f26c8636608e2169109a31351e);
             
     
-            var marker_4a58554e2612a9bb356d6b2cf4bba7f8 = L.marker(
+            var marker_7d0925dfd0c432223fab155ef9ae705e = L.marker(
                 [35.6892, 51.389],
                 {
 }
-            ).addTo(marker_cluster_f78b3df35452c75c7f60f79ca0ec179e);
+            ).addTo(marker_cluster_c088fa874c0d26b96a1158ad32795e7e);
         
     
-            var icon_54b02ade8fada807e849a497bdefcb42 = L.AwesomeMarkers.icon(
+            var icon_c3620e76760107ffa867d45a0330b20c = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -375,44 +364,34 @@
             );
         
     
-        var popup_97c208dbd26651dc4bdb6b05f53d9224 = L.popup({
-  "maxWidth": 300,
+        var popup_4849467ee3730bcaeaeb4b833b0eb8e0 = L.popup({
+  "maxWidth": 250,
 });
 
         
             
-                var html_37ea0def651c9bb7c69273e8736303d4 = $(`<div id="html_37ea0def651c9bb7c69273e8736303d4" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: AL JAZEERA (QATAR - INGLÉS)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEHRAN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Larijani de Irán refuta las afirmaciones de que Teherán fue presionado para reanudar las conversaciones con Estados Unidos<br><br>                             <span style="font-size: 11px; color: #cccccc;">Los comentarios se producen después de que los medios estadounidenses informaran sobre un impulso diplomático tras el asesinato del líder supremo de Irán.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Mon, 02 Mar 2026 07:16:08 +0000</span><br>                             <a href="https://www.aljazeera.com/news/2026/3/2/irans-larijani-refutes-claims-tehran-pushed-to-resume-us-talks?traffic_source=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
-                popup_97c208dbd26651dc4bdb6b05f53d9224.setContent(html_37ea0def651c9bb7c69273e8736303d4);
+                var html_fd110a12676e879c56bb61a538db94c8 = $(`<div id="html_fd110a12676e879c56bb61a538db94c8" style="width: 100.0%; height: 100.0%;"><b>Al Jazeera</b><br>Larijani de Irán refuta las afirmaciones de que Teherán fue presionado para reanudar las conversaciones con Estados Unidos<br><a href='https://www.aljazeera.com/news/2026/3/2/irans-larijani-refutes-claims-tehran-pushed-to-resume-us-talks?traffic_source=rss' target='_blank'>Leer más</a></div>`)[0];
+                popup_4849467ee3730bcaeaeb4b833b0eb8e0.setContent(html_fd110a12676e879c56bb61a538db94c8);
             
         
 
-        marker_4a58554e2612a9bb356d6b2cf4bba7f8.bindPopup(popup_97c208dbd26651dc4bdb6b05f53d9224)
+        marker_7d0925dfd0c432223fab155ef9ae705e.bindPopup(popup_4849467ee3730bcaeaeb4b833b0eb8e0)
         ;
 
         
     
     
-            marker_4a58554e2612a9bb356d6b2cf4bba7f8.bindTooltip(
-                `<div>
-                     Reporte de Al Jazeera (Qatar - Inglés)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_4a58554e2612a9bb356d6b2cf4bba7f8.setIcon(icon_54b02ade8fada807e849a497bdefcb42);
+                marker_7d0925dfd0c432223fab155ef9ae705e.setIcon(icon_c3620e76760107ffa867d45a0330b20c);
             
     
-            var marker_84df7ea249aa00ce18120a70d32096df = L.marker(
+            var marker_a33b01b9f37662341c028a5ae2303166 = L.marker(
                 [35.6892, 51.389],
                 {
 }
-            ).addTo(marker_cluster_f78b3df35452c75c7f60f79ca0ec179e);
+            ).addTo(marker_cluster_c088fa874c0d26b96a1158ad32795e7e);
         
     
-            var icon_edd6ca6c7655928830560bab3facc56b = L.AwesomeMarkers.icon(
+            var icon_5103e3f88b1000803c1498138ae9f77e = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -423,133 +402,27 @@
             );
         
     
-        var popup_f47c1d649663ead1372aa2074a3285c4 = L.popup({
-  "maxWidth": 300,
+        var popup_a07afda7848f1b0264f29d8588b79429 = L.popup({
+  "maxWidth": 250,
 });
 
         
             
-                var html_d485ef27f325fd0fa92b42ddee0d3b78 = $(`<div id="html_d485ef27f325fd0fa92b42ddee0d3b78" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: AL JAZEERA (QATAR - INGLÉS)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEHRAN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Análisis: El asesinato de Jamenei deja al “eje” de Irán en desorden mientras la guerra se amplía<br><br>                             <span style="font-size: 11px; color: #cccccc;">Mientras Hezbollah lanza ataques preventivos, Teherán le dice a Al Jazeera que no necesita ayuda externa para defenderse.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Mon, 02 Mar 2026 05:38:15 +0000</span><br>                             <a href="https://www.aljazeera.com/features/2026/3/2/hold-analysis-khameneis-killing-leaves-irans-axis-in-disarray?traffic_source=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
-                popup_f47c1d649663ead1372aa2074a3285c4.setContent(html_d485ef27f325fd0fa92b42ddee0d3b78);
+                var html_20ca3f317f5772efca7d85f788f2613a = $(`<div id="html_20ca3f317f5772efca7d85f788f2613a" style="width: 100.0%; height: 100.0%;"><b>Al Jazeera</b><br>Análisis: El asesinato de Jamenei deja al “eje” de Irán en desorden mientras la guerra se amplía<br><a href='https://www.aljazeera.com/features/2026/3/2/hold-analysis-khameneis-killing-leaves-irans-axis-in-disarray?traffic_source=rss' target='_blank'>Leer más</a></div>`)[0];
+                popup_a07afda7848f1b0264f29d8588b79429.setContent(html_20ca3f317f5772efca7d85f788f2613a);
             
         
 
-        marker_84df7ea249aa00ce18120a70d32096df.bindPopup(popup_f47c1d649663ead1372aa2074a3285c4)
+        marker_a33b01b9f37662341c028a5ae2303166.bindPopup(popup_a07afda7848f1b0264f29d8588b79429)
         ;
 
         
     
     
-            marker_84df7ea249aa00ce18120a70d32096df.bindTooltip(
-                `<div>
-                     Reporte de Al Jazeera (Qatar - Inglés)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_84df7ea249aa00ce18120a70d32096df.setIcon(icon_edd6ca6c7655928830560bab3facc56b);
+                marker_a33b01b9f37662341c028a5ae2303166.setIcon(icon_5103e3f88b1000803c1498138ae9f77e);
             
     
-            var marker_450236591ab0b0d2f313fa2c0d236eac = L.marker(
-                [33.8938, 35.5018],
-                {
-}
-            ).addTo(marker_cluster_f78b3df35452c75c7f60f79ca0ec179e);
-        
-    
-            var icon_9ce8201ee637beea34223f725e3b2a5f = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "orange",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_8c96031c0389d6b3bf78fa543559c185 = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_6ba7c61c4612bc061bb7377582ec7b27 = $(`<div id="html_6ba7c61c4612bc061bb7377582ec7b27" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: AL JAZEERA (QATAR - INGLÉS)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: BEIRUT</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Al Jazeera informa desde Beirut mientras los residentes huyen tras los ataques israelíes<br><br>                             <span style="font-size: 11px; color: #cccccc;">Decenas de miles de civiles libaneses están abandonando zonas de Beirut tras los ataques israelíes y el desplazamiento forzado.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Mon, 02 Mar 2026 03:55:18 +0000</span><br>                             <a href="https://www.aljazeera.com/video/newsfeed/2026/3/2/al-jazeera-reports-from-beirut-as-residents-flee-following-israeli-strikes?traffic_source=rss" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
-                popup_8c96031c0389d6b3bf78fa543559c185.setContent(html_6ba7c61c4612bc061bb7377582ec7b27);
-            
-        
-
-        marker_450236591ab0b0d2f313fa2c0d236eac.bindPopup(popup_8c96031c0389d6b3bf78fa543559c185)
-        ;
-
-        
-    
-    
-            marker_450236591ab0b0d2f313fa2c0d236eac.bindTooltip(
-                `<div>
-                     Reporte de Al Jazeera (Qatar - Inglés)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_450236591ab0b0d2f313fa2c0d236eac.setIcon(icon_9ce8201ee637beea34223f725e3b2a5f);
-            
-    
-            var marker_fbe33031f69b3e70fff1d6479804ebcb = L.marker(
-                [35.6892, 51.389],
-                {
-}
-            ).addTo(marker_cluster_f78b3df35452c75c7f60f79ca0ec179e);
-        
-    
-            var icon_562402ef8b0856cb22721a6e6f90823d = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "red",
-  "iconColor": "white",
-  "icon": "bullhorn",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_21b34b66470d00b8c0659e43686ffb4f = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_4fd937b99ed80c02cd62b6af214a2b19 = $(`<div id="html_4fd937b99ed80c02cd62b6af214a2b19" style="width: 100.0%; height: 100.0%;">                         <div style="font-family: Arial; width: 260px;">                             <b style="color:#ffcc00; font-size: 13px;">FUENTE: RT (RUSIA - ESPAÑOL)</b><br>                             <b style="color:#00ffcc; font-size: 11px;">UBICACIÓN: TEHERÁN</b>                             <hr style="border: 1px solid gray;">                             <b>Titular:</b> Evacuan la oficina de RT en Teherán tras un ataque cercano<br><br>                             <span style="font-size: 11px; color: #cccccc;"><img alt="Preview" src="https://mfes.b37m.ru/actualidad/public_images/2026.03/thumbnail/69a572f159bf5b01d535e80e.jpg" style="float: left;" />         	No se reportaron de inmediato víctimas entre el personal de la cadena.</span><br><br>                             <b>Hora original:</b> <span style="color: #66b3ff;">Mon, 02 Mar 2026 11:11:30 +0000</span><br>                             <a href="https://actualidad.rt.com/actualidad/590153-evacuan-oficina-rt-arabic-teheran-ataque-cercano?utm_source=rss&utm_medium=rss&utm_campaign=all" target="_blank" style="color: #ff6666;">[Ver cable original]</a>                         </div>                         </div>`)[0];
-                popup_21b34b66470d00b8c0659e43686ffb4f.setContent(html_4fd937b99ed80c02cd62b6af214a2b19);
-            
-        
-
-        marker_fbe33031f69b3e70fff1d6479804ebcb.bindPopup(popup_21b34b66470d00b8c0659e43686ffb4f)
-        ;
-
-        
-    
-    
-            marker_fbe33031f69b3e70fff1d6479804ebcb.bindTooltip(
-                `<div>
-                     Reporte de RT (Rusia - Español)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_fbe33031f69b3e70fff1d6479804ebcb.setIcon(icon_562402ef8b0856cb22721a6e6f90823d);
-            
-    
-            marker_cluster_f78b3df35452c75c7f60f79ca0ec179e.addTo(map_9715eae2a9bbb7a8fc8e1db812f297e0);
+            marker_cluster_c088fa874c0d26b96a1158ad32795e7e.addTo(map_8d2df3d99f3be259c4cd8cef5246c518);
         
 </script>
 </html>

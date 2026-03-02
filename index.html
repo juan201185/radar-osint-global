@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTEMA DE INTELIGENCIA E.T.B.</title>
+    <style>
+        body { background-color: #0a0a0a; color: #00ff41; font-family: 'Courier New', Courier, monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        .container { border: 2px solid #00ff41; padding: 30px; border-radius: 15px; box-shadow: 0 0 20px #00ff41; background: rgba(0, 20, 0, 0.9); text-align: center; max-width: 600px; }
+        h1 { font-size: 1.8em; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 3px; border-bottom: 1px solid #00ff41; padding-bottom: 10px; }
+        .btn-group { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+        .btn { text-decoration: none; color: #0a0a0a; background-color: #00ff41; padding: 15px 25px; border-radius: 5px; font-weight: bold; font-size: 1.1em; transition: 0.3s; text-transform: uppercase; }
+        .btn:hover { background-color: #ffffff; box-shadow: 0 0 15px #ffffff; transform: scale(1.05); }
+        .status { margin-top: 30px; font-size: 0.8em; color: #888; border-top: 1px solid #333; padding-top: 15px; }
+        .warning { color: #ff4444; font-weight: bold; animation: blink 1s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Centro de Mando OSINT</h1>
+        <p>Vigilancia Estratégica Regional y Global</p>
+        
+        <div class="btn-group">
+            <a href="mapa_multipolar.html" class="btn">📡 Radar de Noticias (Multipolar + Petróleo)</a>
+            <a href="radar_regional_medio_oriente.html" class="btn">🔥 Radar Satelital VIIRS (NASA)</a>
+        </div>
+
+        <div class="status">
+            <p>ESTADO DEL SISTEMA: <span class="warning">OPERATIVO / ESCANEANDO</span></p>
+            <p>Monitoreo activo de crudo Brent y conflicto en el Medio Oriente.</p>
+            <p style="color: #00ff41;">&copy; 2026 Ingenieria Trejos - Cauca, Colombia</p>
+        </div>
+    </div>
+</body>
+</html>
