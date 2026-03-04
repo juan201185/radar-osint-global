@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6405e1ea96f3569ccdf4dc5a03fd7e72 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_6405e1ea96f3569ccdf4dc5a03fd7e72" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6405e1ea96f3569ccdf4dc5a03fd7e72 = L.map(
+                "map_6405e1ea96f3569ccdf4dc5a03fd7e72",
+                {
+                    center: [40.0, -30.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 3,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e03c4b039a8b252c8def0ad4d5790d4d = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e03c4b039a8b252c8def0ad4d5790d4d.addTo(map_6405e1ea96f3569ccdf4dc5a03fd7e72);
+        
+    
+            var marker_24f920837d7b0e73ca1ec2bf37a6ef90 = L.marker(
+                [61.2545, -149.8011],
+                {
+}
+            ).addTo(map_6405e1ea96f3569ccdf4dc5a03fd7e72);
+        
+    
+            var icon_95c040b7c7fc2b7a071f119d1742d8c0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ebe9a102abd9cee6c6d2f1c13fbf764b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ad19e53d928027da16e4144becb8db34 = $(`<div id="html_ad19e53d928027da16e4144becb8db34" style="width: 100.0%; height: 100.0%;">                             <div style="font-family: Arial; width: 220px;">                                 <b style="color:#00ff00;">CARGUERO MILITAR EN RUTA</b><br><hr>                                 <b>Indicativo:</b> RCH461<br>                                 <b>País de Origen:</b> United States<br>                                 <b>Altitud:</b> None metros<br>                                 <b>Velocidad:</b> 5.92 m/s                             </div>                             </div>`)[0];
+                popup_ebe9a102abd9cee6c6d2f1c13fbf764b.setContent(html_ad19e53d928027da16e4144becb8db34);
+            
+        
+
+        marker_24f920837d7b0e73ca1ec2bf37a6ef90.bindPopup(popup_ebe9a102abd9cee6c6d2f1c13fbf764b)
+        ;
+
+        
+    
+    
+                marker_24f920837d7b0e73ca1ec2bf37a6ef90.setIcon(icon_95c040b7c7fc2b7a071f119d1742d8c0);
+            
+    
+            var marker_f1c5d0b53fd7769eea892bb7ae5f700d = L.marker(
+                [43.6417, -86.5901],
+                {
+}
+            ).addTo(map_6405e1ea96f3569ccdf4dc5a03fd7e72);
+        
+    
+            var icon_509cc5bf2563ccc0e888e044ea33d669 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b5b47588e619e9349038ef745967bfd4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_75555bf312a191ed13f956af38270b00 = $(`<div id="html_75555bf312a191ed13f956af38270b00" style="width: 100.0%; height: 100.0%;">                             <div style="font-family: Arial; width: 220px;">                                 <b style="color:#00ff00;">CARGUERO MILITAR EN RUTA</b><br><hr>                                 <b>Indicativo:</b> RRR4122<br>                                 <b>País de Origen:</b> United Kingdom<br>                                 <b>Altitud:</b> 8519.16 metros<br>                                 <b>Velocidad:</b> 191.41 m/s                             </div>                             </div>`)[0];
+                popup_b5b47588e619e9349038ef745967bfd4.setContent(html_75555bf312a191ed13f956af38270b00);
+            
+        
+
+        marker_f1c5d0b53fd7769eea892bb7ae5f700d.bindPopup(popup_b5b47588e619e9349038ef745967bfd4)
+        ;
+
+        
+    
+    
+                marker_f1c5d0b53fd7769eea892bb7ae5f700d.setIcon(icon_509cc5bf2563ccc0e888e044ea33d669);
+            
+    
+            var marker_00ee2d6a51a5caaf32c152b48817e0bf = L.marker(
+                [32.4397, 31.1386],
+                {
+}
+            ).addTo(map_6405e1ea96f3569ccdf4dc5a03fd7e72);
+        
+    
+            var icon_8dd18f5b5778fb9a61024b92934057d2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b386948d983ffa8f788179f8975654f3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_630d1907e956fd09056109af57bfb6ea = $(`<div id="html_630d1907e956fd09056109af57bfb6ea" style="width: 100.0%; height: 100.0%;">                             <div style="font-family: Arial; width: 220px;">                                 <b style="color:#00ff00;">CARGUERO MILITAR EN RUTA</b><br><hr>                                 <b>Indicativo:</b> RRR2191<br>                                 <b>País de Origen:</b> United Kingdom<br>                                 <b>Altitud:</b> 10972.8 metros<br>                                 <b>Velocidad:</b> 209.5 m/s                             </div>                             </div>`)[0];
+                popup_b386948d983ffa8f788179f8975654f3.setContent(html_630d1907e956fd09056109af57bfb6ea);
+            
+        
+
+        marker_00ee2d6a51a5caaf32c152b48817e0bf.bindPopup(popup_b386948d983ffa8f788179f8975654f3)
+        ;
+
+        
+    
+    
+                marker_00ee2d6a51a5caaf32c152b48817e0bf.setIcon(icon_8dd18f5b5778fb9a61024b92934057d2);
+            
+    
+            var marker_830667efbbd21ce0c68352a4695305e5 = L.marker(
+                [40.2301, -103.1079],
+                {
+}
+            ).addTo(map_6405e1ea96f3569ccdf4dc5a03fd7e72);
+        
+    
+            var icon_35842bf5a820bfae936e481fddf933cb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_28ec1a9ddfa139995cba0e255dd285fa = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_821e2d08b5e174f88d4ae6c2aacd8839 = $(`<div id="html_821e2d08b5e174f88d4ae6c2aacd8839" style="width: 100.0%; height: 100.0%;">                             <div style="font-family: Arial; width: 220px;">                                 <b style="color:#00ff00;">CARGUERO MILITAR EN RUTA</b><br><hr>                                 <b>Indicativo:</b> CNV3136<br>                                 <b>País de Origen:</b> United States<br>                                 <b>Altitud:</b> 7345.68 metros<br>                                 <b>Velocidad:</b> 148.4 m/s                             </div>                             </div>`)[0];
+                popup_28ec1a9ddfa139995cba0e255dd285fa.setContent(html_821e2d08b5e174f88d4ae6c2aacd8839);
+            
+        
+
+        marker_830667efbbd21ce0c68352a4695305e5.bindPopup(popup_28ec1a9ddfa139995cba0e255dd285fa)
+        ;
+
+        
+    
+    
+                marker_830667efbbd21ce0c68352a4695305e5.setIcon(icon_35842bf5a820bfae936e481fddf933cb);
+            
+    
+            var marker_be23c34100c55fb55460d0b1e0d815de = L.marker(
+                [40.9154, -71.7219],
+                {
+}
+            ).addTo(map_6405e1ea96f3569ccdf4dc5a03fd7e72);
+        
+    
+            var icon_fbf061b9e79c70c6af4abf1c309dc71b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2ed6736bcf9969ae114380e687210abb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7b1f1373304a80e3653e3098a934a288 = $(`<div id="html_7b1f1373304a80e3653e3098a934a288" style="width: 100.0%; height: 100.0%;">                             <div style="font-family: Arial; width: 220px;">                                 <b style="color:#00ff00;">CARGUERO MILITAR EN RUTA</b><br><hr>                                 <b>Indicativo:</b> RCH892<br>                                 <b>País de Origen:</b> United States<br>                                 <b>Altitud:</b> 7924.8 metros<br>                                 <b>Velocidad:</b> 209.55 m/s                             </div>                             </div>`)[0];
+                popup_2ed6736bcf9969ae114380e687210abb.setContent(html_7b1f1373304a80e3653e3098a934a288);
+            
+        
+
+        marker_be23c34100c55fb55460d0b1e0d815de.bindPopup(popup_2ed6736bcf9969ae114380e687210abb)
+        ;
+
+        
+    
+    
+                marker_be23c34100c55fb55460d0b1e0d815de.setIcon(icon_fbf061b9e79c70c6af4abf1c309dc71b);
+            
+    
+            var marker_3e4096f10f6a5b0a737e7e2bdea41f0d = L.marker(
+                [38.7853, -76.8706],
+                {
+}
+            ).addTo(map_6405e1ea96f3569ccdf4dc5a03fd7e72);
+        
+    
+            var icon_7710ae80d08907c94be9b3418859b0b6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4dc09465a00e96edf79525365de56a9a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1d6c3fc922ca61c5690a02ad06d3cd0f = $(`<div id="html_1d6c3fc922ca61c5690a02ad06d3cd0f" style="width: 100.0%; height: 100.0%;">                             <div style="font-family: Arial; width: 220px;">                                 <b style="color:#00ff00;">CARGUERO MILITAR EN RUTA</b><br><hr>                                 <b>Indicativo:</b> RCH879<br>                                 <b>País de Origen:</b> United States<br>                                 <b>Altitud:</b> 83.82 metros<br>                                 <b>Velocidad:</b> 61.22 m/s                             </div>                             </div>`)[0];
+                popup_4dc09465a00e96edf79525365de56a9a.setContent(html_1d6c3fc922ca61c5690a02ad06d3cd0f);
+            
+        
+
+        marker_3e4096f10f6a5b0a737e7e2bdea41f0d.bindPopup(popup_4dc09465a00e96edf79525365de56a9a)
+        ;
+
+        
+    
+    
+                marker_3e4096f10f6a5b0a737e7e2bdea41f0d.setIcon(icon_7710ae80d08907c94be9b3418859b0b6);
+            
+</script>
+</html>
