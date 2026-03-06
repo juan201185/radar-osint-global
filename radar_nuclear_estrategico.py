@@ -125,13 +125,17 @@ class RadarNuclearEstrategico:
                 "nombre": "Dolphin",
                 "posicion_estimada": [25.0, 55.0],  # Golfo Pérsico
                 "estado": "Patrulla disuasión",
-                "mensaje": "Capacidad de Segundo Ataque (Second Strike)"
+                "mensaje": "Capacidad de Segundo Ataque (Second Strike)",
+                "armamento": "Popeye Turbo SLCM (Nuclear)", # <- DATO AGREGADO
+                "alcance": "1,500 km"                       # <- DATO AGREGADO
             },
             {
                 "nombre": "Tekumah",
                 "posicion_estimada": [20.0, 38.0],  # Mar Rojo
                 "estado": "Cubriendo flanco Sur (Yemen/Irán)",
-                "mensaje": "Alcance balístico a Teherán confirmado"
+                "mensaje": "Alcance balístico a Teherán confirmado",
+                "armamento": "Popeye Turbo SLCM (Nuclear)", # <- DATO AGREGADO
+                "alcance": "1,500 km"                       # <- DATO AGREGADO
             }
         ]
         
@@ -161,9 +165,9 @@ class RadarNuclearEstrategico:
             color = {
                 "CRITICO": "red",
                 "ALTO": "orange",
-                "MEDIO": "yellow",
+                "MEDIO": "beige", # <- CORRECCIÓN DE COLOR (Adiós yellow)
                 "BAJO": "green"
-            }.get(datos['riesgo'], 'gray')
+            }.get(datos.get('riesgo'), 'gray')
             
             popup_html = f"""
             <div style="font-family: 'Courier New', monospace; width: 300px; 
@@ -171,13 +175,13 @@ class RadarNuclearEstrategico:
                         border-radius: 8px; border-left: 5px solid {color};">
                 <b style="color:{color}; font-size: 16px;">☢️ {nombre.upper()}</b><br>
                 <hr style="border-color: #333; margin: 8px 0;">
-                <b>Perfil:</b> {datos['tipo']}<br>
-                <b>Estado:</b> {datos['estado']}<br>
+                <b>Perfil:</b> {datos.get('tipo', 'Desconocido')}<br>
+                <b>Estado:</b> {datos.get('estado', 'Desconocido')}<br>
                 <b>Nivel Enriquecimiento:</b> <span style="color:#ffcc00;">{datos.get('enriquecimiento', 'N/A')}</span><br>
                 <b>Vector (Centrífugas):</b> {datos.get('centrifugas', 'Desconocido')}<br>
                 <b>Blindaje/Defensa:</b> {datos.get('proteccion', 'Clasificado / No Determinado')}<br>
-                <b>Nivel de Riesgo:</b> <span style="color:{color}; font-weight:bold;">{datos['riesgo']}</span><br>
-                <b>Último Sabotaje:</b> {datos['ultimo_ataque']}
+                <b>Nivel de Riesgo:</b> <span style="color:{color}; font-weight:bold;">{datos.get('riesgo', 'Desconocido')}</span><br>
+                <b>Último Sabotaje:</b> {datos.get('ultimo_ataque', 'Ninguno')}
             </div>
             """
             
@@ -185,8 +189,8 @@ class RadarNuclearEstrategico:
                 datos['coords'],
                 popup=folium.Popup(popup_html, max_width=320),
                 icon=folium.Icon(color=color, icon='radiation', prefix='fa'),
-                tooltip=f"INSTALACIÓN: {nombre} - Riesgo: {datos['riesgo']}"
-            ).add_to(capa_enriquecimiento if "Enriquecimiento" in datos['tipo'] else capa_reactores)
+                tooltip=f"INSTALACIÓN: {nombre} - Riesgo: {datos.get('riesgo', 'Desconocido')}"
+            ).add_to(capa_enriquecimiento if "Enriquecimiento" in datos.get('tipo', '') else capa_reactores)
             
             # Círculo de protección AA
             folium.Circle(
@@ -211,16 +215,17 @@ class RadarNuclearEstrategico:
                 popup=f"Zona de Patrulla Estimada: {sub['nombre']}"
             ).add_to(capa_submarinos)
             
+            # <- PROTECCIÓN GET APLICADA AQUÍ PARA EVITAR KEYERRORS
             popup_sub = f"""
             <div style="font-family: 'Courier New', monospace; width: 280px; 
                         background: rgba(0,0,0,0.95); color: #fff; padding: 12px; 
                         border-radius: 8px; border-left: 5px solid #0066cc;">
-                <b style="color:#00aaff; font-size: 16px;">🚀 CLASE DOLPHIN ({sub['nombre']})</b><br>
+                <b style="color:#00aaff; font-size: 16px;">🚀 CLASE DOLPHIN ({sub.get('nombre', 'Desconocido')})</b><br>
                 <hr style="border-color: #333; margin: 8px 0;">
-                <b>Estado:</b> {sub['estado']}<br>
-                <b>Carga Bélica:</b> <span style="color:#ff4444;">{sub['armamento']}</span><br>
-                <b>Radio de Acción:</b> {sub['alcance']}<br>
-                <b>Doctrina:</b> <i>{sub['mensaje']}</i>
+                <b>Estado:</b> {sub.get('estado', 'Desconocido')}<br>
+                <b>Carga Bélica:</b> <span style="color:#ff4444;">{sub.get('armamento', 'Clasificada')}</span><br>
+                <b>Radio de Acción:</b> {sub.get('alcance', 'Desconocido')}<br>
+                <b>Doctrina:</b> <i>{sub.get('mensaje', 'Desconocida')}</i>
             </div>
             """
             
@@ -239,7 +244,7 @@ class RadarNuclearEstrategico:
                 fill=False,
                 weight=2,
                 dash_array='10, 15',
-                popup=f"Envolvente Táctica SLCM ({sub['nombre']})"
+                popup=f"Envolvente Táctica SLCM ({sub.get('nombre', 'Desconocido')})"
             ).add_to(capa_alcance)
         
         # 3. Eventos sísmicos sospechosos
@@ -250,11 +255,11 @@ class RadarNuclearEstrategico:
                         border-radius: 8px; border-left: 5px solid purple;">
                 <b style="color:#cc66ff; font-size: 14px;">💥 ANOMALÍA SÍSMICA</b><br>
                 <hr style="border-color: #333; margin: 8px 0;">
-                <b>Fecha:</b> {evento['fecha']}<br>
-                <b>Escala Richter:</b> {evento['magnitud']}<br>
-                <b>Profundidad:</b> {evento['profundidad']}<br>
+                <b>Fecha:</b> {evento.get('fecha', 'Desconocida')}<br>
+                <b>Escala Richter:</b> {evento.get('magnitud', 'N/A')}<br>
+                <b>Profundidad:</b> {evento.get('profundidad', 'Desconocida')}<br>
                 <b>Evaluación de Inteligencia:</b><br>
-                <span style="color:#ffcc00;">{evento['sospecha']}</span>
+                <span style="color:#ffcc00;">{evento.get('sospecha', 'Desconocida')}</span>
             </div>
             """
             folium.CircleMarker(
@@ -294,19 +299,19 @@ class RadarNuclearEstrategico:
             <div style="line-height: 1.6;">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                     <span>Inventario Uranio 60%:</span>
-                    <span style="color:#ff6666; font-weight:bold;">{reporte['uranio_60_porciento']}</span>
+                    <span style="color:#ff6666; font-weight:bold;">{reporte.get('uranio_60_porciento', 'N/A')}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                     <span>Enriquecido Total:</span>
-                    <span style="color:#ffcc00;">{reporte['uranio_enriquecido_total']}</span>
+                    <span style="color:#ffcc00;">{reporte.get('uranio_enriquecido_total', 'N/A')}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                     <span>Capacidad Teórica:</span>
-                    <span style="color:#ff4444; font-weight:bold;">{reporte['suficiente_para_bombas']}</span>
+                    <span style="color:#ff4444; font-weight:bold;">{reporte.get('suficiente_para_bombas', 'N/A')}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                     <span>Instalaciones Críticas:</span>
-                    <span style="color:#ff4444;">{len([i for i in INSTALACIONES_NUCLEAR_IRAN.values() if i['riesgo'] == 'CRITICO'])} Sitios</span>
+                    <span style="color:#ff4444;">{len([i for i in INSTALACIONES_NUCLEAR_IRAN.values() if i.get('riesgo') == 'CRITICO'])} Sitios</span>
                 </div>
                 <div style="display: flex; justify-content: space-between;">
                     <span>Disuasión Naval (Subs):</span>
@@ -315,8 +320,8 @@ class RadarNuclearEstrategico:
             </div>
             <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px; 
                         font-size: 10px; color: #aaa;">
-                <b>Acceso IAEA:</b> {reporte['cooperacion_iran']}<br>
-                <b>Inspección OIEA:</b> {reporte['ultima_inspeccion_iaea']}
+                <b>Acceso IAEA:</b> {reporte.get('cooperacion_iran', 'N/A')}<br>
+                <b>Inspección OIEA:</b> {reporte.get('ultima_inspeccion_iaea', 'N/A')}
             </div>
             <div style="margin-top: 10px; text-align: center; color: #666; font-size: 9px;">
                 Actualizado: {timestamp}<br>
