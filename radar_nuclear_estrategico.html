@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_164143279924cb5b7bd2c4e2a4cafc90 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+        <div style="position: fixed; top: 20px; right: 20px; width: 320px; 
+                    background-color: rgba(10,10,10,0.95); color: #fff; 
+                    border: 2px solid #ffaa00; 
+                    padding: 15px; border-radius: 10px; 
+                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;
+                    box-shadow: 0 0 25px rgba(255,170,0,0.4);">
+            <h4 style="color:#ffaa00; margin-top:0; text-align:center; font-size: 14px;
+                       border-bottom: 2px solid #333; padding-bottom: 8px;">
+                ☢️ ALERTA ESTRATÉGICA: AMARILLO
+            </h4>
+            <div style="background: rgba(255,255,255,0.05); padding: 8px; border-radius: 5px; 
+                        margin-bottom: 10px; text-align: center; border: 1px solid #ffaa00;">
+                <b style="color:#ffaa00; font-size: 12px; letter-spacing: 1px;">BREAKOUT TIME: 1-2 semanas</b>
+            </div>
+            <div style="line-height: 1.6;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>Inventario Uranio 60%:</span>
+                    <span style="color:#ff6666; font-weight:bold;">87.5 kg</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>Enriquecido Total:</span>
+                    <span style="color:#ffcc00;">121.5 kg</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>Capacidad Teórica:</span>
+                    <span style="color:#ff4444; font-weight:bold;">2-3 dispositivos</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>Instalaciones Críticas:</span>
+                    <span style="color:#ff4444;">2 Sitios</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span>Disuasión Naval (Subs):</span>
+                    <span style="color:#4488ff;">2 en Patrulla</span>
+                </div>
+            </div>
+            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px; 
+                        font-size: 10px; color: #aaa;">
+                <b>Acceso IAEA:</b> Mínima - Bloqueo a sitios militares<br>
+                <b>Inspección OIEA:</b> 2024-02-15
+            </div>
+            <div style="margin-top: 10px; text-align: center; color: #666; font-size: 9px;">
+                Actualizado: 2026-03-05 20:48:02<br>
+                Sistema E.T.B. v2.0
+            </div>
+        </div>
+        
+    
+            <div class="folium-map" id="map_164143279924cb5b7bd2c4e2a4cafc90" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_164143279924cb5b7bd2c4e2a4cafc90 = L.map(
+                "map_164143279924cb5b7bd2c4e2a4cafc90",
+                {
+                    center: [30.0, 45.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2de3b2b2c8bab8e13b9dce049ee7b4de = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_2de3b2b2c8bab8e13b9dce049ee7b4de.addTo(map_164143279924cb5b7bd2c4e2a4cafc90);
+        
+    
+            var feature_group_36659f16c191f389fd63f1c8305b2e87 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cb3a1a63c1f444a93cf6af4fdbaa18ed = L.marker(
+                [33.7233, 51.7267],
+                {
+}
+            ).addTo(feature_group_36659f16c191f389fd63f1c8305b2e87);
+        
+    
+            var icon_0460c45dcb282121d9e871f2fa4c6cdb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "radiation",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_14517f0a11c11bb265814ca8c5c5d21c = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_906d32a25692b9b2d7c73a457fdfb8a5 = $(`<div id="html_906d32a25692b9b2d7c73a457fdfb8a5" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 300px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 16px;">☢️ NATANZ</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Enriquecimiento Uranio<br>                 <b>Estado:</b> Activo - Subterráneo fortificado<br>                 <b>Nivel Enriquecimiento:</b> <span style="color:#ffcc00;">60% (cerca de armas)</span><br>                 <b>Vector (Centrífugas):</b> ~5,000 IR-2m/IR-4<br>                 <b>Blindaje/Defensa:</b> AA S-300, búnker subterráneo<br>                 <b>Nivel de Riesgo:</b> <span style="color:red; font-weight:bold;">CRITICO</span><br>                 <b>Último Sabotaje:</b> 2021-04-11 (Sabotaje)             </div>             </div>`)[0];
+                popup_14517f0a11c11bb265814ca8c5c5d21c.setContent(html_906d32a25692b9b2d7c73a457fdfb8a5);
+            
+        
+
+        marker_cb3a1a63c1f444a93cf6af4fdbaa18ed.bindPopup(popup_14517f0a11c11bb265814ca8c5c5d21c)
+        ;
+
+        
+    
+    
+            marker_cb3a1a63c1f444a93cf6af4fdbaa18ed.bindTooltip(
+                `<div>
+                     INSTALACIÓN: Natanz - Riesgo: CRITICO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cb3a1a63c1f444a93cf6af4fdbaa18ed.setIcon(icon_0460c45dcb282121d9e871f2fa4c6cdb);
+            
+    
+            var circle_ba73fa1d6b0b87bb8f45920fcb41f451 = L.circle(
+                [33.7233, 51.7267],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 1}
+            ).addTo(feature_group_36659f16c191f389fd63f1c8305b2e87);
+        
+    
+            var marker_e67f266073bfb1a7770f71f92eea3537 = L.marker(
+                [34.8858, 50.9958],
+                {
+}
+            ).addTo(feature_group_36659f16c191f389fd63f1c8305b2e87);
+        
+    
+            var icon_91c301f39d4537a736efdfecc67b015a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "radiation",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f6a8f9729959477e20bba28a2f03012c = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_c5aefb727bb6a837402c142d614381a7 = $(`<div id="html_c5aefb727bb6a837402c142d614381a7" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 300px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 16px;">☢️ FORDOW</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Enriquecimiento altamente enriquecido<br>                 <b>Estado:</b> Activo - Montaña fortificada<br>                 <b>Nivel Enriquecimiento:</b> <span style="color:#ffcc00;">20% y 60%</span><br>                 <b>Vector (Centrífugas):</b> ~1,000 IR-6<br>                 <b>Blindaje/Defensa:</b> Inexpugnable aéreo (montaña)<br>                 <b>Nivel de Riesgo:</b> <span style="color:red; font-weight:bold;">CRITICO</span><br>                 <b>Último Sabotaje:</b> Ninguno             </div>             </div>`)[0];
+                popup_f6a8f9729959477e20bba28a2f03012c.setContent(html_c5aefb727bb6a837402c142d614381a7);
+            
+        
+
+        marker_e67f266073bfb1a7770f71f92eea3537.bindPopup(popup_f6a8f9729959477e20bba28a2f03012c)
+        ;
+
+        
+    
+    
+            marker_e67f266073bfb1a7770f71f92eea3537.bindTooltip(
+                `<div>
+                     INSTALACIÓN: Fordow - Riesgo: CRITICO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e67f266073bfb1a7770f71f92eea3537.setIcon(icon_91c301f39d4537a736efdfecc67b015a);
+            
+    
+            var circle_e1129078c2ee2088ea86e732ef9f319c = L.circle(
+                [34.8858, 50.9958],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 1}
+            ).addTo(feature_group_36659f16c191f389fd63f1c8305b2e87);
+        
+    
+            var circle_67cd7b859f6d54fbfeb729c1f2bdb81e = L.circle(
+                [32.6804, 51.6861],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 1}
+            ).addTo(feature_group_36659f16c191f389fd63f1c8305b2e87);
+        
+    
+            var circle_cab879ab7400df78b2df3a298b1e3faa = L.circle(
+                [34.3747, 49.4736],
+                {"bubblingMouseEvents": true, "color": "beige", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "beige", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 1}
+            ).addTo(feature_group_36659f16c191f389fd63f1c8305b2e87);
+        
+    
+            var circle_8c89ef0e74bdafbeec3e8c991f9d3b65 = L.circle(
+                [35.5156, 51.8311],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 1}
+            ).addTo(feature_group_36659f16c191f389fd63f1c8305b2e87);
+        
+    
+            var circle_d71c5e455d7f0032a4504681c5eac6e1 = L.circle(
+                [28.8283, 50.8839],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 1}
+            ).addTo(feature_group_36659f16c191f389fd63f1c8305b2e87);
+        
+    
+            feature_group_36659f16c191f389fd63f1c8305b2e87.addTo(map_164143279924cb5b7bd2c4e2a4cafc90);
+        
+    
+            var feature_group_dddd35f398f6db17da670a4417856910 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_ded4839bb8f96a27ec40db1fe51d6209 = L.marker(
+                [32.6804, 51.6861],
+                {
+}
+            ).addTo(feature_group_dddd35f398f6db17da670a4417856910);
+        
+    
+            var icon_96a39bc3070ddffb4d09239ee347eb44 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "radiation",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bd02d387ebd724f13fd847fa46cd85df = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_cde1e97adaa9f6c8578227655bb69e6d = $(`<div id="html_cde1e97adaa9f6c8578227655bb69e6d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 300px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid orange;">                 <b style="color:orange; font-size: 16px;">☢️ ISFAHAN</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Conversión y laboratorios<br>                 <b>Estado:</b> Activo<br>                 <b>Nivel Enriquecimiento:</b> <span style="color:#ffcc00;">N/A (investigación)</span><br>                 <b>Vector (Centrífugas):</b> Desconocido<br>                 <b>Blindaje/Defensa:</b> Clasificado / No Determinado<br>                 <b>Nivel de Riesgo:</b> <span style="color:orange; font-weight:bold;">ALTO</span><br>                 <b>Último Sabotaje:</b> Ninguno             </div>             </div>`)[0];
+                popup_bd02d387ebd724f13fd847fa46cd85df.setContent(html_cde1e97adaa9f6c8578227655bb69e6d);
+            
+        
+
+        marker_ded4839bb8f96a27ec40db1fe51d6209.bindPopup(popup_bd02d387ebd724f13fd847fa46cd85df)
+        ;
+
+        
+    
+    
+            marker_ded4839bb8f96a27ec40db1fe51d6209.bindTooltip(
+                `<div>
+                     INSTALACIÓN: Isfahan - Riesgo: ALTO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ded4839bb8f96a27ec40db1fe51d6209.setIcon(icon_96a39bc3070ddffb4d09239ee347eb44);
+            
+    
+            var marker_1c5f8d39475d1985d9b6f14a227647fd = L.marker(
+                [34.3747, 49.4736],
+                {
+}
+            ).addTo(feature_group_dddd35f398f6db17da670a4417856910);
+        
+    
+            var icon_24a88d82ff50ff5df43c66630781b203 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "beige",
+  "iconColor": "white",
+  "icon": "radiation",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d9ecaff61f24798f449fb365ffc2826b = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_c4442d5decf3bc7ccd5428b03c71836d = $(`<div id="html_c4442d5decf3bc7ccd5428b03c71836d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 300px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid beige;">                 <b style="color:beige; font-size: 16px;">☢️ ARAK</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Reactor agua pesada (plutonio)<br>                 <b>Estado:</b> Rediseñado (JCPOA)<br>                 <b>Nivel Enriquecimiento:</b> <span style="color:#ffcc00;">N/A</span><br>                 <b>Vector (Centrífugas):</b> Desconocido<br>                 <b>Blindaje/Defensa:</b> Clasificado / No Determinado<br>                 <b>Nivel de Riesgo:</b> <span style="color:beige; font-weight:bold;">MEDIO</span><br>                 <b>Último Sabotaje:</b> Ninguno             </div>             </div>`)[0];
+                popup_d9ecaff61f24798f449fb365ffc2826b.setContent(html_c4442d5decf3bc7ccd5428b03c71836d);
+            
+        
+
+        marker_1c5f8d39475d1985d9b6f14a227647fd.bindPopup(popup_d9ecaff61f24798f449fb365ffc2826b)
+        ;
+
+        
+    
+    
+            marker_1c5f8d39475d1985d9b6f14a227647fd.bindTooltip(
+                `<div>
+                     INSTALACIÓN: Arak - Riesgo: MEDIO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1c5f8d39475d1985d9b6f14a227647fd.setIcon(icon_24a88d82ff50ff5df43c66630781b203);
+            
+    
+            var marker_d126729a5c4046a4433ecce5875d5b13 = L.marker(
+                [35.5156, 51.8311],
+                {
+}
+            ).addTo(feature_group_dddd35f398f6db17da670a4417856910);
+        
+    
+            var icon_1f7d1afa1e8be07390fce47dc275359c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "radiation",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ddd4ab477a2bf30e87316f88ad3f60da = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_307e0c6d34520723d99fa492c66da073 = $(`<div id="html_307e0c6d34520723d99fa492c66da073" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 300px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid orange;">                 <b style="color:orange; font-size: 16px;">☢️ PARCHIN</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Investigación explosivos nucleares<br>                 <b>Estado:</b> Sospechoso - Limpieza IAEA<br>                 <b>Nivel Enriquecimiento:</b> <span style="color:#ffcc00;">Desconocido</span><br>                 <b>Vector (Centrífugas):</b> Desconocido<br>                 <b>Blindaje/Defensa:</b> Clasificado / No Determinado<br>                 <b>Nivel de Riesgo:</b> <span style="color:orange; font-weight:bold;">ALTO</span><br>                 <b>Último Sabotaje:</b> Ninguno             </div>             </div>`)[0];
+                popup_ddd4ab477a2bf30e87316f88ad3f60da.setContent(html_307e0c6d34520723d99fa492c66da073);
+            
+        
+
+        marker_d126729a5c4046a4433ecce5875d5b13.bindPopup(popup_ddd4ab477a2bf30e87316f88ad3f60da)
+        ;
+
+        
+    
+    
+            marker_d126729a5c4046a4433ecce5875d5b13.bindTooltip(
+                `<div>
+                     INSTALACIÓN: Parchin - Riesgo: ALTO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d126729a5c4046a4433ecce5875d5b13.setIcon(icon_1f7d1afa1e8be07390fce47dc275359c);
+            
+    
+            var marker_cf0b4464e85cdda0c7efbc6585839b9b = L.marker(
+                [28.8283, 50.8839],
+                {
+}
+            ).addTo(feature_group_dddd35f398f6db17da670a4417856910);
+        
+    
+            var icon_338b378062b6b809e422a73fe9f6a0ac = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "radiation",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e4e5903a1b58ebc5befb11064f81f1c9 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_06925f351e8132227e7f1bf8a80fb021 = $(`<div id="html_06925f351e8132227e7f1bf8a80fb021" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 300px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid green;">                 <b style="color:green; font-size: 16px;">☢️ BUSHEHR</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Reactor nuclear civil (Rusia)<br>                 <b>Estado:</b> Operativo<br>                 <b>Nivel Enriquecimiento:</b> <span style="color:#ffcc00;">Combustible ruso</span><br>                 <b>Vector (Centrífugas):</b> Desconocido<br>                 <b>Blindaje/Defensa:</b> Clasificado / No Determinado<br>                 <b>Nivel de Riesgo:</b> <span style="color:green; font-weight:bold;">BAJO</span><br>                 <b>Último Sabotaje:</b> Ninguno             </div>             </div>`)[0];
+                popup_e4e5903a1b58ebc5befb11064f81f1c9.setContent(html_06925f351e8132227e7f1bf8a80fb021);
+            
+        
+
+        marker_cf0b4464e85cdda0c7efbc6585839b9b.bindPopup(popup_e4e5903a1b58ebc5befb11064f81f1c9)
+        ;
+
+        
+    
+    
+            marker_cf0b4464e85cdda0c7efbc6585839b9b.bindTooltip(
+                `<div>
+                     INSTALACIÓN: Bushehr - Riesgo: BAJO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cf0b4464e85cdda0c7efbc6585839b9b.setIcon(icon_338b378062b6b809e422a73fe9f6a0ac);
+            
+    
+            feature_group_dddd35f398f6db17da670a4417856910.addTo(map_164143279924cb5b7bd2c4e2a4cafc90);
+        
+    
+            var feature_group_342d49228ae7eadb14c83af08092d4e2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_5f7dc696fe0fa79f9033582fd5ad8076 = L.circle(
+                [25.0, 55.0],
+                {"bubblingMouseEvents": true, "color": "#0066cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0066cc", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 400000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_342d49228ae7eadb14c83af08092d4e2);
+        
+    
+        var popup_4cf1ab5d260f7623eea68b3cbd740074 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3de19986e2ea09c707ad7572e9270458 = $(`<div id="html_3de19986e2ea09c707ad7572e9270458" style="width: 100.0%; height: 100.0%;">Zona de Patrulla Estimada: Dolphin</div>`)[0];
+                popup_4cf1ab5d260f7623eea68b3cbd740074.setContent(html_3de19986e2ea09c707ad7572e9270458);
+            
+        
+
+        circle_5f7dc696fe0fa79f9033582fd5ad8076.bindPopup(popup_4cf1ab5d260f7623eea68b3cbd740074)
+        ;
+
+        
+    
+    
+            var marker_2d0942da763781ed24bdc3e39751bfac = L.marker(
+                [25.0, 55.0],
+                {
+}
+            ).addTo(feature_group_342d49228ae7eadb14c83af08092d4e2);
+        
+    
+            var icon_8b9d0ec1ce2cf74a584c2c271b3fa86a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "submarine",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5323ab1f504481d5ad81dca5ab0872ad = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_59a24e16b62d506e36fd98d0e65354cc = $(`<div id="html_59a24e16b62d506e36fd98d0e65354cc" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #0066cc;">                 <b style="color:#00aaff; font-size: 16px;">🚀 CLASE DOLPHIN (Dolphin)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Estado:</b> Patrulla disuasión<br>                 <b>Carga Bélica:</b> <span style="color:#ff4444;">Popeye Turbo SLCM (Nuclear)</span><br>                 <b>Radio de Acción:</b> 1,500 km<br>                 <b>Doctrina:</b> <i>Capacidad de Segundo Ataque (Second Strike)</i>             </div>             </div>`)[0];
+                popup_5323ab1f504481d5ad81dca5ab0872ad.setContent(html_59a24e16b62d506e36fd98d0e65354cc);
+            
+        
+
+        marker_2d0942da763781ed24bdc3e39751bfac.bindPopup(popup_5323ab1f504481d5ad81dca5ab0872ad)
+        ;
+
+        
+    
+    
+            marker_2d0942da763781ed24bdc3e39751bfac.bindTooltip(
+                `<div>
+                     DISUASIÓN ACTIVA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2d0942da763781ed24bdc3e39751bfac.setIcon(icon_8b9d0ec1ce2cf74a584c2c271b3fa86a);
+            
+    
+            var circle_b4665f44e94754011af62190e8931a29 = L.circle(
+                [20.0, 38.0],
+                {"bubblingMouseEvents": true, "color": "#0066cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0066cc", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 400000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_342d49228ae7eadb14c83af08092d4e2);
+        
+    
+        var popup_749af6489dc7b0bcc2470dfef681861f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_824e3b67d2e84ff9d3c71acc9612e654 = $(`<div id="html_824e3b67d2e84ff9d3c71acc9612e654" style="width: 100.0%; height: 100.0%;">Zona de Patrulla Estimada: Tekumah</div>`)[0];
+                popup_749af6489dc7b0bcc2470dfef681861f.setContent(html_824e3b67d2e84ff9d3c71acc9612e654);
+            
+        
+
+        circle_b4665f44e94754011af62190e8931a29.bindPopup(popup_749af6489dc7b0bcc2470dfef681861f)
+        ;
+
+        
+    
+    
+            var marker_c474f97f943aa4aea83f0830b87f646a = L.marker(
+                [20.0, 38.0],
+                {
+}
+            ).addTo(feature_group_342d49228ae7eadb14c83af08092d4e2);
+        
+    
+            var icon_24372cb7def459bd1dd1f90ad285f66e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "submarine",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_05b94def73fc041780a36763d540c5b6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6d7dfebac78b863ebac3877c0d7e706 = $(`<div id="html_f6d7dfebac78b863ebac3877c0d7e706" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #0066cc;">                 <b style="color:#00aaff; font-size: 16px;">🚀 CLASE DOLPHIN (Tekumah)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Estado:</b> Cubriendo flanco Sur (Yemen/Irán)<br>                 <b>Carga Bélica:</b> <span style="color:#ff4444;">Popeye Turbo SLCM (Nuclear)</span><br>                 <b>Radio de Acción:</b> 1,500 km<br>                 <b>Doctrina:</b> <i>Alcance balístico a Teherán confirmado</i>             </div>             </div>`)[0];
+                popup_05b94def73fc041780a36763d540c5b6.setContent(html_f6d7dfebac78b863ebac3877c0d7e706);
+            
+        
+
+        marker_c474f97f943aa4aea83f0830b87f646a.bindPopup(popup_05b94def73fc041780a36763d540c5b6)
+        ;
+
+        
+    
+    
+            marker_c474f97f943aa4aea83f0830b87f646a.bindTooltip(
+                `<div>
+                     DISUASIÓN ACTIVA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c474f97f943aa4aea83f0830b87f646a.setIcon(icon_24372cb7def459bd1dd1f90ad285f66e);
+            
+    
+            feature_group_342d49228ae7eadb14c83af08092d4e2.addTo(map_164143279924cb5b7bd2c4e2a4cafc90);
+        
+    
+            var feature_group_cf9beeb7818c0894066ce743a10c31b1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_5a784cf4dc7e87643d30dd28bde6760b = L.circleMarker(
+                [33.5, 51.5],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_cf9beeb7818c0894066ce743a10c31b1);
+        
+    
+        var popup_ba83a6a2963177d99a6a0b83de019d83 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_98502bcb46600021bbfe8379fb607519 = $(`<div id="html_98502bcb46600021bbfe8379fb607519" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid purple;">                 <b style="color:#cc66ff; font-size: 14px;">💥 ANOMALÍA SÍSMICA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Fecha:</b> 2024-01-05<br>                 <b>Escala Richter:</b> 4.2<br>                 <b>Profundidad:</b> 0km (superficial)<br>                 <b>Evaluación de Inteligencia:</b><br>                 <span style="color:#ffcc00;">Test subterráneo Irán</span>             </div>             </div>`)[0];
+                popup_ba83a6a2963177d99a6a0b83de019d83.setContent(html_98502bcb46600021bbfe8379fb607519);
+            
+        
+
+        circle_marker_5a784cf4dc7e87643d30dd28bde6760b.bindPopup(popup_ba83a6a2963177d99a6a0b83de019d83)
+        ;
+
+        
+    
+    
+            var circle_marker_8d227f21e1d88d67e473dece779592aa = L.circleMarker(
+                [35.0, 50.0],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.2, "stroke": true, "weight": 3}
+            ).addTo(feature_group_cf9beeb7818c0894066ce743a10c31b1);
+        
+    
+        var popup_1dbcc8b824c95a5d76098026a1ba5755 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_a8c5ce307c9691e4aee615124a060156 = $(`<div id="html_a8c5ce307c9691e4aee615124a060156" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid purple;">                 <b style="color:#cc66ff; font-size: 14px;">💥 ANOMALÍA SÍSMICA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Fecha:</b> 2023-11-12<br>                 <b>Escala Richter:</b> 3.8<br>                 <b>Profundidad:</b> 5km<br>                 <b>Evaluación de Inteligencia:</b><br>                 <span style="color:#ffcc00;">Explosión túnel</span>             </div>             </div>`)[0];
+                popup_1dbcc8b824c95a5d76098026a1ba5755.setContent(html_a8c5ce307c9691e4aee615124a060156);
+            
+        
+
+        circle_marker_8d227f21e1d88d67e473dece779592aa.bindPopup(popup_1dbcc8b824c95a5d76098026a1ba5755)
+        ;
+
+        
+    
+    
+            feature_group_cf9beeb7818c0894066ce743a10c31b1.addTo(map_164143279924cb5b7bd2c4e2a4cafc90);
+        
+    
+            var feature_group_4d40a8b0c8495040bbd290119e14f760 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_97f2b252b49e4dd0b016824c4f3cb0eb = L.circle(
+                [25.0, 55.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": "10, 15", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_4d40a8b0c8495040bbd290119e14f760);
+        
+    
+        var popup_5d26bfb3dfc693de5a12bb469e55dc5a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_04d4bfde78b175eb2ab21f9c10c073f3 = $(`<div id="html_04d4bfde78b175eb2ab21f9c10c073f3" style="width: 100.0%; height: 100.0%;">Envolvente Táctica SLCM (Dolphin)</div>`)[0];
+                popup_5d26bfb3dfc693de5a12bb469e55dc5a.setContent(html_04d4bfde78b175eb2ab21f9c10c073f3);
+            
+        
+
+        circle_97f2b252b49e4dd0b016824c4f3cb0eb.bindPopup(popup_5d26bfb3dfc693de5a12bb469e55dc5a)
+        ;
+
+        
+    
+    
+            var circle_29855474dbe8409756eedb33d8e074aa = L.circle(
+                [20.0, 38.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": "10, 15", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1500000, "stroke": true, "weight": 2}
+            ).addTo(feature_group_4d40a8b0c8495040bbd290119e14f760);
+        
+    
+        var popup_c5676882e311977db4912db39f8bd9eb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_81e1509bc9884c65706e812cd64f6e7d = $(`<div id="html_81e1509bc9884c65706e812cd64f6e7d" style="width: 100.0%; height: 100.0%;">Envolvente Táctica SLCM (Tekumah)</div>`)[0];
+                popup_c5676882e311977db4912db39f8bd9eb.setContent(html_81e1509bc9884c65706e812cd64f6e7d);
+            
+        
+
+        circle_29855474dbe8409756eedb33d8e074aa.bindPopup(popup_c5676882e311977db4912db39f8bd9eb)
+        ;
+
+        
+    
+    
+            feature_group_4d40a8b0c8495040bbd290119e14f760.addTo(map_164143279924cb5b7bd2c4e2a4cafc90);
+        
+    
+            var layer_control_53fe10dfbbce4092cdbe64083093fce2_layers = {
+                base_layers : {
+                    "cartodbdarkmatter" : tile_layer_2de3b2b2c8bab8e13b9dce049ee7b4de,
+                },
+                overlays :  {
+                    "\u2622\ufe0f Nodos de Enriquecimiento (Uranio)" : feature_group_36659f16c191f389fd63f1c8305b2e87,
+                    "\u269b\ufe0f Reactores de Agua Pesada/Investigaci\u00f3n" : feature_group_dddd35f398f6db17da670a4417856910,
+                    "\ud83d\ude80 Disuasi\u00f3n Naval Israel\u00ed" : feature_group_342d49228ae7eadb14c83af08092d4e2,
+                    "\ud83d\udca5 Anomal\u00edas S\u00edsmicas (Pruebas)" : feature_group_cf9beeb7818c0894066ce743a10c31b1,
+                    "\ud83c\udfaf Radios de Cobertura (SLCM)" : feature_group_4d40a8b0c8495040bbd290119e14f760,
+                },
+            };
+            let layer_control_53fe10dfbbce4092cdbe64083093fce2 = L.control.layers(
+                layer_control_53fe10dfbbce4092cdbe64083093fce2_layers.base_layers,
+                layer_control_53fe10dfbbce4092cdbe64083093fce2_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_164143279924cb5b7bd2c4e2a4cafc90);
+
+        
+</script>
+</html>
