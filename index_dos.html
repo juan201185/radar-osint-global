@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CENTRO DE MANDO OSINT - E.T.B.</title>
+    <style>
+        body { background-color: #0a0a0a; color: #00ff41; font-family: 'Courier New', monospace; text-align: center; padding: 50px; }
+        .panel { border: 2px solid #00ff41; padding: 30px; display: inline-block; border-radius: 15px; box-shadow: 0 0 20px #00ff41; }
+        h1 { color: #00ff41; letter-spacing: 5px; }
+        .btn { 
+            display: block; width: 450px; padding: 15px; margin: 15px auto; 
+            background: #00ff41; color: #000; border: none; 
+            text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s;
+        }
+        .btn:hover { background: #000; color: #00ff41; outline: 2px solid #00ff41; }
+        .footer { margin-top: 40px; font-size: 0.8em; color: #00ff41; opacity: 0.6; }
+        
+        /* Efecto de titileo (Radar Activo) */
+        @keyframes titilar {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .alerta-activa {
+            color: #ff4444;
+            animation: titilar 1.2s infinite;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h1>CENTRO DE MANDO OSINT</h1>
+        <hr>
+        <p>Vigilancia Estratégica Regional y Global</p>
+        
+        <a href="mapa_multipolar.html" class="btn">📡 RADAR DE NOTICIAS (MULTIPOLAR + PETRÓLEO)</a>
+        <a href="radar_regional_medio_oriente.html" class="btn">🔥 RADAR SATELITAL VIIRS (NASA)</a>
+        <a href="radar_logistico_atlantico.html" class="btn">✈️ PUENTE AÉREO ATLÁNTICO (LOGÍSTICA)</a>
+        
+        <hr>
+        <p>ESTADO DEL SISTEMA: <span class="alerta-activa">OPERATIVO / ESCANEANDO</span></p>
+        
+        <div class="footer">© 2026 Ingeniería Trejos - Cauca, Colombia</div>
+    </div>
+</body>
+</html>

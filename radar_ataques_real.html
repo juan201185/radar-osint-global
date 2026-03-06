@@ -1,0 +1,2557 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e978a455f2f0ee730704935e3df8f123 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e978a455f2f0ee730704935e3df8f123" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e978a455f2f0ee730704935e3df8f123 = L.map(
+                "map_e978a455f2f0ee730704935e3df8f123",
+                {
+                    center: [26.5, 54.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1063a46799c6341952fe8d350660bdf4 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1063a46799c6341952fe8d350660bdf4.addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var circle_marker_89429b87820066ded5ae1374a4e36129 = L.circleMarker(
+                [23.2771, 54.26941],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_89429b87820066ded5ae1374a4e36129.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aa8363d4f851cd9db4e8015ce5d55d79 = L.circleMarker(
+                [24.60758, 54.15203],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_aa8363d4f851cd9db4e8015ce5d55d79.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ac19fb1e505795447d35f4c30c3c4bb4 = L.circleMarker(
+                [25.34995, 54.48858],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_ac19fb1e505795447d35f4c30c3c4bb4.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a596c1e8ebbb0bce3394ca559b13e283 = L.circleMarker(
+                [25.53311, 53.14643],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_a596c1e8ebbb0bce3394ca559b13e283.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_baa511e8efabceb2ccd492364bbb4a7c = L.circleMarker(
+                [26.24164, 52.33208],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_baa511e8efabceb2ccd492364bbb4a7c.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be51ed3ee6edcfe6ecfd3fd432746f7f = L.circleMarker(
+                [27.16123, 56.10511],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_be51ed3ee6edcfe6ecfd3fd432746f7f.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_06a1ea48a5e52b80c8bf699b564db469 = L.circleMarker(
+                [27.5016, 52.64835],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_06a1ea48a5e52b80c8bf699b564db469.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d6aab19620585f4467f43c26bd806def = L.circleMarker(
+                [27.55397, 52.57728],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_d6aab19620585f4467f43c26bd806def.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a1d5cc790967516ee07f8c9ce7ae7ea3 = L.circleMarker(
+                [27.68645, 52.23851],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_a1d5cc790967516ee07f8c9ce7ae7ea3.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7157d5d4a98ee3dc52c77924446de6c1 = L.circleMarker(
+                [27.71272, 52.18799],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_7157d5d4a98ee3dc52c77924446de6c1.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f8c079b073a3881fbb3d70e321d9d753 = L.circleMarker(
+                [27.71497, 52.18525],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_f8c079b073a3881fbb3d70e321d9d753.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2a9766c6b106dc86cba0140d5908524d = L.circleMarker(
+                [27.71617, 52.17794],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_2a9766c6b106dc86cba0140d5908524d.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dc002a084b123b8b9a5ebaa09ad20435 = L.circleMarker(
+                [27.93135, 52.19783],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_dc002a084b123b8b9a5ebaa09ad20435.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_56ee2067a34fc0bdf06f4976634f660e = L.circleMarker(
+                [28.40543, 53.14617],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_56ee2067a34fc0bdf06f4976634f660e.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_059a580e3058f465312f17ed170c7314 = L.circleMarker(
+                [28.99947, 48.16117],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_059a580e3058f465312f17ed170c7314.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2bb955cef62bfd0d97dd93f5bf6867d3 = L.circleMarker(
+                [29.00129, 48.15867],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_2bb955cef62bfd0d97dd93f5bf6867d3.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0c7c22a5e791e1e28ce12f5d08664389 = L.circleMarker(
+                [29.94265, 49.68731],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_0c7c22a5e791e1e28ce12f5d08664389.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d61f3174b5d15fbbe66bae5f6bd63d57 = L.circleMarker(
+                [29.99082, 55.85557],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_d61f3174b5d15fbbe66bae5f6bd63d57.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_64a3b14e35a671cc4a0cbdc18c8bd4d5 = L.circleMarker(
+                [23.66267, 54.352],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_64a3b14e35a671cc4a0cbdc18c8bd4d5.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3694f314fcbc7045bb95f2e0f10906e6 = L.circleMarker(
+                [24.15819, 48.76639],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_3694f314fcbc7045bb95f2e0f10906e6.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_43d7e1d72a05863e9b5bf1aa75f0b9ea = L.circleMarker(
+                [24.26932, 48.9529],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_43d7e1d72a05863e9b5bf1aa75f0b9ea.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_799e11a9c4b18511923de2eda5ff7688 = L.circleMarker(
+                [24.89125, 49.21154],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_799e11a9c4b18511923de2eda5ff7688.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d780882b71ad502304e5df28d834f1b = L.circleMarker(
+                [25.16286, 52.88145],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_5d780882b71ad502304e5df28d834f1b.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7e5ab58ee535fb638cca28fda004c169 = L.circleMarker(
+                [25.53217, 53.1474],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_7e5ab58ee535fb638cca28fda004c169.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d8b7e0f1dcdc8405deae50f13437f883 = L.circleMarker(
+                [25.96749, 49.23335],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_d8b7e0f1dcdc8405deae50f13437f883.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eb98d9a044bfd05efe2c3ff64142ee7d = L.circleMarker(
+                [27.5065, 52.62243],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_eb98d9a044bfd05efe2c3ff64142ee7d.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bd3813f054d955a162f0f6cef96d102a = L.circleMarker(
+                [27.50738, 52.63916],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_bd3813f054d955a162f0f6cef96d102a.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8a4d2fdd0a22d05a44bf08e07a1d89e8 = L.circleMarker(
+                [27.55226, 52.57583],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_8a4d2fdd0a22d05a44bf08e07a1d89e8.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_42c404b13e6c70c0d8ffedf08477ac22 = L.circleMarker(
+                [27.55286, 52.57487],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_42c404b13e6c70c0d8ffedf08477ac22.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e55e048098b6a2520fac52874a7b093c = L.circleMarker(
+                [27.57266, 52.55759],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.4, "radius": 1.5, "stroke": true, "weight": 3}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            circle_marker_e55e048098b6a2520fac52874a7b093c.bindTooltip(
+                `<div>
+                     Actividad térmica normal (Posible pozo/refinería)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_61f75713ca0935cd5a7371268ce4727a = L.marker(
+                [23.19288, 55.45915],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_2085f60c9e59c38be0efe64d800d3803 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_949e3ec314a18350baea8d6963644406 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ca448658bfd288711b53dcd1b8bf81e0 = $(`<div id="html_ca448658bfd288711b53dcd1b8bf81e0" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 23.19288, 55.45915<br>             <b>Temp. Sensor:</b> 82.6°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_949e3ec314a18350baea8d6963644406.setContent(html_ca448658bfd288711b53dcd1b8bf81e0);
+            
+        
+
+        marker_61f75713ca0935cd5a7371268ce4727a.bindPopup(popup_949e3ec314a18350baea8d6963644406)
+        ;
+
+        
+    
+    
+                marker_61f75713ca0935cd5a7371268ce4727a.setIcon(icon_2085f60c9e59c38be0efe64d800d3803);
+            
+    
+            var marker_098818032bd9197e90e8e2b5a979c1b4 = L.marker(
+                [23.27626, 54.2656],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_cf547c0c3df417dcf37cc2b08c846a04 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a12042385830b582e5c53f720833222f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ade4a3e84a545dbbb362fbfb170888fa = $(`<div id="html_ade4a3e84a545dbbb362fbfb170888fa" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 23.27626, 54.2656<br>             <b>Temp. Sensor:</b> 84.4°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> l<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_a12042385830b582e5c53f720833222f.setContent(html_ade4a3e84a545dbbb362fbfb170888fa);
+            
+        
+
+        marker_098818032bd9197e90e8e2b5a979c1b4.bindPopup(popup_a12042385830b582e5c53f720833222f)
+        ;
+
+        
+    
+    
+                marker_098818032bd9197e90e8e2b5a979c1b4.setIcon(icon_cf547c0c3df417dcf37cc2b08c846a04);
+            
+    
+            var marker_ca08db921a9821edceadcc88ea0fc68d = L.marker(
+                [23.27715, 54.26453],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_65bd8548d54bc02510f548dfa03879f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a1db2cf0989230dda07ba019fdb3b49f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a202674c3d9682038ffb57a0fc4af74a = $(`<div id="html_a202674c3d9682038ffb57a0fc4af74a" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 23.27715, 54.26453<br>             <b>Temp. Sensor:</b> 84.6°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> l<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_a1db2cf0989230dda07ba019fdb3b49f.setContent(html_a202674c3d9682038ffb57a0fc4af74a);
+            
+        
+
+        marker_ca08db921a9821edceadcc88ea0fc68d.bindPopup(popup_a1db2cf0989230dda07ba019fdb3b49f)
+        ;
+
+        
+    
+    
+                marker_ca08db921a9821edceadcc88ea0fc68d.setIcon(icon_65bd8548d54bc02510f548dfa03879f9);
+            
+    
+            var marker_a0abba19cf757e4719582736a8662d70 = L.marker(
+                [23.27802, 54.26833],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_0dcd4ea7440ae10b3f8530dcf0c86629 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_138c5fdfcc07102057aabc4bfd551b45 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ca2d08ec6bf07e21409926b7169468b8 = $(`<div id="html_ca2d08ec6bf07e21409926b7169468b8" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 23.27802, 54.26833<br>             <b>Temp. Sensor:</b> 70.1°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_138c5fdfcc07102057aabc4bfd551b45.setContent(html_ca2d08ec6bf07e21409926b7169468b8);
+            
+        
+
+        marker_a0abba19cf757e4719582736a8662d70.bindPopup(popup_138c5fdfcc07102057aabc4bfd551b45)
+        ;
+
+        
+    
+    
+                marker_a0abba19cf757e4719582736a8662d70.setIcon(icon_0dcd4ea7440ae10b3f8530dcf0c86629);
+            
+    
+            var marker_6daa7cd972163eaf27ad344caab6c191 = L.marker(
+                [23.66396, 54.35222],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_3ac8164063bc4235e972a2f17ac69a98 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_895e95a80cc151358fc2712643a84797 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6e0d66a026b3e8860b74b3a25a707ce2 = $(`<div id="html_6e0d66a026b3e8860b74b3a25a707ce2" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 23.66396, 54.35222<br>             <b>Temp. Sensor:</b> 72.6°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_895e95a80cc151358fc2712643a84797.setContent(html_6e0d66a026b3e8860b74b3a25a707ce2);
+            
+        
+
+        marker_6daa7cd972163eaf27ad344caab6c191.bindPopup(popup_895e95a80cc151358fc2712643a84797)
+        ;
+
+        
+    
+    
+                marker_6daa7cd972163eaf27ad344caab6c191.setIcon(icon_3ac8164063bc4235e972a2f17ac69a98);
+            
+    
+            var marker_322c31f71102e5b1b67f9218278aac13 = L.marker(
+                [24.11826, 52.7528],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_e2b1c710a4c94d1009a8f4734cb828dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_02380ca245c80a33cc6ee7669663f4d0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_511f7bee672d8cfe5ff10592dd99e2a0 = $(`<div id="html_511f7bee672d8cfe5ff10592dd99e2a0" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 24.11826, 52.7528<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_02380ca245c80a33cc6ee7669663f4d0.setContent(html_511f7bee672d8cfe5ff10592dd99e2a0);
+            
+        
+
+        marker_322c31f71102e5b1b67f9218278aac13.bindPopup(popup_02380ca245c80a33cc6ee7669663f4d0)
+        ;
+
+        
+    
+    
+                marker_322c31f71102e5b1b67f9218278aac13.setIcon(icon_e2b1c710a4c94d1009a8f4734cb828dc);
+            
+    
+            var marker_f1fd38c2ce35962a19b796df7e05dc70 = L.marker(
+                [24.11992, 52.75162],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_42d092972ad2a4a27bb1317ee6d6da51 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c6ba16f07c830a2156ec9ea52e60ad2d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d380abcc2608199782c76a21207dab59 = $(`<div id="html_d380abcc2608199782c76a21207dab59" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 24.11992, 52.75162<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_c6ba16f07c830a2156ec9ea52e60ad2d.setContent(html_d380abcc2608199782c76a21207dab59);
+            
+        
+
+        marker_f1fd38c2ce35962a19b796df7e05dc70.bindPopup(popup_c6ba16f07c830a2156ec9ea52e60ad2d)
+        ;
+
+        
+    
+    
+                marker_f1fd38c2ce35962a19b796df7e05dc70.setIcon(icon_42d092972ad2a4a27bb1317ee6d6da51);
+            
+    
+            var marker_cb759aead5fffbff129ff784c298285d = L.marker(
+                [24.32383, 54.47058],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_33edd9b0ef0fc0f6f84d04fe46811fc3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e06cd6c277ffad25ef0c3139eb972660 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f9d598c527357a56791ecc6cc348bf6f = $(`<div id="html_f9d598c527357a56791ecc6cc348bf6f" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 24.32383, 54.47058<br>             <b>Temp. Sensor:</b> 69.3°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_e06cd6c277ffad25ef0c3139eb972660.setContent(html_f9d598c527357a56791ecc6cc348bf6f);
+            
+        
+
+        marker_cb759aead5fffbff129ff784c298285d.bindPopup(popup_e06cd6c277ffad25ef0c3139eb972660)
+        ;
+
+        
+    
+    
+                marker_cb759aead5fffbff129ff784c298285d.setIcon(icon_33edd9b0ef0fc0f6f84d04fe46811fc3);
+            
+    
+            var marker_9e975961a97cf91db412e8adb4b1a84b = L.marker(
+                [24.50512, 56.60732],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_5848f2ef9b759ff7cb0ff9c26ce35a1b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1ba6678a71f8ca2861633e3696462fdb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3f0272fa05d9861a3ec018069e4556a8 = $(`<div id="html_3f0272fa05d9861a3ec018069e4556a8" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 24.50512, 56.60732<br>             <b>Temp. Sensor:</b> 69.7°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_1ba6678a71f8ca2861633e3696462fdb.setContent(html_3f0272fa05d9861a3ec018069e4556a8);
+            
+        
+
+        marker_9e975961a97cf91db412e8adb4b1a84b.bindPopup(popup_1ba6678a71f8ca2861633e3696462fdb)
+        ;
+
+        
+    
+    
+                marker_9e975961a97cf91db412e8adb4b1a84b.setIcon(icon_5848f2ef9b759ff7cb0ff9c26ce35a1b);
+            
+    
+            var marker_a0de9d57d70d73e93b86cc6f79e5111b = L.marker(
+                [25.53167, 53.14857],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_ffb4bf65e85c718257e0009cd68621bc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e1b44b7099f463675a57eb41d7004541 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0fb235eb2afc58a5f8739475046765dc = $(`<div id="html_0fb235eb2afc58a5f8739475046765dc" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 25.53167, 53.14857<br>             <b>Temp. Sensor:</b> 75.1°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_e1b44b7099f463675a57eb41d7004541.setContent(html_0fb235eb2afc58a5f8739475046765dc);
+            
+        
+
+        marker_a0de9d57d70d73e93b86cc6f79e5111b.bindPopup(popup_e1b44b7099f463675a57eb41d7004541)
+        ;
+
+        
+    
+    
+                marker_a0de9d57d70d73e93b86cc6f79e5111b.setIcon(icon_ffb4bf65e85c718257e0009cd68621bc);
+            
+    
+            var marker_fc9f7e09ae1c75bd13729abd212dfef9 = L.marker(
+                [25.53262, 53.15258],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_590f1073f5e36464d3c29ffbe1c31043 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9b3145fdd8a87166ffd03cbc16a26ef0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_82c66d73a5080f6b9ca8e1291cc3d0aa = $(`<div id="html_82c66d73a5080f6b9ca8e1291cc3d0aa" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 25.53262, 53.15258<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_9b3145fdd8a87166ffd03cbc16a26ef0.setContent(html_82c66d73a5080f6b9ca8e1291cc3d0aa);
+            
+        
+
+        marker_fc9f7e09ae1c75bd13729abd212dfef9.bindPopup(popup_9b3145fdd8a87166ffd03cbc16a26ef0)
+        ;
+
+        
+    
+    
+                marker_fc9f7e09ae1c75bd13729abd212dfef9.setIcon(icon_590f1073f5e36464d3c29ffbe1c31043);
+            
+    
+            var marker_f4dc5fde48d6a5474d23c3dd4067b058 = L.marker(
+                [25.53403, 53.15046],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_9387bc33a3b5a3798e8f45f4ff1abeb0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f111a7c485ae3bca7f9cc34ccc204059 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_69a5cde066c50ab041a29ebe2a796fdc = $(`<div id="html_69a5cde066c50ab041a29ebe2a796fdc" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 25.53403, 53.15046<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_f111a7c485ae3bca7f9cc34ccc204059.setContent(html_69a5cde066c50ab041a29ebe2a796fdc);
+            
+        
+
+        marker_f4dc5fde48d6a5474d23c3dd4067b058.bindPopup(popup_f111a7c485ae3bca7f9cc34ccc204059)
+        ;
+
+        
+    
+    
+                marker_f4dc5fde48d6a5474d23c3dd4067b058.setIcon(icon_9387bc33a3b5a3798e8f45f4ff1abeb0);
+            
+    
+            var marker_a00741e3573e3cf09b33fb3f68ba9063 = L.marker(
+                [25.63996, 49.39229],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_75e5436555a78c1030d0cf1439a81e6c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_474031abcf0085590b7dbd99fd99e5b8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b93fad06c25a1c513c17bb81a71bb5f4 = $(`<div id="html_b93fad06c25a1c513c17bb81a71bb5f4" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 25.63996, 49.39229<br>             <b>Temp. Sensor:</b> 72.7°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_474031abcf0085590b7dbd99fd99e5b8.setContent(html_b93fad06c25a1c513c17bb81a71bb5f4);
+            
+        
+
+        marker_a00741e3573e3cf09b33fb3f68ba9063.bindPopup(popup_474031abcf0085590b7dbd99fd99e5b8)
+        ;
+
+        
+    
+    
+                marker_a00741e3573e3cf09b33fb3f68ba9063.setIcon(icon_75e5436555a78c1030d0cf1439a81e6c);
+            
+    
+            var marker_cbb3d4aedfd3644822341741470370e7 = L.marker(
+                [25.98767, 51.74064],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_2b9d527ec2e0642661dae028e98e50e4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1341e7c407f107aa7f25d0506d46698b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_25c41446a0912affac4a9e3277249553 = $(`<div id="html_25c41446a0912affac4a9e3277249553" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 25.98767, 51.74064<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_1341e7c407f107aa7f25d0506d46698b.setContent(html_25c41446a0912affac4a9e3277249553);
+            
+        
+
+        marker_cbb3d4aedfd3644822341741470370e7.bindPopup(popup_1341e7c407f107aa7f25d0506d46698b)
+        ;
+
+        
+    
+    
+                marker_cbb3d4aedfd3644822341741470370e7.setIcon(icon_2b9d527ec2e0642661dae028e98e50e4);
+            
+    
+            var marker_c1b1bd0de11029a9169ef14706564315 = L.marker(
+                [26.12254, 51.71757],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_c6c640e49401b27cf2436a1a2c7b44a7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ed0822e128d156abb4cfbddf258b5f8a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_785f0e18dbe286acd8e59325feb70702 = $(`<div id="html_785f0e18dbe286acd8e59325feb70702" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 26.12254, 51.71757<br>             <b>Temp. Sensor:</b> 68.9°C<br>             <b>Hora Satélite:</b> 858 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_ed0822e128d156abb4cfbddf258b5f8a.setContent(html_785f0e18dbe286acd8e59325feb70702);
+            
+        
+
+        marker_c1b1bd0de11029a9169ef14706564315.bindPopup(popup_ed0822e128d156abb4cfbddf258b5f8a)
+        ;
+
+        
+    
+    
+                marker_c1b1bd0de11029a9169ef14706564315.setIcon(icon_c6c640e49401b27cf2436a1a2c7b44a7);
+            
+    
+            var marker_f6f0bf6cea59c18d90f5694357336f34 = L.marker(
+                [26.78047, 49.95845],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_83256f4a317a892f6fb0324e1a3866ce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_73f1a81f95cb642088d848b9b4dfcfc5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_08e222c759c2cb0e8b53da4c93c1f28f = $(`<div id="html_08e222c759c2cb0e8b53da4c93c1f28f" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 26.78047, 49.95845<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_73f1a81f95cb642088d848b9b4dfcfc5.setContent(html_08e222c759c2cb0e8b53da4c93c1f28f);
+            
+        
+
+        marker_f6f0bf6cea59c18d90f5694357336f34.bindPopup(popup_73f1a81f95cb642088d848b9b4dfcfc5)
+        ;
+
+        
+    
+    
+                marker_f6f0bf6cea59c18d90f5694357336f34.setIcon(icon_83256f4a317a892f6fb0324e1a3866ce);
+            
+    
+            var marker_97720725a0e14e794c199b07f84884e7 = L.marker(
+                [26.78679, 49.95644],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_7792e3ad6f54a4ae1b623f24d5dc8a8e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b82e938ef31a3221a7dae3f1cc92a8ae = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1125d6118457742baaea8936fff13158 = $(`<div id="html_1125d6118457742baaea8936fff13158" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 26.78679, 49.95644<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_b82e938ef31a3221a7dae3f1cc92a8ae.setContent(html_1125d6118457742baaea8936fff13158);
+            
+        
+
+        marker_97720725a0e14e794c199b07f84884e7.bindPopup(popup_b82e938ef31a3221a7dae3f1cc92a8ae)
+        ;
+
+        
+    
+    
+                marker_97720725a0e14e794c199b07f84884e7.setIcon(icon_7792e3ad6f54a4ae1b623f24d5dc8a8e);
+            
+    
+            var marker_71b2056219342c800cff495890e71d9e = L.marker(
+                [27.48767, 52.97842],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_874ff28fc473abd325fad066a39d88c0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_80ae21813fda6f331dfa05d46512bd58 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4b526ee71261f94930bb54bb992d3d00 = $(`<div id="html_4b526ee71261f94930bb54bb992d3d00" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.48767, 52.97842<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_80ae21813fda6f331dfa05d46512bd58.setContent(html_4b526ee71261f94930bb54bb992d3d00);
+            
+        
+
+        marker_71b2056219342c800cff495890e71d9e.bindPopup(popup_80ae21813fda6f331dfa05d46512bd58)
+        ;
+
+        
+    
+    
+                marker_71b2056219342c800cff495890e71d9e.setIcon(icon_874ff28fc473abd325fad066a39d88c0);
+            
+    
+            var marker_f159e4251dec12fd354fb22266b17df5 = L.marker(
+                [27.49296, 52.97687],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_b155d2ec6eafe707ee9e5bf8c4c4a8ae = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2ffee3b4de116d25516c501d84fc7c29 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d23ed24ba165b0d02b7e39ae84e06ae6 = $(`<div id="html_d23ed24ba165b0d02b7e39ae84e06ae6" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.49296, 52.97687<br>             <b>Temp. Sensor:</b> 67.7°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_2ffee3b4de116d25516c501d84fc7c29.setContent(html_d23ed24ba165b0d02b7e39ae84e06ae6);
+            
+        
+
+        marker_f159e4251dec12fd354fb22266b17df5.bindPopup(popup_2ffee3b4de116d25516c501d84fc7c29)
+        ;
+
+        
+    
+    
+                marker_f159e4251dec12fd354fb22266b17df5.setIcon(icon_b155d2ec6eafe707ee9e5bf8c4c4a8ae);
+            
+    
+            var marker_2e3e81d77d8ed0d73208550c917df7c6 = L.marker(
+                [27.50128, 52.64839],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_fbf28910846add58a17d9d6cd516a410 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e2bec99242946ae1bf181e8460e2e081 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dbde7e3215c71bc306529daa56945d29 = $(`<div id="html_dbde7e3215c71bc306529daa56945d29" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.50128, 52.64839<br>             <b>Temp. Sensor:</b> 67.1°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_e2bec99242946ae1bf181e8460e2e081.setContent(html_dbde7e3215c71bc306529daa56945d29);
+            
+        
+
+        marker_2e3e81d77d8ed0d73208550c917df7c6.bindPopup(popup_e2bec99242946ae1bf181e8460e2e081)
+        ;
+
+        
+    
+    
+                marker_2e3e81d77d8ed0d73208550c917df7c6.setIcon(icon_fbf28910846add58a17d9d6cd516a410);
+            
+    
+            var marker_b4e15bbc574fc34f9c2c597e161fb818 = L.marker(
+                [27.50489, 52.63805],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_a0e7fe0ebb5b3de40919f035fe1358e1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_23cd0b32b3e0443b13ae70e5b64839be = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_68421207d41f146f648cc70eab339623 = $(`<div id="html_68421207d41f146f648cc70eab339623" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.50489, 52.63805<br>             <b>Temp. Sensor:</b> 72.5°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_23cd0b32b3e0443b13ae70e5b64839be.setContent(html_68421207d41f146f648cc70eab339623);
+            
+        
+
+        marker_b4e15bbc574fc34f9c2c597e161fb818.bindPopup(popup_23cd0b32b3e0443b13ae70e5b64839be)
+        ;
+
+        
+    
+    
+                marker_b4e15bbc574fc34f9c2c597e161fb818.setIcon(icon_a0e7fe0ebb5b3de40919f035fe1358e1);
+            
+    
+            var marker_4519e70fa06e737c8de335a06b4976ed = L.marker(
+                [27.50611, 52.61915],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_a15c59a23f835b5feb5fb6e83684df90 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e443a81195db2031f0e7f871d68fe8b3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_04cd697254e7c53f01013a28432ee047 = $(`<div id="html_04cd697254e7c53f01013a28432ee047" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.50611, 52.61915<br>             <b>Temp. Sensor:</b> 79.7°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_e443a81195db2031f0e7f871d68fe8b3.setContent(html_04cd697254e7c53f01013a28432ee047);
+            
+        
+
+        marker_4519e70fa06e737c8de335a06b4976ed.bindPopup(popup_e443a81195db2031f0e7f871d68fe8b3)
+        ;
+
+        
+    
+    
+                marker_4519e70fa06e737c8de335a06b4976ed.setIcon(icon_a15c59a23f835b5feb5fb6e83684df90);
+            
+    
+            var marker_4cd549c33c1b044d6a5ee04d883e95a7 = L.marker(
+                [27.5063, 52.64392],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_bb5d5dc643879797b84eacc4c339755b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_40864a0f390089890193acb9d521c8be = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9eac4f3d869bab4ff4deadb3784d5b84 = $(`<div id="html_9eac4f3d869bab4ff4deadb3784d5b84" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.5063, 52.64392<br>             <b>Temp. Sensor:</b> 70.1°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_40864a0f390089890193acb9d521c8be.setContent(html_9eac4f3d869bab4ff4deadb3784d5b84);
+            
+        
+
+        marker_4cd549c33c1b044d6a5ee04d883e95a7.bindPopup(popup_40864a0f390089890193acb9d521c8be)
+        ;
+
+        
+    
+    
+                marker_4cd549c33c1b044d6a5ee04d883e95a7.setIcon(icon_bb5d5dc643879797b84eacc4c339755b);
+            
+    
+            var marker_57e75ee9b589c6aca1cccb3d233ecc12 = L.marker(
+                [27.55278, 52.57227],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_06cd1ef17c71a7dda832d726d8801359 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a23d7f3c7340473aad2949432f09d49c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7f1cfa9980f66186208a93a1bdf0765b = $(`<div id="html_7f1cfa9980f66186208a93a1bdf0765b" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.55278, 52.57227<br>             <b>Temp. Sensor:</b> 69.2°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_a23d7f3c7340473aad2949432f09d49c.setContent(html_7f1cfa9980f66186208a93a1bdf0765b);
+            
+        
+
+        marker_57e75ee9b589c6aca1cccb3d233ecc12.bindPopup(popup_a23d7f3c7340473aad2949432f09d49c)
+        ;
+
+        
+    
+    
+                marker_57e75ee9b589c6aca1cccb3d233ecc12.setIcon(icon_06cd1ef17c71a7dda832d726d8801359);
+            
+    
+            var marker_05a384e44e600d24d4dc721f6c6fdcee = L.marker(
+                [27.56977, 52.54955],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_9e1cf6973e8f6d9e53cbb62991a2c54b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae425d8039f57699fb6a7449feb61ef6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4bd6e7b33640af78066e748450a4c86f = $(`<div id="html_4bd6e7b33640af78066e748450a4c86f" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.56977, 52.54955<br>             <b>Temp. Sensor:</b> 68.4°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_ae425d8039f57699fb6a7449feb61ef6.setContent(html_4bd6e7b33640af78066e748450a4c86f);
+            
+        
+
+        marker_05a384e44e600d24d4dc721f6c6fdcee.bindPopup(popup_ae425d8039f57699fb6a7449feb61ef6)
+        ;
+
+        
+    
+    
+                marker_05a384e44e600d24d4dc721f6c6fdcee.setIcon(icon_9e1cf6973e8f6d9e53cbb62991a2c54b);
+            
+    
+            var marker_7e2b09a09f2a4cf4be17f5970f48d300 = L.marker(
+                [27.57058, 52.54962],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_f11297bad8f8bfd1e4ed9b75d0809e1c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ac8052798cb43b608f807ab521b58949 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_16c3e38fc796a90c83367d3182ffedc7 = $(`<div id="html_16c3e38fc796a90c83367d3182ffedc7" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.57058, 52.54962<br>             <b>Temp. Sensor:</b> 69.3°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_ac8052798cb43b608f807ab521b58949.setContent(html_16c3e38fc796a90c83367d3182ffedc7);
+            
+        
+
+        marker_7e2b09a09f2a4cf4be17f5970f48d300.bindPopup(popup_ac8052798cb43b608f807ab521b58949)
+        ;
+
+        
+    
+    
+                marker_7e2b09a09f2a4cf4be17f5970f48d300.setIcon(icon_f11297bad8f8bfd1e4ed9b75d0809e1c);
+            
+    
+            var marker_818b619c481e72c674cda49001c6990f = L.marker(
+                [27.57101, 52.55468],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_d658f82a3268a5c26ec1f7f507043923 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2dde2b6bc970f458aa45874c29ced37e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_68cf6451467b8bda9c1c9377a0e00c68 = $(`<div id="html_68cf6451467b8bda9c1c9377a0e00c68" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.57101, 52.55468<br>             <b>Temp. Sensor:</b> 76.8°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_2dde2b6bc970f458aa45874c29ced37e.setContent(html_68cf6451467b8bda9c1c9377a0e00c68);
+            
+        
+
+        marker_818b619c481e72c674cda49001c6990f.bindPopup(popup_2dde2b6bc970f458aa45874c29ced37e)
+        ;
+
+        
+    
+    
+                marker_818b619c481e72c674cda49001c6990f.setIcon(icon_d658f82a3268a5c26ec1f7f507043923);
+            
+    
+            var marker_de8947de19a602289755c2d80608128a = L.marker(
+                [27.57182, 52.55485],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_53c9d50de5a3931b7b923102c397fead = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a6410726678870a18c7573cd4ac920f6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_aa6fad8c7eb89213989cabf6786d3d39 = $(`<div id="html_aa6fad8c7eb89213989cabf6786d3d39" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.57182, 52.55485<br>             <b>Temp. Sensor:</b> 73.4°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_a6410726678870a18c7573cd4ac920f6.setContent(html_aa6fad8c7eb89213989cabf6786d3d39);
+            
+        
+
+        marker_de8947de19a602289755c2d80608128a.bindPopup(popup_a6410726678870a18c7573cd4ac920f6)
+        ;
+
+        
+    
+    
+                marker_de8947de19a602289755c2d80608128a.setIcon(icon_53c9d50de5a3931b7b923102c397fead);
+            
+    
+            var marker_bbb9160418f8e5ecb12074f80f83a634 = L.marker(
+                [27.68295, 52.24845],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_e9cf8d208d12bcfa40e98e6e227a9575 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7b8edf9b4db3765a72e42fcd87fa4a0a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_61b3de3093d922db5eb066560956a7f0 = $(`<div id="html_61b3de3093d922db5eb066560956a7f0" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.68295, 52.24845<br>             <b>Temp. Sensor:</b> 79.2°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_7b8edf9b4db3765a72e42fcd87fa4a0a.setContent(html_61b3de3093d922db5eb066560956a7f0);
+            
+        
+
+        marker_bbb9160418f8e5ecb12074f80f83a634.bindPopup(popup_7b8edf9b4db3765a72e42fcd87fa4a0a)
+        ;
+
+        
+    
+    
+                marker_bbb9160418f8e5ecb12074f80f83a634.setIcon(icon_e9cf8d208d12bcfa40e98e6e227a9575);
+            
+    
+            var marker_85ef556f7e921ccf8c584a3ce5cc6ce2 = L.marker(
+                [27.68396, 52.25263],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_100a7aa9eb91e05b00dfc30f9c60d881 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_da8c7a91f0392ae073d71f7203188f3b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ee68be0341032e07deb0723c9849212b = $(`<div id="html_ee68be0341032e07deb0723c9849212b" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.68396, 52.25263<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_da8c7a91f0392ae073d71f7203188f3b.setContent(html_ee68be0341032e07deb0723c9849212b);
+            
+        
+
+        marker_85ef556f7e921ccf8c584a3ce5cc6ce2.bindPopup(popup_da8c7a91f0392ae073d71f7203188f3b)
+        ;
+
+        
+    
+    
+                marker_85ef556f7e921ccf8c584a3ce5cc6ce2.setIcon(icon_100a7aa9eb91e05b00dfc30f9c60d881);
+            
+    
+            var marker_4b4f73a453aa70a47c346fe68c33af65 = L.marker(
+                [27.71848, 52.17518],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_18f044bd563ce139c273471c88c03542 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3159c17b322560b8e65df921985112ac = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_30044a71fbd552b7ed6284858815060e = $(`<div id="html_30044a71fbd552b7ed6284858815060e" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.71848, 52.17518<br>             <b>Temp. Sensor:</b> 76.2°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_3159c17b322560b8e65df921985112ac.setContent(html_30044a71fbd552b7ed6284858815060e);
+            
+        
+
+        marker_4b4f73a453aa70a47c346fe68c33af65.bindPopup(popup_3159c17b322560b8e65df921985112ac)
+        ;
+
+        
+    
+    
+                marker_4b4f73a453aa70a47c346fe68c33af65.setIcon(icon_18f044bd563ce139c273471c88c03542);
+            
+    
+            var marker_e7fd7c051c42bfec2d36928cbef48577 = L.marker(
+                [27.71948, 52.17938],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_bdc2654cb621a0a2f45a1947a4cddafc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0bed34b53ef58f723f05898a592b2990 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_146f9b56e061b9e874d73caf782b99f6 = $(`<div id="html_146f9b56e061b9e874d73caf782b99f6" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.71948, 52.17938<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_0bed34b53ef58f723f05898a592b2990.setContent(html_146f9b56e061b9e874d73caf782b99f6);
+            
+        
+
+        marker_e7fd7c051c42bfec2d36928cbef48577.bindPopup(popup_0bed34b53ef58f723f05898a592b2990)
+        ;
+
+        
+    
+    
+                marker_e7fd7c051c42bfec2d36928cbef48577.setIcon(icon_bdc2654cb621a0a2f45a1947a4cddafc);
+            
+    
+            var marker_f9cce363bb9108d4aa319561b8312dd8 = L.marker(
+                [27.72169, 52.17632],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_4ad49ca0ecb4034fcdceb06fe2e5a2c1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cdada0a18251055306b5bacc9809f361 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8f9bdbcb37f0717fc43d4591beb8431c = $(`<div id="html_8f9bdbcb37f0717fc43d4591beb8431c" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.72169, 52.17632<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_cdada0a18251055306b5bacc9809f361.setContent(html_8f9bdbcb37f0717fc43d4591beb8431c);
+            
+        
+
+        marker_f9cce363bb9108d4aa319561b8312dd8.bindPopup(popup_cdada0a18251055306b5bacc9809f361)
+        ;
+
+        
+    
+    
+                marker_f9cce363bb9108d4aa319561b8312dd8.setIcon(icon_4ad49ca0ecb4034fcdceb06fe2e5a2c1);
+            
+    
+            var marker_07648a8db380a6cec633eb215f67434c = L.marker(
+                [27.76065, 52.16644],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_bb31f64a0cffe02c9001b30c99c5fe26 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_51a0f42bbe03f6fbdf43fa15630d656e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c6686122323976ebe363dc9f5d70759b = $(`<div id="html_c6686122323976ebe363dc9f5d70759b" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.76065, 52.16644<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_51a0f42bbe03f6fbdf43fa15630d656e.setContent(html_c6686122323976ebe363dc9f5d70759b);
+            
+        
+
+        marker_07648a8db380a6cec633eb215f67434c.bindPopup(popup_51a0f42bbe03f6fbdf43fa15630d656e)
+        ;
+
+        
+    
+    
+                marker_07648a8db380a6cec633eb215f67434c.setIcon(icon_bb31f64a0cffe02c9001b30c99c5fe26);
+            
+    
+            var marker_4485c18232a30d9dafc457786a2d6177 = L.marker(
+                [27.76177, 52.17107],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_2b8f16109bebbb3cb992555edda24279 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cbe93c07862a05b92c059a68510866dd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dfef10dd5b8161bc12e6c2e9930bc795 = $(`<div id="html_dfef10dd5b8161bc12e6c2e9930bc795" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.76177, 52.17107<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_cbe93c07862a05b92c059a68510866dd.setContent(html_dfef10dd5b8161bc12e6c2e9930bc795);
+            
+        
+
+        marker_4485c18232a30d9dafc457786a2d6177.bindPopup(popup_cbe93c07862a05b92c059a68510866dd)
+        ;
+
+        
+    
+    
+                marker_4485c18232a30d9dafc457786a2d6177.setIcon(icon_2b8f16109bebbb3cb992555edda24279);
+            
+    
+            var marker_f3f4f1be18633a07ba769df9719d12a3 = L.marker(
+                [28.88358, 48.00288],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_3235d6b8686a8f414a69f89438f72301 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5180e33e0be20830fcf479886f3074e0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_74ada52b7b671c496d5b6469f45adcde = $(`<div id="html_74ada52b7b671c496d5b6469f45adcde" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 28.88358, 48.00288<br>             <b>Temp. Sensor:</b> 84.8°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> l<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_5180e33e0be20830fcf479886f3074e0.setContent(html_74ada52b7b671c496d5b6469f45adcde);
+            
+        
+
+        marker_f3f4f1be18633a07ba769df9719d12a3.bindPopup(popup_5180e33e0be20830fcf479886f3074e0)
+        ;
+
+        
+    
+    
+                marker_f3f4f1be18633a07ba769df9719d12a3.setIcon(icon_3235d6b8686a8f414a69f89438f72301);
+            
+    
+            var marker_c3777fc7630c50402d7f756eb1260e40 = L.marker(
+                [28.88547, 48.00968],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_7ade768aae5d219674706d091e5fd70e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_01e7211dc2d422517e401329ce8ca414 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7578a1ea8ca4ada315d7af6fb5f31a0a = $(`<div id="html_7578a1ea8ca4ada315d7af6fb5f31a0a" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 28.88547, 48.00968<br>             <b>Temp. Sensor:</b> 75.6°C<br>             <b>Hora Satélite:</b> 900 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_01e7211dc2d422517e401329ce8ca414.setContent(html_7578a1ea8ca4ada315d7af6fb5f31a0a);
+            
+        
+
+        marker_c3777fc7630c50402d7f756eb1260e40.bindPopup(popup_01e7211dc2d422517e401329ce8ca414)
+        ;
+
+        
+    
+    
+                marker_c3777fc7630c50402d7f756eb1260e40.setIcon(icon_7ade768aae5d219674706d091e5fd70e);
+            
+    
+            var marker_e66cc099c1094d3ece721df57698983c = L.marker(
+                [23.27469, 54.26752],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_c06a54b970aa407e19b6dcca8b696308 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_51555f67ad33a74b8b13f601de622dfb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a55f870236faa1bdcc9e6a61cb212ccf = $(`<div id="html_a55f870236faa1bdcc9e6a61cb212ccf" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 23.27469, 54.26752<br>             <b>Temp. Sensor:</b> 76.7°C<br>             <b>Hora Satélite:</b> 1038 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_51555f67ad33a74b8b13f601de622dfb.setContent(html_a55f870236faa1bdcc9e6a61cb212ccf);
+            
+        
+
+        marker_e66cc099c1094d3ece721df57698983c.bindPopup(popup_51555f67ad33a74b8b13f601de622dfb)
+        ;
+
+        
+    
+    
+                marker_e66cc099c1094d3ece721df57698983c.setIcon(icon_c06a54b970aa407e19b6dcca8b696308);
+            
+    
+            var marker_6cf95364c110e69597b5ce0ae94e648f = L.marker(
+                [23.28045, 54.26677],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_9a56f01ea84df394a1a30f33adf8828b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_88bef03fc6a2267f440b75c12f7fe7ca = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8ecc550422c624d5809b74c8b1adca8e = $(`<div id="html_8ecc550422c624d5809b74c8b1adca8e" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 23.28045, 54.26677<br>             <b>Temp. Sensor:</b> 72.7°C<br>             <b>Hora Satélite:</b> 1038 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_88bef03fc6a2267f440b75c12f7fe7ca.setContent(html_8ecc550422c624d5809b74c8b1adca8e);
+            
+        
+
+        marker_6cf95364c110e69597b5ce0ae94e648f.bindPopup(popup_88bef03fc6a2267f440b75c12f7fe7ca)
+        ;
+
+        
+    
+    
+                marker_6cf95364c110e69597b5ce0ae94e648f.setIcon(icon_9a56f01ea84df394a1a30f33adf8828b);
+            
+    
+            var marker_19a95aa8b20a85124e72b4d7073e2b86 = L.marker(
+                [25.53261, 53.15452],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_c004c811571e7261eb9375cea70df2b6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_72715661ea71e3b20b19999b7e807829 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_62d078a7249ec1f63ad75af4feec2379 = $(`<div id="html_62d078a7249ec1f63ad75af4feec2379" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 25.53261, 53.15452<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_72715661ea71e3b20b19999b7e807829.setContent(html_62d078a7249ec1f63ad75af4feec2379);
+            
+        
+
+        marker_19a95aa8b20a85124e72b4d7073e2b86.bindPopup(popup_72715661ea71e3b20b19999b7e807829)
+        ;
+
+        
+    
+    
+                marker_19a95aa8b20a85124e72b4d7073e2b86.setIcon(icon_c004c811571e7261eb9375cea70df2b6);
+            
+    
+            var marker_049b25c5c1bd6c0d94bc851f1732d679 = L.marker(
+                [25.96158, 49.22979],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_a2ecc566c08580138f8819a88fb4dff2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7cf5e24faf94fbd9b939b38b060cb400 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_358ec1114153ddb17406e6b6124a5238 = $(`<div id="html_358ec1114153ddb17406e6b6124a5238" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 25.96158, 49.22979<br>             <b>Temp. Sensor:</b> 78.6°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_7cf5e24faf94fbd9b939b38b060cb400.setContent(html_358ec1114153ddb17406e6b6124a5238);
+            
+        
+
+        marker_049b25c5c1bd6c0d94bc851f1732d679.bindPopup(popup_7cf5e24faf94fbd9b939b38b060cb400)
+        ;
+
+        
+    
+    
+                marker_049b25c5c1bd6c0d94bc851f1732d679.setIcon(icon_a2ecc566c08580138f8819a88fb4dff2);
+            
+    
+            var marker_20f955b3120cdbf05d01b1e290f2b3f8 = L.marker(
+                [25.9619, 49.2339],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_7e8a9ce5fef0845de3e9d4f4d7f5ebf2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b316a6706242b2164eaf9ea43e16281d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d8ffda5d2f57741cdfa57516f0a7704a = $(`<div id="html_d8ffda5d2f57741cdfa57516f0a7704a" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 25.9619, 49.2339<br>             <b>Temp. Sensor:</b> 83.3°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> l<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_b316a6706242b2164eaf9ea43e16281d.setContent(html_d8ffda5d2f57741cdfa57516f0a7704a);
+            
+        
+
+        marker_20f955b3120cdbf05d01b1e290f2b3f8.bindPopup(popup_b316a6706242b2164eaf9ea43e16281d)
+        ;
+
+        
+    
+    
+                marker_20f955b3120cdbf05d01b1e290f2b3f8.setIcon(icon_7e8a9ce5fef0845de3e9d4f4d7f5ebf2);
+            
+    
+            var marker_2f79c3303aa8d5e9fb0cbdd42a474958 = L.marker(
+                [25.96354, 49.23038],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_7b0c546e94084831261c16b51051aeec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fc8ee8e4ac61308feb39b606ab5a35ef = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f3262f7cfd1e83d1b31ede3c10ad8fec = $(`<div id="html_f3262f7cfd1e83d1b31ede3c10ad8fec" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 25.96354, 49.23038<br>             <b>Temp. Sensor:</b> 77.7°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_fc8ee8e4ac61308feb39b606ab5a35ef.setContent(html_f3262f7cfd1e83d1b31ede3c10ad8fec);
+            
+        
+
+        marker_2f79c3303aa8d5e9fb0cbdd42a474958.bindPopup(popup_fc8ee8e4ac61308feb39b606ab5a35ef)
+        ;
+
+        
+    
+    
+                marker_2f79c3303aa8d5e9fb0cbdd42a474958.setIcon(icon_7b0c546e94084831261c16b51051aeec);
+            
+    
+            var marker_87ec8ea10876848d259d74f69f77707c = L.marker(
+                [25.96388, 49.23449],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_318bae8615cb71a25242a988d0cda4f0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_04832058121755f97e52646cae334deb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4ae8f7faa866a462cd286db0c8e02a5f = $(`<div id="html_4ae8f7faa866a462cd286db0c8e02a5f" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 25.96388, 49.23449<br>             <b>Temp. Sensor:</b> 83.9°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> l<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_04832058121755f97e52646cae334deb.setContent(html_4ae8f7faa866a462cd286db0c8e02a5f);
+            
+        
+
+        marker_87ec8ea10876848d259d74f69f77707c.bindPopup(popup_04832058121755f97e52646cae334deb)
+        ;
+
+        
+    
+    
+                marker_87ec8ea10876848d259d74f69f77707c.setIcon(icon_318bae8615cb71a25242a988d0cda4f0);
+            
+    
+            var marker_ad6b11bba6e84133b0eaab7941d93dfc = L.marker(
+                [25.96716, 49.22921],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_6a6d6069d45e5099aa09c3cd6d414a67 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_642ef9d672567869bd24da3df61091bd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fbc8506b42387d2899fb948001fe6f1c = $(`<div id="html_fbc8506b42387d2899fb948001fe6f1c" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 25.96716, 49.22921<br>             <b>Temp. Sensor:</b> 68.3°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_642ef9d672567869bd24da3df61091bd.setContent(html_fbc8506b42387d2899fb948001fe6f1c);
+            
+        
+
+        marker_ad6b11bba6e84133b0eaab7941d93dfc.bindPopup(popup_642ef9d672567869bd24da3df61091bd)
+        ;
+
+        
+    
+    
+                marker_ad6b11bba6e84133b0eaab7941d93dfc.setIcon(icon_6a6d6069d45e5099aa09c3cd6d414a67);
+            
+    
+            var marker_ac1de8c60e44edab9569663e0a65909b = L.marker(
+                [27.48983, 52.98196],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_ee1bb4b57c121aa450808969a62c5ed0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c8369b4af6a69cbe0158c6247c5a6622 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2452839757964790a1f958fcbc780260 = $(`<div id="html_2452839757964790a1f958fcbc780260" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.48983, 52.98196<br>             <b>Temp. Sensor:</b> 68.6°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_c8369b4af6a69cbe0158c6247c5a6622.setContent(html_2452839757964790a1f958fcbc780260);
+            
+        
+
+        marker_ac1de8c60e44edab9569663e0a65909b.bindPopup(popup_c8369b4af6a69cbe0158c6247c5a6622)
+        ;
+
+        
+    
+    
+                marker_ac1de8c60e44edab9569663e0a65909b.setIcon(icon_ee1bb4b57c121aa450808969a62c5ed0);
+            
+    
+            var marker_10161ee8a7af8ef138509c5ea1794f71 = L.marker(
+                [27.57167, 52.55368],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_ee7f64ddfaff674efa5a876d8e9a00cc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fda7c489e378bf650b87ef73602f7842 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_27987a1ae0d32df9de9faa400fc0e898 = $(`<div id="html_27987a1ae0d32df9de9faa400fc0e898" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.57167, 52.55368<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_fda7c489e378bf650b87ef73602f7842.setContent(html_27987a1ae0d32df9de9faa400fc0e898);
+            
+        
+
+        marker_10161ee8a7af8ef138509c5ea1794f71.bindPopup(popup_fda7c489e378bf650b87ef73602f7842)
+        ;
+
+        
+    
+    
+                marker_10161ee8a7af8ef138509c5ea1794f71.setIcon(icon_ee7f64ddfaff674efa5a876d8e9a00cc);
+            
+    
+            var marker_8a36ed68e9d5179677c60160be444ff6 = L.marker(
+                [27.57239, 52.5524],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_1274467d12b9026f1ab3734e71728385 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fed70e995cd7730ec81ab5db5ed10cf8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fef41ca190c828b4445b4e9508370d9f = $(`<div id="html_fef41ca190c828b4445b4e9508370d9f" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.57239, 52.5524<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_fed70e995cd7730ec81ab5db5ed10cf8.setContent(html_fef41ca190c828b4445b4e9508370d9f);
+            
+        
+
+        marker_8a36ed68e9d5179677c60160be444ff6.bindPopup(popup_fed70e995cd7730ec81ab5db5ed10cf8)
+        ;
+
+        
+    
+    
+                marker_8a36ed68e9d5179677c60160be444ff6.setIcon(icon_1274467d12b9026f1ab3734e71728385);
+            
+    
+            var marker_5e9f988742824fe4da0ecbf67375f39b = L.marker(
+                [27.71733, 52.18131],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_c00958a7c28225e2886448f5e4c25cb3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a8f907eb711c7eea38b4a0bc1ce5b1b1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_431482e81e74f7fbde060145832c059c = $(`<div id="html_431482e81e74f7fbde060145832c059c" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.71733, 52.18131<br>             <b>Temp. Sensor:</b> 84.4°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> l<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_a8f907eb711c7eea38b4a0bc1ce5b1b1.setContent(html_431482e81e74f7fbde060145832c059c);
+            
+        
+
+        marker_5e9f988742824fe4da0ecbf67375f39b.bindPopup(popup_a8f907eb711c7eea38b4a0bc1ce5b1b1)
+        ;
+
+        
+    
+    
+                marker_5e9f988742824fe4da0ecbf67375f39b.setIcon(icon_c00958a7c28225e2886448f5e4c25cb3);
+            
+    
+            var marker_3a6520e34d6b90370c4f9d25faaf72c0 = L.marker(
+                [27.72006, 52.17942],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_929aa0656c06e0648b4d49ee710b0b72 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_026a8620825eb3f1fd5ad4fc998cf33d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ab737b2aa247b2c5cccf0ad5820b9b4a = $(`<div id="html_ab737b2aa247b2c5cccf0ad5820b9b4a" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.72006, 52.17942<br>             <b>Temp. Sensor:</b> 93.9°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> h<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_026a8620825eb3f1fd5ad4fc998cf33d.setContent(html_ab737b2aa247b2c5cccf0ad5820b9b4a);
+            
+        
+
+        marker_3a6520e34d6b90370c4f9d25faaf72c0.bindPopup(popup_026a8620825eb3f1fd5ad4fc998cf33d)
+        ;
+
+        
+    
+    
+                marker_3a6520e34d6b90370c4f9d25faaf72c0.setIcon(icon_929aa0656c06e0648b4d49ee710b0b72);
+            
+    
+            var marker_9f522921e200c5ae5e6ef5b105211383 = L.marker(
+                [27.72369, 52.17434],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_fb5903cafe426bea3c593d9f0bccb001 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f02038e5392d31fe2898afad30c70520 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8d9140aa1f5dfe33ee0026bd6f4be32e = $(`<div id="html_8d9140aa1f5dfe33ee0026bd6f4be32e" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 27.72369, 52.17434<br>             <b>Temp. Sensor:</b> 71.1°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_f02038e5392d31fe2898afad30c70520.setContent(html_8d9140aa1f5dfe33ee0026bd6f4be32e);
+            
+        
+
+        marker_9f522921e200c5ae5e6ef5b105211383.bindPopup(popup_f02038e5392d31fe2898afad30c70520)
+        ;
+
+        
+    
+    
+                marker_9f522921e200c5ae5e6ef5b105211383.setIcon(icon_fb5903cafe426bea3c593d9f0bccb001);
+            
+    
+            var marker_cbe534d3caecb77bb4eabee64762f6a6 = L.marker(
+                [29.94051, 49.69111],
+                {
+}
+            ).addTo(map_e978a455f2f0ee730704935e3df8f123);
+        
+    
+            var icon_dbbb7dc9d5601e8db7dbb8d5159ae33c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "fire",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7e939fe81266651c658e6448e7993b96 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9e6d0561e156630036378ff1118f1a88 = $(`<div id="html_9e6d0561e156630036378ff1118f1a88" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; width: 200px;">             <h4 style="color:red; margin:0;">ALERTA DE ANOMALÍA</h4>             <hr>             <b>Lat/Lon:</b> 29.94051, 49.69111<br>             <b>Temp. Sensor:</b> 67.0°C<br>             <b>Hora Satélite:</b> 1040 UTC<br>             <b>Confianza:</b> n<br>             <p style="font-size:10px; color:gray;">Detectado por Satélite VIIRS SNPP</p>         </div>         </div>`)[0];
+                popup_7e939fe81266651c658e6448e7993b96.setContent(html_9e6d0561e156630036378ff1118f1a88);
+            
+        
+
+        marker_cbe534d3caecb77bb4eabee64762f6a6.bindPopup(popup_7e939fe81266651c658e6448e7993b96)
+        ;
+
+        
+    
+    
+                marker_cbe534d3caecb77bb4eabee64762f6a6.setIcon(icon_dbbb7dc9d5601e8db7dbb8d5159ae33c);
+            
+</script>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5b6f8ec3781e6f2beb8eac67fc2de540 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+    <div style="position: fixed; top: 20px; right: 20px; width: 300px; z-index:9999; 
+                background-color: rgba(10,10,10,0.95); color: #fff; 
+                border: 2px solid #444; padding: 15px; border-radius: 12px; 
+                font-family: 'Courier New', monospace; font-size: 11px; 
+                box-shadow: 0 0 20px rgba(0,0,0,0.8); max-height: 400px; overflow-y: auto;">
+        <h4 style="color:#00ff41; margin-top:0; text-align: center; font-size: 14px; 
+                   border-bottom: 1px solid #333; padding-bottom: 8px;">
+            🛰️ RADAR MULTIPOLAR ACTIVO
+        </h4>
+        <p style="color: #aaa; margin: 8px 0; line-height: 1.4; text-align: justify;">
+            <b>Estrategia Anti-Censura:</b><br>
+            • Fuentes directas sin Google News<br>
+            • Baidu/Sogou para contenido oriental<br>
+            • DuckDuckGo como proxy anónimo<br>
+            • Archive.ph para snapshots
+        </p>
+        <div style="margin-top: 10px; border-top: 1px solid #333; padding-top: 8px;">
+            <span style="color: #ff4444;">🔴</span> Eje Resistencia (Irán)<br>
+            <span style="color: #8b0000;">🔴</span> Rusia<br>
+            <span style="color: #00008b;">🔵</span> China<br>
+            <span style="color: #ffa500;">🟠</span> Occidente<br>
+            <span style="color: #87ceeb;">🔵</span> Independientes<br>
+            <span style="color: #d3d3d3;">⚪</span> Marítimo/Energía
+        </div>
+    </div>
+    
+    
+    <div style="position: fixed; bottom: 35px; left: 20px; width: 260px; 
+                background-color: rgba(0, 0, 0, 0.95); border: 2px solid #ff4444; 
+                z-index:9999; color: white; font-family: 'Courier New', Courier; 
+                padding: 15px; border-radius: 12px; box-shadow: 0 0 20px #ff4444;">
+        <b style="color: #ffcc00; font-size: 13px; letter-spacing: 1px;">
+            ⛽ CENTRO DE ENERGÍA
+        </b><br>
+        <hr style="border: 0.5px solid #444; margin: 10px 0;">
+        <span style="font-size: 16px;">BRENT CRUDO: <b style="color: #ffffff;">$84.36</b></span><br>
+        <span style="font-size: 12px; color: #ff4444; font-weight: bold;">
+            PROY. IMPACTO GASOLINA:
+        </span><br>
+        <span style="font-size: 24px; font-weight: bold; color: #ff4444;">
+            +$1419 <small style="font-size: 11px;">/gal</small>
+        </span>
+        <div style="margin-top: 8px; font-size: 10px; color: #888;">
+            Actualizado: 11:57:00
+        </div>
+    </div>
+    
+    
+            <div class="folium-map" id="map_5b6f8ec3781e6f2beb8eac67fc2de540" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5b6f8ec3781e6f2beb8eac67fc2de540 = L.map(
+                "map_5b6f8ec3781e6f2beb8eac67fc2de540",
+                {
+                    center: [28.0, 45.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_22d93c18bbef86c714941673a6e54d57 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "Radar Geopol\u00edtico Multipolar",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_22d93c18bbef86c714941673a6e54d57.addTo(map_5b6f8ec3781e6f2beb8eac67fc2de540);
+        
+    
+            var marker_cluster_231cc20b13adf38105bdcbe7c4191637 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_231cc20b13adf38105bdcbe7c4191637.addTo(map_5b6f8ec3781e6f2beb8eac67fc2de540);
+        
+    
+            var marker_cluster_7943e5dabbd90974cce5cb33537bd69a = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_7943e5dabbd90974cce5cb33537bd69a.addTo(map_5b6f8ec3781e6f2beb8eac67fc2de540);
+        
+    
+            var marker_cluster_059064d4099da3223e7c38780bd8a742 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_059064d4099da3223e7c38780bd8a742.addTo(map_5b6f8ec3781e6f2beb8eac67fc2de540);
+        
+    
+            var marker_cluster_785cf39ce48ab182fd099c0ab7691e7f = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_785cf39ce48ab182fd099c0ab7691e7f.addTo(map_5b6f8ec3781e6f2beb8eac67fc2de540);
+        
+    
+            var marker_cluster_18c9b8f7f54092ecbad24725d4e84e2f = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_18c9b8f7f54092ecbad24725d4e84e2f.addTo(map_5b6f8ec3781e6f2beb8eac67fc2de540);
+        
+    
+            var layer_control_84a8276945a69ae2b4fd1f000e436103_layers = {
+                base_layers : {
+                    "cartodbdarkmatter" : tile_layer_22d93c18bbef86c714941673a6e54d57,
+                },
+                overlays :  {
+                    "Eje Resistencia (Ir\u00e1n/Aliados)" : marker_cluster_231cc20b13adf38105bdcbe7c4191637,
+                    "Occidente (EEUU/Israel)" : marker_cluster_7943e5dabbd90974cce5cb33537bd69a,
+                    "Eje Oriental (Rusia/China)" : marker_cluster_059064d4099da3223e7c38780bd8a742,
+                    "Independientes (Qatar/Otros)" : marker_cluster_785cf39ce48ab182fd099c0ab7691e7f,
+                    "Rutas Mar\u00edtimas/Energ\u00eda" : marker_cluster_18c9b8f7f54092ecbad24725d4e84e2f,
+                },
+            };
+            let layer_control_84a8276945a69ae2b4fd1f000e436103 = L.control.layers(
+                layer_control_84a8276945a69ae2b4fd1f000e436103_layers.base_layers,
+                layer_control_84a8276945a69ae2b4fd1f000e436103_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_5b6f8ec3781e6f2beb8eac67fc2de540);
+
+        
+</script>
+</html>

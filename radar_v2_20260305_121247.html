@@ -1,0 +1,2828 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fc5e41dcbeaf784271bf4bedf7d50097 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+    <div style="position:fixed;top:20px;right:20px;width:260px;background:rgba(10,10,10,0.95);border:2px solid #444;padding:12px;border-radius:10px;font-family:'Courier New',monospace;font-size:10px;color:#fff;z-index:9999;">
+        <h4 style="color:#00ff41;margin:0 0 8px 0;text-align:center;font-size:12px;">🛰️ RADAR MULTIPOLAR v2.1</h4>
+        <div style="border-top:1px solid #333;padding-top:6px;">
+            <span style="color:#ff4444;">🔴</span> Resistencia (Proxy)<br>
+            <span style="color:#8b0000;">🔴</span> Rusia<br>
+            <span style="color:#00008b;">🔵</span> China<br>
+            <span style="color:#ffa500;">🟠</span> Occidente<br>
+            <span style="color:#32cd32;">🟢</span> Independientes
+        </div>
+        <div style="margin-top:8px;border-top:1px solid #333;padding-top:6px;color:#888;font-size:9px;">
+            Reportes: 55 | Fuentes: 16<br>
+            Errores: 2
+        </div>
+    </div>
+    
+    
+    <div style="position:fixed;bottom:30px;left:20px;width:200px;background:rgba(0,0,0,0.95);border:2px solid #ff4444;padding:12px;border-radius:10px;z-index:9999;color:#fff;font-family:'Courier New',monospace;">
+        <b style="color:#ffcc00;font-size:10px;">⛽ CENTRO ENERGÍA</b>
+        <hr style="border:0.5px solid #444;margin:8px 0;">
+        <span style="font-size:13px;">BRENT: <b>$84.30</b></span><br>
+        <span style="font-size:9px;color:#ff4444;">PROY. GAS:</span>
+        <span style="font-size:18px;color:#ff4444;font-weight:bold;">+$1411</span><small style="font-size:8px;">/gal</small>
+    </div>
+    
+    
+            <div class="folium-map" id="map_fc5e41dcbeaf784271bf4bedf7d50097" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_fc5e41dcbeaf784271bf4bedf7d50097 = L.map(
+                "map_fc5e41dcbeaf784271bf4bedf7d50097",
+                {
+                    center: [28.0, 45.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ea3974ae96cce982d9f6bf06f91492e6 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ea3974ae96cce982d9f6bf06f91492e6.addTo(map_fc5e41dcbeaf784271bf4bedf7d50097);
+        
+    
+            var marker_cluster_cd2040f1a4a6393fd77d73c14af54f10 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_cd2040f1a4a6393fd77d73c14af54f10.addTo(map_fc5e41dcbeaf784271bf4bedf7d50097);
+        
+    
+            var marker_cluster_972800c1d70e0ead5dca40b3f5b179fd = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_6c84fa2858864fe4ffcaba6e24da420e = L.marker(
+                [55.7558, 37.6173],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_93d37dc73904f162ef8401ba9a70ff75 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "globe",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ba54ddb855994cee8dadbb398750f3f5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_84c495059756d80264ae870d1d9c5d1e = $(`<div id="html_84c495059756d80264ae870d1d9c5d1e" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkred;font-family:Arial;">                     <div style="background:darkred;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">RT Español (Rusia)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Irán confía en poder contrarrestar una eventual incursión terrestre de EE.UU.</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Moscú</div>                     <a href='https://actualidad.rt.com/actualidad/591004-iran-confia-poder-contrarrestar-eventual?utm_source=rss&utm_medium=rss&utm_campaign=all' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=Ir%C3%A1n%20conf%C3%ADa%20en%20poder%20contrarrestar%20una%20eventual%20incursi%C3%B3n%20terrestre%20de%20EE.UU.&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=Ir%C3%A1n+conf%C3%ADa+en+poder+contrarrestar+una+eventual+incursi%C3%B3n+terrestre+de+EE.UU.' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=Ir%C3%A1n+conf%C3%ADa+en+poder+contrarrestar+una+eventual+incursi%C3%B3n+terrestre+de+EE.UU.&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a><a href='https://archive.ph/newest/https://actualidad.rt.com/actualidad/591004-iran-confia-poder-contrarrestar-eventual?utm_source=rss&utm_medium=rss&utm_campaign=all' target='_blank' style='display:block;background:#ff4444;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🛡️ ARCHIVE</a>                 </div>                 </div>`)[0];
+                popup_ba54ddb855994cee8dadbb398750f3f5.setContent(html_84c495059756d80264ae870d1d9c5d1e);
+            
+        
+
+        marker_6c84fa2858864fe4ffcaba6e24da420e.bindPopup(popup_ba54ddb855994cee8dadbb398750f3f5)
+        ;
+
+        
+    
+    
+            marker_6c84fa2858864fe4ffcaba6e24da420e.bindTooltip(
+                `<div>
+                     RT Español (Rusia): Irán confía en poder contrarrestar ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6c84fa2858864fe4ffcaba6e24da420e.setIcon(icon_93d37dc73904f162ef8401ba9a70ff75);
+            
+    
+            var marker_ba4a5c19955c25734de959af398fb31f = L.marker(
+                [55.7558, 37.6173],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_049bada87769b4ff94412004bf587b52 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "globe",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d048dd758d29872ebc13a93a586d286b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0574c64b5a4a8b15b9d896131a5d201b = $(`<div id="html_0574c64b5a4a8b15b9d896131a5d201b" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkred;font-family:Arial;">                     <div style="background:darkred;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">RT Español (Rusia)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Trump: "No quiero que nada perturbe a Netanyahu, salvo la guerra con Irán"</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Moscú</div>                     <a href='https://actualidad.rt.com/actualidad/591002-trump-quiero-perturbe-netanyahu-salvo-guerra-iran?utm_source=rss&utm_medium=rss&utm_campaign=all' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=Trump%3A%20%22No%20quiero%20que%20nada%20perturbe%20a%20Netanyahu%2C%20salvo%20la%20guerra%20con%20Ir%C3%A1n%22&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=Trump%3A+%22No+quiero+que+nada+perturbe+a+Netanyahu%2C+salvo+la+guerra+con+Ir%C3%A1n%22' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=Trump%3A+%22No+quiero+que+nada+perturbe+a+Netanyahu%2C+salvo+la+guerra+con+Ir%C3%A1n%22&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a><a href='https://archive.ph/newest/https://actualidad.rt.com/actualidad/591002-trump-quiero-perturbe-netanyahu-salvo-guerra-iran?utm_source=rss&utm_medium=rss&utm_campaign=all' target='_blank' style='display:block;background:#ff4444;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🛡️ ARCHIVE</a>                 </div>                 </div>`)[0];
+                popup_d048dd758d29872ebc13a93a586d286b.setContent(html_0574c64b5a4a8b15b9d896131a5d201b);
+            
+        
+
+        marker_ba4a5c19955c25734de959af398fb31f.bindPopup(popup_d048dd758d29872ebc13a93a586d286b)
+        ;
+
+        
+    
+    
+            marker_ba4a5c19955c25734de959af398fb31f.bindTooltip(
+                `<div>
+                     RT Español (Rusia): Trump: "No quiero que nada perturbe...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ba4a5c19955c25734de959af398fb31f.setIcon(icon_049bada87769b4ff94412004bf587b52);
+            
+    
+            var marker_32d6fab2484076f84bf29473dbebbebd = L.marker(
+                [55.7558, 37.6173],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_7efa676300d37cc83f4416a69efaed71 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "globe",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_52f148342f1ab0c92122ac9e83a03c9e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_83a54453c213ba25488083322cf6be23 = $(`<div id="html_83a54453c213ba25488083322cf6be23" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkred;font-family:Arial;">                     <div style="background:darkred;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">RT Español (Rusia)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">"Misiles balísticos y drones de Irán" entran en el espacio aéreo de los EAU</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Moscú</div>                     <a href='https://actualidad.rt.com/actualidad/590997-misiles-balisticos-drones-iran-entran-espacio-aereo-eau?utm_source=rss&utm_medium=rss&utm_campaign=all' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=%22Misiles%20bal%C3%ADsticos%20y%20drones%20de%20Ir%C3%A1n%22%20entran%20en%20el%20espacio%20a%C3%A9reo%20de%20los%20EAU&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=%22Misiles+bal%C3%ADsticos+y+drones+de+Ir%C3%A1n%22+entran+en+el+espacio+a%C3%A9reo+de+los+EAU' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=%22Misiles+bal%C3%ADsticos+y+drones+de+Ir%C3%A1n%22+entran+en+el+espacio+a%C3%A9reo+de+los+EAU&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a><a href='https://archive.ph/newest/https://actualidad.rt.com/actualidad/590997-misiles-balisticos-drones-iran-entran-espacio-aereo-eau?utm_source=rss&utm_medium=rss&utm_campaign=all' target='_blank' style='display:block;background:#ff4444;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🛡️ ARCHIVE</a>                 </div>                 </div>`)[0];
+                popup_52f148342f1ab0c92122ac9e83a03c9e.setContent(html_83a54453c213ba25488083322cf6be23);
+            
+        
+
+        marker_32d6fab2484076f84bf29473dbebbebd.bindPopup(popup_52f148342f1ab0c92122ac9e83a03c9e)
+        ;
+
+        
+    
+    
+            marker_32d6fab2484076f84bf29473dbebbebd.bindTooltip(
+                `<div>
+                     RT Español (Rusia): "Misiles balísticos y drones de Irá...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_32d6fab2484076f84bf29473dbebbebd.setIcon(icon_7efa676300d37cc83f4416a69efaed71);
+            
+    
+            var marker_64ab2cfa92221eae485575d58a7cd702 = L.marker(
+                [55.7558, 37.6173],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_1cc0f092b845c00026ea761998a4e84a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "globe",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7eed480157a525b4b5299ab681b26fce = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_92462da744d066edf3089d25ebf23266 = $(`<div id="html_92462da744d066edf3089d25ebf23266" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkred;font-family:Arial;">                     <div style="background:darkred;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Sputnik (Rusia)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Posturas dispares en Latinoamérica ante ataques de EEUU e Israel contra Irán, ¿y si atacaran la región?</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Moscú</div>                     <a href='https://noticiaslatam.lat/20260305/posturas-dispares-en-latinoamerica-ante-ataques-de-eeuu-e-israel-contra-iran-y-si-atacaran-la-1172085454.html' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=Posturas%20dispares%20en%20Latinoam%C3%A9rica%20ante%20ataques%20de%20EEUU%20e%20Israel%20contra%20Ir%C3%A1n%2C%20%C2%BFy%20si%20atacaran%20la%20regi%C3%B3n%3F&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=Posturas+dispares+en+Latinoam%C3%A9rica+ante+ataques+de+EEUU+e+Israel+contra+Ir%C3%A1n%2C+%C2%BFy+si+atacaran+la+regi%C3%B3n%3F' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=Posturas+dispares+en+Latinoam%C3%A9rica+ante+ataques+de+EEUU+e+Israel+contra+Ir%C3%A1n%2C+%C2%BFy+si+atacaran+la+regi%C3%B3n%3F&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a><a href='https://archive.ph/newest/https://noticiaslatam.lat/20260305/posturas-dispares-en-latinoamerica-ante-ataques-de-eeuu-e-israel-contra-iran-y-si-atacaran-la-1172085454.html' target='_blank' style='display:block;background:#ff4444;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🛡️ ARCHIVE</a>                 </div>                 </div>`)[0];
+                popup_7eed480157a525b4b5299ab681b26fce.setContent(html_92462da744d066edf3089d25ebf23266);
+            
+        
+
+        marker_64ab2cfa92221eae485575d58a7cd702.bindPopup(popup_7eed480157a525b4b5299ab681b26fce)
+        ;
+
+        
+    
+    
+            marker_64ab2cfa92221eae485575d58a7cd702.bindTooltip(
+                `<div>
+                     Sputnik (Rusia): Posturas dispares en Latinoamérica ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_64ab2cfa92221eae485575d58a7cd702.setIcon(icon_1cc0f092b845c00026ea761998a4e84a);
+            
+    
+            var marker_33794705ede016c7c4aae059190a113b = L.marker(
+                [55.7558, 37.6173],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_2ea13aeb83670239a022dcfb586655e7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "globe",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8881cb9830faf3becb7e2b34bc262887 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a56273f3b56daecc7a95efbeea20c0af = $(`<div id="html_a56273f3b56daecc7a95efbeea20c0af" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkred;font-family:Arial;">                     <div style="background:darkred;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Sputnik (Rusia)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Rusia libera una localidad y abate hasta 1.150 soldados ucranianos en una jornada de combates</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Moscú</div>                     <a href='https://noticiaslatam.lat/20260305/rusia-libera-una-localidad-y-abate-hasta-1150-soldados-ucranianos-en-una-jornada-de-combates--1172136438.html' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=Rusia%20libera%20una%20localidad%20y%20abate%20hasta%201.150%20soldados%20ucranianos%20en%20una%20jornada%20de%20combates&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=Rusia+libera+una+localidad+y+abate+hasta+1.150+soldados+ucranianos+en+una+jornada+de+combates' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=Rusia+libera+una+localidad+y+abate+hasta+1.150+soldados+ucranianos+en+una+jornada+de+combates&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a><a href='https://archive.ph/newest/https://noticiaslatam.lat/20260305/rusia-libera-una-localidad-y-abate-hasta-1150-soldados-ucranianos-en-una-jornada-de-combates--1172136438.html' target='_blank' style='display:block;background:#ff4444;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🛡️ ARCHIVE</a>                 </div>                 </div>`)[0];
+                popup_8881cb9830faf3becb7e2b34bc262887.setContent(html_a56273f3b56daecc7a95efbeea20c0af);
+            
+        
+
+        marker_33794705ede016c7c4aae059190a113b.bindPopup(popup_8881cb9830faf3becb7e2b34bc262887)
+        ;
+
+        
+    
+    
+            marker_33794705ede016c7c4aae059190a113b.bindTooltip(
+                `<div>
+                     Sputnik (Rusia): Rusia libera una localidad y abate ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_33794705ede016c7c4aae059190a113b.setIcon(icon_2ea13aeb83670239a022dcfb586655e7);
+            
+    
+            var marker_a093c0fce6ab1fb9911233f9b9ab1a4e = L.marker(
+                [26.56, 56.25],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_51bb9768d5d9eab863e044934a854a27 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "globe",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d898418f8ec3bdd3c4a36737f2535ecb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5a038af85ff51bafc2686ac4cb297079 = $(`<div id="html_5a038af85ff51bafc2686ac4cb297079" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkred;font-family:Arial;">                     <div style="background:darkred;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Sputnik (Rusia)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Conoce los datos clave sobre el estrecho de Ormuz</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 estrecho de ormuz</div>                     <a href='https://noticiaslatam.lat/20260305/conoce-los-datos-clave-sobre-el-estrecho-de-ormuz-1172135357.html' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=Conoce%20los%20datos%20clave%20sobre%20el%20estrecho%20de%20Ormuz&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=Conoce+los+datos+clave+sobre+el+estrecho+de+Ormuz' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=Conoce+los+datos+clave+sobre+el+estrecho+de+Ormuz&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a><a href='https://archive.ph/newest/https://noticiaslatam.lat/20260305/conoce-los-datos-clave-sobre-el-estrecho-de-ormuz-1172135357.html' target='_blank' style='display:block;background:#ff4444;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🛡️ ARCHIVE</a>                 </div>                 </div>`)[0];
+                popup_d898418f8ec3bdd3c4a36737f2535ecb.setContent(html_5a038af85ff51bafc2686ac4cb297079);
+            
+        
+
+        marker_a093c0fce6ab1fb9911233f9b9ab1a4e.bindPopup(popup_d898418f8ec3bdd3c4a36737f2535ecb)
+        ;
+
+        
+    
+    
+            marker_a093c0fce6ab1fb9911233f9b9ab1a4e.bindTooltip(
+                `<div>
+                     Sputnik (Rusia): Conoce los datos clave sobre el est...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a093c0fce6ab1fb9911233f9b9ab1a4e.setIcon(icon_51bb9768d5d9eab863e044934a854a27);
+            
+    
+            var marker_be9ac6f8c50b71bd031c486005672fb6 = L.marker(
+                [39.9042, 116.4074],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_c72a639ae4597c8fcf0e565e1c4467d0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cff6e7b4081e2ab0f43741579c2c498e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_20b764cef5b5706472889c1a1b4eaf83 = $(`<div id="html_20b764cef5b5706472889c1a1b4eaf83" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkblue;font-family:Arial;">                     <div style="background:darkblue;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">China Daily (China)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Memoriales de la Segunda Guerra Mundial son recordatorios solemnes de la tragedia bélica</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Beijing</div>                     <a href='http://www.chinadaily.com.cn/a/201712/12/WS5a2f1143a3108bc8c6721944.html' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=Memoriales%20de%20la%20Segunda%20Guerra%20Mundial%20son%20recordatorios%20solemnes%20de%20la%20tragedia%20b%C3%A9lica&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=Memoriales+de+la+Segunda+Guerra+Mundial+son+recordatorios+solemnes+de+la+tragedia+b%C3%A9lica' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=Memoriales+de+la+Segunda+Guerra+Mundial+son+recordatorios+solemnes+de+la+tragedia+b%C3%A9lica&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_cff6e7b4081e2ab0f43741579c2c498e.setContent(html_20b764cef5b5706472889c1a1b4eaf83);
+            
+        
+
+        marker_be9ac6f8c50b71bd031c486005672fb6.bindPopup(popup_cff6e7b4081e2ab0f43741579c2c498e)
+        ;
+
+        
+    
+    
+            marker_be9ac6f8c50b71bd031c486005672fb6.bindTooltip(
+                `<div>
+                     China Daily (China): Memoriales de la Segunda Guerra Mun...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_be9ac6f8c50b71bd031c486005672fb6.setIcon(icon_c72a639ae4597c8fcf0e565e1c4467d0);
+            
+    
+            var marker_4ca0e96c19b68dc847b02fc13418e316 = L.marker(
+                [39.9042, 116.4074],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_5045271d9f958fcc1f0ebdb136b9545d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6e67d79b42cd644b6ec008334b1c4a0a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f9ef38e38c40026069539d0627d01d6a = $(`<div id="html_f9ef38e38c40026069539d0627d01d6a" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkblue;font-family:Arial;">                     <div style="background:darkblue;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">China Daily (China)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Memoriales de la Segunda Guerra Mundial son recordatorios solemnes de la tragedia bélica</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Beijing</div>                     <a href='http://www.chinadaily.com.cn/a/201712/12/WS5a2f1143a3108bc8c6721944.html' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=Memoriales%20de%20la%20Segunda%20Guerra%20Mundial%20son%20recordatorios%20solemnes%20de%20la%20tragedia%20b%C3%A9lica&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=Memoriales+de+la+Segunda+Guerra+Mundial+son+recordatorios+solemnes+de+la+tragedia+b%C3%A9lica' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=Memoriales+de+la+Segunda+Guerra+Mundial+son+recordatorios+solemnes+de+la+tragedia+b%C3%A9lica&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_6e67d79b42cd644b6ec008334b1c4a0a.setContent(html_f9ef38e38c40026069539d0627d01d6a);
+            
+        
+
+        marker_4ca0e96c19b68dc847b02fc13418e316.bindPopup(popup_6e67d79b42cd644b6ec008334b1c4a0a)
+        ;
+
+        
+    
+    
+            marker_4ca0e96c19b68dc847b02fc13418e316.bindTooltip(
+                `<div>
+                     China Daily (China): Memoriales de la Segunda Guerra Mun...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4ca0e96c19b68dc847b02fc13418e316.setIcon(icon_5045271d9f958fcc1f0ebdb136b9545d);
+            
+    
+            var marker_ff18f5ea69f5e64abedb4c8a26231c41 = L.marker(
+                [31.7683, 35.2137],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_703e5a08c2f13cea193286843b6c3a3c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4f7c4223980d6e73be6e013897fd5f63 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_93f938c114f2aef1eb635eedfaa800b6 = $(`<div id="html_93f938c114f2aef1eb635eedfaa800b6" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkblue;font-family:Arial;">                     <div style="background:darkblue;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Xinhua (China)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Palestinos chocan con soldados israelíes tras protesta contra la visita de Pence</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 jerusalem</div>                     <a href='http://www.xinhuanet.com/english/world/2018-01/24/c_136919909.htm' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=Palestinos%20chocan%20con%20soldados%20israel%C3%ADes%20tras%20protesta%20contra%20la%20visita%20de%20Pence&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=Palestinos+chocan+con+soldados+israel%C3%ADes+tras+protesta+contra+la+visita+de+Pence' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=Palestinos+chocan+con+soldados+israel%C3%ADes+tras+protesta+contra+la+visita+de+Pence&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_4f7c4223980d6e73be6e013897fd5f63.setContent(html_93f938c114f2aef1eb635eedfaa800b6);
+            
+        
+
+        marker_ff18f5ea69f5e64abedb4c8a26231c41.bindPopup(popup_4f7c4223980d6e73be6e013897fd5f63)
+        ;
+
+        
+    
+    
+            marker_ff18f5ea69f5e64abedb4c8a26231c41.bindTooltip(
+                `<div>
+                     Xinhua (China): Palestinos chocan con soldados isra...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ff18f5ea69f5e64abedb4c8a26231c41.setIcon(icon_703e5a08c2f13cea193286843b6c3a3c);
+            
+    
+            var marker_37fe98f110034ed5b75e375a2a966391 = L.marker(
+                [39.9042, 116.4074],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_fd53615593936f0503ee8d98110968f7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bcbb9843bab9317ed5066c205d191e60 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c488c0df05b0a178a0f8792a383bd2a7 = $(`<div id="html_c488c0df05b0a178a0f8792a383bd2a7" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkblue;font-family:Arial;">                     <div style="background:darkblue;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Xinhua (China)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Submarino de propulsión nuclear estadounidense hace escala en Corea del Sur</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Beijing</div>                     <a href='http://www.xinhuanet.com/english/2017-10/13/c_136677591.htm' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=Submarino%20de%20propulsi%C3%B3n%20nuclear%20estadounidense%20hace%20escala%20en%20Corea%20del%20Sur&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=Submarino+de+propulsi%C3%B3n+nuclear+estadounidense+hace+escala+en+Corea+del+Sur' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=Submarino+de+propulsi%C3%B3n+nuclear+estadounidense+hace+escala+en+Corea+del+Sur&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_bcbb9843bab9317ed5066c205d191e60.setContent(html_c488c0df05b0a178a0f8792a383bd2a7);
+            
+        
+
+        marker_37fe98f110034ed5b75e375a2a966391.bindPopup(popup_bcbb9843bab9317ed5066c205d191e60)
+        ;
+
+        
+    
+    
+            marker_37fe98f110034ed5b75e375a2a966391.bindTooltip(
+                `<div>
+                     Xinhua (China): Submarino de propulsión nuclear est...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_37fe98f110034ed5b75e375a2a966391.setIcon(icon_fd53615593936f0503ee8d98110968f7);
+            
+    
+            var marker_e0ad21f34d3c887cd4be02e79d2ce16e = L.marker(
+                [39.9042, 116.4074],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_3db3ecedcee6956193535a4255b5b50a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_122768c0cb202dab03516f2e560434dd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c1a9dec0eda3ede8ef28f2ac1584251e = $(`<div id="html_c1a9dec0eda3ede8ef28f2ac1584251e" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkblue;font-family:Arial;">                     <div style="background:darkblue;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">CGTN World (China)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Los aeropuertos europeos afectados por un ciberataque</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Beijing</div>                     <a href='https://news.cgtn.com/news/2025-09-21/European-airports-snarled-by-cyberattack-1GQTq2wnbW0/p.html?UTM_Source=cgtn&UTM_Medium=rss&UTM_Campaign=World' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=Los%20aeropuertos%20europeos%20afectados%20por%20un%20ciberataque&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=Los+aeropuertos+europeos+afectados+por+un+ciberataque' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=Los+aeropuertos+europeos+afectados+por+un+ciberataque&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_122768c0cb202dab03516f2e560434dd.setContent(html_c1a9dec0eda3ede8ef28f2ac1584251e);
+            
+        
+
+        marker_e0ad21f34d3c887cd4be02e79d2ce16e.bindPopup(popup_122768c0cb202dab03516f2e560434dd)
+        ;
+
+        
+    
+    
+            marker_e0ad21f34d3c887cd4be02e79d2ce16e.bindTooltip(
+                `<div>
+                     CGTN World (China): Los aeropuertos europeos afectados ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e0ad21f34d3c887cd4be02e79d2ce16e.setIcon(icon_3db3ecedcee6956193535a4255b5b50a);
+            
+    
+            var marker_687c6a886ac6ee4b219da37a7449d9aa = L.marker(
+                [39.9042, 116.4074],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_6686c903c666ae855ca328f84b0a344f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_47808c11af3e9b895cddabd7d23d59ce = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7521ca91464cf4e36df3c49fa5cea63e = $(`<div id="html_7521ca91464cf4e36df3c49fa5cea63e" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkblue;font-family:Arial;">                     <div style="background:darkblue;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">CGTN World (China)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">China critica la distorsión estadounidense de documentos de la Segunda Guerra Mundial relacionados con Taiwán</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Beijing</div>                     <a href='https://news.cgtn.com/news/2025-09-17/China-slams-U-S-distortion-of-Taiwan-related-WWII-documents-1GKd4Q2S6fm/p.html?UTM_Source=cgtn&UTM_Medium=rss&UTM_Campaign=World' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=China%20critica%20la%20distorsi%C3%B3n%20estadounidense%20de%20documentos%20de%20la%20Segunda%20Guerra%20Mundial%20relacionados%20con%20Taiw%C3%A1n&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=China+critica+la+distorsi%C3%B3n+estadounidense+de+documentos+de+la+Segunda+Guerra+Mundial+relacionados+con+Taiw%C3%A1n' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=China+critica+la+distorsi%C3%B3n+estadounidense+de+documentos+de+la+Segunda+Guerra+Mundial+relacionados+con+Taiw%C3%A1n&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_47808c11af3e9b895cddabd7d23d59ce.setContent(html_7521ca91464cf4e36df3c49fa5cea63e);
+            
+        
+
+        marker_687c6a886ac6ee4b219da37a7449d9aa.bindPopup(popup_47808c11af3e9b895cddabd7d23d59ce)
+        ;
+
+        
+    
+    
+            marker_687c6a886ac6ee4b219da37a7449d9aa.bindTooltip(
+                `<div>
+                     CGTN World (China): China critica la distorsión estadou...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_687c6a886ac6ee4b219da37a7449d9aa.setIcon(icon_6686c903c666ae855ca328f84b0a344f);
+            
+    
+            var marker_f664692d64fc094163839ef48d0fdb00 = L.marker(
+                [39.9042, 116.4074],
+                {
+}
+            ).addTo(marker_cluster_972800c1d70e0ead5dca40b3f5b179fd);
+        
+    
+            var icon_bd3d0880c9fde545aa0cbe3853ac715d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8f4bc9d6dc9c4db1b06c5e81797575ce = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6020e773faf86970685a020568ff2571 = $(`<div id="html_6020e773faf86970685a020568ff2571" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid darkblue;font-family:Arial;">                     <div style="background:darkblue;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">CGTN World (China)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Cascos azules, sin fronteras | Un guerrero silencioso en un lugar difícil</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Beijing</div>                     <a href='https://news.cgtn.com/news/2025-09-21/Blue-Helmets-No-Borders-A-Quiet-Warrior-in-a-Hard-Place-1GPdXoBUzEQ/p.html?UTM_Source=cgtn&UTM_Medium=rss&UTM_Campaign=World' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://news.baidu.com/ns?word=Cascos%20azules%2C%20sin%20fronteras%20%7C%20Un%20guerrero%20silencioso%20en%20un%20lugar%20dif%C3%ADcil&tn=news' target='_blank' style='display:block;background:#2932e1;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🇨🇳 BAIDU</a><a href='https://www.sogou.com/web?query=Cascos+azules%2C+sin+fronteras+%7C+Un+guerrero+silencioso+en+un+lugar+dif%C3%ADcil' target='_blank' style='display:block;background:#ff6f00;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔍 SOGOU</a><a href='https://duckduckgo.com/?q=Cascos+azules%2C+sin+fronteras+%7C+Un+guerrero+silencioso+en+un+lugar+dif%C3%ADcil&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_8f4bc9d6dc9c4db1b06c5e81797575ce.setContent(html_6020e773faf86970685a020568ff2571);
+            
+        
+
+        marker_f664692d64fc094163839ef48d0fdb00.bindPopup(popup_8f4bc9d6dc9c4db1b06c5e81797575ce)
+        ;
+
+        
+    
+    
+            marker_f664692d64fc094163839ef48d0fdb00.bindTooltip(
+                `<div>
+                     CGTN World (China): Cascos azules, sin fronteras | Un g...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f664692d64fc094163839ef48d0fdb00.setIcon(icon_bd3d0880c9fde545aa0cbe3853ac715d);
+            
+    
+            marker_cluster_972800c1d70e0ead5dca40b3f5b179fd.addTo(map_fc5e41dcbeaf784271bf4bedf7d50097);
+        
+    
+            var marker_cluster_9ed1dc54baec19803a6db3bed31a4516 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_a2479a874bc0aa414b7d63833fa4b27d = L.marker(
+                [26.56, 56.25],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_65fd438fffa9fd3db7a205e6dbe4aa26 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2beb6de4695fe7e79f7817a48791d548 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_906b9300c3867164e8058ce3a48b2800 = $(`<div id="html_906b9300c3867164e8058ce3a48b2800" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">gCaptain (Naval/EEUU)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">El sistema mundial de GNL se tensa mientras la paralización de Qatar deja poco suministro de respaldo</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Ormuz</div>                     <a href='https://gcaptain.com/worlds-lng-system-strains-as-qatar-halt-leaves-little-backup-supply/' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=El+sistema+mundial+de+GNL+se+tensa+mientras+la+paralizaci%C3%B3n+de+Qatar+deja+poco+suministro+de+respaldo&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_2beb6de4695fe7e79f7817a48791d548.setContent(html_906b9300c3867164e8058ce3a48b2800);
+            
+        
+
+        marker_a2479a874bc0aa414b7d63833fa4b27d.bindPopup(popup_2beb6de4695fe7e79f7817a48791d548)
+        ;
+
+        
+    
+    
+            marker_a2479a874bc0aa414b7d63833fa4b27d.bindTooltip(
+                `<div>
+                     gCaptain (Naval/EEUU: El sistema mundial de GNL se tensa ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a2479a874bc0aa414b7d63833fa4b27d.setIcon(icon_65fd438fffa9fd3db7a205e6dbe4aa26);
+            
+    
+            var marker_9238c363b64544ae15df339bf2f87159 = L.marker(
+                [26.56, 56.25],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_6a0ed0b60fd732912d853e61f096efae = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_80b685bec0b6fb01006cc7ce6b976ef4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9dfb8f16e8e2f1f9db699796969871b7 = $(`<div id="html_9dfb8f16e8e2f1f9db699796969871b7" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">gCaptain (Naval/EEUU)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">La crisis de Ormuz desencadena medidas que suponen un riesgo de guerra para la gente de mar</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 hormuz</div>                     <a href='https://gcaptain.com/hormuz-crisis-triggers-war-risk-measures-for-seafarers/' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=La+crisis+de+Ormuz+desencadena+medidas+que+suponen+un+riesgo+de+guerra+para+la+gente+de+mar&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_80b685bec0b6fb01006cc7ce6b976ef4.setContent(html_9dfb8f16e8e2f1f9db699796969871b7);
+            
+        
+
+        marker_9238c363b64544ae15df339bf2f87159.bindPopup(popup_80b685bec0b6fb01006cc7ce6b976ef4)
+        ;
+
+        
+    
+    
+            marker_9238c363b64544ae15df339bf2f87159.bindTooltip(
+                `<div>
+                     gCaptain (Naval/EEUU: La crisis de Ormuz desencadena medi...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9238c363b64544ae15df339bf2f87159.setIcon(icon_6a0ed0b60fd732912d853e61f096efae);
+            
+    
+            var marker_58e65f20de532af12ae2e06433290807 = L.marker(
+                [20.0, 38.0],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_767f490ed9ebb85046766fb0b1b43b02 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_50107deade3ab71f3d6ad7a48bdd86d9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fcdbdc98e8b63cd2a90ad69a693f82cb = $(`<div id="html_fcdbdc98e8b63cd2a90ad69a693f82cb" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">gCaptain (Naval/EEUU)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Las aseguradoras dicen que la cobertura de guerra aún está disponible para los viajes al Golfo a medida que se...</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 red sea</div>                     <a href='https://gcaptain.com/insurers-say-war-cover-still-available-for-gulf-voyages-as-shipping-crisis-deepens/' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Las+aseguradoras+dicen+que+la+cobertura+de+guerra+a%C3%BAn+est%C3%A1+disponible+para+los+viajes+al+Golfo+a+medida+que+se+profundiza+la+crisis+del+transporte+mar%C3%ADtimo&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_50107deade3ab71f3d6ad7a48bdd86d9.setContent(html_fcdbdc98e8b63cd2a90ad69a693f82cb);
+            
+        
+
+        marker_58e65f20de532af12ae2e06433290807.bindPopup(popup_50107deade3ab71f3d6ad7a48bdd86d9)
+        ;
+
+        
+    
+    
+            marker_58e65f20de532af12ae2e06433290807.bindTooltip(
+                `<div>
+                     gCaptain (Naval/EEUU: Las aseguradoras dicen que la cober...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_58e65f20de532af12ae2e06433290807.setIcon(icon_767f490ed9ebb85046766fb0b1b43b02);
+            
+    
+            var marker_12e2de9fe8ba389891dceca624666865 = L.marker(
+                [26.56, 56.25],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_c9479e640dedad7c767c48ee7be55173 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_00cb0c47705bd0509383e7f2dabbb134 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_18b3edf6ae4aa33e793804035ff6a0f3 = $(`<div id="html_18b3edf6ae4aa33e793804035ff6a0f3" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">gCaptain (Naval/EEUU)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Los buques cisterna rusos de GNL de la 'Flota en la sombra' se desvían después de que una explosión hundiera e...</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Ormuz</div>                     <a href='https://gcaptain.com/russian-shadow-fleet-lng-tankers-reroute-after-blast-sinks-arctic-metagaz-in-mediterranean/' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Los+buques+cisterna+rusos+de+GNL+de+la+%27Flota+en+la+sombra%27+se+desv%C3%ADan+despu%C3%A9s+de+que+una+explosi%C3%B3n+hundiera+el+%27Arctic+Metagaz%27+en+el+Mediterr%C3%A1neo&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_00cb0c47705bd0509383e7f2dabbb134.setContent(html_18b3edf6ae4aa33e793804035ff6a0f3);
+            
+        
+
+        marker_12e2de9fe8ba389891dceca624666865.bindPopup(popup_00cb0c47705bd0509383e7f2dabbb134)
+        ;
+
+        
+    
+    
+            marker_12e2de9fe8ba389891dceca624666865.bindTooltip(
+                `<div>
+                     gCaptain (Naval/EEUU: Los buques cisterna rusos de GNL de...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_12e2de9fe8ba389891dceca624666865.setIcon(icon_c9479e640dedad7c767c48ee7be55173);
+            
+    
+            var marker_2ed037081d36dc669d518ee2617240ed = L.marker(
+                [20.0, 38.0],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_19f52296e08f0bdaddc7e8c5baa6d59d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1c76e19277749ab3e995fc8d29dfab77 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8a17da339c3821d6a48f2b0901a08fd7 = $(`<div id="html_8a17da339c3821d6a48f2b0901a08fd7" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">gCaptain (Naval/EEUU)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Francia, Italia y Grecia ayudarán a garantizar el tránsito marítimo por el Mar Rojo</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 red sea</div>                     <a href='https://gcaptain.com/france-italy-greece-to-help-ensure-red-sea-shipping-transit/' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Francia%2C+Italia+y+Grecia+ayudar%C3%A1n+a+garantizar+el+tr%C3%A1nsito+mar%C3%ADtimo+por+el+Mar+Rojo&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_1c76e19277749ab3e995fc8d29dfab77.setContent(html_8a17da339c3821d6a48f2b0901a08fd7);
+            
+        
+
+        marker_2ed037081d36dc669d518ee2617240ed.bindPopup(popup_1c76e19277749ab3e995fc8d29dfab77)
+        ;
+
+        
+    
+    
+            marker_2ed037081d36dc669d518ee2617240ed.bindTooltip(
+                `<div>
+                     gCaptain (Naval/EEUU: Francia, Italia y Grecia ayudarán a...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2ed037081d36dc669d518ee2617240ed.setIcon(icon_19f52296e08f0bdaddc7e8c5baa6d59d);
+            
+    
+            var marker_b0e708c5b3440fdfd736b5b30f31621d = L.marker(
+                [26.56, 56.25],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_52053dce52c4475b7e87c01535fda3b3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7625289e1fafbd01f69179b119f209b2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a4ecd7cc9098451a909ab671a9622ba4 = $(`<div id="html_a4ecd7cc9098451a909ab671a9622ba4" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">gCaptain (Naval/EEUU)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Buque de guerra iraní hundido por torpedo estadounidense participó en simulacro indio</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Ormuz</div>                     <a href='https://gcaptain.com/iranian-warship-sunk-by-us-torpedo-participated-in-indian-drill/' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Buque+de+guerra+iran%C3%AD+hundido+por+torpedo+estadounidense+particip%C3%B3+en+simulacro+indio&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_7625289e1fafbd01f69179b119f209b2.setContent(html_a4ecd7cc9098451a909ab671a9622ba4);
+            
+        
+
+        marker_b0e708c5b3440fdfd736b5b30f31621d.bindPopup(popup_7625289e1fafbd01f69179b119f209b2)
+        ;
+
+        
+    
+    
+            marker_b0e708c5b3440fdfd736b5b30f31621d.bindTooltip(
+                `<div>
+                     gCaptain (Naval/EEUU: Buque de guerra iraní hundido por t...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b0e708c5b3440fdfd736b5b30f31621d.setIcon(icon_52053dce52c4475b7e87c01535fda3b3);
+            
+    
+            var marker_a3fdf4955433e9d6fb12d59656ec26d9 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_c664ed2c9f5bd862f509f47e07516a4f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d442b6ccc765e227ced82ad5933e54c9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_db1a3e3eb5d72807f84194511885ff59 = $(`<div id="html_db1a3e3eb5d72807f84194511885ff59" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">BBC News (UK)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">El primer ministro mantiene su decisión de no unirse a los ataques contra Irán y envía más aviones a Qatar</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.bbc.com/news/articles/cdr2214nmk8o?at_medium=RSS&at_campaign=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=El+primer+ministro+mantiene+su+decisi%C3%B3n+de+no+unirse+a+los+ataques+contra+Ir%C3%A1n+y+env%C3%ADa+m%C3%A1s+aviones+a+Qatar&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_d442b6ccc765e227ced82ad5933e54c9.setContent(html_db1a3e3eb5d72807f84194511885ff59);
+            
+        
+
+        marker_a3fdf4955433e9d6fb12d59656ec26d9.bindPopup(popup_d442b6ccc765e227ced82ad5933e54c9)
+        ;
+
+        
+    
+    
+            marker_a3fdf4955433e9d6fb12d59656ec26d9.bindTooltip(
+                `<div>
+                     BBC News (UK): El primer ministro mantiene su deci...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a3fdf4955433e9d6fb12d59656ec26d9.setIcon(icon_c664ed2c9f5bd862f509f47e07516a4f);
+            
+    
+            var marker_52a9c044780a363c3e03a7c221574c0f = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_930b80e408fd0b426d872fbe91d767b4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_21c888721c061942996f4c4f9d90cc3f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9acb70c4a94622dc6d946949313560a9 = $(`<div id="html_9acb70c4a94622dc6d946949313560a9" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">BBC News (UK)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Puntos de control por todas partes y colas para conseguir pan: miedo en Irán ante la intensificación de los at...</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.bbc.com/news/articles/cj4zze5lzjpo?at_medium=RSS&at_campaign=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Puntos+de+control+por+todas+partes+y+colas+para+conseguir+pan%3A+miedo+en+Ir%C3%A1n+ante+la+intensificaci%C3%B3n+de+los+ataques+entre+Estados+Unidos+e+Israel&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_21c888721c061942996f4c4f9d90cc3f.setContent(html_9acb70c4a94622dc6d946949313560a9);
+            
+        
+
+        marker_52a9c044780a363c3e03a7c221574c0f.bindPopup(popup_21c888721c061942996f4c4f9d90cc3f)
+        ;
+
+        
+    
+    
+            marker_52a9c044780a363c3e03a7c221574c0f.bindTooltip(
+                `<div>
+                     BBC News (UK): Puntos de control por todas partes ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_52a9c044780a363c3e03a7c221574c0f.setIcon(icon_930b80e408fd0b426d872fbe91d767b4);
+            
+    
+            var marker_77ccf5f901f20295961cce6af035d8ac = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_331e0159beecd4f54918cd567b4c5d19 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7900540aafc4796791202028464ad276 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6c8db26ba4f0d040726ba38f75d0a162 = $(`<div id="html_6c8db26ba4f0d040726ba38f75d0a162" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">BBC News (UK)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Cómo los arsenales de armas agotados podrían afectar el conflicto con Irán</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.bbc.com/news/articles/cdxzzqe82d2o?at_medium=RSS&at_campaign=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=C%C3%B3mo+los+arsenales+de+armas+agotados+podr%C3%ADan+afectar+el+conflicto+con+Ir%C3%A1n&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_7900540aafc4796791202028464ad276.setContent(html_6c8db26ba4f0d040726ba38f75d0a162);
+            
+        
+
+        marker_77ccf5f901f20295961cce6af035d8ac.bindPopup(popup_7900540aafc4796791202028464ad276)
+        ;
+
+        
+    
+    
+            marker_77ccf5f901f20295961cce6af035d8ac.bindTooltip(
+                `<div>
+                     BBC News (UK): Cómo los arsenales de armas agotado...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_77ccf5f901f20295961cce6af035d8ac.setIcon(icon_331e0159beecd4f54918cd567b4c5d19);
+            
+    
+            var marker_9836e64c5ca938725d6f88f5998f7c4b = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_4e9283ef3f1dd8528391697e5b5a4997 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_88abeff1e69604dad092ad21d6c25160 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8832573c8d4feebfa6510890441d2108 = $(`<div id="html_8832573c8d4feebfa6510890441d2108" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">BBC News (UK)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Irán ataca el cuartel general de las fuerzas kurdas iraníes en Irak</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.bbc.com/news/articles/c2k88y1147jo?at_medium=RSS&at_campaign=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Ir%C3%A1n+ataca+el+cuartel+general+de+las+fuerzas+kurdas+iran%C3%ADes+en+Irak&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_88abeff1e69604dad092ad21d6c25160.setContent(html_8832573c8d4feebfa6510890441d2108);
+            
+        
+
+        marker_9836e64c5ca938725d6f88f5998f7c4b.bindPopup(popup_88abeff1e69604dad092ad21d6c25160)
+        ;
+
+        
+    
+    
+            marker_9836e64c5ca938725d6f88f5998f7c4b.bindTooltip(
+                `<div>
+                     BBC News (UK): Irán ataca el cuartel general de la...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9836e64c5ca938725d6f88f5998f7c4b.setIcon(icon_4e9283ef3f1dd8528391697e5b5a4997);
+            
+    
+            var marker_c9a482c7a4f732248fc5ebe27c80227d = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_0ba097679a4f720c73f87217460ab6b0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fa4de771ecb4daf0abe25bdb08416025 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bbfbf54df7009df80fd05c12e6cc2265 = $(`<div id="html_bbfbf54df7009df80fd05c12e6cc2265" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">BBC Mundo (UK)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Cómo la disminución de las reservas de armas puede afectar al conflicto en Medio Oriente</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.bbc.com/mundo/articles/cvgvv198v65o?at_medium=RSS&at_campaign=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=C%C3%B3mo+la+disminuci%C3%B3n+de+las+reservas+de+armas+puede+afectar+al+conflicto+en+Medio+Oriente&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_fa4de771ecb4daf0abe25bdb08416025.setContent(html_bbfbf54df7009df80fd05c12e6cc2265);
+            
+        
+
+        marker_c9a482c7a4f732248fc5ebe27c80227d.bindPopup(popup_fa4de771ecb4daf0abe25bdb08416025)
+        ;
+
+        
+    
+    
+            marker_c9a482c7a4f732248fc5ebe27c80227d.bindTooltip(
+                `<div>
+                     BBC Mundo (UK): Cómo la disminución de las reservas...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c9a482c7a4f732248fc5ebe27c80227d.setIcon(icon_0ba097679a4f720c73f87217460ab6b0);
+            
+    
+            var marker_9cca1024c5453cd75ec91d096a76b94f = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_f50bfa0d17de6321c1b16b052bcbe11b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a008e8a785a5de16140611c14a6d1329 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7271f14488f095fb64dff7e86caef6e0 = $(`<div id="html_7271f14488f095fb64dff7e86caef6e0" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">BBC Mundo (UK)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Cuál es la importancia estratégica de las bases militares que EE.UU. tiene en España y que el gobierno de Sánc...</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.bbc.com/mundo/articles/cze00wy7670o?at_medium=RSS&at_campaign=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Cu%C3%A1l+es+la+importancia+estrat%C3%A9gica+de+las+bases+militares+que+EE.UU.+tiene+en+Espa%C3%B1a+y+que+el+gobierno+de+S%C3%A1nchez+no+permite+usar+para+la+guerra+en+Ir%C3%A1n&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_a008e8a785a5de16140611c14a6d1329.setContent(html_7271f14488f095fb64dff7e86caef6e0);
+            
+        
+
+        marker_9cca1024c5453cd75ec91d096a76b94f.bindPopup(popup_a008e8a785a5de16140611c14a6d1329)
+        ;
+
+        
+    
+    
+            marker_9cca1024c5453cd75ec91d096a76b94f.bindTooltip(
+                `<div>
+                     BBC Mundo (UK): Cuál es la importancia estratégica ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9cca1024c5453cd75ec91d096a76b94f.setIcon(icon_f50bfa0d17de6321c1b16b052bcbe11b);
+            
+    
+            var marker_18a0043654f15fdf53b0edee30d45bd8 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_e45b6d589729b3efe5b02793e56cfd21 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_76fab2f7acaa94c37829d59bbcfbdc68 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_23911f585fed3d2726004fa894e1d653 = $(`<div id="html_23911f585fed3d2726004fa894e1d653" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">BBC Mundo (UK)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">¿Es legal la guerra de EE.UU. e Israel contra Irán según el derecho internacional?</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.bbc.com/mundo/articles/c3099758n0vo?at_medium=RSS&at_campaign=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=%C2%BFEs+legal+la+guerra+de+EE.UU.+e+Israel+contra+Ir%C3%A1n+seg%C3%BAn+el+derecho+internacional%3F&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_76fab2f7acaa94c37829d59bbcfbdc68.setContent(html_23911f585fed3d2726004fa894e1d653);
+            
+        
+
+        marker_18a0043654f15fdf53b0edee30d45bd8.bindPopup(popup_76fab2f7acaa94c37829d59bbcfbdc68)
+        ;
+
+        
+    
+    
+            marker_18a0043654f15fdf53b0edee30d45bd8.bindTooltip(
+                `<div>
+                     BBC Mundo (UK): ¿Es legal la guerra de EE.UU. e Isr...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_18a0043654f15fdf53b0edee30d45bd8.setIcon(icon_e45b6d589729b3efe5b02793e56cfd21);
+            
+    
+            var marker_b1cb5f03504b1576f355d3f81b01ff75 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_d42f7e978742d0c3215d3a099aed8ece = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ce988c8067c9790f2788d6650b1f3c92 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4893c1f9847b3eaff227f264e57d62d2 = $(`<div id="html_4893c1f9847b3eaff227f264e57d62d2" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">CNN (EEUU)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Haberman revela por qué Trump atacó al juez y a su familia en un discurso</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.cnn.com/videos/politics/2023/04/05/maggie-haberman-donald-trump-speech-indictment-reaction-sot-cnntm-vpx.cnn' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Haberman+revela+por+qu%C3%A9+Trump+atac%C3%B3+al+juez+y+a+su+familia+en+un+discurso&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_ce988c8067c9790f2788d6650b1f3c92.setContent(html_4893c1f9847b3eaff227f264e57d62d2);
+            
+        
+
+        marker_b1cb5f03504b1576f355d3f81b01ff75.bindPopup(popup_ce988c8067c9790f2788d6650b1f3c92)
+        ;
+
+        
+    
+    
+            marker_b1cb5f03504b1576f355d3f81b01ff75.bindTooltip(
+                `<div>
+                     CNN (EEUU): Haberman revela por qué Trump atacó...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b1cb5f03504b1576f355d3f81b01ff75.setIcon(icon_d42f7e978742d0c3215d3a099aed8ece);
+            
+    
+            var marker_29b23d4b55aec04a039229aa0f0bdfca = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_e151fc30510579c6b6bda08ff254149a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_795a4dc9b4dabf816b461619fee40e1b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a4efeb9ad2bb7c99dda36d678d05414f = $(`<div id="html_a4efeb9ad2bb7c99dda36d678d05414f" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid orange;font-family:Arial;">                     <div style="background:orange;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">CNN (EEUU)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Video muestra momento de explosión mortal en café en Rusia</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.cnn.com/videos/world/2023/04/02/russian-military-blogger-vladlen-tatarsky-killed-cafe-explosion-chance-vpx.cnn' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Video+muestra+momento+de+explosi%C3%B3n+mortal+en+caf%C3%A9+en+Rusia&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_795a4dc9b4dabf816b461619fee40e1b.setContent(html_a4efeb9ad2bb7c99dda36d678d05414f);
+            
+        
+
+        marker_29b23d4b55aec04a039229aa0f0bdfca.bindPopup(popup_795a4dc9b4dabf816b461619fee40e1b)
+        ;
+
+        
+    
+    
+            marker_29b23d4b55aec04a039229aa0f0bdfca.bindTooltip(
+                `<div>
+                     CNN (EEUU): Video muestra momento de explosión ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_29b23d4b55aec04a039229aa0f0bdfca.setIcon(icon_e151fc30510579c6b6bda08ff254149a);
+            
+    
+            var marker_132f0b94e117f74da13d67be79884c6f = L.marker(
+                [35.6892, 51.389],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_6f9ffacc6ec3296e44a6d3816d16d32c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_82aca9869df9f48e588ad9b3668ac779 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5f7861245f2601be53e6a68d00abf445 = $(`<div id="html_5f7861245f2601be53e6a68d00abf445" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid blue;font-family:Arial;">                     <div style="background:blue;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Jerusalem Post (Israel)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Las FDI emiten orden de evacuación de Teherán antes de los ataques</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 tehran</div>                     <a href='https://www.jpost.com/breaking-news/article-857933' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Las+FDI+emiten+orden+de+evacuaci%C3%B3n+de+Teher%C3%A1n+antes+de+los+ataques&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_82aca9869df9f48e588ad9b3668ac779.setContent(html_5f7861245f2601be53e6a68d00abf445);
+            
+        
+
+        marker_132f0b94e117f74da13d67be79884c6f.bindPopup(popup_82aca9869df9f48e588ad9b3668ac779)
+        ;
+
+        
+    
+    
+            marker_132f0b94e117f74da13d67be79884c6f.bindTooltip(
+                `<div>
+                     Jerusalem Post (Isra: Las FDI emiten orden de evacuación ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_132f0b94e117f74da13d67be79884c6f.setIcon(icon_6f9ffacc6ec3296e44a6d3816d16d32c);
+            
+    
+            var marker_f898ca1a021152dddc144a1c859cd79c = L.marker(
+                [55.7558, 37.6173],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_0b93635223275afce90c005f087a5784 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a8e060c04e9aacb315af3492d49c551c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4ecc3162a5b9e2ba8aaeaae364f9957a = $(`<div id="html_4ecc3162a5b9e2ba8aaeaae364f9957a" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid blue;font-family:Arial;">                     <div style="background:blue;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Jerusalem Post (Israel)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">El ataque con aviones no tripulados ucranianos a Moscú obliga al cierre del aeropuerto, dice Rusia</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 moscow</div>                     <a href='https://www.jpost.com/breaking-news/article-856899' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=El+ataque+con+aviones+no+tripulados+ucranianos+a+Mosc%C3%BA+obliga+al+cierre+del+aeropuerto%2C+dice+Rusia&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_a8e060c04e9aacb315af3492d49c551c.setContent(html_4ecc3162a5b9e2ba8aaeaae364f9957a);
+            
+        
+
+        marker_f898ca1a021152dddc144a1c859cd79c.bindPopup(popup_a8e060c04e9aacb315af3492d49c551c)
+        ;
+
+        
+    
+    
+            marker_f898ca1a021152dddc144a1c859cd79c.bindTooltip(
+                `<div>
+                     Jerusalem Post (Isra: El ataque con aviones no tripulados...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f898ca1a021152dddc144a1c859cd79c.setIcon(icon_0b93635223275afce90c005f087a5784);
+            
+    
+            var marker_fac26b12a166fb3069abba68d7ca8ad2 = L.marker(
+                [32.0853, 34.7818],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_2eeb0e237ad058635857428b015f551b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d5b7fd81be261c39ae1063d9eedb43ef = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_443c6c56e76bdfe397bac35d8ff9233a = $(`<div id="html_443c6c56e76bdfe397bac35d8ff9233a" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid blue;font-family:Arial;">                     <div style="background:blue;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Jerusalem Post (Israel)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Un israelí arrestado en Albania después de intentar salir con 194.000 euros no declarados: informe</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Tel Aviv</div>                     <a href='https://www.jpost.com/breaking-news/article-856864' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Un+israel%C3%AD+arrestado+en+Albania+despu%C3%A9s+de+intentar+salir+con+194.000+euros+no+declarados%3A+informe&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_d5b7fd81be261c39ae1063d9eedb43ef.setContent(html_443c6c56e76bdfe397bac35d8ff9233a);
+            
+        
+
+        marker_fac26b12a166fb3069abba68d7ca8ad2.bindPopup(popup_d5b7fd81be261c39ae1063d9eedb43ef)
+        ;
+
+        
+    
+    
+            marker_fac26b12a166fb3069abba68d7ca8ad2.bindTooltip(
+                `<div>
+                     Jerusalem Post (Isra: Un israelí arrestado en Albania des...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fac26b12a166fb3069abba68d7ca8ad2.setIcon(icon_2eeb0e237ad058635857428b015f551b);
+            
+    
+            var marker_d6181620eaf13d6e7bbd30b3558b988e = L.marker(
+                [31.5017, 34.4668],
+                {
+}
+            ).addTo(marker_cluster_9ed1dc54baec19803a6db3bed31a4516);
+        
+    
+            var icon_0ab7e6f1020c262444b489c468870954 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_80ee76021f9e53f0188f174dcb8b39b8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_268e6bea9151ebbb8c6e68d9d0085d88 = $(`<div id="html_268e6bea9151ebbb8c6e68d9d0085d88" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid blue;font-family:Arial;">                     <div style="background:blue;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Jerusalem Post (Israel)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">El portavoz árabe de las FDI, Avichay Adraee, emite un aviso de evacuación a los residentes al norte de la ciu...</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 gaza</div>                     <a href='https://www.jpost.com/breaking-news/article-856852' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=El+portavoz+%C3%A1rabe+de+las+FDI%2C+Avichay+Adraee%2C+emite+un+aviso+de+evacuaci%C3%B3n+a+los+residentes+al+norte+de+la+ciudad+de+Gaza&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_80ee76021f9e53f0188f174dcb8b39b8.setContent(html_268e6bea9151ebbb8c6e68d9d0085d88);
+            
+        
+
+        marker_d6181620eaf13d6e7bbd30b3558b988e.bindPopup(popup_80ee76021f9e53f0188f174dcb8b39b8)
+        ;
+
+        
+    
+    
+            marker_d6181620eaf13d6e7bbd30b3558b988e.bindTooltip(
+                `<div>
+                     Jerusalem Post (Isra: El portavoz árabe de las FDI, Avich...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d6181620eaf13d6e7bbd30b3558b988e.setIcon(icon_0ab7e6f1020c262444b489c468870954);
+            
+    
+            marker_cluster_9ed1dc54baec19803a6db3bed31a4516.addTo(map_fc5e41dcbeaf784271bf4bedf7d50097);
+        
+    
+            var marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_f27dd390422402ac0f3b50205ec1b8b4 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_774a087d4aa0519a6d866d919faa7425 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dc12cb5037568c05981259603459b4f2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8395555bf288b416214c9fe3f58d66e5 = $(`<div id="html_8395555bf288b416214c9fe3f58d66e5" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al Jazeera (Qatar)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Los líderes de la UE expresan su solidaridad con los países del Golfo en medio de los ataques iraníes</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.aljazeera.com/news/2026/3/5/eu-leaders-express-solidarity-with-gulf-countries-amid-iranian-attacks?traffic_source=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Los+l%C3%ADderes+de+la+UE+expresan+su+solidaridad+con+los+pa%C3%ADses+del+Golfo+en+medio+de+los+ataques+iran%C3%ADes&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_dc12cb5037568c05981259603459b4f2.setContent(html_8395555bf288b416214c9fe3f58d66e5);
+            
+        
+
+        marker_f27dd390422402ac0f3b50205ec1b8b4.bindPopup(popup_dc12cb5037568c05981259603459b4f2)
+        ;
+
+        
+    
+    
+            marker_f27dd390422402ac0f3b50205ec1b8b4.bindTooltip(
+                `<div>
+                     Al Jazeera (Qatar): Los líderes de la UE expresan su so...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f27dd390422402ac0f3b50205ec1b8b4.setIcon(icon_774a087d4aa0519a6d866d919faa7425);
+            
+    
+            var marker_758db18e3fed32ae53ce736fc74e605a = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_821284f569ff722be7a33ce23294d98d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_64ad0f85d2008d1442dc2e996e4fea72 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_82ef22bf465db8b756fcc581a0e18419 = $(`<div id="html_82ef22bf465db8b756fcc581a0e18419" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al Jazeera (Qatar)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Vídeos muestran la destrucción tras los ataques de Estados Unidos e Israel a Irán</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.aljazeera.com/video/newsfeed/2026/3/5/videos-show-destruction-after-us-and-israeli-strikes-on-iran?traffic_source=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=V%C3%ADdeos+muestran+la+destrucci%C3%B3n+tras+los+ataques+de+Estados+Unidos+e+Israel+a+Ir%C3%A1n&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_64ad0f85d2008d1442dc2e996e4fea72.setContent(html_82ef22bf465db8b756fcc581a0e18419);
+            
+        
+
+        marker_758db18e3fed32ae53ce736fc74e605a.bindPopup(popup_64ad0f85d2008d1442dc2e996e4fea72)
+        ;
+
+        
+    
+    
+            marker_758db18e3fed32ae53ce736fc74e605a.bindTooltip(
+                `<div>
+                     Al Jazeera (Qatar): Vídeos muestran la destrucción tras...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_758db18e3fed32ae53ce736fc74e605a.setIcon(icon_821284f569ff722be7a33ce23294d98d);
+            
+    
+            var marker_5c2908f988c32986621a246684cf33e3 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_bedda91cdee4b12cf925a569f8d63792 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2f4cda5bc229f26a747fdfafcf90062f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_da3eb1625f62ce50038c2b756f1fe12f = $(`<div id="html_da3eb1625f62ce50038c2b756f1fe12f" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al Jazeera (Qatar)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">“Nuestros hijos fueron vendidos”: los sudafricanos enviados a luchar en la guerra de Rusia</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.aljazeera.com/features/2026/3/5/our-children-were-sold-off-the-south-africans-sent-to-fight-russias-war?traffic_source=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=%E2%80%9CNuestros+hijos+fueron+vendidos%E2%80%9D%3A+los+sudafricanos+enviados+a+luchar+en+la+guerra+de+Rusia&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_2f4cda5bc229f26a747fdfafcf90062f.setContent(html_da3eb1625f62ce50038c2b756f1fe12f);
+            
+        
+
+        marker_5c2908f988c32986621a246684cf33e3.bindPopup(popup_2f4cda5bc229f26a747fdfafcf90062f)
+        ;
+
+        
+    
+    
+            marker_5c2908f988c32986621a246684cf33e3.bindTooltip(
+                `<div>
+                     Al Jazeera (Qatar): “Nuestros hijos fueron vendidos”: l...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5c2908f988c32986621a246684cf33e3.setIcon(icon_bedda91cdee4b12cf925a569f8d63792);
+            
+    
+            var marker_7881ae33955e4d51ad09c783d85fd1a0 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_7bad3a09f5a47fcdbce2df0fd750b4d7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d8268a0e690d1e8aff68420c671686da = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cbf7169c04b05e2465bc9f826a4c218c = $(`<div id="html_cbf7169c04b05e2465bc9f826a4c218c" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al Jazeera (Qatar)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">La selección femenina de fútbol de Irán saluda y canta el himno nacional en un partido de la Copa Asiática</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.aljazeera.com/sports/2026/3/5/iran-womens-football-team-salute-sing-national-anthem-in-asian-cup-match?traffic_source=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=La+selecci%C3%B3n+femenina+de+f%C3%BAtbol+de+Ir%C3%A1n+saluda+y+canta+el+himno+nacional+en+un+partido+de+la+Copa+Asi%C3%A1tica&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_d8268a0e690d1e8aff68420c671686da.setContent(html_cbf7169c04b05e2465bc9f826a4c218c);
+            
+        
+
+        marker_7881ae33955e4d51ad09c783d85fd1a0.bindPopup(popup_d8268a0e690d1e8aff68420c671686da)
+        ;
+
+        
+    
+    
+            marker_7881ae33955e4d51ad09c783d85fd1a0.bindTooltip(
+                `<div>
+                     Al Jazeera (Qatar): La selección femenina de fútbol de ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7881ae33955e4d51ad09c783d85fd1a0.setIcon(icon_7bad3a09f5a47fcdbce2df0fd750b4d7);
+            
+    
+            var marker_db86d585bc2fc09bd7c6cc8563405f91 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_4da2e81e5d72bfc86295ac267ea5549e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_07deb44bce2bb54754fe628d8339af3e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fcc415e1a15117dd468cef8dc91e8175 = $(`<div id="html_fcc415e1a15117dd468cef8dc91e8175" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al Jazeera (Qatar)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">¿A qué grupos kurdos está reuniendo Estados Unidos para luchar contra Irán?</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.aljazeera.com/news/2026/3/5/which-kurdish-groups-is-the-us-rallying-to-fight?traffic_source=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=%C2%BFA+qu%C3%A9+grupos+kurdos+est%C3%A1+reuniendo+Estados+Unidos+para+luchar+contra+Ir%C3%A1n%3F&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_07deb44bce2bb54754fe628d8339af3e.setContent(html_fcc415e1a15117dd468cef8dc91e8175);
+            
+        
+
+        marker_db86d585bc2fc09bd7c6cc8563405f91.bindPopup(popup_07deb44bce2bb54754fe628d8339af3e)
+        ;
+
+        
+    
+    
+            marker_db86d585bc2fc09bd7c6cc8563405f91.bindTooltip(
+                `<div>
+                     Al Jazeera (Qatar): ¿A qué grupos kurdos está reuniendo...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_db86d585bc2fc09bd7c6cc8563405f91.setIcon(icon_4da2e81e5d72bfc86295ac267ea5549e);
+            
+    
+            var marker_47675cf40444205c60c595975760955d = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_20d693d639edbed3ed4ae546569abf52 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a65e7ec927853498accefb9d1a190e89 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_60ea7f71d8e486736155edc37cf8f9be = $(`<div id="html_60ea7f71d8e486736155edc37cf8f9be" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al Jazeera (Qatar)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">El mapa muestra el tamaño de Irán en comparación con los 50 estados de EE.UU.</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.aljazeera.com/news/2026/3/5/map-shows-how-big-iran-is-compared-with-the-50-us-states?traffic_source=rss' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=El+mapa+muestra+el+tama%C3%B1o+de+Ir%C3%A1n+en+comparaci%C3%B3n+con+los+50+estados+de+EE.UU.&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_a65e7ec927853498accefb9d1a190e89.setContent(html_60ea7f71d8e486736155edc37cf8f9be);
+            
+        
+
+        marker_47675cf40444205c60c595975760955d.bindPopup(popup_a65e7ec927853498accefb9d1a190e89)
+        ;
+
+        
+    
+    
+            marker_47675cf40444205c60c595975760955d.bindTooltip(
+                `<div>
+                     Al Jazeera (Qatar): El mapa muestra el tamaño de Irán e...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_47675cf40444205c60c595975760955d.setIcon(icon_20d693d639edbed3ed4ae546569abf52);
+            
+    
+            var marker_d2c607beb65181bf09a41f83d22895fe = L.marker(
+                [35.6892, 51.389],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_175e92ea9e17f3e3076be1c2b0380fce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6d25c4c6f9d0f267a8b827fe79e47be1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2ce60b2137ffb7ceda15731a22f6c9dc = $(`<div id="html_2ce60b2137ffb7ceda15731a22f6c9dc" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Reddit r/worldnews (Agregador)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">/r/Hilo de discusión de WorldNews: Estados Unidos e Israel lanzan ataque contra Irán; Irán toma represalias (H...</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 tehran</div>                     <a href='https://www.reddit.com/r/worldnews/comments/1rkmiqs/rworldnews_discussion_thread_us_and_israel_launch/' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=%2Fr%2FHilo+de+discusi%C3%B3n+de+WorldNews%3A+Estados+Unidos+e+Israel+lanzan+ataque+contra+Ir%C3%A1n%3B+Ir%C3%A1n+toma+represalias+%28Hilo+%235%29&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_6d25c4c6f9d0f267a8b827fe79e47be1.setContent(html_2ce60b2137ffb7ceda15731a22f6c9dc);
+            
+        
+
+        marker_d2c607beb65181bf09a41f83d22895fe.bindPopup(popup_6d25c4c6f9d0f267a8b827fe79e47be1)
+        ;
+
+        
+    
+    
+            marker_d2c607beb65181bf09a41f83d22895fe.bindTooltip(
+                `<div>
+                     Reddit r/worldnews (: /r/Hilo de discusión de WorldNews: ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d2c607beb65181bf09a41f83d22895fe.setIcon(icon_175e92ea9e17f3e3076be1c2b0380fce);
+            
+    
+            var marker_9833e1113a8249a6c08a4ee4db7dd103 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_1c6c2de9963ee9d741c72687c1d30a9d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a012811fad54a3baa22ada6a7603e3ad = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bf487341f6dad89b36d17acb7cf68d5e = $(`<div id="html_bf487341f6dad89b36d17acb7cf68d5e" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Reddit r/worldnews (Agregador)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">“Petrolero estadounidense actualmente en llamas”: Irán dice que golpeó un barco estadounidense en el Golfo con...</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.reddit.com/r/worldnews/comments/1rlitym/us_oil_tanker_currently_on_fire_iran_says_it_hit/' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=%E2%80%9CPetrolero+estadounidense+actualmente+en+llamas%E2%80%9D%3A+Ir%C3%A1n+dice+que+golpe%C3%B3+un+barco+estadounidense+en+el+Golfo+con+un+misil&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_a012811fad54a3baa22ada6a7603e3ad.setContent(html_bf487341f6dad89b36d17acb7cf68d5e);
+            
+        
+
+        marker_9833e1113a8249a6c08a4ee4db7dd103.bindPopup(popup_a012811fad54a3baa22ada6a7603e3ad)
+        ;
+
+        
+    
+    
+            marker_9833e1113a8249a6c08a4ee4db7dd103.bindTooltip(
+                `<div>
+                     Reddit r/worldnews (: “Petrolero estadounidense actualmen...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9833e1113a8249a6c08a4ee4db7dd103.setIcon(icon_1c6c2de9963ee9d741c72687c1d30a9d);
+            
+    
+            var marker_c21003051052f161ef6270f588c90797 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_56f07975ce471eb4dad7646e2e17f0a8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a5f940987b25912dc30fe15378aa0598 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ca3c6b1aec1a3c612b505edd5cda2268 = $(`<div id="html_ca3c6b1aec1a3c612b505edd5cda2268" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Reddit r/worldnews (Agregador)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Irak se sumió en un apagón nacional cuando Estados Unidos ordenó a sus ciudadanos que se fueran inmediatamente</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.reddit.com/r/worldnews/comments/1rl67f3/iraq_plunged_into_nationwide_blackout_as_us_tells/' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Irak+se+sumi%C3%B3+en+un+apag%C3%B3n+nacional+cuando+Estados+Unidos+orden%C3%B3+a+sus+ciudadanos+que+se+fueran+inmediatamente&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_a5f940987b25912dc30fe15378aa0598.setContent(html_ca3c6b1aec1a3c612b505edd5cda2268);
+            
+        
+
+        marker_c21003051052f161ef6270f588c90797.bindPopup(popup_a5f940987b25912dc30fe15378aa0598)
+        ;
+
+        
+    
+    
+            marker_c21003051052f161ef6270f588c90797.bindTooltip(
+                `<div>
+                     Reddit r/worldnews (: Irak se sumió en un apagón nacional...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c21003051052f161ef6270f588c90797.setIcon(icon_56f07975ce471eb4dad7646e2e17f0a8);
+            
+    
+            var marker_8db0893c97a72480033fcd5e81004de2 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_26cbd1a128990b9cc6c533256577f46b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c0d7e057d09ab04d0c25bb10699bf2f5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9e7dfa14a518a5f824c9a7d04c181a33 = $(`<div id="html_9e7dfa14a518a5f824c9a7d04c181a33" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Reddit r/worldnews (Agregador)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Irán califica de “atrocidad” el torpedeo de un barco por parte de Estados Unidos</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.reddit.com/r/worldnews/comments/1rlg97d/iran_calls_torpedoing_of_ship_by_us_an_atrocity/' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Ir%C3%A1n+califica+de+%E2%80%9Catrocidad%E2%80%9D+el+torpedeo+de+un+barco+por+parte+de+Estados+Unidos&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_c0d7e057d09ab04d0c25bb10699bf2f5.setContent(html_9e7dfa14a518a5f824c9a7d04c181a33);
+            
+        
+
+        marker_8db0893c97a72480033fcd5e81004de2.bindPopup(popup_c0d7e057d09ab04d0c25bb10699bf2f5)
+        ;
+
+        
+    
+    
+            marker_8db0893c97a72480033fcd5e81004de2.bindTooltip(
+                `<div>
+                     Reddit r/worldnews (: Irán califica de “atrocidad” el tor...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8db0893c97a72480033fcd5e81004de2.setIcon(icon_26cbd1a128990b9cc6c533256577f46b);
+            
+    
+            var marker_dc84a112b1458bcd8e655db6e9d61351 = L.marker(
+                [26.56, 56.25],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_935408e626da77fc499d43ae3bb41a0a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_70ca6106d58117fd2fc6e4bb7a389d29 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_efe5084a4d3f831945fb3dfc1e9c283f = $(`<div id="html_efe5084a4d3f831945fb3dfc1e9c283f" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Reddit r/worldnews (Agregador)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Irán permitirá que sólo buques chinos atraviesen el Estrecho de Ormuz: fuentes</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 hormuz</div>                     <a href='https://www.reddit.com/r/worldnews/comments/1rlcm3x/iran_to_allow_only_chinese_vessels_through_strait/' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Ir%C3%A1n+permitir%C3%A1+que+s%C3%B3lo+buques+chinos+atraviesen+el+Estrecho+de+Ormuz%3A+fuentes&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_70ca6106d58117fd2fc6e4bb7a389d29.setContent(html_efe5084a4d3f831945fb3dfc1e9c283f);
+            
+        
+
+        marker_dc84a112b1458bcd8e655db6e9d61351.bindPopup(popup_70ca6106d58117fd2fc6e4bb7a389d29)
+        ;
+
+        
+    
+    
+            marker_dc84a112b1458bcd8e655db6e9d61351.bindTooltip(
+                `<div>
+                     Reddit r/worldnews (: Irán permitirá que sólo buques chin...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dc84a112b1458bcd8e655db6e9d61351.setIcon(icon_935408e626da77fc499d43ae3bb41a0a);
+            
+    
+            var marker_bcd46d4d618c6cc9f5cb0e088d01ce0f = L.marker(
+                [26.56, 56.25],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_a3646999a28a9b0c160f4b7caa28b9ee = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_70d12c9f13d238897c7bb826ec4c1695 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e130bad909783119cc65249b3b25f2c6 = $(`<div id="html_e130bad909783119cc65249b3b25f2c6" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Middle East Eye (Independiente)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Guerra de Irán: 15.000 pasajeros de cruceros atrapados en aguas del Golfo</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 hormuz</div>                     <a href='https://www.middleeasteye.net/news/iran-war-15000-cruise-ship-passengers-trapped-gulf-waters' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Guerra+de+Ir%C3%A1n%3A+15.000+pasajeros+de+cruceros+atrapados+en+aguas+del+Golfo&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_70d12c9f13d238897c7bb826ec4c1695.setContent(html_e130bad909783119cc65249b3b25f2c6);
+            
+        
+
+        marker_bcd46d4d618c6cc9f5cb0e088d01ce0f.bindPopup(popup_70d12c9f13d238897c7bb826ec4c1695)
+        ;
+
+        
+    
+    
+            marker_bcd46d4d618c6cc9f5cb0e088d01ce0f.bindTooltip(
+                `<div>
+                     Middle East Eye (Ind: Guerra de Irán: 15.000 pasajeros de...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bcd46d4d618c6cc9f5cb0e088d01ce0f.setIcon(icon_a3646999a28a9b0c160f4b7caa28b9ee);
+            
+    
+            var marker_dae3351ae4e843ac3f7bbdbc378ace83 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_f1d911e90300bcffee68ae741293d1d0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2b58502bf1d0c586d7376c5882a4b79c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0ab3118963a697cac75fc1dbd44832b2 = $(`<div id="html_0ab3118963a697cac75fc1dbd44832b2" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Middle East Eye (Independiente)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Trump exige elegir al próximo líder supremo de Irán</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.middleeasteye.net/news/trump-choose-new-iran-leader' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Trump+exige+elegir+al+pr%C3%B3ximo+l%C3%ADder+supremo+de+Ir%C3%A1n&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_2b58502bf1d0c586d7376c5882a4b79c.setContent(html_0ab3118963a697cac75fc1dbd44832b2);
+            
+        
+
+        marker_dae3351ae4e843ac3f7bbdbc378ace83.bindPopup(popup_2b58502bf1d0c586d7376c5882a4b79c)
+        ;
+
+        
+    
+    
+            marker_dae3351ae4e843ac3f7bbdbc378ace83.bindTooltip(
+                `<div>
+                     Middle East Eye (Ind: Trump exige elegir al próximo líder...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dae3351ae4e843ac3f7bbdbc378ace83.setIcon(icon_f1d911e90300bcffee68ae741293d1d0);
+            
+    
+            var marker_9f15ea3998f556537b0fe64d2d431914 = L.marker(
+                [32.0853, 34.7818],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_91ccfb460dc21461be514e7206b3bf87 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a1906919a0e99b9dfb8b577a31f29a1a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8c1f9c3da32b2c78ccfc0899a4d482dc = $(`<div id="html_8c1f9c3da32b2c78ccfc0899a4d482dc" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Middle East Eye (Independiente)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Casi 25.000 vuelos cancelados en todo Oriente Medio desde el inicio de la guerra contra Irán</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 tel aviv</div>                     <a href='https://www.middleeasteye.net/live-blog/live-blog-update/nearly-25000-flights-cancelled-across-middle-east-start-war-iran' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Casi+25.000+vuelos+cancelados+en+todo+Oriente+Medio+desde+el+inicio+de+la+guerra+contra+Ir%C3%A1n&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_a1906919a0e99b9dfb8b577a31f29a1a.setContent(html_8c1f9c3da32b2c78ccfc0899a4d482dc);
+            
+        
+
+        marker_9f15ea3998f556537b0fe64d2d431914.bindPopup(popup_a1906919a0e99b9dfb8b577a31f29a1a)
+        ;
+
+        
+    
+    
+            marker_9f15ea3998f556537b0fe64d2d431914.bindTooltip(
+                `<div>
+                     Middle East Eye (Ind: Casi 25.000 vuelos cancelados en to...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9f15ea3998f556537b0fe64d2d431914.setIcon(icon_91ccfb460dc21461be514e7206b3bf87);
+            
+    
+            var marker_6c95ac475532600c1f827637db407ce3 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_6930478d4a796d12d2e6818efbdd3af1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3ef9af6fb2429d0d8e71925d6957a560 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_746362eb11be452db04e5587a17da65b = $(`<div id="html_746362eb11be452db04e5587a17da65b" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Middle East Eye (Independiente)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Bahréin informa daños limitados después de que una instalación fuera atacada en una ciudad petrolera e industr...</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.middleeasteye.net/live-blog/live-blog-update/bahrain-reports-limited-damage-after-facility-targeted-oil-and' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Bahr%C3%A9in+informa+da%C3%B1os+limitados+despu%C3%A9s+de+que+una+instalaci%C3%B3n+fuera+atacada+en+una+ciudad+petrolera+e+industrial&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_3ef9af6fb2429d0d8e71925d6957a560.setContent(html_746362eb11be452db04e5587a17da65b);
+            
+        
+
+        marker_6c95ac475532600c1f827637db407ce3.bindPopup(popup_3ef9af6fb2429d0d8e71925d6957a560)
+        ;
+
+        
+    
+    
+            marker_6c95ac475532600c1f827637db407ce3.bindTooltip(
+                `<div>
+                     Middle East Eye (Ind: Bahréin informa daños limitados des...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6c95ac475532600c1f827637db407ce3.setIcon(icon_6930478d4a796d12d2e6818efbdd3af1);
+            
+    
+            var marker_bb71408dfc4d48847fc420a2308ddf7e = L.marker(
+                [31.5017, 34.4668],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_4240b0d912178df4d923fb25d1084b34 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f065a54d4def6e9064c42a78acad674b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5187773ca18bf9ff2c147a286ab22daf = $(`<div id="html_5187773ca18bf9ff2c147a286ab22daf" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Middle East Eye (Independiente)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Exclusiva: Autoridades iraníes se preparan para escenario de guerra civil</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 gaza</div>                     <a href='https://www.middleeasteye.net/news/exclusive-iranian-authorities-prepare-civil-war-scenario' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Exclusiva%3A+Autoridades+iran%C3%ADes+se+preparan+para+escenario+de+guerra+civil&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_f065a54d4def6e9064c42a78acad674b.setContent(html_5187773ca18bf9ff2c147a286ab22daf);
+            
+        
+
+        marker_bb71408dfc4d48847fc420a2308ddf7e.bindPopup(popup_f065a54d4def6e9064c42a78acad674b)
+        ;
+
+        
+    
+    
+            marker_bb71408dfc4d48847fc420a2308ddf7e.bindTooltip(
+                `<div>
+                     Middle East Eye (Ind: Exclusiva: Autoridades iraníes se p...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bb71408dfc4d48847fc420a2308ddf7e.setIcon(icon_4240b0d912178df4d923fb25d1084b34);
+            
+    
+            var marker_68aa7543f5b440fb5ea7c1e6892d7dc7 = L.marker(
+                [32.0853, 34.7818],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_bc87209ba88c4993d473c04cc21fc6d6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f565a1aa6ec5c40e4c7bd7947fe56e2e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1031450161596c1d71ada83baa2fdbf6 = $(`<div id="html_1031450161596c1d71ada83baa2fdbf6" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Middle East Eye (Independiente)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Los israelíes celebran Purim con comparaciones bíblicas mientras la guerra de Irán se intensifica</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 tel aviv</div>                     <a href='https://www.middleeasteye.net/news/israelis-celebrate-purim-biblical-comparisons-iran-war-spirals' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Los+israel%C3%ADes+celebran+Purim+con+comparaciones+b%C3%ADblicas+mientras+la+guerra+de+Ir%C3%A1n+se+intensifica&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_f565a1aa6ec5c40e4c7bd7947fe56e2e.setContent(html_1031450161596c1d71ada83baa2fdbf6);
+            
+        
+
+        marker_68aa7543f5b440fb5ea7c1e6892d7dc7.bindPopup(popup_f565a1aa6ec5c40e4c7bd7947fe56e2e)
+        ;
+
+        
+    
+    
+            marker_68aa7543f5b440fb5ea7c1e6892d7dc7.bindTooltip(
+                `<div>
+                     Middle East Eye (Ind: Los israelíes celebran Purim con co...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_68aa7543f5b440fb5ea7c1e6892d7dc7.setIcon(icon_bc87209ba88c4993d473c04cc21fc6d6);
+            
+    
+            var marker_d4bb3bbbeaafef840c24c43f8d84aa95 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_83d635e0b2c32d4cffeb04d77a76d79d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61434c0dbb6b1c5024504dca98df1122 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fea7d600e9a59a7a25157a6ce0975dd3 = $(`<div id="html_fea7d600e9a59a7a25157a6ce0975dd3" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al-Monitor (Oriente Medio)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">El caos en Oriente Medio se debe a la erosión del derecho internacional, dice Kallas de la UE</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.al-monitor.com/originals/2026/03/middle-east-chaos-stems-erosion-international-law-eus-kallas-says' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=El+caos+en+Oriente+Medio+se+debe+a+la+erosi%C3%B3n+del+derecho+internacional%2C+dice+Kallas+de+la+UE&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_61434c0dbb6b1c5024504dca98df1122.setContent(html_fea7d600e9a59a7a25157a6ce0975dd3);
+            
+        
+
+        marker_d4bb3bbbeaafef840c24c43f8d84aa95.bindPopup(popup_61434c0dbb6b1c5024504dca98df1122)
+        ;
+
+        
+    
+    
+            marker_d4bb3bbbeaafef840c24c43f8d84aa95.bindTooltip(
+                `<div>
+                     Al-Monitor (Oriente : El caos en Oriente Medio se debe a ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d4bb3bbbeaafef840c24c43f8d84aa95.setIcon(icon_83d635e0b2c32d4cffeb04d77a76d79d);
+            
+    
+            var marker_f90ebf5e0afbe5ed2a2586462ad3bb8c = L.marker(
+                [55.7558, 37.6173],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_0e6c1812e10eecef9b6e2bfba5892547 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d36282046efb122359424004668ae2d6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ddb7f5e94dfe33a055cd60af1c8cce9f = $(`<div id="html_ddb7f5e94dfe33a055cd60af1c8cce9f" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al-Monitor (Oriente Medio)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Ucrania recupera 200 prisioneros de guerra en el último intercambio con Rusia, dice Zelenskiy</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 moscow</div>                     <a href='https://www.al-monitor.com/originals/2026/03/ukraine-brings-back-200-pows-latest-swap-russia-zelenskiy-says' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Ucrania+recupera+200+prisioneros+de+guerra+en+el+%C3%BAltimo+intercambio+con+Rusia%2C+dice+Zelenskiy&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_d36282046efb122359424004668ae2d6.setContent(html_ddb7f5e94dfe33a055cd60af1c8cce9f);
+            
+        
+
+        marker_f90ebf5e0afbe5ed2a2586462ad3bb8c.bindPopup(popup_d36282046efb122359424004668ae2d6)
+        ;
+
+        
+    
+    
+            marker_f90ebf5e0afbe5ed2a2586462ad3bb8c.bindTooltip(
+                `<div>
+                     Al-Monitor (Oriente : Ucrania recupera 200 prisioneros de...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f90ebf5e0afbe5ed2a2586462ad3bb8c.setIcon(icon_0e6c1812e10eecef9b6e2bfba5892547);
+            
+    
+            var marker_31fa07a12401d34559269ef72073292d = L.marker(
+                [35.6892, 51.389],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_6da444e9b199365435b859d7248ea037 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0c8678050eb9e5b4f89953ac5ce8f680 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7589d72c6affdc7fad788d0391d74a9e = $(`<div id="html_7589d72c6affdc7fad788d0391d74a9e" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al-Monitor (Oriente Medio)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Despegan más vuelos a pesar de los continuos combates en Oriente Medio</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 tehran</div>                     <a href='https://www.al-monitor.com/originals/2026/03/more-flights-take-despite-continued-fighting-middle-east' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Despegan+m%C3%A1s+vuelos+a+pesar+de+los+continuos+combates+en+Oriente+Medio&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_0c8678050eb9e5b4f89953ac5ce8f680.setContent(html_7589d72c6affdc7fad788d0391d74a9e);
+            
+        
+
+        marker_31fa07a12401d34559269ef72073292d.bindPopup(popup_0c8678050eb9e5b4f89953ac5ce8f680)
+        ;
+
+        
+    
+    
+            marker_31fa07a12401d34559269ef72073292d.bindTooltip(
+                `<div>
+                     Al-Monitor (Oriente : Despegan más vuelos a pesar de los ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_31fa07a12401d34559269ef72073292d.setIcon(icon_6da444e9b199365435b859d7248ea037);
+            
+    
+            var marker_37249b884d26e36566dcae4490988643 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_28d70d95ab954edbce5239d12af6681c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_19feda4035c3d79eca3d77e04eaa0f3f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a9cece5cb9d051dab691c06728df16f4 = $(`<div id="html_a9cece5cb9d051dab691c06728df16f4" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al-Monitor (Oriente Medio)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Exclusiva-Rutte de la OTAN "no está sordo" a las críticas por sus elogios a Trump, ofrece más</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.al-monitor.com/originals/2026/03/exclusive-natos-rutte-not-deaf-criticism-his-trump-praise-offers-more' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Exclusiva-Rutte+de+la+OTAN+%22no+est%C3%A1+sordo%22+a+las+cr%C3%ADticas+por+sus+elogios+a+Trump%2C+ofrece+m%C3%A1s&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_19feda4035c3d79eca3d77e04eaa0f3f.setContent(html_a9cece5cb9d051dab691c06728df16f4);
+            
+        
+
+        marker_37249b884d26e36566dcae4490988643.bindPopup(popup_19feda4035c3d79eca3d77e04eaa0f3f)
+        ;
+
+        
+    
+    
+            marker_37249b884d26e36566dcae4490988643.bindTooltip(
+                `<div>
+                     Al-Monitor (Oriente : Exclusiva-Rutte de la OTAN "no está...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_37249b884d26e36566dcae4490988643.setIcon(icon_28d70d95ab954edbce5239d12af6681c);
+            
+    
+            var marker_76335a71ed7ecb505feb9780d966c3d0 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_e5ee630bc65d8b1953fe4efe31f1fc92 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c5f3bdb1dfa4e1f03b27d0f656a0489b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dc2bbb3270c31a31965e536b93126149 = $(`<div id="html_dc2bbb3270c31a31965e536b93126149" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al-Monitor (Oriente Medio)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Manifestante pacifista herido en lucha en el Capitolio con el senador estadounidense Sheehy</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.al-monitor.com/originals/2026/03/anti-war-protester-injured-capitol-hill-struggle-us-senator-sheehy' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Manifestante+pacifista+herido+en+lucha+en+el+Capitolio+con+el+senador+estadounidense+Sheehy&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_c5f3bdb1dfa4e1f03b27d0f656a0489b.setContent(html_dc2bbb3270c31a31965e536b93126149);
+            
+        
+
+        marker_76335a71ed7ecb505feb9780d966c3d0.bindPopup(popup_c5f3bdb1dfa4e1f03b27d0f656a0489b)
+        ;
+
+        
+    
+    
+            marker_76335a71ed7ecb505feb9780d966c3d0.bindTooltip(
+                `<div>
+                     Al-Monitor (Oriente : Manifestante pacifista herido en lu...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_76335a71ed7ecb505feb9780d966c3d0.setIcon(icon_e5ee630bc65d8b1953fe4efe31f1fc92);
+            
+    
+            var marker_d871c6f8c11c8f15263ec376cb315e79 = L.marker(
+                [31.0, 40.0],
+                {
+}
+            ).addTo(marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f);
+        
+    
+            var icon_b43b13f272f91988b7e6bb9077ef4d42 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a5cd163677ccbaf165aea9e3794fef39 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dd95528db0f7b7147f0a3cdc84e46cc0 = $(`<div id="html_dd95528db0f7b7147f0a3cdc84e46cc0" style="width: 100.0%; height: 100.0%;">                 <div style="width:240px;background:rgba(20,20,20,0.95);padding:8px;border-radius:6px;border:1px solid green;font-family:Arial;">                     <div style="background:green;color:white;padding:3px;font-size:10px;font-weight:bold;text-align:center;">Al-Monitor (Oriente Medio)</div>                     <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">Trump dice que necesita participar en la selección del próximo líder de Irán, informa Axios</div>                     <div style="font-size:8px;color:#666;text-align:center;margin-bottom:4px;">📍 Zona Conflicto</div>                     <a href='https://www.al-monitor.com/originals/2026/03/trump-says-he-needs-be-involved-selecting-irans-next-leader-axios-reports' target='_blank' style='display:block;background:#00ff41;color:#000;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🔗 DIRECTO</a><a href='https://duckduckgo.com/?q=Trump+dice+que+necesita+participar+en+la+selecci%C3%B3n+del+pr%C3%B3ximo+l%C3%ADder+de+Ir%C3%A1n%2C+informa+Axios&ia=news' target='_blank' style='display:block;background:#de5833;color:#fff;padding:5px;text-decoration:none;font-size:9px;margin-top:4px;border-radius:2px;text-align:center;'>🦆 DUCKDUCKGO</a>                 </div>                 </div>`)[0];
+                popup_a5cd163677ccbaf165aea9e3794fef39.setContent(html_dd95528db0f7b7147f0a3cdc84e46cc0);
+            
+        
+
+        marker_d871c6f8c11c8f15263ec376cb315e79.bindPopup(popup_a5cd163677ccbaf165aea9e3794fef39)
+        ;
+
+        
+    
+    
+            marker_d871c6f8c11c8f15263ec376cb315e79.bindTooltip(
+                `<div>
+                     Al-Monitor (Oriente : Trump dice que necesita participar ...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d871c6f8c11c8f15263ec376cb315e79.setIcon(icon_b43b13f272f91988b7e6bb9077ef4d42);
+            
+    
+            marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f.addTo(map_fc5e41dcbeaf784271bf4bedf7d50097);
+        
+    
+            var layer_control_4ec3353ec5a8a099628ed1b8b92402a1_layers = {
+                base_layers : {
+                    "cartodbdarkmatter" : tile_layer_ea3974ae96cce982d9f6bf06f91492e6,
+                },
+                overlays :  {
+                    "\ud83d\udd34 Resistencia/Proxy" : marker_cluster_cd2040f1a4a6393fd77d73c14af54f10,
+                    "\ud83d\udd35 Rusia/China" : marker_cluster_972800c1d70e0ead5dca40b3f5b179fd,
+                    "\ud83d\udfe0 Occidente" : marker_cluster_9ed1dc54baec19803a6db3bed31a4516,
+                    "\ud83d\udfe2 Independientes" : marker_cluster_240af9d5700bfcb3a5215e4f714f2a3f,
+                },
+            };
+            let layer_control_4ec3353ec5a8a099628ed1b8b92402a1 = L.control.layers(
+                layer_control_4ec3353ec5a8a099628ed1b8b92402a1_layers.base_layers,
+                layer_control_4ec3353ec5a8a099628ed1b8b92402a1_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_fc5e41dcbeaf784271bf4bedf7d50097);
+
+        
+</script>
+</html>

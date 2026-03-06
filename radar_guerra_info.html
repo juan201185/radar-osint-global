@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e7707c2b4bbf2ec3c0d0db2c158bc122 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.1.2/dist/leaflet-ant-path.min.js"></script>
+</head>
+<body>
+    
+    
+        <div style="position: fixed; top: 20px; right: 20px; width: 320px; 
+                    background-color: rgba(10,10,10,0.95); color: #fff; 
+                    border: 2px solid #00ffff; padding: 15px; border-radius: 10px; 
+                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;
+                    box-shadow: 0 0 20px rgba(0,255,255,0.4);">
+            <h4 style="color:#00ffff; margin-top:0; text-align:center; font-size: 14px;
+                       border-bottom: 2px solid #333; padding-bottom: 8px;">
+                👁️‍🗨️ RADAR GUERRA INFORMACIONAL
+            </h4>
+            <div style="background: rgba(0,255,255,0.15); padding: 8px; border-radius: 5px; 
+                        margin-bottom: 10px; text-align: center; border: 1px solid #00ffff;">
+                <b style="color:#00ffff; letter-spacing: 1px;">ÍNDICE DESINFORMACIÓN: ELEVADO (NIVEL 4)</b>
+            </div>
+            <div style="line-height: 1.6;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>Vector Viral Activo:</span>
+                    <span style="color:#ff00ff; font-weight:bold;">#EscaladaMedioOriente</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>Tasa de Propagación:</span>
+                    <span style="color:#00ff41;">2.3M menciones/hora</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>Análisis Sentimiento:</span>
+                    <span style="color:#ff6666;">Negativo/Hostil 78%</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span>Cuentas Inauténticas:</span>
+                    <span style="color:#ffaa00;">~10,094 Nodos</span>
+                </div>
+            </div>
+            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px;">
+                <b style="color:#00ffff;">ENTIDADES MONITOREADAS:</b><br>
+                Zonas de Fricción Narrativa: 3 Eventos<br>
+                Granjas de Bots Activas: 3 Operaciones<br>
+                Ataques Sintéticos (IA): 2 Casos
+            </div>
+            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px; 
+                        font-size: 10px; color: #666; text-align: center;">
+                <b>Última actualización:</b><br>
+                2026-03-05 19:41:17<br>
+                <span style="color: #444;">Sistema E.T.B. v2.0</span>
+            </div>
+        </div>
+        
+    
+            <div class="folium-map" id="map_e7707c2b4bbf2ec3c0d0db2c158bc122" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e7707c2b4bbf2ec3c0d0db2c158bc122 = L.map(
+                "map_e7707c2b4bbf2ec3c0d0db2c158bc122",
+                {
+                    center: [35.0, 20.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 4,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5b29312852a5b1260795438364506c0c = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5b29312852a5b1260795438364506c0c.addTo(map_e7707c2b4bbf2ec3c0d0db2c158bc122);
+        
+    
+            var feature_group_cb84dd9344b1b67f8ae869f0120eeadb = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_770010a84c0301a4b024ad39f663cfd6 = L.marker(
+                [31.5117, 34.4608],
+                {
+}
+            ).addTo(feature_group_cb84dd9344b1b67f8ae869f0120eeadb);
+        
+    
+            var icon_2d78333b9b43aaf98f8eb2152b4dd068 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "bullhorn",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5b368d9973bdd0f19358225662692822 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_6c4fb7f5e4761ab5acd1396074790d9f = $(`<div id="html_6c4fb7f5e4761ab5acd1396074790d9f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 320px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ff00ff;">                 <b style="color:#ff00ff; font-size: 16px;">⚔️ BATALLA COGNITIVA</b><br>                 <b style="color:#aaa;">Explosión hospital Al-Ahli</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Fecha de Inserción:</b> 2023-10-17<br>                 <div style="background: rgba(0,100,255,0.15); padding: 5px; margin: 8px 0; border-radius: 3px; border: 1px solid #0066ff;">                     <b style="color:#00aaff;">Narrativa Bloque Occidental:</b><br>Fallo de cohete islamista (PIJ)                 </div>                 <div style="background: rgba(255,0,0,0.15); padding: 5px; margin: 8px 0; border-radius: 3px; border: 1px solid #ff0000;">                     <b style="color:#ff4444;">Narrativa Eje Resistencia:</b><br>Bombardeo israelí deliberado                 </div>                 <b>Estado de Evidencia:</b> Contradictoria / Guerra de OSINT<br>                 <b>Impacto Estratégico:</b> <span style="color:#ffaa00; font-weight:bold;">Alta tensión diplomática</span>             </div>             </div>`)[0];
+                popup_5b368d9973bdd0f19358225662692822.setContent(html_6c4fb7f5e4761ab5acd1396074790d9f);
+            
+        
+
+        marker_770010a84c0301a4b024ad39f663cfd6.bindPopup(popup_5b368d9973bdd0f19358225662692822)
+        ;
+
+        
+    
+    
+            marker_770010a84c0301a4b024ad39f663cfd6.bindTooltip(
+                `<div>
+                     Fricción Informativa: Explosión hospital A...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_770010a84c0301a4b024ad39f663cfd6.setIcon(icon_2d78333b9b43aaf98f8eb2152b4dd068);
+            
+    
+            var marker_646f82cc78576aa01c49557fc5d68313 = L.marker(
+                [31.5017, 34.4668],
+                {
+}
+            ).addTo(feature_group_cb84dd9344b1b67f8ae869f0120eeadb);
+        
+    
+            var icon_78de227f6b734d4f56089c8884ec26a9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "bullhorn",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8bb2807397cd46b680bb910f23b2bc1c = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_eaf3014d7658945c622b7f0a74a9374f = $(`<div id="html_eaf3014d7658945c622b7f0a74a9374f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 320px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ff00ff;">                 <b style="color:#ff00ff; font-size: 16px;">⚔️ BATALLA COGNITIVA</b><br>                 <b style="color:#aaa;">Reportes Kfar Aza (7 Oct)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Fecha de Inserción:</b> 2023-10-10<br>                 <div style="background: rgba(0,100,255,0.15); padding: 5px; margin: 8px 0; border-radius: 3px; border: 1px solid #0066ff;">                     <b style="color:#00aaff;">Narrativa Bloque Occidental:</b><br>Confirmado por fuentes IDF/Prensa                 </div>                 <div style="background: rgba(255,0,0,0.15); padding: 5px; margin: 8px 0; border-radius: 3px; border: 1px solid #ff0000;">                     <b style="color:#ff4444;">Narrativa Eje Resistencia:</b><br>Negado sistemáticamente por Hamas                 </div>                 <b>Estado de Evidencia:</b> Alta niebla de guerra / Guerra Psicológica<br>                 <b>Impacto Estratégico:</b> <span style="color:#ffaa00; font-weight:bold;">Polarización extrema global</span>             </div>             </div>`)[0];
+                popup_8bb2807397cd46b680bb910f23b2bc1c.setContent(html_eaf3014d7658945c622b7f0a74a9374f);
+            
+        
+
+        marker_646f82cc78576aa01c49557fc5d68313.bindPopup(popup_8bb2807397cd46b680bb910f23b2bc1c)
+        ;
+
+        
+    
+    
+            marker_646f82cc78576aa01c49557fc5d68313.bindTooltip(
+                `<div>
+                     Fricción Informativa: Reportes Kfar Aza (7...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_646f82cc78576aa01c49557fc5d68313.setIcon(icon_78de227f6b734d4f56089c8884ec26a9);
+            
+    
+            var marker_22b7e73653e3d6a8820fa01fc3afe502 = L.marker(
+                [33.5138, 36.2765],
+                {
+}
+            ).addTo(feature_group_cb84dd9344b1b67f8ae869f0120eeadb);
+        
+    
+            var icon_211ba809d4e15a4f631b82a29bed61b2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "bullhorn",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aeb7d222b9497213c6e952ff515266a8 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_5a8c5f636cfb5d626d1d9eac65c79d3d = $(`<div id="html_5a8c5f636cfb5d626d1d9eac65c79d3d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 320px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ff00ff;">                 <b style="color:#ff00ff; font-size: 16px;">⚔️ BATALLA COGNITIVA</b><br>                 <b style="color:#aaa;">Ataque Consulado Irán Damasco</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Fecha de Inserción:</b> 2024-04-01<br>                 <div style="background: rgba(0,100,255,0.15); padding: 5px; margin: 8px 0; border-radius: 3px; border: 1px solid #0066ff;">                     <b style="color:#00aaff;">Narrativa Bloque Occidental:</b><br>Golpe a generales IRGC (Legítimo)                 </div>                 <div style="background: rgba(255,0,0,0.15); padding: 5px; margin: 8px 0; border-radius: 3px; border: 1px solid #ff0000;">                     <b style="color:#ff4444;">Narrativa Eje Resistencia:</b><br>Violación soberanía, acto terrorista                 </div>                 <b>Estado de Evidencia:</b> Confirmación tácita de Israel<br>                 <b>Impacto Estratégico:</b> <span style="color:#ffaa00; font-weight:bold;">Escalada directa Irán-Israel</span>             </div>             </div>`)[0];
+                popup_aeb7d222b9497213c6e952ff515266a8.setContent(html_5a8c5f636cfb5d626d1d9eac65c79d3d);
+            
+        
+
+        marker_22b7e73653e3d6a8820fa01fc3afe502.bindPopup(popup_aeb7d222b9497213c6e952ff515266a8)
+        ;
+
+        
+    
+    
+            marker_22b7e73653e3d6a8820fa01fc3afe502.bindTooltip(
+                `<div>
+                     Fricción Informativa: Ataque Consulado Irá...
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_22b7e73653e3d6a8820fa01fc3afe502.setIcon(icon_211ba809d4e15a4f631b82a29bed61b2);
+            
+    
+            feature_group_cb84dd9344b1b67f8ae869f0120eeadb.addTo(map_e7707c2b4bbf2ec3c0d0db2c158bc122);
+        
+    
+            var feature_group_48b239321d95c6ac07236860f737e2ef = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_5f44318c320d47ce7b629c2ee0d5cbef = L.marker(
+                [35.6892, 51.389],
+                {
+}
+            ).addTo(feature_group_48b239321d95c6ac07236860f737e2ef);
+        
+    
+            var icon_38348a41aa0a917d20794eb96a0b207f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "robot",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_72f3901c633938e820b6cb30a2396cc2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79caa6d7cf8ccdbf2a3aab279d74384c = $(`<div id="html_79caa6d7cf8ccdbf2a3aab279d74384c" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #00ffff;">                 <b style="color:#00ffff; font-size: 16px;">🤖 OPERACIÓN TORMENTA DE ALMAS</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Vector Cero:</b> Teherán<br>                 <b>Plataformas:</b> Twitter/X, Telegram<br>                 <b>Directriz:</b> Justificar operaciones del Eje de Resistencia<br>                 <b>Carga Viral (Tags):</b> #PalestinaLibre, #EjeDeLaResistencia<br>                 <b>Volumen Inyectado:</b> <span style="color:#ffaa00;">500K posts/24h</span><br>                 <b>Bajas (Cuentas Caídas):</b> 1200             </div>             </div>`)[0];
+                popup_72f3901c633938e820b6cb30a2396cc2.setContent(html_79caa6d7cf8ccdbf2a3aab279d74384c);
+            
+        
+
+        marker_5f44318c320d47ce7b629c2ee0d5cbef.bindPopup(popup_72f3901c633938e820b6cb30a2396cc2)
+        ;
+
+        
+    
+    
+            marker_5f44318c320d47ce7b629c2ee0d5cbef.bindTooltip(
+                `<div>
+                     Botnet Activa: Operación Tormenta de Almas
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5f44318c320d47ce7b629c2ee0d5cbef.setIcon(icon_38348a41aa0a917d20794eb96a0b207f);
+            
+    
+            var marker_d8bad4bfe35530938a6a4b7d1c1aa436 = L.marker(
+                [31.7683, 35.2137],
+                {
+}
+            ).addTo(feature_group_48b239321d95c6ac07236860f737e2ef);
+        
+    
+            var icon_aa2d968abce7ad4fc4829bd26a2dcf3c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "robot",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2293fae83e927f52c3f4f7158c6c3ded = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6645368a0053ab71a6a5cac70812fa99 = $(`<div id="html_6645368a0053ab71a6a5cac70812fa99" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #00ffff;">                 <b style="color:#00ffff; font-size: 16px;">🤖 CAMPAÑA HASBARA DIGITAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Vector Cero:</b> Jerusalén<br>                 <b>Plataformas:</b> Twitter/X, TikTok<br>                 <b>Directriz:</b> Contrarrestar narrativa pro-palestina en Europa<br>                 <b>Carga Viral (Tags):</b> #IsraelUnderAttack, #HamasIsISIS<br>                 <b>Volumen Inyectado:</b> <span style="color:#ffaa00;">800K posts/24h</span><br>                 <b>Bajas (Cuentas Caídas):</b> 800             </div>             </div>`)[0];
+                popup_2293fae83e927f52c3f4f7158c6c3ded.setContent(html_6645368a0053ab71a6a5cac70812fa99);
+            
+        
+
+        marker_d8bad4bfe35530938a6a4b7d1c1aa436.bindPopup(popup_2293fae83e927f52c3f4f7158c6c3ded)
+        ;
+
+        
+    
+    
+            marker_d8bad4bfe35530938a6a4b7d1c1aa436.bindTooltip(
+                `<div>
+                     Botnet Activa: Campaña Hasbara Digital
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d8bad4bfe35530938a6a4b7d1c1aa436.setIcon(icon_aa2d968abce7ad4fc4829bd26a2dcf3c);
+            
+    
+            var marker_25fa0159706bdc480486756740d7c742 = L.marker(
+                [55.7558, 37.6173],
+                {
+}
+            ).addTo(feature_group_48b239321d95c6ac07236860f737e2ef);
+        
+    
+            var icon_d5a85244f0aa870c8c3bba66294bbc86 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "robot",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d782947e09b32892371072731e1d5ad4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_84f71a12b041f1180eee45ee7b1255ab = $(`<div id="html_84f71a12b041f1180eee45ee7b1255ab" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #00ffff;">                 <b style="color:#00ffff; font-size: 16px;">🤖 OPERACIÓN DOPPELGÄNGER</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Vector Cero:</b> Moscú<br>                 <b>Plataformas:</b> Facebook, Redes Alt-Tech<br>                 <b>Directriz:</b> Agotamiento de ayuda militar / División política<br>                 <b>Carga Viral (Tags):</b> #StopTheWar, #AmericaFirst<br>                 <b>Volumen Inyectado:</b> <span style="color:#ffaa00;">1.2M interacciones</span><br>                 <b>Bajas (Cuentas Caídas):</b> 2000             </div>             </div>`)[0];
+                popup_d782947e09b32892371072731e1d5ad4.setContent(html_84f71a12b041f1180eee45ee7b1255ab);
+            
+        
+
+        marker_25fa0159706bdc480486756740d7c742.bindPopup(popup_d782947e09b32892371072731e1d5ad4)
+        ;
+
+        
+    
+    
+            marker_25fa0159706bdc480486756740d7c742.bindTooltip(
+                `<div>
+                     Botnet Activa: Operación Doppelgänger
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_25fa0159706bdc480486756740d7c742.setIcon(icon_d5a85244f0aa870c8c3bba66294bbc86);
+            
+    
+            feature_group_48b239321d95c6ac07236860f737e2ef.addTo(map_e7707c2b4bbf2ec3c0d0db2c158bc122);
+        
+    
+            var feature_group_b279c1fe12315fa4956a5924d32155d2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            ant_path_37ddca2aebb6d1c08f71babb2ab01c1f = L.polyline.antPath(
+              [[35.6892, 51.389], [31.5, 34.5]],
+              {
+  "stroke": true,
+  "color": "#00ffff",
+  "weight": 3,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+15,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#00ffff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 800,
+  "pulseColor": "#FFFFFF",
+}
+        ).addTo(feature_group_b279c1fe12315fa4956a5924d32155d2);
+        
+    
+            ant_path_37ddca2aebb6d1c08f71babb2ab01c1f.bindTooltip(
+                `<div>
+                     Flujo Botnet: Teherán -> Objetivo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_0bd931c39f3d37da4e3bf27d038bb2fb = L.polyline.antPath(
+              [[31.7683, 35.2137], [48.8566, 2.3522]],
+              {
+  "stroke": true,
+  "color": "#00ffff",
+  "weight": 3,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+15,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#00ffff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 800,
+  "pulseColor": "#FFFFFF",
+}
+        ).addTo(feature_group_b279c1fe12315fa4956a5924d32155d2);
+        
+    
+            ant_path_0bd931c39f3d37da4e3bf27d038bb2fb.bindTooltip(
+                `<div>
+                     Flujo Botnet: Jerusalén -> Objetivo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            ant_path_0366ffb04dab1a9233e21f4ec8ed371e = L.polyline.antPath(
+              [[55.7558, 37.6173], [38.9072, -77.0369]],
+              {
+  "stroke": true,
+  "color": "#00ffff",
+  "weight": 3,
+  "opacity": 0.6,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+15,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#00ffff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 800,
+  "pulseColor": "#FFFFFF",
+}
+        ).addTo(feature_group_b279c1fe12315fa4956a5924d32155d2);
+        
+    
+            ant_path_0366ffb04dab1a9233e21f4ec8ed371e.bindTooltip(
+                `<div>
+                     Flujo Botnet: Moscú -> Objetivo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_b279c1fe12315fa4956a5924d32155d2.addTo(map_e7707c2b4bbf2ec3c0d0db2c158bc122);
+        
+    
+            var feature_group_1bf6ad9f45ebf1748216e29a8cc77b04 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_d700eec0b28a4c7ce7455a0501ed5eeb = L.marker(
+                [31.5017, 34.4668],
+                {
+}
+            ).addTo(feature_group_1bf6ad9f45ebf1748216e29a8cc77b04);
+        
+    
+            var icon_ab20153283418cad0bb104559750da65 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "microchip",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5d5d069b07942a99034b1471b36b816d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9d19364092236afd03ba89814e62d160 = $(`<div id="html_9d19364092236afd03ba89814e62d160" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid #ff66b2;">                     <b style="color:#ff66b2;">🎭 ENGAÑO GENERATIVO (IA)</b><br>                     <b>Contenido:</b> Audio sintetizado: Negociaciones encubiertas<br>                     <b>Vector:</b> Telegram<br>                     <b>Análisis OSINT:</b> <span style="color:#ff4444;">FAKE - Audio clonado por IA</span><br>                     <b>Infección:</b> 2M visualizaciones                 </div>                 </div>`)[0];
+                popup_5d5d069b07942a99034b1471b36b816d.setContent(html_9d19364092236afd03ba89814e62d160);
+            
+        
+
+        marker_d700eec0b28a4c7ce7455a0501ed5eeb.bindPopup(popup_5d5d069b07942a99034b1471b36b816d)
+        ;
+
+        
+    
+    
+            marker_d700eec0b28a4c7ce7455a0501ed5eeb.bindTooltip(
+                `<div>
+                     Contenido Sintético Detectado
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d700eec0b28a4c7ce7455a0501ed5eeb.setIcon(icon_ab20153283418cad0bb104559750da65);
+            
+    
+            var marker_29e628ba46491daeb0d2c629f8814b07 = L.marker(
+                [32.6653, 35.1794],
+                {
+}
+            ).addTo(feature_group_1bf6ad9f45ebf1748216e29a8cc77b04);
+        
+    
+            var icon_ccebe3d82b4c4650a01d516a79b802ad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "microchip",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2157770f0463b48c364f152d1083283e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_20adbca2810bdba3e31722cd06987067 = $(`<div id="html_20adbca2810bdba3e31722cd06987067" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid #ff66b2;">                     <b style="color:#ff66b2;">🎭 ENGAÑO GENERATIVO (IA)</b><br>                     <b>Contenido:</b> Video CGI: Impacto directo en base aérea<br>                     <b>Vector:</b> TikTok<br>                     <b>Análisis OSINT:</b> <span style="color:#ff4444;">FAKE - Imágenes de videojuego ARMA 3</span><br>                     <b>Infección:</b> 5M visualizaciones                 </div>                 </div>`)[0];
+                popup_2157770f0463b48c364f152d1083283e.setContent(html_20adbca2810bdba3e31722cd06987067);
+            
+        
+
+        marker_29e628ba46491daeb0d2c629f8814b07.bindPopup(popup_2157770f0463b48c364f152d1083283e)
+        ;
+
+        
+    
+    
+            marker_29e628ba46491daeb0d2c629f8814b07.bindTooltip(
+                `<div>
+                     Contenido Sintético Detectado
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_29e628ba46491daeb0d2c629f8814b07.setIcon(icon_ccebe3d82b4c4650a01d516a79b802ad);
+            
+    
+            feature_group_1bf6ad9f45ebf1748216e29a8cc77b04.addTo(map_e7707c2b4bbf2ec3c0d0db2c158bc122);
+        
+    
+            var feature_group_aeb314231dc79ec0792e5de67596cf81 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_551ea4d50121f9ae653f3cd76dfea343 = L.circleMarker(
+                [25.2854, 51.531],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#444", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_aeb314231dc79ec0792e5de67596cf81);
+        
+    
+        var popup_e0259d9189b95d67c640f02842a0bdb3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7be7f09d19d8a54403d9470a8d5294e3 = $(`<div id="html_7be7f09d19d8a54403d9470a8d5294e3" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>📡 Al Jazeera (Hub)</b><br>Línea Editorial: Pro-Eje Resistencia / Qatar</div></div>`)[0];
+                popup_e0259d9189b95d67c640f02842a0bdb3.setContent(html_7be7f09d19d8a54403d9470a8d5294e3);
+            
+        
+
+        circle_marker_551ea4d50121f9ae653f3cd76dfea343.bindPopup(popup_e0259d9189b95d67c640f02842a0bdb3)
+        ;
+
+        
+    
+    
+            var circle_marker_322207c96135828edd055624b4f8a41d = L.circleMarker(
+                [51.5074, -0.1278],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#444", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_aeb314231dc79ec0792e5de67596cf81);
+        
+    
+        var popup_4eeb3537d00dc3e117569f3a23f5d8bc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe740500eb802f431cbaba345b7669e2 = $(`<div id="html_fe740500eb802f431cbaba345b7669e2" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>📡 BBC / Reuters</b><br>Línea Editorial: Visión OTAN / Occidental</div></div>`)[0];
+                popup_4eeb3537d00dc3e117569f3a23f5d8bc.setContent(html_fe740500eb802f431cbaba345b7669e2);
+            
+        
+
+        circle_marker_322207c96135828edd055624b4f8a41d.bindPopup(popup_4eeb3537d00dc3e117569f3a23f5d8bc)
+        ;
+
+        
+    
+    
+            var circle_marker_444c01e950142b3ba3afb714aad4ddef = L.circleMarker(
+                [55.7558, 37.6173],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#444", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_aeb314231dc79ec0792e5de67596cf81);
+        
+    
+        var popup_4937f29ca35d5bbd2ccf1ca007a646f6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_239619f2eee4ff02c97cbcc9d043a1c1 = $(`<div id="html_239619f2eee4ff02c97cbcc9d043a1c1" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>📡 RT / Sputnik</b><br>Línea Editorial: Narrativa Estado Ruso</div></div>`)[0];
+                popup_4937f29ca35d5bbd2ccf1ca007a646f6.setContent(html_239619f2eee4ff02c97cbcc9d043a1c1);
+            
+        
+
+        circle_marker_444c01e950142b3ba3afb714aad4ddef.bindPopup(popup_4937f29ca35d5bbd2ccf1ca007a646f6)
+        ;
+
+        
+    
+    
+            var circle_marker_cc49197469abe9c3371c59ab03304e2b = L.circleMarker(
+                [32.0853, 34.7818],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#444", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_aeb314231dc79ec0792e5de67596cf81);
+        
+    
+        var popup_b1edc97f078dbecb9a952bbe1deefe1e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f082a3557c7355f234db86993eb90c08 = $(`<div id="html_f082a3557c7355f234db86993eb90c08" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>📡 Medios Estatales / Hasbara</b><br>Línea Editorial: Doctrina Oficial Israelí</div></div>`)[0];
+                popup_b1edc97f078dbecb9a952bbe1deefe1e.setContent(html_f082a3557c7355f234db86993eb90c08);
+            
+        
+
+        circle_marker_cc49197469abe9c3371c59ab03304e2b.bindPopup(popup_b1edc97f078dbecb9a952bbe1deefe1e)
+        ;
+
+        
+    
+    
+            var circle_marker_64724c9efff913d6bbe53536d9c80769 = L.circleMarker(
+                [35.6892, 51.389],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#444", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_aeb314231dc79ec0792e5de67596cf81);
+        
+    
+        var popup_ce7e0cb7dd03196c1c4f6f41aba97482 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e4d265fb89f61a78049dc95cd5fa91fd = $(`<div id="html_e4d265fb89f61a78049dc95cd5fa91fd" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>📡 Press TV / IRIB</b><br>Línea Editorial: Doctrina Estado Iraní</div></div>`)[0];
+                popup_ce7e0cb7dd03196c1c4f6f41aba97482.setContent(html_e4d265fb89f61a78049dc95cd5fa91fd);
+            
+        
+
+        circle_marker_64724c9efff913d6bbe53536d9c80769.bindPopup(popup_ce7e0cb7dd03196c1c4f6f41aba97482)
+        ;
+
+        
+    
+    
+            feature_group_aeb314231dc79ec0792e5de67596cf81.addTo(map_e7707c2b4bbf2ec3c0d0db2c158bc122);
+        
+    
+            var layer_control_04862e5e49a6843c5d29935511317502_layers = {
+                base_layers : {
+                    "cartodbdarkmatter" : tile_layer_5b29312852a5b1260795438364506c0c,
+                },
+                overlays :  {
+                    "\u2694\ufe0f Choques Narrativos" : feature_group_cb84dd9344b1b67f8ae869f0120eeadb,
+                    "\ud83e\udd16 Nodos Botnet / Operaciones de Info" : feature_group_48b239321d95c6ac07236860f737e2ef,
+                    "\ud83d\udce1 Vectores de Propagaci\u00f3n Digital" : feature_group_b279c1fe12315fa4956a5924d32155d2,
+                    "\ud83c\udfad Deepfakes / Desinformaci\u00f3n IA" : feature_group_1bf6ad9f45ebf1748216e29a8cc77b04,
+                    "\ud83d\udcc8 Medios y Amplificadores" : feature_group_aeb314231dc79ec0792e5de67596cf81,
+                },
+            };
+            let layer_control_04862e5e49a6843c5d29935511317502 = L.control.layers(
+                layer_control_04862e5e49a6843c5d29935511317502_layers.base_layers,
+                layer_control_04862e5e49a6843c5d29935511317502_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_e7707c2b4bbf2ec3c0d0db2c158bc122);
+
+        
+</script>
+</html>

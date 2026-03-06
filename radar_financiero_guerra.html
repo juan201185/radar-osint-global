@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fbf768927f2e4f664b339fbfc64b9e3d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.1.2/dist/leaflet-ant-path.min.js"></script>
+</head>
+<body>
+    
+    
+        <div style="position: fixed; top: 20px; right: 20px; width: 300px; 
+                    background-color: rgba(10,10,10,0.95); color: #fff; 
+                    border: 2px solid #ffcc00; padding: 15px; border-radius: 10px; 
+                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;
+                    box-shadow: 0 0 20px rgba(255,204,0,0.3);">
+            <h4 style="color:#ffcc00; margin-top:0; text-align:center; font-size: 14px; 
+                       border-bottom: 2px solid #333; padding-bottom: 8px;">
+                💰 RADAR FINANCIERO E.T.B.
+            </h4>
+            <div style="background: rgba(255,204,0,0.1); padding: 8px; border-radius: 5px; 
+                        margin-bottom: 10px; text-align: center; border: 1px solid #ffcc00;">
+                <b style="color:#ffcc00; letter-spacing: 1px;">PRECIOS GLOBALES DEL CRUDO</b>
+            </div>
+            <div style="line-height: 1.6;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>🇺🇸 Brent (Referencia):</span>
+                    <span style="color:#00ff41; font-weight:bold;">$84.5</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>🇺🇸 WTI (Texas):</span>
+                    <span style="color:#00ff41;">$79.2</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>🇮🇷 Iran Heavy (Gris):</span>
+                    <span style="color:#ff4444; font-weight:bold;">$72.3</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span>🇷🇺 Ural Ruso (Gris):</span>
+                    <span style="color:#ffaa00;">$76.8</span>
+                </div>
+            </div>
+            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px;">
+                <b style="color:#cc66ff;">EVASIÓN DE SANCIONES:</b><br>
+                Flujos Detectados: <span style="color:#ffcc00;">3 Rutas Activas</span><br>
+                Dark Fleet Identificada: <span style="color:#ff4444;">5 Buques</span><br>
+                Fuga Financiera Estimada: ~$50M USD/día
+            </div>
+            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px; 
+                        font-size: 10px; color: #666; text-align: center;">
+                <b>Última actualización:</b><br>
+                2026-03-05 19:41:10<br>
+                <span style="color: #444;">Sistema E.T.B. v2.0</span>
+            </div>
+        </div>
+        
+    
+            <div class="folium-map" id="map_fbf768927f2e4f664b339fbfc64b9e3d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_fbf768927f2e4f664b339fbfc64b9e3d = L.map(
+                "map_fbf768927f2e4f664b339fbfc64b9e3d",
+                {
+                    center: [30.0, 35.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 3,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a089b4363e295aeb416c2d66103ae3df = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a089b4363e295aeb416c2d66103ae3df.addTo(map_fbf768927f2e4f664b339fbfc64b9e3d);
+        
+    
+            var feature_group_037222ffc8c9ec6baf598249b74105e6 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            ant_path_68881bd165b030b8cc9ce9f75b67c7c1 = L.polyline.antPath(
+              [[27.1832, 56.2666], [29.8683, 121.544]],
+              {
+  "stroke": true,
+  "color": "#ffcc00",
+  "weight": 3,
+  "opacity": 0.7,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#ffcc00",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1200,
+  "pulseColor": "#FFFFFF",
+}
+        ).addTo(feature_group_037222ffc8c9ec6baf598249b74105e6);
+        
+    
+            ant_path_68881bd165b030b8cc9ce9f75b67c7c1.bindTooltip(
+                `<div>
+                     Flujo Financiero: Bandar Abbas, Irán → Puerto de Ningbo, China
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_090dde3faf2439491ebbb02cabc51aed = L.marker(
+                [27.1832, 56.2666],
+                {
+}
+            ).addTo(feature_group_037222ffc8c9ec6baf598249b74105e6);
+        
+    
+            var icon_8e728d92e5452981eb59d0e732b3467a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "oil-can",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7672333a262d2f4f5dec7b1a6d53ff6d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_af99adfabb31f879d3ed8f7cd1101f70 = $(`<div id="html_af99adfabb31f879d3ed8f7cd1101f70" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Bandar Abbas, Irán<br>                 <b>Destino:</b> Puerto de Ningbo, China<br>                 <b>Volumen:</b> 2.1M barriles<br>                 <b>Valor Estimado:</b> $150M USD<br>                 <b>Estructura de Pago:</b> Yuanes chinos (bypass SWIFT)<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Sanciones EEUU</span>             </div>             </div>`)[0];
+                popup_7672333a262d2f4f5dec7b1a6d53ff6d.setContent(html_af99adfabb31f879d3ed8f7cd1101f70);
+            
+        
+
+        marker_090dde3faf2439491ebbb02cabc51aed.bindPopup(popup_7672333a262d2f4f5dec7b1a6d53ff6d)
+        ;
+
+        
+    
+    
+            marker_090dde3faf2439491ebbb02cabc51aed.bindTooltip(
+                `<div>
+                     Nodo de Extracción Sancionado
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_090dde3faf2439491ebbb02cabc51aed.setIcon(icon_8e728d92e5452981eb59d0e732b3467a);
+            
+    
+            var marker_2d6cf36e7e1c2e4b1e7caa7e5afd40d5 = L.marker(
+                [29.8683, 121.544],
+                {
+}
+            ).addTo(feature_group_037222ffc8c9ec6baf598249b74105e6);
+        
+    
+            var icon_316fcd07f66ab16d1b51ad67f6588484 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1256f5ebc03fe6c166a13dada4e72d06 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c3faf7e13ce9e26c60b819c93e6bce17 = $(`<div id="html_c3faf7e13ce9e26c60b819c93e6bce17" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Bandar Abbas, Irán<br>                 <b>Destino:</b> Puerto de Ningbo, China<br>                 <b>Volumen:</b> 2.1M barriles<br>                 <b>Valor Estimado:</b> $150M USD<br>                 <b>Estructura de Pago:</b> Yuanes chinos (bypass SWIFT)<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Sanciones EEUU</span>             </div>             </div>`)[0];
+                popup_1256f5ebc03fe6c166a13dada4e72d06.setContent(html_c3faf7e13ce9e26c60b819c93e6bce17);
+            
+        
+
+        marker_2d6cf36e7e1c2e4b1e7caa7e5afd40d5.bindPopup(popup_1256f5ebc03fe6c166a13dada4e72d06)
+        ;
+
+        
+    
+    
+            marker_2d6cf36e7e1c2e4b1e7caa7e5afd40d5.bindTooltip(
+                `<div>
+                     Refinería/Comprador
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2d6cf36e7e1c2e4b1e7caa7e5afd40d5.setIcon(icon_316fcd07f66ab16d1b51ad67f6588484);
+            
+    
+            ant_path_defdbe486e66da9c11a719747926f11b = L.polyline.antPath(
+              [[29.2333, 50.3167], [35.1833, 35.9333]],
+              {
+  "stroke": true,
+  "color": "#ffcc00",
+  "weight": 3,
+  "opacity": 0.7,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#ffcc00",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1200,
+  "pulseColor": "#FFFFFF",
+}
+        ).addTo(feature_group_037222ffc8c9ec6baf598249b74105e6);
+        
+    
+            ant_path_defdbe486e66da9c11a719747926f11b.bindTooltip(
+                `<div>
+                     Flujo Financiero: Kharg Island, Irán → Baniyas, Siria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_86aaf78abe1a79d7c49f1a02402a498c = L.marker(
+                [29.2333, 50.3167],
+                {
+}
+            ).addTo(feature_group_037222ffc8c9ec6baf598249b74105e6);
+        
+    
+            var icon_f793700f7c8959a9c588e35cb6b3dc74 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "oil-can",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4c0db10ea15dc3c58b088c61060e51d5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d30168a8f9cdcffaaa99ddbfa6a97eaf = $(`<div id="html_d30168a8f9cdcffaaa99ddbfa6a97eaf" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Kharg Island, Irán<br>                 <b>Destino:</b> Baniyas, Siria<br>                 <b>Volumen:</b> 1M barriles<br>                 <b>Valor Estimado:</b> $45M USD (subprecio)<br>                 <b>Estructura de Pago:</b> Efectivo/oro<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Financiamiento Hezbollah</span>             </div>             </div>`)[0];
+                popup_4c0db10ea15dc3c58b088c61060e51d5.setContent(html_d30168a8f9cdcffaaa99ddbfa6a97eaf);
+            
+        
+
+        marker_86aaf78abe1a79d7c49f1a02402a498c.bindPopup(popup_4c0db10ea15dc3c58b088c61060e51d5)
+        ;
+
+        
+    
+    
+            marker_86aaf78abe1a79d7c49f1a02402a498c.bindTooltip(
+                `<div>
+                     Nodo de Extracción Sancionado
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_86aaf78abe1a79d7c49f1a02402a498c.setIcon(icon_f793700f7c8959a9c588e35cb6b3dc74);
+            
+    
+            var marker_9f50b89b94380b60012d394301836934 = L.marker(
+                [35.1833, 35.9333],
+                {
+}
+            ).addTo(feature_group_037222ffc8c9ec6baf598249b74105e6);
+        
+    
+            var icon_89c9691fa9d020a635ca930772c1325c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_41045e8c4df2a271c4d47aa2eaafb7ce = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3916331a37a8788882acf2d9e060b4d7 = $(`<div id="html_3916331a37a8788882acf2d9e060b4d7" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Kharg Island, Irán<br>                 <b>Destino:</b> Baniyas, Siria<br>                 <b>Volumen:</b> 1M barriles<br>                 <b>Valor Estimado:</b> $45M USD (subprecio)<br>                 <b>Estructura de Pago:</b> Efectivo/oro<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Financiamiento Hezbollah</span>             </div>             </div>`)[0];
+                popup_41045e8c4df2a271c4d47aa2eaafb7ce.setContent(html_3916331a37a8788882acf2d9e060b4d7);
+            
+        
+
+        marker_9f50b89b94380b60012d394301836934.bindPopup(popup_41045e8c4df2a271c4d47aa2eaafb7ce)
+        ;
+
+        
+    
+    
+            marker_9f50b89b94380b60012d394301836934.bindTooltip(
+                `<div>
+                     Refinería/Comprador
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9f50b89b94380b60012d394301836934.setIcon(icon_89c9691fa9d020a635ca930772c1325c);
+            
+    
+            ant_path_5630c2d408d242ab8167a0734406ca31 = L.polyline.antPath(
+              [[25.6333, 57.7667], [10.0667, -64.8333]],
+              {
+  "stroke": true,
+  "color": "#ffcc00",
+  "weight": 3,
+  "opacity": 0.7,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#ffcc00",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1200,
+  "pulseColor": "#FFFFFF",
+}
+        ).addTo(feature_group_037222ffc8c9ec6baf598249b74105e6);
+        
+    
+            ant_path_5630c2d408d242ab8167a0734406ca31.bindTooltip(
+                `<div>
+                     Flujo Financiero: Jask, Irán → Puerto Jose, Venezuela
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9e0ffe09479b7f1f9cbbe46265e99aa3 = L.marker(
+                [25.6333, 57.7667],
+                {
+}
+            ).addTo(feature_group_037222ffc8c9ec6baf598249b74105e6);
+        
+    
+            var icon_787baaeb161ed0dd072f886658160062 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "oil-can",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6c41f192166ea7f61e65fb19b079756d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8af3673de8563dadf50dfafdc5bd08dd = $(`<div id="html_8af3673de8563dadf50dfafdc5bd08dd" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Jask, Irán<br>                 <b>Destino:</b> Puerto Jose, Venezuela<br>                 <b>Volumen:</b> 800K barriles<br>                 <b>Valor Estimado:</b> Trueque (alimentos/medicinas)<br>                 <b>Estructura de Pago:</b> Barter<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Evasión de Sanciones</span>             </div>             </div>`)[0];
+                popup_6c41f192166ea7f61e65fb19b079756d.setContent(html_8af3673de8563dadf50dfafdc5bd08dd);
+            
+        
+
+        marker_9e0ffe09479b7f1f9cbbe46265e99aa3.bindPopup(popup_6c41f192166ea7f61e65fb19b079756d)
+        ;
+
+        
+    
+    
+            marker_9e0ffe09479b7f1f9cbbe46265e99aa3.bindTooltip(
+                `<div>
+                     Nodo de Extracción Sancionado
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9e0ffe09479b7f1f9cbbe46265e99aa3.setIcon(icon_787baaeb161ed0dd072f886658160062);
+            
+    
+            var marker_9b5d9d4e0a93c0fcb2606483d54f5a4c = L.marker(
+                [10.0667, -64.8333],
+                {
+}
+            ).addTo(feature_group_037222ffc8c9ec6baf598249b74105e6);
+        
+    
+            var icon_8589a06482f09b6d2317d586bd6d7f29 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_41637e7b3aa724a39168238eadac3b6a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d957759090e4bca9bc9689a5057015a5 = $(`<div id="html_d957759090e4bca9bc9689a5057015a5" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Jask, Irán<br>                 <b>Destino:</b> Puerto Jose, Venezuela<br>                 <b>Volumen:</b> 800K barriles<br>                 <b>Valor Estimado:</b> Trueque (alimentos/medicinas)<br>                 <b>Estructura de Pago:</b> Barter<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Evasión de Sanciones</span>             </div>             </div>`)[0];
+                popup_41637e7b3aa724a39168238eadac3b6a.setContent(html_d957759090e4bca9bc9689a5057015a5);
+            
+        
+
+        marker_9b5d9d4e0a93c0fcb2606483d54f5a4c.bindPopup(popup_41637e7b3aa724a39168238eadac3b6a)
+        ;
+
+        
+    
+    
+            marker_9b5d9d4e0a93c0fcb2606483d54f5a4c.bindTooltip(
+                `<div>
+                     Refinería/Comprador
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9b5d9d4e0a93c0fcb2606483d54f5a4c.setIcon(icon_8589a06482f09b6d2317d586bd6d7f29);
+            
+    
+            feature_group_037222ffc8c9ec6baf598249b74105e6.addTo(map_fbf768927f2e4f664b339fbfc64b9e3d);
+        
+    
+            var feature_group_681dfe3f28060a6ae649acad600d9852 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_c62fb46b80ad13a3f02070ce396d4470 = L.marker(
+                [33.95779120102097, 29.621894647965462],
+                {
+}
+            ).addTo(feature_group_681dfe3f28060a6ae649acad600d9852);
+        
+    
+            var icon_0612d737245e5cbfe0e5aaacaec928f6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "ship",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7a2ae882a16076aa63092a8d72c6ba35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d70bfe14c5736baebb4ecd120512d746 = $(`<div id="html_d70bfe14c5736baebb4ecd120512d746" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #aaaaaa;">                 <b style="color:#aaaaaa; font-size: 14px;">🚢 DARK FLEET (BUQUE FANTASMA)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Nombre AIS:</b> Adrian Darya 1<br>                 <b>IMO Registrado:</b> 9115892<br>                 <b>Bandera Falsa:</b> <span style="color:#ff4444;">Panamá</span><br>                 <b>Origen Real:</b> Irán<br>                 <b>Carga Sancionada:</b> Petróleo<br>                 <b>Vector de Ruta:</b> Bandar Abbas → Siria             </div>             </div>`)[0];
+                popup_7a2ae882a16076aa63092a8d72c6ba35.setContent(html_d70bfe14c5736baebb4ecd120512d746);
+            
+        
+
+        marker_c62fb46b80ad13a3f02070ce396d4470.bindPopup(popup_7a2ae882a16076aa63092a8d72c6ba35)
+        ;
+
+        
+    
+    
+            marker_c62fb46b80ad13a3f02070ce396d4470.bindTooltip(
+                `<div>
+                     AIS APAGADO: Adrian Darya 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c62fb46b80ad13a3f02070ce396d4470.setIcon(icon_0612d737245e5cbfe0e5aaacaec928f6);
+            
+    
+            var marker_4860554a472779d73192c0eb1ee30daf = L.marker(
+                [35.94998887755901, 30.504963688897774],
+                {
+}
+            ).addTo(feature_group_681dfe3f28060a6ae649acad600d9852);
+        
+    
+            var icon_41def53d6753640b1a1e2f5d478d7404 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "ship",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c7cdb20f48d8b557da7b9c9b86fab066 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fd7d7379dd032f59d760e7411b0e0dfa = $(`<div id="html_fd7d7379dd032f59d760e7411b0e0dfa" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #aaaaaa;">                 <b style="color:#aaaaaa; font-size: 14px;">🚢 DARK FLEET (BUQUE FANTASMA)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Nombre AIS:</b> Grace 1<br>                 <b>IMO Registrado:</b> 9119412<br>                 <b>Bandera Falsa:</b> <span style="color:#ff4444;">Panamá</span><br>                 <b>Origen Real:</b> Irán<br>                 <b>Carga Sancionada:</b> Petróleo<br>                 <b>Vector de Ruta:</b> Gibraltar → Siria             </div>             </div>`)[0];
+                popup_c7cdb20f48d8b557da7b9c9b86fab066.setContent(html_fd7d7379dd032f59d760e7411b0e0dfa);
+            
+        
+
+        marker_4860554a472779d73192c0eb1ee30daf.bindPopup(popup_c7cdb20f48d8b557da7b9c9b86fab066)
+        ;
+
+        
+    
+    
+            marker_4860554a472779d73192c0eb1ee30daf.bindTooltip(
+                `<div>
+                     AIS APAGADO: Grace 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4860554a472779d73192c0eb1ee30daf.setIcon(icon_41def53d6753640b1a1e2f5d478d7404);
+            
+    
+            var marker_e5439ea0f1a9651582a083cffd525037 = L.marker(
+                [18.273615734805304, 38.4673702917603],
+                {
+}
+            ).addTo(feature_group_681dfe3f28060a6ae649acad600d9852);
+        
+    
+            var icon_85c070ff1611f7e53af42b2597824440 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "ship",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a3e246fdb97aceb1e12ef3cb956682ac = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d9b813feaf3f7d65e079f541152ca0ec = $(`<div id="html_d9b813feaf3f7d65e079f541152ca0ec" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #aaaaaa;">                 <b style="color:#aaaaaa; font-size: 14px;">🚢 DARK FLEET (BUQUE FANTASMA)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Nombre AIS:</b> Bella<br>                 <b>IMO Registrado:</b> 9208102<br>                 <b>Bandera Falsa:</b> <span style="color:#ff4444;">Tanzania</span><br>                 <b>Origen Real:</b> Irán<br>                 <b>Carga Sancionada:</b> Condensado<br>                 <b>Vector de Ruta:</b> Emiratos → Venezuela             </div>             </div>`)[0];
+                popup_a3e246fdb97aceb1e12ef3cb956682ac.setContent(html_d9b813feaf3f7d65e079f541152ca0ec);
+            
+        
+
+        marker_e5439ea0f1a9651582a083cffd525037.bindPopup(popup_a3e246fdb97aceb1e12ef3cb956682ac)
+        ;
+
+        
+    
+    
+            marker_e5439ea0f1a9651582a083cffd525037.bindTooltip(
+                `<div>
+                     AIS APAGADO: Bella
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e5439ea0f1a9651582a083cffd525037.setIcon(icon_85c070ff1611f7e53af42b2597824440);
+            
+    
+            var marker_c452af5889882abf402494574b09ed72 = L.marker(
+                [24.45044219689427, 59.10569139262492],
+                {
+}
+            ).addTo(feature_group_681dfe3f28060a6ae649acad600d9852);
+        
+    
+            var icon_ebc12209da1d4089ae6d7414759c1db1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "ship",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_396ac59ae38e8539a8541a1ece6cfe6d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_587f27d9f894fac565bf2b132f605c92 = $(`<div id="html_587f27d9f894fac565bf2b132f605c92" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #aaaaaa;">                 <b style="color:#aaaaaa; font-size: 14px;">🚢 DARK FLEET (BUQUE FANTASMA)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Nombre AIS:</b> Bering<br>                 <b>IMO Registrado:</b> 9208126<br>                 <b>Bandera Falsa:</b> <span style="color:#ff4444;">Tanzania</span><br>                 <b>Origen Real:</b> Irán<br>                 <b>Carga Sancionada:</b> Petróleo<br>                 <b>Vector de Ruta:</b> Omán → China             </div>             </div>`)[0];
+                popup_396ac59ae38e8539a8541a1ece6cfe6d.setContent(html_587f27d9f894fac565bf2b132f605c92);
+            
+        
+
+        marker_c452af5889882abf402494574b09ed72.bindPopup(popup_396ac59ae38e8539a8541a1ece6cfe6d)
+        ;
+
+        
+    
+    
+            marker_c452af5889882abf402494574b09ed72.bindTooltip(
+                `<div>
+                     AIS APAGADO: Bering
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c452af5889882abf402494574b09ed72.setIcon(icon_ebc12209da1d4089ae6d7414759c1db1);
+            
+    
+            var marker_6caf53a008bb817cb05a5fc2f716b929 = L.marker(
+                [32.86968378473625, 31.05046291260448],
+                {
+}
+            ).addTo(feature_group_681dfe3f28060a6ae649acad600d9852);
+        
+    
+            var icon_e824e4d8a835c2c76d259827f12f4945 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "ship",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4e5bc18a573cf9a3542f01eb3f4b00ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a5c65ff4e9d6bcd46868ea7f796d14db = $(`<div id="html_a5c65ff4e9d6bcd46868ea7f796d14db" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #aaaaaa;">                 <b style="color:#aaaaaa; font-size: 14px;">🚢 DARK FLEET (BUQUE FANTASMA)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Nombre AIS:</b> Pandi<br>                 <b>IMO Registrado:</b> 9222650<br>                 <b>Bandera Falsa:</b> <span style="color:#ff4444;">Albania</span><br>                 <b>Origen Real:</b> Irán<br>                 <b>Carga Sancionada:</b> Petróleo<br>                 <b>Vector de Ruta:</b> Irán → Siria             </div>             </div>`)[0];
+                popup_4e5bc18a573cf9a3542f01eb3f4b00ca.setContent(html_a5c65ff4e9d6bcd46868ea7f796d14db);
+            
+        
+
+        marker_6caf53a008bb817cb05a5fc2f716b929.bindPopup(popup_4e5bc18a573cf9a3542f01eb3f4b00ca)
+        ;
+
+        
+    
+    
+            marker_6caf53a008bb817cb05a5fc2f716b929.bindTooltip(
+                `<div>
+                     AIS APAGADO: Pandi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6caf53a008bb817cb05a5fc2f716b929.setIcon(icon_e824e4d8a835c2c76d259827f12f4945);
+            
+    
+            feature_group_681dfe3f28060a6ae649acad600d9852.addTo(map_fbf768927f2e4f664b339fbfc64b9e3d);
+        
+    
+            var feature_group_19d297a1a876c0b6389eb7595a24c231 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_53a24172756f9df1fa0fbe3295f84b3e = L.circleMarker(
+                [25.2048, 55.2708],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19d297a1a876c0b6389eb7595a24c231);
+        
+    
+        var popup_59d44fac76128c22645ff73ca3e88262 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6f8af2e89a3c09e954b57b499d0e7214 = $(`<div id="html_6f8af2e89a3c09e954b57b499d0e7214" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid purple;">                     <b style="color:#cc66ff;">Dubai (Hawala/Oro)</b><br>                     Nodo de evasión financiera al sistema SWIFT occidental.                 </div>                 </div>`)[0];
+                popup_59d44fac76128c22645ff73ca3e88262.setContent(html_6f8af2e89a3c09e954b57b499d0e7214);
+            
+        
+
+        circle_marker_53a24172756f9df1fa0fbe3295f84b3e.bindPopup(popup_59d44fac76128c22645ff73ca3e88262)
+        ;
+
+        
+    
+    
+            var circle_marker_9a8b67481b9902bdb83421784200601c = L.circleMarker(
+                [41.0082, 28.9784],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19d297a1a876c0b6389eb7595a24c231);
+        
+    
+        var popup_ab31ceee2f833294af88455b8eec6f75 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e2d0cdc883dddec9ce163c521e69154 = $(`<div id="html_8e2d0cdc883dddec9ce163c521e69154" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid purple;">                     <b style="color:#cc66ff;">Estambul (Banca)</b><br>                     Nodo de evasión financiera al sistema SWIFT occidental.                 </div>                 </div>`)[0];
+                popup_ab31ceee2f833294af88455b8eec6f75.setContent(html_8e2d0cdc883dddec9ce163c521e69154);
+            
+        
+
+        circle_marker_9a8b67481b9902bdb83421784200601c.bindPopup(popup_ab31ceee2f833294af88455b8eec6f75)
+        ;
+
+        
+    
+    
+            var circle_marker_ee49ee85a21436388d5474e8651355d7 = L.circleMarker(
+                [55.7558, 37.6173],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19d297a1a876c0b6389eb7595a24c231);
+        
+    
+        var popup_f3ccc0e093dfee4dd7ecfd182dac2565 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2909eaadc26828caa1c3f2f2c3ed813c = $(`<div id="html_2909eaadc26828caa1c3f2f2c3ed813c" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid purple;">                     <b style="color:#cc66ff;">Moscú (Sistema SPFS)</b><br>                     Nodo de evasión financiera al sistema SWIFT occidental.                 </div>                 </div>`)[0];
+                popup_f3ccc0e093dfee4dd7ecfd182dac2565.setContent(html_2909eaadc26828caa1c3f2f2c3ed813c);
+            
+        
+
+        circle_marker_ee49ee85a21436388d5474e8651355d7.bindPopup(popup_f3ccc0e093dfee4dd7ecfd182dac2565)
+        ;
+
+        
+    
+    
+            var circle_marker_349c7a7362134cfb334cd532e0e987d2 = L.circleMarker(
+                [39.9042, 116.4074],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19d297a1a876c0b6389eb7595a24c231);
+        
+    
+        var popup_fa3e7ad81dcdf1966f715b5737442288 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_98a226c6ffaa2f8e8e2fb612ae818109 = $(`<div id="html_98a226c6ffaa2f8e8e2fb612ae818109" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid purple;">                     <b style="color:#cc66ff;">Pekín (Sistema CIPS)</b><br>                     Nodo de evasión financiera al sistema SWIFT occidental.                 </div>                 </div>`)[0];
+                popup_fa3e7ad81dcdf1966f715b5737442288.setContent(html_98a226c6ffaa2f8e8e2fb612ae818109);
+            
+        
+
+        circle_marker_349c7a7362134cfb334cd532e0e987d2.bindPopup(popup_fa3e7ad81dcdf1966f715b5737442288)
+        ;
+
+        
+    
+    
+            var circle_marker_28b319cbe52ec31d5ab23aa15c537258 = L.circleMarker(
+                [10.4806, -66.9036],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
+            ).addTo(feature_group_19d297a1a876c0b6389eb7595a24c231);
+        
+    
+        var popup_e1c7a97d13a5d620c626e7855cf44df0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1858bff3596963ff507a40972c96d4b = $(`<div id="html_d1858bff3596963ff507a40972c96d4b" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid purple;">                     <b style="color:#cc66ff;">Caracas (Estructura Trueque)</b><br>                     Nodo de evasión financiera al sistema SWIFT occidental.                 </div>                 </div>`)[0];
+                popup_e1c7a97d13a5d620c626e7855cf44df0.setContent(html_d1858bff3596963ff507a40972c96d4b);
+            
+        
+
+        circle_marker_28b319cbe52ec31d5ab23aa15c537258.bindPopup(popup_e1c7a97d13a5d620c626e7855cf44df0)
+        ;
+
+        
+    
+    
+            feature_group_19d297a1a876c0b6389eb7595a24c231.addTo(map_fbf768927f2e4f664b339fbfc64b9e3d);
+        
+    
+            var layer_control_3070af2a0390edb8344177c2d49550ad_layers = {
+                base_layers : {
+                    "cartodbdarkmatter" : tile_layer_a089b4363e295aeb416c2d66103ae3df,
+                },
+                overlays :  {
+                    "\ud83d\udee2\ufe0f Flujos de Petr\u00f3leo Ir\u00e1n/Rusia" : feature_group_037222ffc8c9ec6baf598249b74105e6,
+                    "\u26a0\ufe0f Flota Fantasma (Dark Fleet)" : feature_group_681dfe3f28060a6ae649acad600d9852,
+                    "\ud83d\udcb0 Nodos Financieros / Sanciones" : feature_group_19d297a1a876c0b6389eb7595a24c231,
+                },
+            };
+            let layer_control_3070af2a0390edb8344177c2d49550ad = L.control.layers(
+                layer_control_3070af2a0390edb8344177c2d49550ad_layers.base_layers,
+                layer_control_3070af2a0390edb8344177c2d49550ad_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_fbf768927f2e4f664b339fbfc64b9e3d);
+
+        
+</script>
+</html>
