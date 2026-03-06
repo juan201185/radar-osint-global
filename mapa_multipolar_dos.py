@@ -148,7 +148,7 @@ def generar_mapa_multipolar():
     </div>
     """
     mapa_osint.get_root().html.add_child(folium.Element(panel_html))
-    mapa_osint.save("mapa_multipolar.html")
+    mapa_osint.save("radar_geopolitico_standalone.html")
     print(f"-> Sistema Operativo. Reportes Totales: {impactos} | Brent: ${p_brent:.2f}")
 
 if __name__ == "__main__":
