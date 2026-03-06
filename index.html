@@ -2,46 +2,285 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>CENTRO DE MANDO OSINT - E.T.B.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Mando E.T.B. v2.0</title>
     <style>
-        body { background-color: #0a0a0a; color: #00ff41; font-family: 'Courier New', monospace; text-align: center; padding: 50px; }
-        .panel { border: 2px solid #00ff41; padding: 30px; display: inline-block; border-radius: 15px; box-shadow: 0 0 20px #00ff41; }
-        h1 { color: #00ff41; letter-spacing: 5px; }
-        .btn { 
-            display: block; width: 450px; padding: 15px; margin: 15px auto; 
-            background: #00ff41; color: #000; border: none; 
-            text-decoration: none; font-weight: bold; font-size: 1.1em; transition: 0.3s;
+        :root {
+            --bg-color: #050505;
+            --panel-bg: #111;
+            --border-color: #333;
+            --text-main: #fff;
+            --text-muted: #888;
+            --neon-red: #ff3333;
+            --neon-blue: #3388ff;
+            --neon-purple: #b000ff;
+            --neon-darkred: #aa0000;
         }
-        .btn:hover { background: #000; color: #00ff41; outline: 2px solid #00ff41; }
-        .footer { margin-top: 40px; font-size: 0.8em; color: #00ff41; opacity: 0.6; }
-        
-        /* Efecto de titileo (Radar Activo) */
-        @keyframes titilar {
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+
+        /* --- Header / Telemetría --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, rgba(17,17,17,1) 0%, rgba(5,5,5,1) 100%);
+        }
+
+        .title-box h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #00ff41;
+            text-shadow: 0 0 10px rgba(0,255,65,0.4);
+            letter-spacing: 2px;
+        }
+
+        .title-box p {
+            margin: 5px 0 0 0;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .telemetry {
+            text-align: right;
+            font-size: 14px;
+            color: #00ff41;
+        }
+
+        .telemetry span {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* --- Sistema de Filas --- */
+        .row-container {
+            margin-bottom: 30px;
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .row-header {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            letter-spacing: 1px;
+        }
+
+        /* Colores por Fila */
+        .fila-1 .row-header { color: var(--neon-red); text-shadow: 0 0 8px rgba(255,51,51,0.4); border-bottom-color: var(--neon-red); }
+        .fila-2 .row-header { color: var(--neon-blue); text-shadow: 0 0 8px rgba(51,136,255,0.4); border-bottom-color: var(--neon-blue); }
+        .fila-3 .row-header { color: var(--neon-purple); text-shadow: 0 0 8px rgba(176,0,255,0.4); border-bottom-color: var(--neon-purple); }
+        .fila-4 .row-header { color: var(--neon-darkred); text-shadow: 0 0 8px rgba(170,0,0,0.4); border-bottom-color: var(--neon-darkred); }
+
+        /* --- Cuadrícula de Mapas --- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            height: 450px;
+        }
+
+        .grid-1 {
+            display: grid;
+            grid-template-columns: 80%;
+            justify-content: center;
+            height: 500px;
+        }
+
+        /* Contenedores de iFrames */
+        .map-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background: #000;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .map-frame:hover {
+            border-color: #888;
+            box-shadow: 0 0 15px rgba(255,255,255,0.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .map-label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 10px;
+            border-bottom-right-radius: 5px;
+            border-right: 1px solid #444;
+            border-bottom: 1px solid #444;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* --- Footer y Animaciones E.T.B. --- */
+        .footer-container {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .footer-container hr {
+            border: 0;
+            border-top: 1px dashed var(--border-color);
+            margin-bottom: 15px;
+        }
+
+        .alerta-activa {
+            color: #00ff41;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(0,255,65,0.8);
+            animation: latido 1.5s infinite;
+        }
+
+        @keyframes latido {
             0% { opacity: 1; }
-            50% { opacity: 0; }
+            50% { opacity: 0.3; }
             100% { opacity: 1; }
         }
-        .alerta-activa {
-            color: #ff4444;
-            animation: titilar 1.2s infinite;
-            font-weight: bold;
+
+        .footer {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .grid-3 { grid-template-columns: repeat(2, 1fr); height: auto; }
+            .map-frame { height: 400px; }
+            .grid-1 { grid-template-columns: 100%; }
+        }
+        @media (max-width: 900px) {
+            .grid-3 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="panel">
-        <h1>CENTRO DE MANDO OSINT</h1>
+
+    <header>
+        <div class="title-box">
+            <h1>CENTRO DE MANDO E.T.B.</h1>
+            <p>SISTEMA INTEGRADO DE INTELIGENCIA OSINT (v2.0)</p>
+        </div>
+        <div class="telemetry">
+            <span id="clock" style="font-weight: bold; font-size: 18px;">00:00:00 UTC</span>
+            <span style="color: var(--text-muted);">ESTADO: <b style="color: #ff3333;">DEFCON 3</b></span>
+            <span style="color: var(--text-muted);">MOTORES EN LÍNEA: 10/10</span>
+        </div>
+    </header>
+
+    <div class="row-container fila-1">
+        <div class="row-header">🔴 FILA 1: CONFLICTO ACTIVO (DESPLIEGUES Y KINETIC)</div>
+        <div class="grid-3">
+            <div class="map-frame">
+                <div class="map-label">MAPA MULTIPOLAR (NOTICIAS)</div>
+                <iframe src="mapa_multipolar.html" loading="lazy"></iframe>
+            </div>
+            <div class="map-frame">
+                <div class="map-label">RADAR REGIONAL (NASA/FIRMS)</div>
+                <iframe src="radar_regional_medio_oriente.html" loading="lazy"></iframe>
+            </div>
+            <div class="map-frame">
+                <div class="map-label">MOVIMIENTO TROPAS (TERRESTRE)</div>
+                <iframe src="radar_movimiento_tropas.html" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-container fila-2">
+        <div class="row-header">🔵 FILA 2: LOGÍSTICA Y SUMINISTRO (CHOKEPOINTS)</div>
+        <div class="grid-3">
+            <div class="map-frame">
+                <div class="map-label">PUENTE AÉREO ATLÁNTICO</div>
+                <iframe src="radar_logistico_atlantico.html" loading="lazy"></iframe>
+            </div>
+            <div class="map-frame">
+                <div class="map-label">MARÍTIMO MAR ROJO</div>
+                <iframe src="radar_maritimo_rojo.html" loading="lazy"></iframe>
+            </div>
+            <div class="map-frame">
+                <div class="map-label">FINANCIERO Y SANCIONES</div>
+                <iframe src="radar_financiero_guerra.html" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-container fila-3">
+        <div class="row-header">🟣 FILA 3: AMENAZAS ESTRATÉGICAS (ASIMÉTRICAS)</div>
+        <div class="grid-3">
+            <div class="map-frame">
+                <div class="map-label">NUCLEAR ESTRATÉGICO</div>
+                <iframe src="radar_nuclear_estrategico.html" loading="lazy"></iframe>
+            </div>
+            <div class="map-frame">
+                <div class="map-label">CIBERGUERRA Y APTs</div>
+                <iframe src="radar_ciber_guerra.html" loading="lazy"></iframe>
+            </div>
+            <div class="map-frame">
+                <div class="map-label">GUERRA INFORMACIONAL</div>
+                <iframe src="radar_guerra_info.html" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-container fila-4">
+        <div class="row-header">⛑️ FILA 4: IMPACTO HUMANITARIO (DAÑO COLATERAL)</div>
+        <div class="grid-1">
+            <div class="map-frame" style="border-color: #aa0000;">
+                <div class="map-label" style="background: rgba(170,0,0,0.8);">CRISIS HUMANITARIA Y REFUGIADOS</div>
+                <iframe src="radar_humanitario_crisis.html" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-container">
         <hr>
-        <p>Vigilancia Estratégica Regional y Global</p>
-        
-        <a href="mapa_multipolar.html" class="btn">📡 RADAR DE NOTICIAS (MULTIPOLAR + PETRÓLEO)</a>
-        <a href="radar_regional_medio_oriente.html" class="btn">🔥 RADAR SATELITAL VIIRS (NASA)</a>
-        <a href="radar_logistico_atlantico.html" class="btn">✈️ PUENTE AÉREO ATLÁNTICO (LOGÍSTICA)</a>
-        
-        <hr>
-        <p>ESTADO DEL SISTEMA: <span class="alerta-activa">OPERATIVO / ESCANEANDO</span></p>
-        
+        <p style="margin: 0; font-size: 14px; letter-spacing: 2px;">
+            ESTADO DEL SISTEMA: <span class="alerta-activa">OPERATIVO / ESCANEANDO</span>
+        </p>
         <div class="footer">© 2026 Ingeniería Trejos - Cauca, Colombia</div>
     </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toISOString().substring(11, 19) + ' UTC';
+            document.getElementById('clock').textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
 </body>
 </html>
