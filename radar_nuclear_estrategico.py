@@ -175,7 +175,7 @@ class RadarNuclearEstrategico:
                 <b>Estado:</b> {datos['estado']}<br>
                 <b>Nivel Enriquecimiento:</b> <span style="color:#ffcc00;">{datos.get('enriquecimiento', 'N/A')}</span><br>
                 <b>Vector (Centrífugas):</b> {datos.get('centrifugas', 'Desconocido')}<br>
-                <b>Blindaje/Defensa:</b> {datos['proteccion']}<br>
+                <b>Blindaje/Defensa:</b> {datos.get('proteccion', 'Clasificado / No Determinado')}<br>
                 <b>Nivel de Riesgo:</b> <span style="color:{color}; font-weight:bold;">{datos['riesgo']}</span><br>
                 <b>Último Sabotaje:</b> {datos['ultimo_ataque']}
             </div>
@@ -201,7 +201,6 @@ class RadarNuclearEstrategico:
         # 2. Submarinos israelíes (posiciones estimadas)
         subs = self.obtener_submarinos_activos()
         for sub in subs:
-            # Área de incertidumbre operativa
             folium.Circle(
                 sub['posicion_estimada'],
                 radius=400000,  # 400km incertidumbre

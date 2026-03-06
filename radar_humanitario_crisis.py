@@ -114,7 +114,7 @@ class RadarHumanitarioCrisis:
         # 2. Hospitales
         for hosp in HOSPITALES_DANADOS:
             color = {"Destruido": "black", "Fuera de servicio": "red", 
-                     "Dañado": "orange", "Parcialmente operativo": "yellow"}.get(hosp['estado'], 'gray')
+                     "Dañado": "orange", "Parcialmente operativo": "beige"}.get(hosp['estado'], 'gray')
             
             popup_html = f"""
             <div style="font-family: 'Courier New', monospace; width: 260px; 
