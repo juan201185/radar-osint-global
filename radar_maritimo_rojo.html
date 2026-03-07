@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_468c34b78086e67caacb695f512113d0 {
+                #map_4f402c1de482962e25a2a163b3ffa739 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -55,64 +55,41 @@
 <body>
     
     
-        <div style="position: fixed; top: 20px; right: 20px; width: 300px; 
-                    background-color: rgba(10,10,10,0.95); color: #fff; 
-                    border: 2px solid #ff4444; padding: 15px; border-radius: 10px; 
-                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;
-                    box-shadow: 0 0 20px rgba(255,0,0,0.4);">
-            <h4 style="color:#ff4444; margin-top:0; text-align:center; font-size: 14px; 
-                       border-bottom: 2px solid #333; padding-bottom: 8px;">
-                🚢 RADAR MARÍTIMO ROJO E.T.B.
-            </h4>
-            <div style="background: rgba(255,0,0,0.2); padding: 8px; border-radius: 5px; 
-                        margin: 10px 0; text-align: center; border: 1px solid red;">
-                <b style="color:#ff6666; letter-spacing: 1px;">BAB EL-MANDEB: BLOQUEADO</b>
+        <div style="position: fixed; top: 20px; right: 20px; width: 320px; background: rgba(10,10,10,0.95); 
+                    color: #fff; border: 2px solid #ff4444; padding: 15px; border-radius: 10px; 
+                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999; box-shadow: 0 0 20px rgba(255,0,0,0.4);">
+            <h4 style="color:#ff4444; text-align:center; margin:0 0 10px 0;">🚢 RADAR MARÍTIMO E.T.B.</h4>
+            <div style="background: rgba(255,0,0,0.2); padding: 8px; border-radius: 5px; text-align: center; border: 1px solid #ff4444;">
+                <b style="color:#ff6666;">BAB EL-MANDEB: BLOQUEO ACTIVO</b>
             </div>
-            <div style="line-height: 1.6;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Buques en Radar:</span>
-                    <span style="font-weight:bold;">6</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Escoltas Militares:</span>
-                    <span style="color:#4488ff;">2 Activas</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Tráfico Desviado:</span>
-                    <span style="color:#ffaa00;">~15% Global</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span>Incidentes/Ataques:</span>
-                    <span style="color:#ff4444; font-weight:bold;">4 Detectados</span>
-                </div>
+            <div style="margin-top: 10px; line-height: 1.4;">
+                <b>INTELIGENCIA NAVAL:</b><br>
+                Incidentes (24h): 5 Detectados<br>
+                Amenaza: Drones / Misiles Antibuque<br><br>
+                <b>IMPACTO LOGÍSTICO (Ruta Cabo):</b><br>
+                Brent Ref: <span style="color:#00ff41;">$92.69</span><br>
+                Sobrecosto/Buque: <span style="color:#ffcc00;">2.29M USD</span><br>
+                Demora Est: 10-14 días adicionales
             </div>
-            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px;">
-                <b style="color:#ffaa00;">IMPACTO LOGÍSTICO (Ruta Cabo):</b><br>
-                Sobrecosto: +2-3 Millones USD/Buque<br>
-                Retraso Cadena Suministro: +9/14 días
-            </div>
-            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px; 
-                        font-size: 10px; color: #666; text-align: center;">
-                <b>Última actualización:</b><br>
-                2026-03-07 14:15:09<br>
-                <span style="color: #444;">Sistema E.T.B. v2.0</span>
+            <div style="margin-top: 12px; border-top: 1px solid #333; padding-top: 8px; font-size: 9px; color: #666; text-align: center;">
+                Sincronizado: 14:53 | Ingeniería Trejos
             </div>
         </div>
         
     
-            <div class="folium-map" id="map_468c34b78086e67caacb695f512113d0" ></div>
+            <div class="folium-map" id="map_4f402c1de482962e25a2a163b3ffa739" ></div>
         
 </body>
 <script>
     
     
-            var map_468c34b78086e67caacb695f512113d0 = L.map(
-                "map_468c34b78086e67caacb695f512113d0",
+            var map_4f402c1de482962e25a2a163b3ffa739 = L.map(
+                "map_4f402c1de482962e25a2a163b3ffa739",
                 {
-                    center: [15.0, 42.0],
+                    center: [15.0, 45.0],
                     crs: L.CRS.EPSG3857,
                     ...{
-  "zoom": 6,
+  "zoom": 5,
   "zoomControl": true,
   "preferCanvas": false,
 }
@@ -124,7 +101,7 @@
 
         
     
-            var tile_layer_104a050e729c2d1f0b9caf55578c5bd5 = L.tileLayer(
+            var tile_layer_dec85039ad40713f64686849ccc61960 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -141,23 +118,39 @@
             );
         
     
-            tile_layer_104a050e729c2d1f0b9caf55578c5bd5.addTo(map_468c34b78086e67caacb695f512113d0);
+            tile_layer_dec85039ad40713f64686849ccc61960.addTo(map_4f402c1de482962e25a2a163b3ffa739);
         
     
-            var feature_group_204a702179849614905c63c6bdc6782f = L.featureGroup(
+            var feature_group_d5a351ddd1731bf1af6a9601fc92225c = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_0f6805094f6e749cf38d41a14ddf43a6 = L.marker(
-                [12.2, 43.8],
-                {
-}
-            ).addTo(feature_group_204a702179849614905c63c6bdc6782f);
+            var circle_51633f393e3f0ab1b3b49728557d4267 = L.circle(
+                [12.58, 43.33],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 180000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_d5a351ddd1731bf1af6a9601fc92225c);
         
     
-            var icon_3e6d5f0112062976d6754b22aa84e2b6 = L.AwesomeMarkers.icon(
+            circle_51633f393e3f0ab1b3b49728557d4267.bindTooltip(
+                `<div>
+                     ZONA DE BLOQUEO ACTIVA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bd3b466dbfd5bfdd9025b38ebbd5e65b = L.marker(
+                [13.370130709578776, 45.24537927570988],
+                {
+}
+            ).addTo(feature_group_d5a351ddd1731bf1af6a9601fc92225c);
+        
+    
+            var icon_903e097acc57f80ee78f4349cc06cf76 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -168,52 +161,36 @@
             );
         
     
-        var popup_ffe2b544af1d6a29887c6676b126cac0 = L.popup({
+        var popup_ce2c8caa3bdecfe8446f5cc60caebb55 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_62edb468f2a1cd9965fa1fbaf1fb15a1 = $(`<div id="html_62edb468f2a1cd9965fa1fbaf1fb15a1" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid orange;">                 <b style="color:orange; font-size: 16px;">                     MAERSK HARTFORD                 </b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Tipo:</b> Portacontenedores<br>                 <b>Bandera:</b> Dinamarca<br>                 <b>Velocidad:</b> 12 nudos<br>                 <b>Destino:</b> Yeda<br>                 <b>Estado:</b> <span style="color:orange; font-weight:bold;">ESCOLTADO - Operación Prosperity Guardian</span><br>                 <b>Perfil de Riesgo:</b> MEDIO             </div>             </div>`)[0];
-                popup_ffe2b544af1d6a29887c6676b126cac0.setContent(html_62edb468f2a1cd9965fa1fbaf1fb15a1);
+                var html_49caefdf727eabc5f93b8a67237878de = $(`<div id="html_49caefdf727eabc5f93b8a67237878de" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid orange;">                 <b style="color:orange; font-size:14px;">🚢 DESVÍO LOGÍSTICO</b><br><br>                 <b>Reporte:</b> Shipping lines reroute from Red Sea avoiding Houthi threat...<br>                 <b>Sincronizado:</b> 2026-03-07             </div>             </div>`)[0];
+                popup_ce2c8caa3bdecfe8446f5cc60caebb55.setContent(html_49caefdf727eabc5f93b8a67237878de);
             
         
 
-        marker_0f6805094f6e749cf38d41a14ddf43a6.bindPopup(popup_ffe2b544af1d6a29887c6676b126cac0)
+        marker_bd3b466dbfd5bfdd9025b38ebbd5e65b.bindPopup(popup_ce2c8caa3bdecfe8446f5cc60caebb55)
         ;
 
         
     
     
-            marker_0f6805094f6e749cf38d41a14ddf43a6.bindTooltip(
-                `<div>
-                     Maersk Hartford - 12kts
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_0f6805094f6e749cf38d41a14ddf43a6.setIcon(icon_3e6d5f0112062976d6754b22aa84e2b6);
+                marker_bd3b466dbfd5bfdd9025b38ebbd5e65b.setIcon(icon_903e097acc57f80ee78f4349cc06cf76);
             
     
-            var poly_line_12c173fb778ee116933992ff33801e75 = L.polyline(
-                [[12.2, 43.8], [12.5, 44.099999999999994]],
-                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5", "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_204a702179849614905c63c6bdc6782f);
-        
-    
-            var marker_4dac58fefd6e411c6c56c3b0a68a2286 = L.marker(
-                [30.0, 32.5],
+            var marker_9ed9f3d42ef4fbbe2c764855f9829db4 = L.marker(
+                [14.768410911781007, 47.833687884436785],
                 {
 }
-            ).addTo(feature_group_204a702179849614905c63c6bdc6782f);
+            ).addTo(feature_group_d5a351ddd1731bf1af6a9601fc92225c);
         
     
-            var icon_adeab9dc4df96187af2ab08b1d35b1e2 = L.AwesomeMarkers.icon(
+            var icon_ef97934b59ac8ce5665b451bd259391b = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "green",
+  "markerColor": "orange",
   "iconColor": "white",
   "icon": "ship",
   "prefix": "fa",
@@ -222,224 +199,72 @@
             );
         
     
-        var popup_f0cdad608185f6911ce68c9b2ef9eb65 = L.popup({
+        var popup_22f49ca281ad21d789f03e9bd97d2007 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_3e91fbdea8c19d7ce503a5fefd293afc = $(`<div id="html_3e91fbdea8c19d7ce503a5fefd293afc" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid green;">                 <b style="color:green; font-size: 16px;">                     EVER GIVEN                 </b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Tipo:</b> Portacontenedores<br>                 <b>Bandera:</b> Panamá<br>                 <b>Velocidad:</b> 0 nudos<br>                 <b>Destino:</b> Rotterdam<br>                 <b>Estado:</b> <span style="color:green; font-weight:bold;">TRANSITANDO CANAL</span><br>                 <b>Perfil de Riesgo:</b> BAJO             </div>             </div>`)[0];
-                popup_f0cdad608185f6911ce68c9b2ef9eb65.setContent(html_3e91fbdea8c19d7ce503a5fefd293afc);
+                var html_44ed5e84404704b7e2336be2d18f2b06 = $(`<div id="html_44ed5e84404704b7e2336be2d18f2b06" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid orange;">                 <b style="color:orange; font-size:14px;">🚢 DESVÍO LOGÍSTICO</b><br><br>                 <b>Reporte:</b> Red Sea traffic remains unchanged by resurgent Houthi attacks...<br>                 <b>Sincronizado:</b> 2026-03-07             </div>             </div>`)[0];
+                popup_22f49ca281ad21d789f03e9bd97d2007.setContent(html_44ed5e84404704b7e2336be2d18f2b06);
             
         
 
-        marker_4dac58fefd6e411c6c56c3b0a68a2286.bindPopup(popup_f0cdad608185f6911ce68c9b2ef9eb65)
+        marker_9ed9f3d42ef4fbbe2c764855f9829db4.bindPopup(popup_22f49ca281ad21d789f03e9bd97d2007)
         ;
 
         
     
     
-            marker_4dac58fefd6e411c6c56c3b0a68a2286.bindTooltip(
-                `<div>
-                     Ever Given - 0kts
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_4dac58fefd6e411c6c56c3b0a68a2286.setIcon(icon_adeab9dc4df96187af2ab08b1d35b1e2);
+                marker_9ed9f3d42ef4fbbe2c764855f9829db4.setIcon(icon_ef97934b59ac8ce5665b451bd259391b);
             
     
-            feature_group_204a702179849614905c63c6bdc6782f.addTo(map_468c34b78086e67caacb695f512113d0);
-        
-    
-            var feature_group_2f734bb0a4536ab2556bf8d8f5437aa1 = L.featureGroup(
+            var marker_6dad192f10471d5cd243aba9d9705922 = L.marker(
+                [12.354542533810047, 43.0492143499015],
                 {
 }
-            );
+            ).addTo(feature_group_d5a351ddd1731bf1af6a9601fc92225c);
         
     
-            var marker_79340ecd98e435f8b447c70a92f6d11f = L.marker(
-                [13.5, 43.0],
+            var icon_2d0d2a1ebf33218f75c48cf6187fc9d4 = L.AwesomeMarkers.icon(
                 {
-}
-            ).addTo(feature_group_2f734bb0a4536ab2556bf8d8f5437aa1);
-        
-    
-            var icon_c050d9c6eaeb98eb79b371bf3da935e8 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "darkblue",
+  "markerColor": "orange",
   "iconColor": "white",
-  "icon": "fighter-jet",
+  "icon": "ship",
   "prefix": "fa",
   "extraClasses": "fa-rotate-0",
 }
             );
         
     
-        var popup_cbb10a22b886841a556542b4dc269067 = L.popup({
+        var popup_dbbbaf842893ebf029adabef5ebdaee5 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c34018264acb5087af8d013d13c50aa6 = $(`<div id="html_c34018264acb5087af8d013d13c50aa6" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkblue;">                 <b style="color:darkblue; font-size: 16px;">                     USS EISENHOWER (CVN-69)                 </b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Tipo:</b> Portaaviones<br>                 <b>Bandera:</b> EEUU<br>                 <b>Velocidad:</b> 25 nudos<br>                 <b>Destino:</b> Patrulla de Combate<br>                 <b>Estado:</b> <span style="color:darkblue; font-weight:bold;">PROTEGIENDO RUTA</span><br>                 <b>Perfil de Riesgo:</b> MILITAR             </div>             </div>`)[0];
-                popup_cbb10a22b886841a556542b4dc269067.setContent(html_c34018264acb5087af8d013d13c50aa6);
+                var html_9bedeeda7f3eacb8980b63b1b2a166d2 = $(`<div id="html_9bedeeda7f3eacb8980b63b1b2a166d2" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid orange;">                 <b style="color:orange; font-size:14px;">🚢 DESVÍO LOGÍSTICO</b><br><br>                 <b>Reporte:</b> Carriers divert ships after US and Israeli strikes on Iran, dashing Red Sea return ho...<br>                 <b>Sincronizado:</b> 2026-03-07             </div>             </div>`)[0];
+                popup_dbbbaf842893ebf029adabef5ebdaee5.setContent(html_9bedeeda7f3eacb8980b63b1b2a166d2);
             
         
 
-        marker_79340ecd98e435f8b447c70a92f6d11f.bindPopup(popup_cbb10a22b886841a556542b4dc269067)
+        marker_6dad192f10471d5cd243aba9d9705922.bindPopup(popup_dbbbaf842893ebf029adabef5ebdaee5)
         ;
 
         
     
     
-            marker_79340ecd98e435f8b447c70a92f6d11f.bindTooltip(
-                `<div>
-                     USS Eisenhower (CVN-69) - 25kts
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_79340ecd98e435f8b447c70a92f6d11f.setIcon(icon_c050d9c6eaeb98eb79b371bf3da935e8);
+                marker_6dad192f10471d5cd243aba9d9705922.setIcon(icon_2d0d2a1ebf33218f75c48cf6187fc9d4);
             
     
-            var poly_line_7b777f0929d7e8e9c6ae7b6c336096a5 = L.polyline(
-                [[13.5, 43.0], [13.8, 43.3]],
-                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": "5", "dashOffset": null, "fill": false, "fillColor": "darkblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2f734bb0a4536ab2556bf8d8f5437aa1);
-        
-    
-            var marker_5aa364616387385078e66803b4395439 = L.marker(
-                [13.2, 43.2],
+            var marker_c794c4507b71d3ea9fd4b624d18741bc = L.marker(
+                [15.235487573849147, 47.960568588991265],
                 {
 }
-            ).addTo(feature_group_2f734bb0a4536ab2556bf8d8f5437aa1);
+            ).addTo(feature_group_d5a351ddd1731bf1af6a9601fc92225c);
         
     
-            var icon_24113348e3c301d8db9fab68937c6b79 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "darkblue",
-  "iconColor": "white",
-  "icon": "fighter-jet",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_2de2e90936b3556c00d63aefac1a494b = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_d71a46176052581feda0ceb55f391bc8 = $(`<div id="html_d71a46176052581feda0ceb55f391bc8" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkblue;">                 <b style="color:darkblue; font-size: 16px;">                     HMS DIAMOND                 </b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Tipo:</b> Destructor<br>                 <b>Bandera:</b> UK<br>                 <b>Velocidad:</b> 28 nudos<br>                 <b>Destino:</b> Escolta<br>                 <b>Estado:</b> <span style="color:darkblue; font-weight:bold;">DEFENSA AÉREA ACTIVA</span><br>                 <b>Perfil de Riesgo:</b> MILITAR             </div>             </div>`)[0];
-                popup_2de2e90936b3556c00d63aefac1a494b.setContent(html_d71a46176052581feda0ceb55f391bc8);
-            
-        
-
-        marker_5aa364616387385078e66803b4395439.bindPopup(popup_2de2e90936b3556c00d63aefac1a494b)
-        ;
-
-        
-    
-    
-            marker_5aa364616387385078e66803b4395439.bindTooltip(
-                `<div>
-                     HMS Diamond - 28kts
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_5aa364616387385078e66803b4395439.setIcon(icon_24113348e3c301d8db9fab68937c6b79);
-            
-    
-            var poly_line_ddd326cde1f344ac146349d9bdc72273 = L.polyline(
-                [[13.2, 43.2], [13.5, 43.5]],
-                {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": "5", "dashOffset": null, "fill": false, "fillColor": "darkblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2f734bb0a4536ab2556bf8d8f5437aa1);
-        
-    
-            feature_group_2f734bb0a4536ab2556bf8d8f5437aa1.addTo(map_468c34b78086e67caacb695f512113d0);
-        
-    
-            var feature_group_5add90d505366cc751548d88ba5e4afd = L.featureGroup(
-                {
-}
-            );
-        
-    
-            var circle_1599de4ceeb2d51e8f20823d322aea89 = L.circle(
-                [12.5833, 43.3333],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_5add90d505366cc751548d88ba5e4afd);
-        
-    
-            circle_1599de4ceeb2d51e8f20823d322aea89.bindTooltip(
-                `<div>
-                     ZONA ROJA: Bloqueo activo
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-            var marker_0fd0e2124a648976d5922f29e331a130 = L.marker(
-                [12.5833, 43.3333],
-                {
-}
-            ).addTo(feature_group_5add90d505366cc751548d88ba5e4afd);
-        
-    
-            var icon_5f6ca7794dcb9e796f9baa54e10c762c = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "red",
-  "iconColor": "white",
-  "icon": "exclamation-triangle",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_cd3d211338239ee60796563a0ed1504a = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_5f93fa7e4523e9399950ff8497494e85 = $(`<div id="html_5f93fa7e4523e9399950ff8497494e85" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid red;">                 <b style="color:red;">ESTRECHO BAB EL-MANDEB</b><br>                 Chokepoint Estratégico<br>                 Flujo global bloqueado: ~30%             </div>             </div>`)[0];
-                popup_cd3d211338239ee60796563a0ed1504a.setContent(html_5f93fa7e4523e9399950ff8497494e85);
-            
-        
-
-        marker_0fd0e2124a648976d5922f29e331a130.bindPopup(popup_cd3d211338239ee60796563a0ed1504a)
-        ;
-
-        
-    
-    
-                marker_0fd0e2124a648976d5922f29e331a130.setIcon(icon_5f6ca7794dcb9e796f9baa54e10c762c);
-            
-    
-            var marker_4c307a0fd3b2c5db885bff86ed2109bd = L.marker(
-                [12.8, 44.5],
-                {
-}
-            ).addTo(feature_group_5add90d505366cc751548d88ba5e4afd);
-        
-    
-            var icon_a7fbda1feda0f1ce3e207cdee231927d = L.AwesomeMarkers.icon(
+            var icon_8f01afa44f41c462c9a862b4b915d8fd = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -450,52 +275,36 @@
             );
         
     
-        var popup_1098a41d857af894c1152480fffeb1c3 = L.popup({
+        var popup_b285b21d3d62ac8ca5ffde6f0a2dea90 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2f7bc68f697a3b9159ee9b14ffccae3b = $(`<div id="html_2f7bc68f697a3b9159ee9b14ffccae3b" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 16px;">                     ZIM SHANGHAI                 </b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Tipo:</b> Portacontenedores<br>                 <b>Bandera:</b> Israel<br>                 <b>Velocidad:</b> 18 nudos<br>                 <b>Destino:</b> Singapur<br>                 <b>Estado:</b> <span style="color:red; font-weight:bold;">DESVIADO - Evadiendo zona de impacto</span><br>                 <b>Perfil de Riesgo:</b> ALTO             </div>             </div>`)[0];
-                popup_1098a41d857af894c1152480fffeb1c3.setContent(html_2f7bc68f697a3b9159ee9b14ffccae3b);
+                var html_3a62a2a2a96e81ba596ddc5297e342a1 = $(`<div id="html_3a62a2a2a96e81ba596ddc5297e342a1" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid red;">                 <b style="color:red; font-size:14px;">🚢 ALERTA CRÍTICA</b><br><br>                 <b>Reporte:</b> Yemen’s Houthis To Resume Missile And Drone Attacks On Ships Transiting The Red Sea...<br>                 <b>Sincronizado:</b> 2026-03-07             </div>             </div>`)[0];
+                popup_b285b21d3d62ac8ca5ffde6f0a2dea90.setContent(html_3a62a2a2a96e81ba596ddc5297e342a1);
             
         
 
-        marker_4c307a0fd3b2c5db885bff86ed2109bd.bindPopup(popup_1098a41d857af894c1152480fffeb1c3)
+        marker_c794c4507b71d3ea9fd4b624d18741bc.bindPopup(popup_b285b21d3d62ac8ca5ffde6f0a2dea90)
         ;
 
         
     
     
-            marker_4c307a0fd3b2c5db885bff86ed2109bd.bindTooltip(
-                `<div>
-                     ZIM Shanghai - 18kts
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_4c307a0fd3b2c5db885bff86ed2109bd.setIcon(icon_a7fbda1feda0f1ce3e207cdee231927d);
+                marker_c794c4507b71d3ea9fd4b624d18741bc.setIcon(icon_8f01afa44f41c462c9a862b4b915d8fd);
             
     
-            var poly_line_0d8e2f152e2ff4c36c607545d8b37671 = L.polyline(
-                [[12.8, 44.5], [13.100000000000001, 44.8]],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": "5", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(feature_group_5add90d505366cc751548d88ba5e4afd);
-        
-    
-            var marker_acd3485f522abc0444256f97516c3cb4 = L.marker(
-                [14.5, 42.9],
+            var marker_1ec9e41b582619e7ea560a421ded5b73 = L.marker(
+                [15.021875059927872, 46.29669395284465],
                 {
 }
-            ).addTo(feature_group_5add90d505366cc751548d88ba5e4afd);
+            ).addTo(feature_group_d5a351ddd1731bf1af6a9601fc92225c);
         
     
-            var icon_fe9347f250791ba8b7a2e0ec3b6fd0c0 = L.AwesomeMarkers.icon(
+            var icon_c28bed0b0020e1d96c966ba17abb9ac6 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "black",
+  "markerColor": "orange",
   "iconColor": "white",
   "icon": "ship",
   "prefix": "fa",
@@ -504,162 +313,51 @@
             );
         
     
-        var popup_ff34a3d5676b98fdbef01080f2b16f52 = L.popup({
+        var popup_76d9e38bc8a95635251b4d42f312ca6b = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_522184715915c35c52a6d6230717bd9e = $(`<div id="html_522184715915c35c52a6d6230717bd9e" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid black;">                 <b style="color:black; font-size: 16px;">                     GALAXY LEADER (SECUESTRADO)                 </b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Tipo:</b> Car carrier<br>                 <b>Bandera:</b> Bahamas<br>                 <b>Velocidad:</b> 0 nudos<br>                 <b>Destino:</b> RETENIDO<br>                 <b>Estado:</b> <span style="color:black; font-weight:bold;">SECUESTRADO POR MILICIAS</span><br>                 <b>Perfil de Riesgo:</b> CRITICO             </div>             </div>`)[0];
-                popup_ff34a3d5676b98fdbef01080f2b16f52.setContent(html_522184715915c35c52a6d6230717bd9e);
+                var html_1332db911827bfadfa4e79df472ae7e4 = $(`<div id="html_1332db911827bfadfa4e79df472ae7e4" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid orange;">                 <b style="color:orange; font-size:14px;">🚢 DESVÍO LOGÍSTICO</b><br><br>                 <b>Reporte:</b> How Houthi Red Sea Ship Attacks Upended Global Trade...<br>                 <b>Sincronizado:</b> 2026-03-07             </div>             </div>`)[0];
+                popup_76d9e38bc8a95635251b4d42f312ca6b.setContent(html_1332db911827bfadfa4e79df472ae7e4);
             
         
 
-        marker_acd3485f522abc0444256f97516c3cb4.bindPopup(popup_ff34a3d5676b98fdbef01080f2b16f52)
+        marker_1ec9e41b582619e7ea560a421ded5b73.bindPopup(popup_76d9e38bc8a95635251b4d42f312ca6b)
         ;
 
         
     
     
-            marker_acd3485f522abc0444256f97516c3cb4.bindTooltip(
-                `<div>
-                     Galaxy Leader (SECUESTRADO) - 0kts
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_acd3485f522abc0444256f97516c3cb4.setIcon(icon_fe9347f250791ba8b7a2e0ec3b6fd0c0);
+                marker_1ec9e41b582619e7ea560a421ded5b73.setIcon(icon_c28bed0b0020e1d96c966ba17abb9ac6);
             
     
-            feature_group_5add90d505366cc751548d88ba5e4afd.addTo(map_468c34b78086e67caacb695f512113d0);
+            feature_group_d5a351ddd1731bf1af6a9601fc92225c.addTo(map_4f402c1de482962e25a2a163b3ffa739);
         
     
-            var feature_group_36c1e7e13c694197338cfb5dfd1783ad = L.featureGroup(
+            var feature_group_e99b81080260eab7cb70165d446eb737 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_06ee07fc55d2657299ef4a0b42e40f5b = L.circleMarker(
-                [13.579266936402888, 43.68763810431305],
-                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
-            ).addTo(feature_group_36c1e7e13c694197338cfb5dfd1783ad);
-        
-    
-        var popup_11548fed02c041610439526caab942ca = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_e658dabfd76b8a20af7cc55c089e2b73 = $(`<div id="html_e658dabfd76b8a20af7cc55c089e2b73" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid red;">                     <b style="color:red;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Objetivo:</b> Objetivo Táctico (Por confirmar)<br>                     <b>Fecha:</b> Wed, 04 Feb 2026 08:00<br>                     <b>Arma:</b> Inteligencia de EE.UU. advierte sobre posibles ataques hutíes en el Mar Rojo ante un ...<br>                     <b>Daño:</b> ALERTA EN CURSO / VERIFICANDO                 </div>                 </div>`)[0];
-                popup_11548fed02c041610439526caab942ca.setContent(html_e658dabfd76b8a20af7cc55c089e2b73);
-            
-        
-
-        circle_marker_06ee07fc55d2657299ef4a0b42e40f5b.bindPopup(popup_11548fed02c041610439526caab942ca)
-        ;
-
-        
-    
-    
-            var circle_marker_5150c33069cbd5a50e891c58a250a959 = L.circleMarker(
-                [12.06027400730947, 43.84562573975012],
-                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
-            ).addTo(feature_group_36c1e7e13c694197338cfb5dfd1783ad);
-        
-    
-        var popup_d010f80d46bc225020a2bff741acfd23 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_7f0cb23c0540839ade590a0b7feba345 = $(`<div id="html_7f0cb23c0540839ade590a0b7feba345" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid red;">                     <b style="color:red;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Objetivo:</b> Objetivo Táctico (Por confirmar)<br>                     <b>Fecha:</b> Thu, 10 Jul 2025 07:00<br>                     <b>Arma:</b> Los hutíes de Yemen reanudan los ataques en el mar Rojo y contra Israel en plena nego...<br>                     <b>Daño:</b> ALERTA EN CURSO / VERIFICANDO                 </div>                 </div>`)[0];
-                popup_d010f80d46bc225020a2bff741acfd23.setContent(html_7f0cb23c0540839ade590a0b7feba345);
-            
-        
-
-        circle_marker_5150c33069cbd5a50e891c58a250a959.bindPopup(popup_d010f80d46bc225020a2bff741acfd23)
-        ;
-
-        
-    
-    
-            var circle_marker_e3770f74f5bf9643384989ab2a803c56 = L.circleMarker(
-                [11.784852708556313, 44.41570754126356],
-                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
-            ).addTo(feature_group_36c1e7e13c694197338cfb5dfd1783ad);
-        
-    
-        var popup_a28f05da570f0816c29625ce59a3019d = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_1793cee92498f416ff06775367414208 = $(`<div id="html_1793cee92498f416ff06775367414208" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid red;">                     <b style="color:red;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Objetivo:</b> Objetivo Táctico (Por confirmar)<br>                     <b>Fecha:</b> Tue, 25 Mar 2025 07:00<br>                     <b>Arma:</b> Cómo fue el ataque en Yemen que dejó más de 50 muertos y que se discutió en el chat d...<br>                     <b>Daño:</b> ALERTA EN CURSO / VERIFICANDO                 </div>                 </div>`)[0];
-                popup_a28f05da570f0816c29625ce59a3019d.setContent(html_1793cee92498f416ff06775367414208);
-            
-        
-
-        circle_marker_e3770f74f5bf9643384989ab2a803c56.bindPopup(popup_a28f05da570f0816c29625ce59a3019d)
-        ;
-
-        
-    
-    
-            var circle_marker_c5a390e0af26dee559d159c151396884 = L.circleMarker(
-                [13.103154461135464, 44.47779749945247],
-                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
-            ).addTo(feature_group_36c1e7e13c694197338cfb5dfd1783ad);
-        
-    
-        var popup_8a356e4a92a06fa8f98957005df031b2 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_de2cda8d775abb2142db7904037813bd = $(`<div id="html_de2cda8d775abb2142db7904037813bd" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid red;">                     <b style="color:red;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Objetivo:</b> Objetivo Táctico (Por confirmar)<br>                     <b>Fecha:</b> Fri, 16 May 2025 07:00<br>                     <b>Arma:</b> Israel ataca dos puertos de Yemen en el Mar Rojo...<br>                     <b>Daño:</b> ALERTA EN CURSO / VERIFICANDO                 </div>                 </div>`)[0];
-                popup_8a356e4a92a06fa8f98957005df031b2.setContent(html_de2cda8d775abb2142db7904037813bd);
-            
-        
-
-        circle_marker_c5a390e0af26dee559d159c151396884.bindPopup(popup_8a356e4a92a06fa8f98957005df031b2)
-        ;
-
-        
-    
-    
-            feature_group_36c1e7e13c694197338cfb5dfd1783ad.addTo(map_468c34b78086e67caacb695f512113d0);
-        
-    
-            var feature_group_c1a469bec8e9fe3cafe51021537d2dbe = L.featureGroup(
-                {
-}
-            );
-        
-    
-            ant_path_d422f005134911f17dfddbc34e9397bc = L.polyline.antPath(
-              [[31.5017, 32.3333], [29.0, 35.0], [12.0, 45.0], [-35.0, 20.0], [-25.0, -45.0], [40.0, -70.0]],
+            ant_path_896c445156e958fa281c48aec088a39c = L.polyline.antPath(
+              [[31.5, 32.3], [12.0, 45.0], [-34.0, 18.0], [40.0, -70.0]],
               {
   "stroke": true,
-  "color": "#ff9900",
-  "weight": 4,
-  "opacity": 0.6,
+  "color": "#ffcc00",
+  "weight": 3,
+  "opacity": 0.5,
   "lineCap": "round",
   "lineJoin": "round",
   "dashArray": [
-15,
-30,
+10,
+20,
 ],
   "dashOffset": null,
   "fill": false,
-  "fillColor": "#ff9900",
+  "fillColor": "#ffcc00",
   "fillOpacity": 0.2,
   "fillRule": "evenodd",
   "bubblingMouseEvents": true,
@@ -668,15 +366,15 @@
   "paused": false,
   "reverse": false,
   "hardwareAcceleration": false,
-  "delay": 1000,
+  "delay": 1200,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_c1a469bec8e9fe3cafe51021537d2dbe);
+        ).addTo(feature_group_e99b81080260eab7cb70165d446eb737);
         
     
-            ant_path_d422f005134911f17dfddbc34e9397bc.bindTooltip(
+            ant_path_896c445156e958fa281c48aec088a39c.bindTooltip(
                 `<div>
-                     Desvío por Cabo de Buena Esperanza (21 días)
+                     Ruta del Cabo (Desvío)
                  </div>`,
                 {
   "sticky": true,
@@ -684,70 +382,27 @@
             );
         
     
-            ant_path_e47334f595b93eb82a2d02ba75e3455f = L.polyline.antPath(
-              [[31.5017, 32.3333], [29.9, 32.5], [27.0, 34.0], [12.5833, 43.3333], [15.0, 55.0]],
-              {
-  "stroke": true,
-  "color": "#ff0000",
-  "weight": 4,
-  "opacity": 0.6,
-  "lineCap": "round",
-  "lineJoin": "round",
-  "dashArray": [
-15,
-30,
-],
-  "dashOffset": null,
-  "fill": false,
-  "fillColor": "#ff0000",
-  "fillOpacity": 0.2,
-  "fillRule": "evenodd",
-  "bubblingMouseEvents": true,
-  "smoothFactor": 1.0,
-  "noClip": false,
-  "paused": false,
-  "reverse": false,
-  "hardwareAcceleration": false,
-  "delay": 1000,
-  "pulseColor": "#FFFFFF",
-}
-        ).addTo(feature_group_c1a469bec8e9fe3cafe51021537d2dbe);
+            feature_group_e99b81080260eab7cb70165d446eb737.addTo(map_4f402c1de482962e25a2a163b3ffa739);
         
     
-            ant_path_e47334f595b93eb82a2d02ba75e3455f.bindTooltip(
-                `<div>
-                     Ruta directa (Bloqueada) (12 días)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-            feature_group_c1a469bec8e9fe3cafe51021537d2dbe.addTo(map_468c34b78086e67caacb695f512113d0);
-        
-    
-            var layer_control_497a285b3e5a33d6286d2733235ae642_layers = {
+            var layer_control_f47b01cf6549b7f7bd64e2a08e2bff8b_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_104a050e729c2d1f0b9caf55578c5bd5,
+                    "cartodbdarkmatter" : tile_layer_dec85039ad40713f64686849ccc61960,
                 },
                 overlays :  {
-                    "\ud83d\udea2 Comercial (Carga)" : feature_group_204a702179849614905c63c6bdc6782f,
-                    "\u2693 Militar (OTAN/Coalici\u00f3n)" : feature_group_2f734bb0a4536ab2556bf8d8f5437aa1,
-                    "\u26a0\ufe0f Buques Objetivo (Israel/Afiliados)" : feature_group_5add90d505366cc751548d88ba5e4afd,
-                    "\ud83d\udca5 Zonas de Impacto/Ataques" : feature_group_36c1e7e13c694197338cfb5dfd1783ad,
-                    "\ud83d\udee3\ufe0f L\u00edneas de Suministro" : feature_group_c1a469bec8e9fe3cafe51021537d2dbe,
+                    "\u26a0\ufe0f Zonas de Impacto (OSINT)" : feature_group_d5a351ddd1731bf1af6a9601fc92225c,
+                    "\ud83d\udee3\ufe0f Rutas de Suministro" : feature_group_e99b81080260eab7cb70165d446eb737,
                 },
             };
-            let layer_control_497a285b3e5a33d6286d2733235ae642 = L.control.layers(
-                layer_control_497a285b3e5a33d6286d2733235ae642_layers.base_layers,
-                layer_control_497a285b3e5a33d6286d2733235ae642_layers.overlays,
+            let layer_control_f47b01cf6549b7f7bd64e2a08e2bff8b = L.control.layers(
+                layer_control_f47b01cf6549b7f7bd64e2a08e2bff8b_layers.base_layers,
+                layer_control_f47b01cf6549b7f7bd64e2a08e2bff8b_layers.overlays,
                 {
   "position": "topright",
-  "collapsed": false,
+  "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_468c34b78086e67caacb695f512113d0);
+            ).addTo(map_4f402c1de482962e25a2a163b3ffa739);
 
         
 </script>
