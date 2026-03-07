@@ -58,16 +58,12 @@ def traducir_texto(texto):
     if not texto:
         return ""
     try:
-        # PAUSA TÁCTICA ANTI-BAN: Evita que Google Translate congele el script
-        time.sleep(0.5) 
-        
         if any('\u4e00' <= char <= '\u9fff' for char in texto):
             return GoogleTranslator(source='zh-CN', target='es').translate(texto)
         if any('\u0600' <= char <= '\u06ff' for char in texto):
             return GoogleTranslator(source='ar', target='es').translate(texto)
         return GoogleTranslator(source='auto', target='es').translate(texto)
     except Exception as e:
-        # En lugar de colgarse, si falla, imprime un aviso y devuelve el texto original
         print(f"      [!] Error traducción: {str(e)[:30]}")
         return texto
 
@@ -76,6 +72,7 @@ def obtener_datos_petroleo():
     Extracción pura de Brent. Sin respaldos falsos ni hardcoding.
     """
     url = "https://query1.finance.yahoo.com/v8/finance/chart/BZ=F"
+    # Usamos un único User-Agent estándar de Windows/Chrome para no alertar a Yahoo
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
     
     try:
@@ -86,7 +83,8 @@ def obtener_datos_petroleo():
             variacion = (precio - 74.0) / 74.0
             alza = int(15600 * (variacion * 0.65))
             
-            return precio, alza
+            # max() asegura que si el barril cae, no proyecte valores negativos irreales
+            return precio, max(0, alza)
         else:
             return 0.0, 0
     except:
@@ -340,25 +338,10 @@ def generar_mapa_volumen_maximo():
     
     if p_brent == 0:
         print(f"   [!] Error de conexión con Yahoo Finance. Mostrando $0.00")
-        
-    # --- LÓGICA DINÁMICA REAL PARA EL PANEL ---
-    if a_gas > 0:
-        color_dinamico = "#ff4444"  # Rojo (Alza)
-        signo = "+"
-        texto_etiqueta = "PROY. ALZA GASOLINA:"
-        valor_mostrar = a_gas
-    elif a_gas < 0:
-        color_dinamico = "#00ff41"  # Verde (Baja)
-        signo = "-"
-        texto_etiqueta = "PROY. BAJA GASOLINA:"
-        valor_mostrar = abs(a_gas)  # Extrae el valor positivo para usarlo con el signo '-'
-    else:
-        color_dinamico = "#ffcc00"  # Amarillo (Estable)
-        signo = ""
-        texto_etiqueta = "PROY. VARIACIÓN GASOLINA:"
-        valor_mostrar = 0
-        
-    print(f"   [✓] Brent: ${p_brent:.2f} | {texto_etiqueta} {signo}${valor_mostrar}/gal")
+    
+    print(f"   [✓] Brent: ${p_brent:.2f} | Alza: +${a_gas}/gal")
+    
+    color_b = "#ff4444" if a_gas > 500 else "#00ff41"
     
     leyenda = f"""
     <div style="position:fixed;top:20px;right:20px;width:260px;background:rgba(10,10,10,0.95);border:2px solid #444;padding:15px;border-radius:10px;font-family:'Courier New',monospace;font-size:10px;color:#fff;z-index:9999;">
@@ -380,12 +363,12 @@ def generar_mapa_volumen_maximo():
     mapa.get_root().html.add_child(folium.Element(leyenda))
     
     panel = f"""
-    <div style="position:fixed;bottom:30px;left:20px;width:240px;background:rgba(0,0,0,0.95);border:2px solid {color_dinamico};padding:15px;border-radius:10px;z-index:9999;color:#fff;font-family:'Courier New',monospace;">
+    <div style="position:fixed;bottom:30px;left:20px;width:240px;background:rgba(0,0,0,0.95);border:2px solid {color_b};padding:15px;border-radius:10px;z-index:9999;color:#fff;font-family:'Courier New',monospace;">
         <b style="color:#ffcc00;font-size:11px;letter-spacing:1px;">⛽ CENTRO DE ENERGÍA</b>
         <hr style="border:0.5px solid #444;margin:10px 0;">
         <span style="font-size:14px;">BRENT: <b style="color:#fff;">${p_brent:.2f}</b></span><br>
-        <span style="font-size:10px;color:{color_dinamico};font-weight:bold;">{texto_etiqueta}</span><br>
-        <span style="font-size:20px;color:{color_dinamico};font-weight:bold;">{signo}${valor_mostrar}</span> <small style="font-size:9px;">/gal</small>
+        <span style="font-size:10px;color:#ff4444;font-weight:bold;">PROY. ALZA GASOLINA:</span><br>
+        <span style="font-size:20px;color:#ff4444;font-weight:bold;">+${a_gas}</span> <small style="font-size:9px;">/gal</small>
     </div>
     """
     mapa.get_root().html.add_child(folium.Element(panel))
@@ -395,7 +378,7 @@ def generar_mapa_volumen_maximo():
     
     print(f"\n{'='*70}")
     print(f"[✅ MAPA GENERADO: mapa_multipolar.html]")
-    print(f"   Brent: ${p_brent:.2f} | {texto_etiqueta} {signo}${valor_mostrar}/gal")
+    print(f"   Brent: ${p_brent:.2f} | Proyección: +${a_gas}/gal")
     print(f"{'='*70}\n")
     
     return total_filtrados
