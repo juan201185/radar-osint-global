@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_165b733c6c6f52280b94313bd1a621df {
+                #map_1e2f1edf24c628b1f0144df6cad0c52d {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -55,69 +55,32 @@
 <body>
     
     
-        <div style="position: fixed; top: 20px; right: 20px; width: 320px; 
-                    background-color: rgba(10,10,10,0.95); color: #fff; 
-                    border: 2px solid #ff0000; padding: 15px; border-radius: 10px; 
-                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;
-                    box-shadow: 0 0 20px rgba(255,0,0,0.5);">
-            <h4 style="color:#ff0000; margin-top:0; text-align:center; font-size: 14px;
-                       border-bottom: 2px solid #333; padding-bottom: 8px;">
-                ⛑️ IMPACTO HUMANITARIO E.T.B.
-            </h4>
-            <div style="background: rgba(255,0,0,0.2); padding: 8px; border-radius: 5px; 
-                        margin-bottom: 10px; text-align: center; border: 1px solid #ff0000;">
-                <b style="color:#ff6666; letter-spacing: 1px;">NIVEL DE CRISIS: CATASTRÓFICO</b>
-            </div>
-            <div style="line-height: 1.6;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Desplazados Internos:</span>
-                    <span style="color:#ff6666; font-weight:bold;">1.9M (85% población)</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Hospitales Operativos:</span>
-                    <span style="color:#ff0000;">3 de 36</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Hambre Aguda:</span>
-                    <span style="color:#ff0000;">100% Gaza</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Acceso Agua Potable:</span>
-                    <span style="color:#ff6666;">5% de capacidad normal</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span>Suministro Eléctrico:</span>
-                    <span style="color:#ffaa00;">0-4 horas/día</span>
-                </div>
-            </div>
-            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px;">
-                <b style="color:#ff6666;">INFRAESTRUCTURA DAÑADA:</b><br>
-                Hospitales Colapsados/Destruidos: 4<br>
-                Campos Desbordados: 4<br>
-                Corredores Bloqueados: 3
-            </div>
-            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px; 
-                        font-size: 10px; color: #666; text-align: center;">
-                <b>Fuente de Datos:</b> UN OCHA / WHO<br>
-                Actualizado: 2026-03-07 12:36:25<br>
-                <span style="color: #444;">Sistema E.T.B. v2.0</span>
+        <div style="position: fixed; top: 20px; right: 20px; width: 280px; background: rgba(10,10,10,0.95); 
+                    color: #fff; border: 2px solid #ff4444; padding: 15px; border-radius: 10px; 
+                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;">
+            <h4 style="color:#ff4444; text-align:center; margin:0 0 10px 0;">⛑️ RADAR HUMANITARIO E.T.B.</h4>
+            <div style="text-align:center; line-height:1.6;">
+                NIVEL: CRÍTICO REGIONAL<br>
+                Alertas Activas: 6<br>
+                <hr style="border-color:#333;">
+                Sincronizado: 2026-03-07 14:15
             </div>
         </div>
         
     
-            <div class="folium-map" id="map_165b733c6c6f52280b94313bd1a621df" ></div>
+            <div class="folium-map" id="map_1e2f1edf24c628b1f0144df6cad0c52d" ></div>
         
 </body>
 <script>
     
     
-            var map_165b733c6c6f52280b94313bd1a621df = L.map(
-                "map_165b733c6c6f52280b94313bd1a621df",
+            var map_1e2f1edf24c628b1f0144df6cad0c52d = L.map(
+                "map_1e2f1edf24c628b1f0144df6cad0c52d",
                 {
-                    center: [31.4, 34.4],
+                    center: [25.0, 40.0],
                     crs: L.CRS.EPSG3857,
                     ...{
-  "zoom": 11,
+  "zoom": 5,
   "zoomControl": true,
   "preferCanvas": false,
 }
@@ -129,7 +92,7 @@
 
         
     
-            var tile_layer_679f5769a2a7d1a0f7553dc8678e86ad = L.tileLayer(
+            var tile_layer_8878ec063620bcd3c392ae843dcae827 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -146,373 +109,53 @@
             );
         
     
-            tile_layer_679f5769a2a7d1a0f7553dc8678e86ad.addTo(map_165b733c6c6f52280b94313bd1a621df);
+            tile_layer_8878ec063620bcd3c392ae843dcae827.addTo(map_1e2f1edf24c628b1f0144df6cad0c52d);
         
     
-            var feature_group_277ed5feed26b6c6eec92cfbd39f499d = L.featureGroup(
+            var feature_group_27fe76a97888ee8380357263a166f9b6 = L.featureGroup(
                 {
 }
             );
         
     
-            var heat_map_2e8ebd6ca41f0a4a0fa907953ce54b85 = L.heatLayer(
-                [[31.2968, 34.2435, 1.0], [31.5286, 34.4836, 1.0], [31.3461, 34.3061, 1.0], [31.4167, 34.35, 1.0]],
-                {
-  "minOpacity": 0.3,
-  "maxZoom": 18,
-  "radius": 35,
-  "blur": 25,
-}
-            );
-        
-    
-            heat_map_2e8ebd6ca41f0a4a0fa907953ce54b85.addTo(feature_group_277ed5feed26b6c6eec92cfbd39f499d);
-        
-    
-            feature_group_277ed5feed26b6c6eec92cfbd39f499d.addTo(map_165b733c6c6f52280b94313bd1a621df);
-        
-    
-            var feature_group_18c57cc5f9eb595c17f466432e23aeef = L.featureGroup(
+            var marker_f72d23e13d6b0cfb209824dddada12b1 = L.marker(
+                [31.2968, 34.2435],
                 {
 }
-            );
+            ).addTo(feature_group_27fe76a97888ee8380357263a166f9b6);
         
     
-            var marker_5833bb9fa6c7ce5891287eb40fc741af = L.marker(
-                [31.5017, 34.4668],
+            var icon_68fe534d008a64c6bc904c0e437dcac6 = L.AwesomeMarkers.icon(
                 {
-}
-            ).addTo(feature_group_18c57cc5f9eb595c17f466432e23aeef);
-        
-    
-            var icon_75517a6ad97f8524445ecffeed4ee565 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "lightgray",
+  "markerColor": "blue",
   "iconColor": "white",
-  "icon": "h-square",
+  "icon": "truck",
   "prefix": "fa",
   "extraClasses": "fa-rotate-0",
 }
             );
         
     
-        var popup_ac0643466941af9dea2d50f6ddf4c6d5 = L.popup({
-  "maxWidth": 280,
-});
-
-        
-            
-                var html_f4c71298e60f6a7fe55fd117c36698fd = $(`<div id="html_f4c71298e60f6a7fe55fd117c36698fd" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid black;">                 <b style="color:#888; font-size: 14px;">🏥 HOSPITAL AL-SHIFA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Hospital principal<br>                 <b>Estado Operativo:</b> <span style="color:#888; font-weight:bold;">DESTRUIDO</span><br>                 <b>Fecha Impacto/Colapso:</b> 2023-11-15             </div>             </div>`)[0];
-                popup_ac0643466941af9dea2d50f6ddf4c6d5.setContent(html_f4c71298e60f6a7fe55fd117c36698fd);
-            
-        
-
-        marker_5833bb9fa6c7ce5891287eb40fc741af.bindPopup(popup_ac0643466941af9dea2d50f6ddf4c6d5)
-        ;
-
-        
-    
-    
-            marker_5833bb9fa6c7ce5891287eb40fc741af.bindTooltip(
-                `<div>
-                     Instalación Médica: Hospital Al-Shifa
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_5833bb9fa6c7ce5891287eb40fc741af.setIcon(icon_75517a6ad97f8524445ecffeed4ee565);
-            
-    
-            var marker_548194df1c1c12c792b2a08f668a3ecf = L.marker(
-                [31.512, 34.48],
-                {
-}
-            ).addTo(feature_group_18c57cc5f9eb595c17f466432e23aeef);
-        
-    
-            var icon_666078c7c886afcb558db34980af1695 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "red",
-  "iconColor": "white",
-  "icon": "h-square",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_ff4af782c2b1812566fe3afa7444206b = L.popup({
-  "maxWidth": 280,
-});
-
-        
-            
-                var html_ad8afd3af90ac402a14aa1365ac9103c = $(`<div id="html_ad8afd3af90ac402a14aa1365ac9103c" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 14px;">🏥 HOSPITAL AL-QUDS</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Hospital<br>                 <b>Estado Operativo:</b> <span style="color:red; font-weight:bold;">FUERA DE SERVICIO</span><br>                 <b>Fecha Impacto/Colapso:</b> 2023-10-29             </div>             </div>`)[0];
-                popup_ff4af782c2b1812566fe3afa7444206b.setContent(html_ad8afd3af90ac402a14aa1365ac9103c);
-            
-        
-
-        marker_548194df1c1c12c792b2a08f668a3ecf.bindPopup(popup_ff4af782c2b1812566fe3afa7444206b)
-        ;
-
-        
-    
-    
-            marker_548194df1c1c12c792b2a08f668a3ecf.bindTooltip(
-                `<div>
-                     Instalación Médica: Hospital Al-Quds
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_548194df1c1c12c792b2a08f668a3ecf.setIcon(icon_666078c7c886afcb558db34980af1695);
-            
-    
-            var marker_fb12e2fd6751d2ee67327541fb8093ef = L.marker(
-                [31.52, 34.49],
-                {
-}
-            ).addTo(feature_group_18c57cc5f9eb595c17f466432e23aeef);
-        
-    
-            var icon_08cc7e3ae0719f7eca8362f58dbc87cd = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "orange",
-  "iconColor": "white",
-  "icon": "h-square",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_8173894c2b29503b063ffdded765860c = L.popup({
-  "maxWidth": 280,
-});
-
-        
-            
-                var html_6e78dcf9173dcf3c8fea509579ee663d = $(`<div id="html_6e78dcf9173dcf3c8fea509579ee663d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid orange;">                 <b style="color:orange; font-size: 14px;">🏥 HOSPITAL INDONESIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Hospital<br>                 <b>Estado Operativo:</b> <span style="color:orange; font-weight:bold;">DAÑADO</span><br>                 <b>Fecha Impacto/Colapso:</b> 2023-11-21             </div>             </div>`)[0];
-                popup_8173894c2b29503b063ffdded765860c.setContent(html_6e78dcf9173dcf3c8fea509579ee663d);
-            
-        
-
-        marker_fb12e2fd6751d2ee67327541fb8093ef.bindPopup(popup_8173894c2b29503b063ffdded765860c)
-        ;
-
-        
-    
-    
-            marker_fb12e2fd6751d2ee67327541fb8093ef.bindTooltip(
-                `<div>
-                     Instalación Médica: Hospital Indonesia
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_fb12e2fd6751d2ee67327541fb8093ef.setIcon(icon_08cc7e3ae0719f7eca8362f58dbc87cd);
-            
-    
-            var marker_38fb480c4016bd99143934aeb88fe1ad = L.marker(
-                [31.5117, 34.4608],
-                {
-}
-            ).addTo(feature_group_18c57cc5f9eb595c17f466432e23aeef);
-        
-    
-            var icon_6936e40b69528c78870459449aa0398e = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "beige",
-  "iconColor": "white",
-  "icon": "h-square",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_075ab1d5a265cc9cc8f37016eee6a54f = L.popup({
-  "maxWidth": 280,
-});
-
-        
-            
-                var html_013a86e335f17ae756ceb8e1643abf60 = $(`<div id="html_013a86e335f17ae756ceb8e1643abf60" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid beige;">                 <b style="color:beige; font-size: 14px;">🏥 HOSPITAL AL-AHLI</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Hospital<br>                 <b>Estado Operativo:</b> <span style="color:beige; font-weight:bold;">PARCIALMENTE OPERATIVO</span><br>                 <b>Fecha Impacto/Colapso:</b> 2023-10-17             </div>             </div>`)[0];
-                popup_075ab1d5a265cc9cc8f37016eee6a54f.setContent(html_013a86e335f17ae756ceb8e1643abf60);
-            
-        
-
-        marker_38fb480c4016bd99143934aeb88fe1ad.bindPopup(popup_075ab1d5a265cc9cc8f37016eee6a54f)
-        ;
-
-        
-    
-    
-            marker_38fb480c4016bd99143934aeb88fe1ad.bindTooltip(
-                `<div>
-                     Instalación Médica: Hospital Al-Ahli
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_38fb480c4016bd99143934aeb88fe1ad.setIcon(icon_6936e40b69528c78870459449aa0398e);
-            
-    
-            var marker_ce2c2b0afd11b1158f72c6678ba4c939 = L.marker(
-                [31.55, 34.52],
-                {
-}
-            ).addTo(feature_group_18c57cc5f9eb595c17f466432e23aeef);
-        
-    
-            var icon_9a2c41699a2f79d05134d5b487336c9c = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "lightgray",
-  "iconColor": "white",
-  "icon": "h-square",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_2c905d16b1173cb346eb2773985365bc = L.popup({
-  "maxWidth": 280,
-});
-
-        
-            
-                var html_658e308d84d611cfe45384bf389c0d46 = $(`<div id="html_658e308d84d611cfe45384bf389c0d46" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid black;">                 <b style="color:#888; font-size: 14px;">🏥 HOSPITAL KAMAL ADWAN</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Hospital pediátrico<br>                 <b>Estado Operativo:</b> <span style="color:#888; font-weight:bold;">DESTRUIDO</span><br>                 <b>Fecha Impacto/Colapso:</b> 2023-12-12             </div>             </div>`)[0];
-                popup_2c905d16b1173cb346eb2773985365bc.setContent(html_658e308d84d611cfe45384bf389c0d46);
-            
-        
-
-        marker_ce2c2b0afd11b1158f72c6678ba4c939.bindPopup(popup_2c905d16b1173cb346eb2773985365bc)
-        ;
-
-        
-    
-    
-            marker_ce2c2b0afd11b1158f72c6678ba4c939.bindTooltip(
-                `<div>
-                     Instalación Médica: Hospital Kamal Adwan
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_ce2c2b0afd11b1158f72c6678ba4c939.setIcon(icon_9a2c41699a2f79d05134d5b487336c9c);
-            
-    
-            var marker_fad94b05778c8653ba0cbd3f39610766 = L.marker(
-                [31.53, 34.5],
-                {
-}
-            ).addTo(feature_group_18c57cc5f9eb595c17f466432e23aeef);
-        
-    
-            var icon_57fb4fadfae959cd25df052c687a5116 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "red",
-  "iconColor": "white",
-  "icon": "h-square",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_bfcb0aef69fa6e83cc85e9f14a5ee8d6 = L.popup({
-  "maxWidth": 280,
-});
-
-        
-            
-                var html_2429dc86b742db3d1de7d12147d41dd3 = $(`<div id="html_2429dc86b742db3d1de7d12147d41dd3" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 14px;">🏥 HOSPITAL AL-AWDA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Perfil:</b> Hospital<br>                 <b>Estado Operativo:</b> <span style="color:red; font-weight:bold;">FUERA DE SERVICIO</span><br>                 <b>Fecha Impacto/Colapso:</b> 2023-11-10             </div>             </div>`)[0];
-                popup_bfcb0aef69fa6e83cc85e9f14a5ee8d6.setContent(html_2429dc86b742db3d1de7d12147d41dd3);
-            
-        
-
-        marker_fad94b05778c8653ba0cbd3f39610766.bindPopup(popup_bfcb0aef69fa6e83cc85e9f14a5ee8d6)
-        ;
-
-        
-    
-    
-            marker_fad94b05778c8653ba0cbd3f39610766.bindTooltip(
-                `<div>
-                     Instalación Médica: Hospital Al-Awda
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_fad94b05778c8653ba0cbd3f39610766.setIcon(icon_57fb4fadfae959cd25df052c687a5116);
-            
-    
-            feature_group_18c57cc5f9eb595c17f466432e23aeef.addTo(map_165b733c6c6f52280b94313bd1a621df);
-        
-    
-            var feature_group_3e7745c47b63bfcd8e9ce45ff1f80d7f = L.featureGroup(
-                {
-}
-            );
-        
-    
-            var marker_ef9ea10bcbb53b016c835aca327ca57b = L.marker(
-                [31.5286, 34.4836],
-                {
-}
-            ).addTo(feature_group_3e7745c47b63bfcd8e9ce45ff1f80d7f);
-        
-    
-            var icon_984e0647ee3da3852f184762fe92c488 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "lightblue",
-  "iconColor": "white",
-  "icon": "graduation-cap",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_3e5f86e355fe96dc631660f01c75f577 = L.popup({
+        var popup_74a310cdd1dd69426d6a27a7e3d76aa8 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_9f589a4414e0099d19ac26d32f0826d1 = $(`<div id="html_9f589a4414e0099d19ac26d32f0826d1" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>Escuela Al-Fakhura</b><br>Uso: Refugio desplazados<br>Estado: <span style='color:red;'>Atacada</span></div></div>`)[0];
-                popup_3e5f86e355fe96dc631660f01c75f577.setContent(html_9f589a4414e0099d19ac26d32f0826d1);
+                var html_1b624180cd9edf4b11f88b8e8f2760e5 = $(`<div id="html_1b624180cd9edf4b11f88b8e8f2760e5" style="width: 100.0%; height: 100.0%;"><b>Paso de Rafah (Egipto/Gaza)</b></div>`)[0];
+                popup_74a310cdd1dd69426d6a27a7e3d76aa8.setContent(html_1b624180cd9edf4b11f88b8e8f2760e5);
             
         
 
-        marker_ef9ea10bcbb53b016c835aca327ca57b.bindPopup(popup_3e5f86e355fe96dc631660f01c75f577)
+        marker_f72d23e13d6b0cfb209824dddada12b1.bindPopup(popup_74a310cdd1dd69426d6a27a7e3d76aa8)
         ;
 
         
     
     
-            marker_ef9ea10bcbb53b016c835aca327ca57b.bindTooltip(
+            marker_f72d23e13d6b0cfb209824dddada12b1.bindTooltip(
                 `<div>
-                     Instalación UNRWA
+                     Paso de Rafah (Egipto/Gaza)
                  </div>`,
                 {
   "sticky": true,
@@ -520,467 +163,579 @@
             );
         
     
-                marker_ef9ea10bcbb53b016c835aca327ca57b.setIcon(icon_984e0647ee3da3852f184762fe92c488);
+                marker_f72d23e13d6b0cfb209824dddada12b1.setIcon(icon_68fe534d008a64c6bc904c0e437dcac6);
             
     
-            var marker_b7d84dde3737eb55903ac56dec4bd62e = L.marker(
-                [31.53, 34.485],
-                {
-}
-            ).addTo(feature_group_3e7745c47b63bfcd8e9ce45ff1f80d7f);
-        
-    
-            var icon_d21841096b62339349b77b2531f829e6 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "lightblue",
-  "iconColor": "white",
-  "icon": "graduation-cap",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_3f623ba0f58d4d982a7de3958652c2f5 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_04d9b2a6a195339d148fe2b9dffbdead = $(`<div id="html_04d9b2a6a195339d148fe2b9dffbdead" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>Escuela Jabalia</b><br>Uso: Refugio<br>Estado: <span style='color:red;'>Dañada</span></div></div>`)[0];
-                popup_3f623ba0f58d4d982a7de3958652c2f5.setContent(html_04d9b2a6a195339d148fe2b9dffbdead);
-            
-        
-
-        marker_b7d84dde3737eb55903ac56dec4bd62e.bindPopup(popup_3f623ba0f58d4d982a7de3958652c2f5)
-        ;
-
-        
-    
-    
-            marker_b7d84dde3737eb55903ac56dec4bd62e.bindTooltip(
-                `<div>
-                     Instalación UNRWA
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_b7d84dde3737eb55903ac56dec4bd62e.setIcon(icon_d21841096b62339349b77b2531f829e6);
-            
-    
-            feature_group_3e7745c47b63bfcd8e9ce45ff1f80d7f.addTo(map_165b733c6c6f52280b94313bd1a621df);
-        
-    
-            var feature_group_f44fafed4798c1c3c05b5059155eb3b2 = L.featureGroup(
-                {
-}
-            );
-        
-    
-            var marker_aa1d3423db842e1c797242a20e8a8edd = L.marker(
-                [31.2968, 34.2435],
-                {
-}
-            ).addTo(feature_group_f44fafed4798c1c3c05b5059155eb3b2);
-        
-    
-            var icon_75bfe6fb7642d8fbb511f36fc3fd746d = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "users",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_080022fecdde6428a7f3782986e04b23 = L.popup({
-  "maxWidth": 280,
-});
-
-        
-            
-                var html_94ccebb75e8889a36545fa31d74be70f = $(`<div id="html_94ccebb75e8889a36545fa31d74be70f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #0066ff;">                 <b style="color:#00aaff; font-size: 14px;">⛺ CAMPO RAFAH</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Población Estimada:</b> 1.4M<br>                 <b>Condición Actual:</b> <span style="color:#ffcc00;">Sobrepoblado crítico</span>             </div>             </div>`)[0];
-                popup_080022fecdde6428a7f3782986e04b23.setContent(html_94ccebb75e8889a36545fa31d74be70f);
-            
-        
-
-        marker_aa1d3423db842e1c797242a20e8a8edd.bindPopup(popup_080022fecdde6428a7f3782986e04b23)
-        ;
-
-        
-    
-    
-            marker_aa1d3423db842e1c797242a20e8a8edd.bindTooltip(
-                `<div>
-                     Campo Desplazados: Campo Rafah
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_aa1d3423db842e1c797242a20e8a8edd.setIcon(icon_75bfe6fb7642d8fbb511f36fc3fd746d);
-            
-    
-            var circle_dde4a421e0bfc9cbd5c3ac1e78827ad0 = L.circle(
-                [31.2968, 34.2435],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2500, "stroke": true, "weight": 1}
-            ).addTo(feature_group_f44fafed4798c1c3c05b5059155eb3b2);
-        
-    
-            var marker_4d8dbe14d5877a5428c16ec1382f9ce1 = L.marker(
-                [31.5286, 34.4836],
-                {
-}
-            ).addTo(feature_group_f44fafed4798c1c3c05b5059155eb3b2);
-        
-    
-            var icon_f315c015721e84fa6ed1dcafa09d6ef9 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "users",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_8e4383180a7b32a71c345989cf93d181 = L.popup({
-  "maxWidth": 280,
-});
-
-        
-            
-                var html_5bb974419f1718462e7bb6de4ac519d6 = $(`<div id="html_5bb974419f1718462e7bb6de4ac519d6" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #0066ff;">                 <b style="color:#00aaff; font-size: 14px;">⛺ CAMPO JABALIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Población Estimada:</b> Desconocido<br>                 <b>Condición Actual:</b> <span style="color:#ffcc00;">Sitio de combates</span>             </div>             </div>`)[0];
-                popup_8e4383180a7b32a71c345989cf93d181.setContent(html_5bb974419f1718462e7bb6de4ac519d6);
-            
-        
-
-        marker_4d8dbe14d5877a5428c16ec1382f9ce1.bindPopup(popup_8e4383180a7b32a71c345989cf93d181)
-        ;
-
-        
-    
-    
-            marker_4d8dbe14d5877a5428c16ec1382f9ce1.bindTooltip(
-                `<div>
-                     Campo Desplazados: Campo Jabalia
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_4d8dbe14d5877a5428c16ec1382f9ce1.setIcon(icon_f315c015721e84fa6ed1dcafa09d6ef9);
-            
-    
-            var circle_e817818516c36f8ebf1e96f5aa095efd = L.circle(
-                [31.5286, 34.4836],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2500, "stroke": true, "weight": 1}
-            ).addTo(feature_group_f44fafed4798c1c3c05b5059155eb3b2);
-        
-    
-            var marker_181a3793e96f18b2d4908bb891282eb3 = L.marker(
-                [31.3461, 34.3061],
-                {
-}
-            ).addTo(feature_group_f44fafed4798c1c3c05b5059155eb3b2);
-        
-    
-            var icon_f78661ea2def274b879fc5b2e86b5020 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "users",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_7632ecc59446616f53cec1ef7178f035 = L.popup({
-  "maxWidth": 280,
-});
-
-        
-            
-                var html_350a20114e8bc0124377c45dea8f5f34 = $(`<div id="html_350a20114e8bc0124377c45dea8f5f34" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #0066ff;">                 <b style="color:#00aaff; font-size: 14px;">⛺ CAMPO KHAN YOUNIS</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Población Estimada:</b> 800K<br>                 <b>Condición Actual:</b> <span style="color:#ffcc00;">Inseguridad alimentaria severa</span>             </div>             </div>`)[0];
-                popup_7632ecc59446616f53cec1ef7178f035.setContent(html_350a20114e8bc0124377c45dea8f5f34);
-            
-        
-
-        marker_181a3793e96f18b2d4908bb891282eb3.bindPopup(popup_7632ecc59446616f53cec1ef7178f035)
-        ;
-
-        
-    
-    
-            marker_181a3793e96f18b2d4908bb891282eb3.bindTooltip(
-                `<div>
-                     Campo Desplazados: Campo Khan Younis
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_181a3793e96f18b2d4908bb891282eb3.setIcon(icon_f78661ea2def274b879fc5b2e86b5020);
-            
-    
-            var circle_6651bee07d641c2732b82e57136a2119 = L.circle(
-                [31.3461, 34.3061],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2500, "stroke": true, "weight": 1}
-            ).addTo(feature_group_f44fafed4798c1c3c05b5059155eb3b2);
-        
-    
-            var marker_90ecd26a7dcb19356bf1e4e7eacee3b6 = L.marker(
-                [31.4167, 34.35],
-                {
-}
-            ).addTo(feature_group_f44fafed4798c1c3c05b5059155eb3b2);
-        
-    
-            var icon_343caa4c691518bfda27b853f2246fd4 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "users",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_6b05928566ea4b5f80afc02e6c2cfc57 = L.popup({
-  "maxWidth": 280,
-});
-
-        
-            
-                var html_302aa681ac3d268299e79754914effb2 = $(`<div id="html_302aa681ac3d268299e79754914effb2" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #0066ff;">                 <b style="color:#00aaff; font-size: 14px;">⛺ ZONA DEIR AL-BALAH</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Población Estimada:</b> 600K<br>                 <b>Condición Actual:</b> <span style="color:#ffcc00;">Sin servicios básicos</span>             </div>             </div>`)[0];
-                popup_6b05928566ea4b5f80afc02e6c2cfc57.setContent(html_302aa681ac3d268299e79754914effb2);
-            
-        
-
-        marker_90ecd26a7dcb19356bf1e4e7eacee3b6.bindPopup(popup_6b05928566ea4b5f80afc02e6c2cfc57)
-        ;
-
-        
-    
-    
-            marker_90ecd26a7dcb19356bf1e4e7eacee3b6.bindTooltip(
-                `<div>
-                     Campo Desplazados: Zona Deir al-Balah
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_90ecd26a7dcb19356bf1e4e7eacee3b6.setIcon(icon_343caa4c691518bfda27b853f2246fd4);
-            
-    
-            var circle_5598a6f1b6641e879c0216e44377123a = L.circle(
-                [31.4167, 34.35],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2500, "stroke": true, "weight": 1}
-            ).addTo(feature_group_f44fafed4798c1c3c05b5059155eb3b2);
-        
-    
-            feature_group_f44fafed4798c1c3c05b5059155eb3b2.addTo(map_165b733c6c6f52280b94313bd1a621df);
-        
-    
-            var feature_group_51d2292b9e346cb80a8fda89867a8d2d = L.featureGroup(
-                {
-}
-            );
-        
-    
-            var marker_93277842c31f5a6a5784ee2d89fd720d = L.marker(
-                [31.2968, 34.2435],
-                {
-}
-            ).addTo(feature_group_51d2292b9e346cb80a8fda89867a8d2d);
-        
-    
-            var icon_bfa2c5cd6088507616daefcd6db3642b = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "orange",
-  "iconColor": "white",
-  "icon": "exchange",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_f847c2ac76fabf6a70ab613f9122fc88 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_7d69abaaba5ab03891d21e3c0f6d94c0 = $(`<div id="html_7d69abaaba5ab03891d21e3c0f6d94c0" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid orange;">                 <b style="color:orange;">🚪 RAFAH CROSSING</b><br>                 <b>Propósito:</b> Salida Gaza<br>                 <b>Estado:</b> Cerrado/Intermitente             </div>             </div>`)[0];
-                popup_f847c2ac76fabf6a70ab613f9122fc88.setContent(html_7d69abaaba5ab03891d21e3c0f6d94c0);
-            
-        
-
-        marker_93277842c31f5a6a5784ee2d89fd720d.bindPopup(popup_f847c2ac76fabf6a70ab613f9122fc88)
-        ;
-
-        
-    
-    
-                marker_93277842c31f5a6a5784ee2d89fd720d.setIcon(icon_bfa2c5cd6088507616daefcd6db3642b);
-            
-    
-            var marker_b9d62d9c3aa458b453aa958c3a7d2b92 = L.marker(
+            var marker_175721226cde670a6da5bc13c384eabe = L.marker(
                 [31.2333, 34.2833],
                 {
 }
-            ).addTo(feature_group_51d2292b9e346cb80a8fda89867a8d2d);
+            ).addTo(feature_group_27fe76a97888ee8380357263a166f9b6);
         
     
-            var icon_316b252272062eb5ed0fbbd35361e422 = L.AwesomeMarkers.icon(
+            var icon_8f25bf678cd174552039d1a7d47d217a = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "green",
+  "markerColor": "blue",
   "iconColor": "white",
-  "icon": "exchange",
+  "icon": "truck",
   "prefix": "fa",
   "extraClasses": "fa-rotate-0",
 }
             );
         
     
-        var popup_a2e95369b4dbdaffbc9249289aa5078e = L.popup({
-  "maxWidth": 250,
+        var popup_7600f6f51fd2aa3fdfffa4931e6de99a = L.popup({
+  "maxWidth": "100%",
 });
 
         
             
-                var html_28084aa9e8fd8080e0a62025f7b87ba7 = $(`<div id="html_28084aa9e8fd8080e0a62025f7b87ba7" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid green;">                 <b style="color:green;">🚪 KEREM SHALOM</b><br>                 <b>Propósito:</b> Entrada ayuda<br>                 <b>Estado:</b> Operativo limitado             </div>             </div>`)[0];
-                popup_a2e95369b4dbdaffbc9249289aa5078e.setContent(html_28084aa9e8fd8080e0a62025f7b87ba7);
+                var html_7d1091789bbca223749a3a4f63367a9b = $(`<div id="html_7d1091789bbca223749a3a4f63367a9b" style="width: 100.0%; height: 100.0%;"><b>Paso Kerem Shalom (ISR/Gaza)</b></div>`)[0];
+                popup_7600f6f51fd2aa3fdfffa4931e6de99a.setContent(html_7d1091789bbca223749a3a4f63367a9b);
             
         
 
-        marker_b9d62d9c3aa458b453aa958c3a7d2b92.bindPopup(popup_a2e95369b4dbdaffbc9249289aa5078e)
+        marker_175721226cde670a6da5bc13c384eabe.bindPopup(popup_7600f6f51fd2aa3fdfffa4931e6de99a)
         ;
 
         
     
     
-                marker_b9d62d9c3aa458b453aa958c3a7d2b92.setIcon(icon_316b252272062eb5ed0fbbd35361e422);
-            
-    
-            var marker_db7293c0dce92b8c0370f69ed4ebe46d = L.marker(
-                [31.5667, 34.55],
+            marker_175721226cde670a6da5bc13c384eabe.bindTooltip(
+                `<div>
+                     Paso Kerem Shalom (ISR/Gaza)
+                 </div>`,
                 {
+  "sticky": true,
 }
-            ).addTo(feature_group_51d2292b9e346cb80a8fda89867a8d2d);
+            );
         
     
-            var icon_2551c9c0b3585b5c0db3fd6cb6b5d72d = L.AwesomeMarkers.icon(
+                marker_175721226cde670a6da5bc13c384eabe.setIcon(icon_8f25bf678cd174552039d1a7d47d217a);
+            
+    
+            var marker_b59ed4c76ff75010de0a19ed67cd4bcb = L.marker(
+                [31.8014, 34.6435],
+                {
+}
+            ).addTo(feature_group_27fe76a97888ee8380357263a166f9b6);
+        
+    
+            var icon_323f1e20b46956ac3e1af852f1583008 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "truck",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5127f5d3be6462de5a6d665a3b3aba84 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c333471c59a5430b61f557dd706b215 = $(`<div id="html_8c333471c59a5430b61f557dd706b215" style="width: 100.0%; height: 100.0%;"><b>Puerto de Ashdod (Hub Ayuda)</b></div>`)[0];
+                popup_5127f5d3be6462de5a6d665a3b3aba84.setContent(html_8c333471c59a5430b61f557dd706b215);
+            
+        
+
+        marker_b59ed4c76ff75010de0a19ed67cd4bcb.bindPopup(popup_5127f5d3be6462de5a6d665a3b3aba84)
+        ;
+
+        
+    
+    
+            marker_b59ed4c76ff75010de0a19ed67cd4bcb.bindTooltip(
+                `<div>
+                     Puerto de Ashdod (Hub Ayuda)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b59ed4c76ff75010de0a19ed67cd4bcb.setIcon(icon_323f1e20b46956ac3e1af852f1583008);
+            
+    
+            var marker_2c4a721d4721d176cfb62f4852cb1db4 = L.marker(
+                [14.7979, 42.953],
+                {
+}
+            ).addTo(feature_group_27fe76a97888ee8380357263a166f9b6);
+        
+    
+            var icon_ef5a0399c6aa7a9b4736181083ff113f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "truck",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4747215ea3c5585b1c170454b35e3663 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1d3224980bb56dc3871a28d76b665390 = $(`<div id="html_1d3224980bb56dc3871a28d76b665390" style="width: 100.0%; height: 100.0%;"><b>Puerto de Hodeida (Yemen)</b></div>`)[0];
+                popup_4747215ea3c5585b1c170454b35e3663.setContent(html_1d3224980bb56dc3871a28d76b665390);
+            
+        
+
+        marker_2c4a721d4721d176cfb62f4852cb1db4.bindPopup(popup_4747215ea3c5585b1c170454b35e3663)
+        ;
+
+        
+    
+    
+            marker_2c4a721d4721d176cfb62f4852cb1db4.bindTooltip(
+                `<div>
+                     Puerto de Hodeida (Yemen)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2c4a721d4721d176cfb62f4852cb1db4.setIcon(icon_ef5a0399c6aa7a9b4736181083ff113f);
+            
+    
+            var marker_0c8733661454352d0371a9fac51fb667 = L.marker(
+                [33.7011, 35.9472],
+                {
+}
+            ).addTo(feature_group_27fe76a97888ee8380357263a166f9b6);
+        
+    
+            var icon_98739c36b6f3c2061ba8e37e4e8a7aa3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "truck",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3a4083166b376bca0583361c411a1d8f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0fd04298a5bd53b1a4cd9fca471c8cb2 = $(`<div id="html_0fd04298a5bd53b1a4cd9fca471c8cb2" style="width: 100.0%; height: 100.0%;"><b>Frontera Masnaa (Líbano/Siria)</b></div>`)[0];
+                popup_3a4083166b376bca0583361c411a1d8f.setContent(html_0fd04298a5bd53b1a4cd9fca471c8cb2);
+            
+        
+
+        marker_0c8733661454352d0371a9fac51fb667.bindPopup(popup_3a4083166b376bca0583361c411a1d8f)
+        ;
+
+        
+    
+    
+            marker_0c8733661454352d0371a9fac51fb667.bindTooltip(
+                `<div>
+                     Frontera Masnaa (Líbano/Siria)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0c8733661454352d0371a9fac51fb667.setIcon(icon_98739c36b6f3c2061ba8e37e4e8a7aa3);
+            
+    
+            var marker_0a236a617411171222783707da3fdf36 = L.marker(
+                [35.5311, 35.7878],
+                {
+}
+            ).addTo(feature_group_27fe76a97888ee8380357263a166f9b6);
+        
+    
+            var icon_b7655f62874cab74b2185849b3bd641b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "truck",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_12fd564798998088139d91f204a0dd1b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4e96949835ec38fdd92663b1f6bd870e = $(`<div id="html_4e96949835ec38fdd92663b1f6bd870e" style="width: 100.0%; height: 100.0%;"><b>Puerto de Latakia (Siria)</b></div>`)[0];
+                popup_12fd564798998088139d91f204a0dd1b.setContent(html_4e96949835ec38fdd92663b1f6bd870e);
+            
+        
+
+        marker_0a236a617411171222783707da3fdf36.bindPopup(popup_12fd564798998088139d91f204a0dd1b)
+        ;
+
+        
+    
+    
+            marker_0a236a617411171222783707da3fdf36.bindTooltip(
+                `<div>
+                     Puerto de Latakia (Siria)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0a236a617411171222783707da3fdf36.setIcon(icon_b7655f62874cab74b2185849b3bd641b);
+            
+    
+            var marker_027166579ff3b1c47dca5dcb9efc0418 = L.marker(
+                [31.9454, 35.9284],
+                {
+}
+            ).addTo(feature_group_27fe76a97888ee8380357263a166f9b6);
+        
+    
+            var icon_ebc2c5ec9387a811ecd886561cba12bc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "truck",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dc3e0d712380bdd3e679afaed91b1189 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f48dc49d7a79b680260e90bce27ab4b4 = $(`<div id="html_f48dc49d7a79b680260e90bce27ab4b4" style="width: 100.0%; height: 100.0%;"><b>Amán (Logística UN)</b></div>`)[0];
+                popup_dc3e0d712380bdd3e679afaed91b1189.setContent(html_f48dc49d7a79b680260e90bce27ab4b4);
+            
+        
+
+        marker_027166579ff3b1c47dca5dcb9efc0418.bindPopup(popup_dc3e0d712380bdd3e679afaed91b1189)
+        ;
+
+        
+    
+    
+            marker_027166579ff3b1c47dca5dcb9efc0418.bindTooltip(
+                `<div>
+                     Amán (Logística UN)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_027166579ff3b1c47dca5dcb9efc0418.setIcon(icon_ebc2c5ec9387a811ecd886561cba12bc);
+            
+    
+            feature_group_27fe76a97888ee8380357263a166f9b6.addTo(map_1e2f1edf24c628b1f0144df6cad0c52d);
+        
+    
+            var feature_group_6c10718f996493a7e62e280ea38c82b6 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_d279b535ca18cc255b77fbd9426ec035 = L.marker(
+                [33.70743817803101, 35.63297884823704],
+                {
+}
+            ).addTo(feature_group_6c10718f996493a7e62e280ea38c82b6);
+        
+    
+            var icon_4086c5f366b6e7f2f6abb35fe8bc8091 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "exclamation-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_124886ba7bfcc8f628a93c4d57052a82 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dde7fd622180d82725e5cffc0b2af912 = $(`<div id="html_dde7fd622180d82725e5cffc0b2af912" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkred;">                 <b style="color:darkred; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> Lebanon crisis: What is happening and how to help...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_124886ba7bfcc8f628a93c4d57052a82.setContent(html_dde7fd622180d82725e5cffc0b2af912);
+            
+        
+
+        marker_d279b535ca18cc255b77fbd9426ec035.bindPopup(popup_124886ba7bfcc8f628a93c4d57052a82)
+        ;
+
+        
+    
+    
+                marker_d279b535ca18cc255b77fbd9426ec035.setIcon(icon_4086c5f366b6e7f2f6abb35fe8bc8091);
+            
+    
+            var marker_e8b9022d20037fb92f77bc5ac9d8e3fd = L.marker(
+                [33.90563165561505, 35.433291839877896],
+                {
+}
+            ).addTo(feature_group_6c10718f996493a7e62e280ea38c82b6);
+        
+    
+            var icon_88b34c7b0e11ba441cebe2a18208f073 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "exclamation-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_27d1f65a00c977cf11f7011bb9fa4846 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3ecf2bc281f911209d66d7ba3a1bb942 = $(`<div id="html_3ecf2bc281f911209d66d7ba3a1bb942" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkred;">                 <b style="color:darkred; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> Humanitarian crisis looming: 300,000 displaced as Israeli army pounds Lebanon...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_27d1f65a00c977cf11f7011bb9fa4846.setContent(html_3ecf2bc281f911209d66d7ba3a1bb942);
+            
+        
+
+        marker_e8b9022d20037fb92f77bc5ac9d8e3fd.bindPopup(popup_27d1f65a00c977cf11f7011bb9fa4846)
+        ;
+
+        
+    
+    
+                marker_e8b9022d20037fb92f77bc5ac9d8e3fd.setIcon(icon_88b34c7b0e11ba441cebe2a18208f073);
+            
+    
+            var marker_b6be41a34b393b70adbf292f09c969ac = L.marker(
+                [31.249674263310546, 34.550517220501796],
+                {
+}
+            ).addTo(feature_group_6c10718f996493a7e62e280ea38c82b6);
+        
+    
+            var icon_f03c4d6353f1a3366a367b4837bfb52e = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
-  "icon": "exchange",
+  "icon": "exclamation-circle",
   "prefix": "fa",
   "extraClasses": "fa-rotate-0",
 }
             );
         
     
-        var popup_d113102431cc9c21c3c04708e14190ba = L.popup({
-  "maxWidth": 250,
+        var popup_307fa27bac88a19bbf99710409f4c736 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_8823cc269a8cf591f05273380544ba85 = $(`<div id="html_8823cc269a8cf591f05273380544ba85" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid red;">                 <b style="color:red;">🚪 EREZ CROSSING</b><br>                 <b>Propósito:</b> Personal<br>                 <b>Estado:</b> Cerrado             </div>             </div>`)[0];
-                popup_d113102431cc9c21c3c04708e14190ba.setContent(html_8823cc269a8cf591f05273380544ba85);
+                var html_d845666a864c56a10e4ed3acc9f2cefc = $(`<div id="html_d845666a864c56a10e4ed3acc9f2cefc" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> UNRWA Situation Report #211 on the Humanitarian Crisis in the Gaza Strip and the Occu...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_307fa27bac88a19bbf99710409f4c736.setContent(html_d845666a864c56a10e4ed3acc9f2cefc);
             
         
 
-        marker_db7293c0dce92b8c0370f69ed4ebe46d.bindPopup(popup_d113102431cc9c21c3c04708e14190ba)
+        marker_b6be41a34b393b70adbf292f09c969ac.bindPopup(popup_307fa27bac88a19bbf99710409f4c736)
         ;
 
         
     
     
-                marker_db7293c0dce92b8c0370f69ed4ebe46d.setIcon(icon_2551c9c0b3585b5c0db3fd6cb6b5d72d);
+                marker_b6be41a34b393b70adbf292f09c969ac.setIcon(icon_f03c4d6353f1a3366a367b4837bfb52e);
             
     
-            var marker_67ad4f9f220b01c9d89b680df47ac71b = L.marker(
-                [31.4833, 34.4667],
+            var marker_113704e8537663ad2944cb7b3628bc24 = L.marker(
+                [31.945626712561534, 35.151743371956826],
                 {
 }
-            ).addTo(feature_group_51d2292b9e346cb80a8fda89867a8d2d);
+            ).addTo(feature_group_6c10718f996493a7e62e280ea38c82b6);
         
     
-            var icon_3e4e2835f4097d4e7ff5fec9fe886eac = L.AwesomeMarkers.icon(
+            var icon_dc35d6e326163dde03c24380eb83afb5 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "lightgray",
+  "markerColor": "gray",
   "iconColor": "white",
-  "icon": "exchange",
+  "icon": "exclamation-circle",
   "prefix": "fa",
   "extraClasses": "fa-rotate-0",
 }
             );
         
     
-        var popup_d10fe956c32bd5515ae9f8436454ea6b = L.popup({
-  "maxWidth": 250,
+        var popup_69e50d12058c1137d9d248d8309649b2 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_af7b27e4192b3229f00f598b935ccc2d = $(`<div id="html_af7b27e4192b3229f00f598b935ccc2d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid #888;">                 <b style="color:#888;">🚪 KARNI CROSSING</b><br>                 <b>Propósito:</b> Carga<br>                 <b>Estado:</b> Destruido             </div>             </div>`)[0];
-                popup_d10fe956c32bd5515ae9f8436454ea6b.setContent(html_af7b27e4192b3229f00f598b935ccc2d);
+                var html_ab103c48b74c6e6412b981c9eea2c9dc = $(`<div id="html_ab103c48b74c6e6412b981c9eea2c9dc" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid gray;">                 <b style="color:gray; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> UN Relief Chief warns of 'moment of grave peril' as humanitarian crises escalate in M...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_69e50d12058c1137d9d248d8309649b2.setContent(html_ab103c48b74c6e6412b981c9eea2c9dc);
             
         
 
-        marker_67ad4f9f220b01c9d89b680df47ac71b.bindPopup(popup_d10fe956c32bd5515ae9f8436454ea6b)
+        marker_113704e8537663ad2944cb7b3628bc24.bindPopup(popup_69e50d12058c1137d9d248d8309649b2)
         ;
 
         
     
     
-                marker_67ad4f9f220b01c9d89b680df47ac71b.setIcon(icon_3e4e2835f4097d4e7ff5fec9fe886eac);
+                marker_113704e8537663ad2944cb7b3628bc24.setIcon(icon_dc35d6e326163dde03c24380eb83afb5);
             
     
-            feature_group_51d2292b9e346cb80a8fda89867a8d2d.addTo(map_165b733c6c6f52280b94313bd1a621df);
+            var marker_908bd6e4ed280c539603dbc546017a2d = L.marker(
+                [33.802825315823135, 35.610335328029905],
+                {
+}
+            ).addTo(feature_group_6c10718f996493a7e62e280ea38c82b6);
         
     
-            var layer_control_1c40615d0a69d1a46e4a10be6b1ed9ea_layers = {
+            var icon_3ec6c65ee7f7dccb11729df2d90065d1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "exclamation-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e8f1cf5d48d71af25187c83379c0c7ad = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7dee2ddcb79bb16ff4c133d5e09c859 = $(`<div id="html_a7dee2ddcb79bb16ff4c133d5e09c859" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkred;">                 <b style="color:darkred; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> Lebanon: 300,000 already displaced as Israel issues mass evacuation orders...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_e8f1cf5d48d71af25187c83379c0c7ad.setContent(html_a7dee2ddcb79bb16ff4c133d5e09c859);
+            
+        
+
+        marker_908bd6e4ed280c539603dbc546017a2d.bindPopup(popup_e8f1cf5d48d71af25187c83379c0c7ad)
+        ;
+
+        
+    
+    
+                marker_908bd6e4ed280c539603dbc546017a2d.setIcon(icon_3ec6c65ee7f7dccb11729df2d90065d1);
+            
+    
+            var marker_e7c7f8a00cb9b39c422e6cef0f1eb973 = L.marker(
+                [31.80430793348693, 35.029232791818806],
+                {
+}
+            ).addTo(feature_group_6c10718f996493a7e62e280ea38c82b6);
+        
+    
+            var icon_2cb4c924d8f4dfe3c8f0b4c34d74392d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "exclamation-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1c0053b7a08bfad235b1f6602025db97 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d77f2b6217cc943c4e01a6a12d6614f8 = $(`<div id="html_d77f2b6217cc943c4e01a6a12d6614f8" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid gray;">                 <b style="color:gray; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> Crisis in the Middle East: Displacement and Humanitarian Response...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_1c0053b7a08bfad235b1f6602025db97.setContent(html_d77f2b6217cc943c4e01a6a12d6614f8);
+            
+        
+
+        marker_e7c7f8a00cb9b39c422e6cef0f1eb973.bindPopup(popup_1c0053b7a08bfad235b1f6602025db97)
+        ;
+
+        
+    
+    
+                marker_e7c7f8a00cb9b39c422e6cef0f1eb973.setIcon(icon_2cb4c924d8f4dfe3c8f0b4c34d74392d);
+            
+    
+            feature_group_6c10718f996493a7e62e280ea38c82b6.addTo(map_1e2f1edf24c628b1f0144df6cad0c52d);
+        
+    
+            var feature_group_bb956fede0f1ada05682af98b49f6e7e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var heat_map_d2a57dbf33b9b5e1b7fd3e0d28228fda = L.heatLayer(
+                [[33.70743817803101, 35.63297884823704, 1.0], [33.90563165561505, 35.433291839877896, 1.0], [31.249674263310546, 34.550517220501796, 1.0], [31.945626712561534, 35.151743371956826, 1.0], [33.802825315823135, 35.610335328029905, 1.0], [31.80430793348693, 35.029232791818806, 1.0]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 30,
+  "blur": 20,
+}
+            );
+        
+    
+            heat_map_d2a57dbf33b9b5e1b7fd3e0d28228fda.addTo(feature_group_bb956fede0f1ada05682af98b49f6e7e);
+        
+    
+            feature_group_bb956fede0f1ada05682af98b49f6e7e.addTo(map_1e2f1edf24c628b1f0144df6cad0c52d);
+        
+    
+            var layer_control_2d1e4e79dbec503d719525c3d019def2_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_679f5769a2a7d1a0f7553dc8678e86ad,
+                    "cartodbdarkmatter" : tile_layer_8878ec063620bcd3c392ae843dcae827,
                 },
                 overlays :  {
-                    "\ud83d\udc65 Densidad Desplazados (Heatmap)" : feature_group_277ed5feed26b6c6eec92cfbd39f499d,
-                    "\ud83c\udfe5 Infraestructura M\u00e9dica (OMS)" : feature_group_18c57cc5f9eb595c17f466432e23aeef,
-                    "\ud83c\udfeb Instalaciones UNRWA" : feature_group_3e7745c47b63bfcd8e9ce45ff1f80d7f,
-                    "\u26fa Campos de Refugiados" : feature_group_f44fafed4798c1c3c05b5059155eb3b2,
-                    "\ud83d\udeaa Rutas de Evacuaci\u00f3n/Ayuda" : feature_group_51d2292b9e346cb80a8fda89867a8d2d,
+                    "\ud83d\udeaa Cruces y Puertos de Ayuda" : feature_group_27fe76a97888ee8380357263a166f9b6,
+                    "\u26a0\ufe0f Crisis Detectadas (OSINT)" : feature_group_6c10718f996493a7e62e280ea38c82b6,
+                    "\ud83c\udf21\ufe0f Mapa de Calor (Desplazamientos)" : feature_group_bb956fede0f1ada05682af98b49f6e7e,
                 },
             };
-            let layer_control_1c40615d0a69d1a46e4a10be6b1ed9ea = L.control.layers(
-                layer_control_1c40615d0a69d1a46e4a10be6b1ed9ea_layers.base_layers,
-                layer_control_1c40615d0a69d1a46e4a10be6b1ed9ea_layers.overlays,
+            let layer_control_2d1e4e79dbec503d719525c3d019def2 = L.control.layers(
+                layer_control_2d1e4e79dbec503d719525c3d019def2_layers.base_layers,
+                layer_control_2d1e4e79dbec503d719525c3d019def2_layers.overlays,
                 {
   "position": "topright",
-  "collapsed": false,
+  "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_165b733c6c6f52280b94313bd1a621df);
+            ).addTo(map_1e2f1edf24c628b1f0144df6cad0c52d);
 
         
 </script>

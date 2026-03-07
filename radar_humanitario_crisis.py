@@ -32,7 +32,6 @@ class RadarHumanitarioCrisis:
                 titulo = entry.get('title', 'Alerta detectada').split(' - ')[0]
                 t_low = titulo.lower()
                 
-                # Georeferenciación por Inteligencia de Texto
                 if 'gaza' in t_low or 'palestine' in t_low:
                     coords = [31.4, 34.4]
                     color = 'red'
@@ -65,12 +64,7 @@ class RadarHumanitarioCrisis:
         print("INICIANDO RADAR HUMANITARIO E.T.B. (IMPACTO REGIONAL)")
         print("="*70)
         
-        # Mapa centrado regionalmente
-        mapa = folium.Map(
-            location=[25.0, 40.0],
-            zoom_start=5,
-            tiles='CartoDB dark_matter'
-        )
+        mapa = folium.Map(location=[25.0, 40.0], zoom_start=5, tiles='CartoDB dark_matter')
         
         capa_nodos = folium.FeatureGroup(name="🚪 Cruces y Puertos de Ayuda").add_to(mapa)
         capa_alertas = folium.FeatureGroup(name="⚠️ Crisis Detectadas (OSINT)").add_to(mapa)
@@ -79,17 +73,17 @@ class RadarHumanitarioCrisis:
         alertas = self.obtener_alertas_humanitarias_vivas()
         puntos_calor = []
 
-        # 1. Dibujar Nodos Estratégicos Reales
+        # 1. Dibujar Nodos Estratégicos
         for nombre, coords in NODOS_ESTRATEGICOS.items():
             folium.Marker(
                 coords,
                 icon=folium.Icon(color='blue', icon='truck', prefix='fa'),
-                popup=f"<div style='font-family:Courier New;'><b>{nombre}</b><br>Nodo Logístico Humanitario</div>",
+                popup=f"<b>{nombre}</b>",
                 tooltip=nombre
             ).add_to(capa_nodos)
 
-        # 2. Dibujar Alertas Vivas y alimentar Heatmap
-        for al en alertas:
+        # 2. Bucle Corregido para Alertas
+        for al in alertas:
             puntos_calor.append([al['coords'][0], al['coords'][1], 1.0])
             
             popup_html = f"""
@@ -99,8 +93,7 @@ class RadarHumanitarioCrisis:
                 <b style="color:{al['color']}; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>
                 <hr style="border-color: #333; margin: 8px 0;">
                 <b>Reporte:</b> {al['evento']}<br>
-                <b>Fecha:</b> {al['fecha']}<br>
-                <b>Fuente:</b> UN OCHA / ReliefWeb
+                <b>Fuente:</b> ReliefWeb OSINT
             </div>
             """
             folium.Marker(
@@ -109,34 +102,27 @@ class RadarHumanitarioCrisis:
                 popup=folium.Popup(popup_html, max_width=300)
             ).add_to(capa_alertas)
 
-        # 3. Heatmap de Crisis
+        # 3. Heatmap
         if puntos_calor:
             HeatMap(puntos_calor, radius=30, blur=20).add_to(capa_calor)
 
-        # Panel Informativo Unificado E.T.B.
+        # Panel de Control
         timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
         panel_html = f"""
-        <div style="position: fixed; top: 20px; right: 20px; width: 300px; 
-                    background: rgba(10,10,10,0.95); color: #fff; border: 2px solid #ff4444; 
-                    padding: 15px; border-radius: 10px; font-family: 'Courier New', monospace; 
-                    font-size: 11px; z-index: 9999; box-shadow: 0 0 20px rgba(255,0,0,0.4);">
+        <div style="position: fixed; top: 20px; right: 20px; width: 280px; background: rgba(10,10,10,0.95); 
+                    color: #fff; border: 2px solid #ff4444; padding: 15px; border-radius: 10px; 
+                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;">
             <h4 style="color:#ff4444; text-align:center; margin:0 0 10px 0;">⛑️ RADAR HUMANITARIO E.T.B.</h4>
-            <div style="background: rgba(255,0,0,0.2); padding: 8px; border-radius: 5px; 
-                        margin-bottom: 10px; text-align: center; border: 1px solid #ff4444;">
-                <b style="color:#ff6666;">NIVEL DE CRISIS: {self.nivel_alerta}</b>
-            </div>
-            <div style="line-height: 1.6;">
-                Alertas Activas: {len(alertas)} regionales<br>
-                Nodos Logísticos: {len(NODOS_ESTRATEGICOS)} operativos<br>
-                Fuente: UN OCHA / ReliefWeb OSINT<br>
+            <div style="text-align:center; line-height:1.6;">
+                NIVEL: {self.nivel_alerta}<br>
+                Alertas Activas: {len(alertas)}<br>
                 <hr style="border-color:#333;">
-                Actualizado: {timestamp}
+                Sincronizado: {timestamp}
             </div>
         </div>
         """
         mapa.get_root().html.add_child(folium.Element(panel_html))
         folium.LayerControl().add_to(mapa)
-        
         mapa.save("radar_humanitario_crisis.html")
         print(f"[✅ RADAR HUMANITARIO REGIONAL GENERADO]")
 
