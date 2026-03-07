@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_6663ed8ac7c000572464eb3e986bd403 {
+                #map_0276d9f4803c8808fd6a6dc485b78439 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -71,19 +71,19 @@
             <div style="line-height: 1.6;">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                     <span>Ataques Severos (24h):</span>
-                    <span style="color:#ff6666; font-weight:bold;">220</span>
+                    <span style="color:#ff6666; font-weight:bold;">294</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                     <span>Botnets DDoS Activos:</span>
-                    <span style="color:#ffaa00;">7</span>
+                    <span style="color:#ffaa00;">8</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                     <span>Vectores Phishing:</span>
-                    <span style="color:#00ff41;">1474</span>
+                    <span style="color:#00ff41;">661</span>
                 </div>
                 <div style="display: flex; justify-content: space-between;">
                     <span>Pings de Intrusión (IDS):</span>
-                    <span style="color:#00aaff;">4317</span>
+                    <span style="color:#00aaff;">3562</span>
                 </div>
             </div>
             <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px;">
@@ -95,20 +95,20 @@
             <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px; 
                         font-size: 10px; color: #666; text-align: center;">
                 <b>Última actualización:</b><br>
-                2026-03-07 07:30:54<br>
+                2026-03-07 10:30:53<br>
                 <span style="color: #444;">Sistema E.T.B. v2.0</span>
             </div>
         </div>
         
     
-            <div class="folium-map" id="map_6663ed8ac7c000572464eb3e986bd403" ></div>
+            <div class="folium-map" id="map_0276d9f4803c8808fd6a6dc485b78439" ></div>
         
 </body>
 <script>
     
     
-            var map_6663ed8ac7c000572464eb3e986bd403 = L.map(
-                "map_6663ed8ac7c000572464eb3e986bd403",
+            var map_0276d9f4803c8808fd6a6dc485b78439 = L.map(
+                "map_0276d9f4803c8808fd6a6dc485b78439",
                 {
                     center: [33.0, 45.0],
                     crs: L.CRS.EPSG3857,
@@ -125,7 +125,7 @@
 
         
     
-            var tile_layer_a78a9b130daaf2c387c2f95f05bb6806 = L.tileLayer(
+            var tile_layer_4191be5d1588814034ede5113353f7f8 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -142,23 +142,23 @@
             );
         
     
-            tile_layer_a78a9b130daaf2c387c2f95f05bb6806.addTo(map_6663ed8ac7c000572464eb3e986bd403);
+            tile_layer_4191be5d1588814034ede5113353f7f8.addTo(map_0276d9f4803c8808fd6a6dc485b78439);
         
     
-            var feature_group_4caee337a08324067fadb92479e4fdba = L.featureGroup(
+            var feature_group_eac951614a9700f3e962c6f390ba84fc = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_a9112456b1077dea53f1e81bc35e0c16 = L.marker(
+            var marker_6bd9df8a2c0f75d47a25df4f04adea63 = L.marker(
                 [35.6892, 51.389],
                 {
 }
-            ).addTo(feature_group_4caee337a08324067fadb92479e4fdba);
+            ).addTo(feature_group_eac951614a9700f3e962c6f390ba84fc);
         
     
-            var icon_ebc20c71dbe2b5e4244dd2806d20035b = L.AwesomeMarkers.icon(
+            var icon_117c70fe1a55ff4e37b08a954eb5e53e = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -169,24 +169,24 @@
             );
         
     
-        var popup_e1fe8ee3a99bf7c3a6d3d6d0aebfdd78 = L.popup({
+        var popup_87b6dc67e7e2f960217742184b81f0db = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_97d61a0c27fdd0b30622c93f61f87a6f = $(`<div id="html_97d61a0c27fdd0b30622c93f61f87a6f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 16px;">💻 APT35 (CHARMING KITTEN)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Irán<br>                 <b>Perfil Operativo:</b> Espionaje<br>                 <b>Objetivos Primarios:</b> Israel, EEUU, disidentes<br>                 <b>TTPs (Técnicas):</b> Spear phishing, watering hole<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
-                popup_e1fe8ee3a99bf7c3a6d3d6d0aebfdd78.setContent(html_97d61a0c27fdd0b30622c93f61f87a6f);
+                var html_420ce04a9e275457e51a199201dce371 = $(`<div id="html_420ce04a9e275457e51a199201dce371" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 16px;">💻 APT35 (CHARMING KITTEN)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Irán<br>                 <b>Perfil Operativo:</b> Espionaje<br>                 <b>Objetivos Primarios:</b> Israel, EEUU, disidentes<br>                 <b>TTPs (Técnicas):</b> Spear phishing, watering hole<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
+                popup_87b6dc67e7e2f960217742184b81f0db.setContent(html_420ce04a9e275457e51a199201dce371);
             
         
 
-        marker_a9112456b1077dea53f1e81bc35e0c16.bindPopup(popup_e1fe8ee3a99bf7c3a6d3d6d0aebfdd78)
+        marker_6bd9df8a2c0f75d47a25df4f04adea63.bindPopup(popup_87b6dc67e7e2f960217742184b81f0db)
         ;
 
         
     
     
-            marker_a9112456b1077dea53f1e81bc35e0c16.bindTooltip(
+            marker_6bd9df8a2c0f75d47a25df4f04adea63.bindTooltip(
                 `<div>
                      AMENAZA: APT35 (Charming Kitten) (Irán)
                  </div>`,
@@ -196,23 +196,23 @@
             );
         
     
-                marker_a9112456b1077dea53f1e81bc35e0c16.setIcon(icon_ebc20c71dbe2b5e4244dd2806d20035b);
+                marker_6bd9df8a2c0f75d47a25df4f04adea63.setIcon(icon_117c70fe1a55ff4e37b08a954eb5e53e);
             
     
-            var circle_6427008239578e3f7fc4294da1cdc8fc = L.circle(
+            var circle_58b8b77dc0afefdac8d3685fa5470d66 = L.circle(
                 [35.6892, 51.389],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150000, "stroke": true, "weight": 1}
-            ).addTo(feature_group_4caee337a08324067fadb92479e4fdba);
+            ).addTo(feature_group_eac951614a9700f3e962c6f390ba84fc);
         
     
-            var marker_f106329a391f30f42c1d203a64dabb33 = L.marker(
+            var marker_a1fd33959a711ac52765b19e7ff1d5d1 = L.marker(
                 [32.6539, 51.666],
                 {
 }
-            ).addTo(feature_group_4caee337a08324067fadb92479e4fdba);
+            ).addTo(feature_group_eac951614a9700f3e962c6f390ba84fc);
         
     
-            var icon_75117a199abb4a5d40eda617501e2826 = L.AwesomeMarkers.icon(
+            var icon_09387f1c3724249e2d354f5a31eb34c6 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -223,24 +223,24 @@
             );
         
     
-        var popup_2c4ced863a1f4ea26391e83d28092d24 = L.popup({
+        var popup_73d57a30ef2d90b31810cb2c2f7d06b4 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_dcdda686afcbf9429ad834be8178d336 = $(`<div id="html_dcdda686afcbf9429ad834be8178d336" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 16px;">💻 APT33 (ELFIN)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Irán<br>                 <b>Perfil Operativo:</b> Sabotaje industrial<br>                 <b>Objetivos Primarios:</b> Energía, defensa<br>                 <b>TTPs (Técnicas):</b> Shamoon wiper, supply chain<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
-                popup_2c4ced863a1f4ea26391e83d28092d24.setContent(html_dcdda686afcbf9429ad834be8178d336);
+                var html_2a60736673ac5f84fa6fd91095da84db = $(`<div id="html_2a60736673ac5f84fa6fd91095da84db" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 16px;">💻 APT33 (ELFIN)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Irán<br>                 <b>Perfil Operativo:</b> Sabotaje industrial<br>                 <b>Objetivos Primarios:</b> Energía, defensa<br>                 <b>TTPs (Técnicas):</b> Shamoon wiper, supply chain<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
+                popup_73d57a30ef2d90b31810cb2c2f7d06b4.setContent(html_2a60736673ac5f84fa6fd91095da84db);
             
         
 
-        marker_f106329a391f30f42c1d203a64dabb33.bindPopup(popup_2c4ced863a1f4ea26391e83d28092d24)
+        marker_a1fd33959a711ac52765b19e7ff1d5d1.bindPopup(popup_73d57a30ef2d90b31810cb2c2f7d06b4)
         ;
 
         
     
     
-            marker_f106329a391f30f42c1d203a64dabb33.bindTooltip(
+            marker_a1fd33959a711ac52765b19e7ff1d5d1.bindTooltip(
                 `<div>
                      AMENAZA: APT33 (Elfin) (Irán)
                  </div>`,
@@ -250,23 +250,23 @@
             );
         
     
-                marker_f106329a391f30f42c1d203a64dabb33.setIcon(icon_75117a199abb4a5d40eda617501e2826);
+                marker_a1fd33959a711ac52765b19e7ff1d5d1.setIcon(icon_09387f1c3724249e2d354f5a31eb34c6);
             
     
-            var circle_0efe7c2fb251fc6c5f5268718cf022c9 = L.circle(
+            var circle_5cbaf2a0d82a62e79c74b576a6bbdf5f = L.circle(
                 [32.6539, 51.666],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150000, "stroke": true, "weight": 1}
-            ).addTo(feature_group_4caee337a08324067fadb92479e4fdba);
+            ).addTo(feature_group_eac951614a9700f3e962c6f390ba84fc);
         
     
-            var marker_c7c4416ef568c33b0bcef51bab197527 = L.marker(
+            var marker_ce22710da8d8e85bc15d36be9cad1ba8 = L.marker(
                 [32.0853, 34.7818],
                 {
 }
-            ).addTo(feature_group_4caee337a08324067fadb92479e4fdba);
+            ).addTo(feature_group_eac951614a9700f3e962c6f390ba84fc);
         
     
-            var icon_8f2704c4f6753ce51406cc4f15fb0ad4 = L.AwesomeMarkers.icon(
+            var icon_f35d364b98dfee3e014bfacb005343ac = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -277,24 +277,24 @@
             );
         
     
-        var popup_f2e6f020157df40ce666d56116be58f8 = L.popup({
+        var popup_55ecce38852ed6eb79a5c12ae6237023 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_55cf532a252556124ecb5f915a83d8ed = $(`<div id="html_55cf532a252556124ecb5f915a83d8ed" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid blue;">                 <b style="color:blue; font-size: 16px;">💻 UNIT 8200</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Israel<br>                 <b>Perfil Operativo:</b> SIGINT/Ciberespionaje<br>                 <b>Objetivos Primarios:</b> Irán, Hezbollah, Hamas<br>                 <b>TTPs (Técnicas):</b> Stuxnet, Duqu, Flame<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
-                popup_f2e6f020157df40ce666d56116be58f8.setContent(html_55cf532a252556124ecb5f915a83d8ed);
+                var html_aa5fc996d56312a7e16c40d5d9dd3c6a = $(`<div id="html_aa5fc996d56312a7e16c40d5d9dd3c6a" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid blue;">                 <b style="color:blue; font-size: 16px;">💻 UNIT 8200</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Israel<br>                 <b>Perfil Operativo:</b> SIGINT/Ciberespionaje<br>                 <b>Objetivos Primarios:</b> Irán, Hezbollah, Hamas<br>                 <b>TTPs (Técnicas):</b> Stuxnet, Duqu, Flame<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
+                popup_55ecce38852ed6eb79a5c12ae6237023.setContent(html_aa5fc996d56312a7e16c40d5d9dd3c6a);
             
         
 
-        marker_c7c4416ef568c33b0bcef51bab197527.bindPopup(popup_f2e6f020157df40ce666d56116be58f8)
+        marker_ce22710da8d8e85bc15d36be9cad1ba8.bindPopup(popup_55ecce38852ed6eb79a5c12ae6237023)
         ;
 
         
     
     
-            marker_c7c4416ef568c33b0bcef51bab197527.bindTooltip(
+            marker_ce22710da8d8e85bc15d36be9cad1ba8.bindTooltip(
                 `<div>
                      AMENAZA: Unit 8200 (Israel)
                  </div>`,
@@ -304,23 +304,23 @@
             );
         
     
-                marker_c7c4416ef568c33b0bcef51bab197527.setIcon(icon_8f2704c4f6753ce51406cc4f15fb0ad4);
+                marker_ce22710da8d8e85bc15d36be9cad1ba8.setIcon(icon_f35d364b98dfee3e014bfacb005343ac);
             
     
-            var circle_e6b3837177e5f75eb8df7263ad720941 = L.circle(
+            var circle_5175f8f38287f68cc51b27076fdfdcc0 = L.circle(
                 [32.0853, 34.7818],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150000, "stroke": true, "weight": 1}
-            ).addTo(feature_group_4caee337a08324067fadb92479e4fdba);
+            ).addTo(feature_group_eac951614a9700f3e962c6f390ba84fc);
         
     
-            var marker_22145f851ad0ce783c823e08c0ac34b0 = L.marker(
+            var marker_bb3d0a0ff7d7927adaa49610c6a4b920 = L.marker(
                 [31.7683, 35.2137],
                 {
 }
-            ).addTo(feature_group_4caee337a08324067fadb92479e4fdba);
+            ).addTo(feature_group_eac951614a9700f3e962c6f390ba84fc);
         
     
-            var icon_7e09769195c9a23712bd2bfec98ff080 = L.AwesomeMarkers.icon(
+            var icon_5cc917577ce719513905beb9050e7445 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkblue",
   "iconColor": "white",
@@ -331,24 +331,24 @@
             );
         
     
-        var popup_44e19c04a26823d4d0bf4afdc78fd93a = L.popup({
+        var popup_d76fe66896c8ffff4a7fa87947dd9920 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_c3bb5e91303ad40744a72ebce3eca93b = $(`<div id="html_c3bb5e91303ad40744a72ebce3eca93b" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkblue;">                 <b style="color:darkblue; font-size: 16px;">💻 UNIT 81</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Israel<br>                 <b>Perfil Operativo:</b> Ciberarma física<br>                 <b>Objetivos Primarios:</b> Instalaciones nucleares iraníes<br>                 <b>TTPs (Técnicas):</b> Sabotaje SCADA, explosiones<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
-                popup_44e19c04a26823d4d0bf4afdc78fd93a.setContent(html_c3bb5e91303ad40744a72ebce3eca93b);
+                var html_2280f45498a2da08a276649a02a1af7b = $(`<div id="html_2280f45498a2da08a276649a02a1af7b" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkblue;">                 <b style="color:darkblue; font-size: 16px;">💻 UNIT 81</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Israel<br>                 <b>Perfil Operativo:</b> Ciberarma física<br>                 <b>Objetivos Primarios:</b> Instalaciones nucleares iraníes<br>                 <b>TTPs (Técnicas):</b> Sabotaje SCADA, explosiones<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
+                popup_d76fe66896c8ffff4a7fa87947dd9920.setContent(html_2280f45498a2da08a276649a02a1af7b);
             
         
 
-        marker_22145f851ad0ce783c823e08c0ac34b0.bindPopup(popup_44e19c04a26823d4d0bf4afdc78fd93a)
+        marker_bb3d0a0ff7d7927adaa49610c6a4b920.bindPopup(popup_d76fe66896c8ffff4a7fa87947dd9920)
         ;
 
         
     
     
-            marker_22145f851ad0ce783c823e08c0ac34b0.bindTooltip(
+            marker_bb3d0a0ff7d7927adaa49610c6a4b920.bindTooltip(
                 `<div>
                      AMENAZA: Unit 81 (Israel)
                  </div>`,
@@ -358,32 +358,32 @@
             );
         
     
-                marker_22145f851ad0ce783c823e08c0ac34b0.setIcon(icon_7e09769195c9a23712bd2bfec98ff080);
+                marker_bb3d0a0ff7d7927adaa49610c6a4b920.setIcon(icon_5cc917577ce719513905beb9050e7445);
             
     
-            var circle_d4aa20660536086005f49be3cb16b8fc = L.circle(
+            var circle_f449801d3e948f16581d044a115cbd21 = L.circle(
                 [31.7683, 35.2137],
                 {"bubblingMouseEvents": true, "color": "darkblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkblue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150000, "stroke": true, "weight": 1}
-            ).addTo(feature_group_4caee337a08324067fadb92479e4fdba);
+            ).addTo(feature_group_eac951614a9700f3e962c6f390ba84fc);
         
     
-            feature_group_4caee337a08324067fadb92479e4fdba.addTo(map_6663ed8ac7c000572464eb3e986bd403);
+            feature_group_eac951614a9700f3e962c6f390ba84fc.addTo(map_0276d9f4803c8808fd6a6dc485b78439);
         
     
-            var feature_group_02807872367912f66fff15ae75049173 = L.featureGroup(
+            var feature_group_c34966a9b6fa517d6984241afa104b4d = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_a6b21a978367a6ddd822dd36c7b46d79 = L.marker(
+            var marker_84c8ca290481662d6fb1346f439182e3 = L.marker(
                 [34.6401, 50.8764],
                 {
 }
-            ).addTo(feature_group_02807872367912f66fff15ae75049173);
+            ).addTo(feature_group_c34966a9b6fa517d6984241afa104b4d);
         
     
-            var icon_5d0f4b0f8e514517ae381879fa43a821 = L.AwesomeMarkers.icon(
+            var icon_f09c160561f354f2ef42e2154c3bf9b2 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkred",
   "iconColor": "white",
@@ -394,24 +394,24 @@
             );
         
     
-        var popup_d006c46af17bc626b0685fd04dc5edf1 = L.popup({
+        var popup_8285b58767664136e5fa118e37da851e = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6ac359611fb094f32f5558cde0212fed = $(`<div id="html_6ac359611fb094f32f5558cde0212fed" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkred;">                 <b style="color:darkred; font-size: 16px;">💻 EMENNET PASARGAD</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Irán<br>                 <b>Perfil Operativo:</b> Hacktivismo/Sabotaje<br>                 <b>Objetivos Primarios:</b> Infraestructura crítica Israel<br>                 <b>TTPs (Técnicas):</b> DDoS, ransomware, defacement<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
-                popup_d006c46af17bc626b0685fd04dc5edf1.setContent(html_6ac359611fb094f32f5558cde0212fed);
+                var html_321ac1fde66a099c1860f15f50285f17 = $(`<div id="html_321ac1fde66a099c1860f15f50285f17" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkred;">                 <b style="color:darkred; font-size: 16px;">💻 EMENNET PASARGAD</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Irán<br>                 <b>Perfil Operativo:</b> Hacktivismo/Sabotaje<br>                 <b>Objetivos Primarios:</b> Infraestructura crítica Israel<br>                 <b>TTPs (Técnicas):</b> DDoS, ransomware, defacement<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
+                popup_8285b58767664136e5fa118e37da851e.setContent(html_321ac1fde66a099c1860f15f50285f17);
             
         
 
-        marker_a6b21a978367a6ddd822dd36c7b46d79.bindPopup(popup_d006c46af17bc626b0685fd04dc5edf1)
+        marker_84c8ca290481662d6fb1346f439182e3.bindPopup(popup_8285b58767664136e5fa118e37da851e)
         ;
 
         
     
     
-            marker_a6b21a978367a6ddd822dd36c7b46d79.bindTooltip(
+            marker_84c8ca290481662d6fb1346f439182e3.bindTooltip(
                 `<div>
                      AMENAZA: Emennet Pasargad (Irán)
                  </div>`,
@@ -421,23 +421,23 @@
             );
         
     
-                marker_a6b21a978367a6ddd822dd36c7b46d79.setIcon(icon_5d0f4b0f8e514517ae381879fa43a821);
+                marker_84c8ca290481662d6fb1346f439182e3.setIcon(icon_f09c160561f354f2ef42e2154c3bf9b2);
             
     
-            var circle_b4889b9c706474c83f45d8aec7b5fe15 = L.circle(
+            var circle_4b1578277f4ce8f2adeea90976dcc130 = L.circle(
                 [34.6401, 50.8764],
                 {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150000, "stroke": true, "weight": 1}
-            ).addTo(feature_group_02807872367912f66fff15ae75049173);
+            ).addTo(feature_group_c34966a9b6fa517d6984241afa104b4d);
         
     
-            var marker_cd9d922201bf17b01003a8269b977dd3 = L.marker(
+            var marker_ef8a56bf1917ad51809047f35b99d981 = L.marker(
                 [33.8938, 35.5018],
                 {
 }
-            ).addTo(feature_group_02807872367912f66fff15ae75049173);
+            ).addTo(feature_group_c34966a9b6fa517d6984241afa104b4d);
         
     
-            var icon_78856ba944cb077058a946802121c1cd = L.AwesomeMarkers.icon(
+            var icon_de835004680e2df01efca9527135ddaf = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -448,24 +448,24 @@
             );
         
     
-        var popup_51d53e059068116e61da6eee48915724 = L.popup({
+        var popup_ec8985eb8bf650402e2acdbe895ba470 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_8be2bd68153295a48dcf5aceb3f61c8e = $(`<div id="html_8be2bd68153295a48dcf5aceb3f61c8e" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid green;">                 <b style="color:green; font-size: 16px;">💻 LEBANESE CEDAR</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Hezbollah<br>                 <b>Perfil Operativo:</b> Espionaje telecom<br>                 <b>Objetivos Primarios:</b> ISP, empresas libanesas<br>                 <b>TTPs (Técnicas):</b> Backdoors en routers<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
-                popup_51d53e059068116e61da6eee48915724.setContent(html_8be2bd68153295a48dcf5aceb3f61c8e);
+                var html_d2c9f7a3005aa431c13e81b99d080d70 = $(`<div id="html_d2c9f7a3005aa431c13e81b99d080d70" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid green;">                 <b style="color:green; font-size: 16px;">💻 LEBANESE CEDAR</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Hezbollah<br>                 <b>Perfil Operativo:</b> Espionaje telecom<br>                 <b>Objetivos Primarios:</b> ISP, empresas libanesas<br>                 <b>TTPs (Técnicas):</b> Backdoors en routers<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
+                popup_ec8985eb8bf650402e2acdbe895ba470.setContent(html_d2c9f7a3005aa431c13e81b99d080d70);
             
         
 
-        marker_cd9d922201bf17b01003a8269b977dd3.bindPopup(popup_51d53e059068116e61da6eee48915724)
+        marker_ef8a56bf1917ad51809047f35b99d981.bindPopup(popup_ec8985eb8bf650402e2acdbe895ba470)
         ;
 
         
     
     
-            marker_cd9d922201bf17b01003a8269b977dd3.bindTooltip(
+            marker_ef8a56bf1917ad51809047f35b99d981.bindTooltip(
                 `<div>
                      AMENAZA: Lebanese Cedar (Hezbollah)
                  </div>`,
@@ -475,23 +475,23 @@
             );
         
     
-                marker_cd9d922201bf17b01003a8269b977dd3.setIcon(icon_78856ba944cb077058a946802121c1cd);
+                marker_ef8a56bf1917ad51809047f35b99d981.setIcon(icon_de835004680e2df01efca9527135ddaf);
             
     
-            var circle_7f05e6d734a314baa9bebf9b3c55b85a = L.circle(
+            var circle_0e4973320854218d7c0d036b5bd00a6c = L.circle(
                 [33.8938, 35.5018],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150000, "stroke": true, "weight": 1}
-            ).addTo(feature_group_02807872367912f66fff15ae75049173);
+            ).addTo(feature_group_c34966a9b6fa517d6984241afa104b4d);
         
     
-            var marker_f8154f1494733c3a963b1b10e9497cdd = L.marker(
+            var marker_69fdeb9f08bc7e2527b670180eccde90 = L.marker(
                 [31.5017, 34.4668],
                 {
 }
-            ).addTo(feature_group_02807872367912f66fff15ae75049173);
+            ).addTo(feature_group_c34966a9b6fa517d6984241afa104b4d);
         
     
-            var icon_037f6f508c56bd36eefc8f5b57e69ed8 = L.AwesomeMarkers.icon(
+            var icon_c599381a1c40a7199b2fea9962fdfecc = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkgreen",
   "iconColor": "white",
@@ -502,24 +502,24 @@
             );
         
     
-        var popup_0dc36b49f17edfa67db099815c651786 = L.popup({
+        var popup_6594ac44e6fc18e2554d2a3d41aa3fa1 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_486e5ad2525fc661bdef260fb7a40227 = $(`<div id="html_486e5ad2525fc661bdef260fb7a40227" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkgreen;">                 <b style="color:darkgreen; font-size: 16px;">💻 GAZA CYBERGANG</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Hamas<br>                 <b>Perfil Operativo:</b> Espionaje militar<br>                 <b>Objetivos Primarios:</b> IDF, soldados israelíes<br>                 <b>TTPs (Técnicas):</b> Fake apps, catfishing<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
-                popup_0dc36b49f17edfa67db099815c651786.setContent(html_486e5ad2525fc661bdef260fb7a40227);
+                var html_679dff84d35f0cef8c9164a6e66b030c = $(`<div id="html_679dff84d35f0cef8c9164a6e66b030c" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkgreen;">                 <b style="color:darkgreen; font-size: 16px;">💻 GAZA CYBERGANG</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Hamas<br>                 <b>Perfil Operativo:</b> Espionaje militar<br>                 <b>Objetivos Primarios:</b> IDF, soldados israelíes<br>                 <b>TTPs (Técnicas):</b> Fake apps, catfishing<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
+                popup_6594ac44e6fc18e2554d2a3d41aa3fa1.setContent(html_679dff84d35f0cef8c9164a6e66b030c);
             
         
 
-        marker_f8154f1494733c3a963b1b10e9497cdd.bindPopup(popup_0dc36b49f17edfa67db099815c651786)
+        marker_69fdeb9f08bc7e2527b670180eccde90.bindPopup(popup_6594ac44e6fc18e2554d2a3d41aa3fa1)
         ;
 
         
     
     
-            marker_f8154f1494733c3a963b1b10e9497cdd.bindTooltip(
+            marker_69fdeb9f08bc7e2527b670180eccde90.bindTooltip(
                 `<div>
                      AMENAZA: Gaza Cybergang (Hamas)
                  </div>`,
@@ -529,23 +529,23 @@
             );
         
     
-                marker_f8154f1494733c3a963b1b10e9497cdd.setIcon(icon_037f6f508c56bd36eefc8f5b57e69ed8);
+                marker_69fdeb9f08bc7e2527b670180eccde90.setIcon(icon_c599381a1c40a7199b2fea9962fdfecc);
             
     
-            var circle_fb11189558b4f3f165858686b61d3015 = L.circle(
+            var circle_7ff61414db041eaa8a6da651e3965864 = L.circle(
                 [31.5017, 34.4668],
                 {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150000, "stroke": true, "weight": 1}
-            ).addTo(feature_group_02807872367912f66fff15ae75049173);
+            ).addTo(feature_group_c34966a9b6fa517d6984241afa104b4d);
         
     
-            var marker_f4cd60e0f75b50ed6c4f8a3a2b09f427 = L.marker(
+            var marker_9a30b5332a6e360c26ec5328a290faa0 = L.marker(
                 [15.5007, 32.5599],
                 {
 }
-            ).addTo(feature_group_02807872367912f66fff15ae75049173);
+            ).addTo(feature_group_c34966a9b6fa517d6984241afa104b4d);
         
     
-            var icon_d0268b6111d10a72ebc7930772512ffb = L.AwesomeMarkers.icon(
+            var icon_94b5d58775d5c77a75c79edf1bd11ccb = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -556,24 +556,24 @@
             );
         
     
-        var popup_9f90f55349f4990cc5309d6e14a60060 = L.popup({
+        var popup_91d6069e32a1aecea47f8cc4f025f713 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_82a3f767c00c313ce33042e1b94c353e = $(`<div id="html_82a3f767c00c313ce33042e1b94c353e" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid orange;">                 <b style="color:orange; font-size: 16px;">💻 ANONYMOUS SUDAN</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Sudán/Rusia<br>                 <b>Perfil Operativo:</b> Hacktivismo<br>                 <b>Objetivos Primarios:</b> Israel, EEUU, OTAN<br>                 <b>TTPs (Técnicas):</b> DDoS masivo<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
-                popup_9f90f55349f4990cc5309d6e14a60060.setContent(html_82a3f767c00c313ce33042e1b94c353e);
+                var html_a54df160b32ed9a996fa0fbff1b5b65b = $(`<div id="html_a54df160b32ed9a996fa0fbff1b5b65b" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid orange;">                 <b style="color:orange; font-size: 16px;">💻 ANONYMOUS SUDAN</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Sudán/Rusia<br>                 <b>Perfil Operativo:</b> Hacktivismo<br>                 <b>Objetivos Primarios:</b> Israel, EEUU, OTAN<br>                 <b>TTPs (Técnicas):</b> DDoS masivo<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
+                popup_91d6069e32a1aecea47f8cc4f025f713.setContent(html_a54df160b32ed9a996fa0fbff1b5b65b);
             
         
 
-        marker_f4cd60e0f75b50ed6c4f8a3a2b09f427.bindPopup(popup_9f90f55349f4990cc5309d6e14a60060)
+        marker_9a30b5332a6e360c26ec5328a290faa0.bindPopup(popup_91d6069e32a1aecea47f8cc4f025f713)
         ;
 
         
     
     
-            marker_f4cd60e0f75b50ed6c4f8a3a2b09f427.bindTooltip(
+            marker_9a30b5332a6e360c26ec5328a290faa0.bindTooltip(
                 `<div>
                      AMENAZA: Anonymous Sudan (Sudán/Rusia)
                  </div>`,
@@ -583,23 +583,23 @@
             );
         
     
-                marker_f4cd60e0f75b50ed6c4f8a3a2b09f427.setIcon(icon_d0268b6111d10a72ebc7930772512ffb);
+                marker_9a30b5332a6e360c26ec5328a290faa0.setIcon(icon_94b5d58775d5c77a75c79edf1bd11ccb);
             
     
-            var circle_049fb40008a62fb152147db296dc38e8 = L.circle(
+            var circle_c66b50f0c468392bc6faded887bcced1 = L.circle(
                 [15.5007, 32.5599],
                 {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150000, "stroke": true, "weight": 1}
-            ).addTo(feature_group_02807872367912f66fff15ae75049173);
+            ).addTo(feature_group_c34966a9b6fa517d6984241afa104b4d);
         
     
-            var marker_6bbba773b941aa3e7ff468b576674053 = L.marker(
+            var marker_989d4e1d0292c18f6e0f2f34078898eb = L.marker(
                 [55.7558, 37.6173],
                 {
 }
-            ).addTo(feature_group_02807872367912f66fff15ae75049173);
+            ).addTo(feature_group_c34966a9b6fa517d6984241afa104b4d);
         
     
-            var icon_25fcf7343bdbf457abad9137819dcff8 = L.AwesomeMarkers.icon(
+            var icon_e954d8ffd16de11de33cb803efb3cc6a = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -610,24 +610,24 @@
             );
         
     
-        var popup_7320f2e3a91e9e95c517b4aa7aac3e00 = L.popup({
+        var popup_edb3b20aadd4d5e86dce8fc0bfa72fe6 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_72a218571c07283797d83df10ca4518d = $(`<div id="html_72a218571c07283797d83df10ca4518d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid purple;">                 <b style="color:purple; font-size: 16px;">💻 KILLNET</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Rusia<br>                 <b>Perfil Operativo:</b> Hacktivismo pro-ruso<br>                 <b>Objetivos Primarios:</b> Israel, Ucrania<br>                 <b>TTPs (Técnicas):</b> DDoS, doxxing<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
-                popup_7320f2e3a91e9e95c517b4aa7aac3e00.setContent(html_72a218571c07283797d83df10ca4518d);
+                var html_b39b266923ba4c986445d4c0349c68de = $(`<div id="html_b39b266923ba4c986445d4c0349c68de" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid purple;">                 <b style="color:purple; font-size: 16px;">💻 KILLNET</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Afiliación Estatal:</b> Rusia<br>                 <b>Perfil Operativo:</b> Hacktivismo pro-ruso<br>                 <b>Objetivos Primarios:</b> Israel, Ucrania<br>                 <b>TTPs (Técnicas):</b> DDoS, doxxing<br>                 <b>Estado:</b> <span style="color:#00ff41; font-weight:bold;">ACTIVO</span>             </div>             </div>`)[0];
+                popup_edb3b20aadd4d5e86dce8fc0bfa72fe6.setContent(html_b39b266923ba4c986445d4c0349c68de);
             
         
 
-        marker_6bbba773b941aa3e7ff468b576674053.bindPopup(popup_7320f2e3a91e9e95c517b4aa7aac3e00)
+        marker_989d4e1d0292c18f6e0f2f34078898eb.bindPopup(popup_edb3b20aadd4d5e86dce8fc0bfa72fe6)
         ;
 
         
     
     
-            marker_6bbba773b941aa3e7ff468b576674053.bindTooltip(
+            marker_989d4e1d0292c18f6e0f2f34078898eb.bindTooltip(
                 `<div>
                      AMENAZA: KillNet (Rusia)
                  </div>`,
@@ -637,126 +637,126 @@
             );
         
     
-                marker_6bbba773b941aa3e7ff468b576674053.setIcon(icon_25fcf7343bdbf457abad9137819dcff8);
+                marker_989d4e1d0292c18f6e0f2f34078898eb.setIcon(icon_e954d8ffd16de11de33cb803efb3cc6a);
             
     
-            var circle_f8de5557026e2be592e28b2e761a3342 = L.circle(
+            var circle_b59103642fc90dd815544483e9330bdd = L.circle(
                 [55.7558, 37.6173],
                 {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150000, "stroke": true, "weight": 1}
-            ).addTo(feature_group_02807872367912f66fff15ae75049173);
+            ).addTo(feature_group_c34966a9b6fa517d6984241afa104b4d);
         
     
-            feature_group_02807872367912f66fff15ae75049173.addTo(map_6663ed8ac7c000572464eb3e986bd403);
+            feature_group_c34966a9b6fa517d6984241afa104b4d.addTo(map_0276d9f4803c8808fd6a6dc485b78439);
         
     
-            var feature_group_32b233ebdc1125eb44639eddc69e1540 = L.featureGroup(
+            var feature_group_91a20e9b770952b7dbef5fdc63124902 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_442e16e2feb6aa74982c3772d495e6ec = L.circleMarker(
+            var circle_marker_3a5eff57de11f60aab904efd3474bbf5 = L.circleMarker(
                 [32.9642, 35.4984],
                 {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
-            ).addTo(feature_group_32b233ebdc1125eb44639eddc69e1540);
+            ).addTo(feature_group_91a20e9b770952b7dbef5fdc63124902);
         
     
-        var popup_556b5a5206c521bb87661e65eaf8b312 = L.popup({
+        var popup_6e219995c084d2eef8be840cd2587731 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_70d69d093630232c3f716aa7f2c299c7 = $(`<div id="html_70d69d093630232c3f716aa7f2c299c7" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 250px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid orange;">                     <b style="color:orange;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Vector:</b> Ransomware / Data Leak<br>                     <b>Atacante (Atribución):</b> Emennet Pasargad<br>                     <b>Víctima:</b> Hospital Ziv (Safed)<br>                     <b>Daño:</b> Sistemas offline 6 horas<br>                     <b>Severidad:</b> ALTA                 </div>                 </div>`)[0];
-                popup_556b5a5206c521bb87661e65eaf8b312.setContent(html_70d69d093630232c3f716aa7f2c299c7);
+                var html_f39281c5745f7ec95d4c078f100c6ddc = $(`<div id="html_f39281c5745f7ec95d4c078f100c6ddc" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 250px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid orange;">                     <b style="color:orange;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Vector:</b> Ransomware / Data Leak<br>                     <b>Atacante (Atribución):</b> Emennet Pasargad<br>                     <b>Víctima:</b> Hospital Ziv (Safed)<br>                     <b>Daño:</b> Sistemas offline 6 horas<br>                     <b>Severidad:</b> ALTA                 </div>                 </div>`)[0];
+                popup_6e219995c084d2eef8be840cd2587731.setContent(html_f39281c5745f7ec95d4c078f100c6ddc);
             
         
 
-        circle_marker_442e16e2feb6aa74982c3772d495e6ec.bindPopup(popup_556b5a5206c521bb87661e65eaf8b312)
+        circle_marker_3a5eff57de11f60aab904efd3474bbf5.bindPopup(popup_6e219995c084d2eef8be840cd2587731)
         ;
 
         
     
     
-            var circle_marker_964108a80972e3724806aef00273c8f7 = L.circleMarker(
+            var circle_marker_f08f698020e0c9542b2324e160a7b778 = L.circleMarker(
                 [27.1832, 56.2666],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
-            ).addTo(feature_group_32b233ebdc1125eb44639eddc69e1540);
+            ).addTo(feature_group_91a20e9b770952b7dbef5fdc63124902);
         
     
-        var popup_5f7ab10245951baca61a576cb2755ac4 = L.popup({
+        var popup_6f7a47e198c30884bcbb6bfe17c71054 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_ad6d781db7ab2bd60203792b4e0647dc = $(`<div id="html_ad6d781db7ab2bd60203792b4e0647dc" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 250px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid red;">                     <b style="color:red;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Vector:</b> Sabotaje SCADA<br>                     <b>Atacante (Atribución):</b> Unit 8200<br>                     <b>Víctima:</b> Sistema aduanero puerto Bandar Abbas<br>                     <b>Daño:</b> Parálisis logística 3 días<br>                     <b>Severidad:</b> CRITICA                 </div>                 </div>`)[0];
-                popup_5f7ab10245951baca61a576cb2755ac4.setContent(html_ad6d781db7ab2bd60203792b4e0647dc);
+                var html_4e313b0014c789637fe0dc04e824ca4d = $(`<div id="html_4e313b0014c789637fe0dc04e824ca4d" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 250px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid red;">                     <b style="color:red;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Vector:</b> Sabotaje SCADA<br>                     <b>Atacante (Atribución):</b> Unit 8200<br>                     <b>Víctima:</b> Sistema aduanero puerto Bandar Abbas<br>                     <b>Daño:</b> Parálisis logística 3 días<br>                     <b>Severidad:</b> CRITICA                 </div>                 </div>`)[0];
+                popup_6f7a47e198c30884bcbb6bfe17c71054.setContent(html_4e313b0014c789637fe0dc04e824ca4d);
             
         
 
-        circle_marker_964108a80972e3724806aef00273c8f7.bindPopup(popup_5f7ab10245951baca61a576cb2755ac4)
+        circle_marker_f08f698020e0c9542b2324e160a7b778.bindPopup(popup_6f7a47e198c30884bcbb6bfe17c71054)
         ;
 
         
     
     
-            var circle_marker_03b63314b0ed6b32126f86bced6261a0 = L.circleMarker(
+            var circle_marker_bc623811cf8e11c94a241c0bb0f69788 = L.circleMarker(
                 [32.0, 34.87],
                 {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
-            ).addTo(feature_group_32b233ebdc1125eb44639eddc69e1540);
+            ).addTo(feature_group_91a20e9b770952b7dbef5fdc63124902);
         
     
-        var popup_fcd97f7b68802bc5ab11a70ad975f6dd = L.popup({
+        var popup_0c093e6a4bee2625abc0c062d135c7ee = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_7ede463024253934d3579f0d5e5f22fa = $(`<div id="html_7ede463024253934d3579f0d5e5f22fa" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 250px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid yellow;">                     <b style="color:yellow;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Vector:</b> DDoS Volumétrico<br>                     <b>Atacante (Atribución):</b> Anonymous Sudan<br>                     <b>Víctima:</b> Aeropuerto Ben Gurion<br>                     <b>Daño:</b> Sitios web caídos, check-in lento<br>                     <b>Severidad:</b> MEDIA                 </div>                 </div>`)[0];
-                popup_fcd97f7b68802bc5ab11a70ad975f6dd.setContent(html_7ede463024253934d3579f0d5e5f22fa);
+                var html_87827d74e192593df8a91cd37615cfbd = $(`<div id="html_87827d74e192593df8a91cd37615cfbd" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 250px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid yellow;">                     <b style="color:yellow;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Vector:</b> DDoS Volumétrico<br>                     <b>Atacante (Atribución):</b> Anonymous Sudan<br>                     <b>Víctima:</b> Aeropuerto Ben Gurion<br>                     <b>Daño:</b> Sitios web caídos, check-in lento<br>                     <b>Severidad:</b> MEDIA                 </div>                 </div>`)[0];
+                popup_0c093e6a4bee2625abc0c062d135c7ee.setContent(html_87827d74e192593df8a91cd37615cfbd);
             
         
 
-        circle_marker_03b63314b0ed6b32126f86bced6261a0.bindPopup(popup_fcd97f7b68802bc5ab11a70ad975f6dd)
+        circle_marker_bc623811cf8e11c94a241c0bb0f69788.bindPopup(popup_0c093e6a4bee2625abc0c062d135c7ee)
         ;
 
         
     
     
-            var circle_marker_bd672f3812cf591d3c5e6021a8da86d3 = L.circleMarker(
+            var circle_marker_2115a0b3e077bc9e0ca11c9f8df10797 = L.circleMarker(
                 [31.5017, 34.4668],
                 {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
-            ).addTo(feature_group_32b233ebdc1125eb44639eddc69e1540);
+            ).addTo(feature_group_91a20e9b770952b7dbef5fdc63124902);
         
     
-        var popup_707a8fe530bd35796e1d68ac060a6a2c = L.popup({
+        var popup_838ece2233b7074f08665a9a517e3e9b = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_ac58a7a44dc8b3b8efc818c1e32c7021 = $(`<div id="html_ac58a7a44dc8b3b8efc818c1e32c7021" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 250px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid orange;">                     <b style="color:orange;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Vector:</b> Ingeniería Social / Espionaje<br>                     <b>Atacante (Atribución):</b> Gaza Cybergang<br>                     <b>Víctima:</b> Soldados IDF (apps fake de citas)<br>                     <b>Daño:</b> Datos de localización robados<br>                     <b>Severidad:</b> ALTA                 </div>                 </div>`)[0];
-                popup_707a8fe530bd35796e1d68ac060a6a2c.setContent(html_ac58a7a44dc8b3b8efc818c1e32c7021);
+                var html_67cf3e3a91e7df1d6c7e51ad2f634218 = $(`<div id="html_67cf3e3a91e7df1d6c7e51ad2f634218" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 250px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid orange;">                     <b style="color:orange;">💥 IMPACTO CONFIRMADO</b><br>                     <b>Vector:</b> Ingeniería Social / Espionaje<br>                     <b>Atacante (Atribución):</b> Gaza Cybergang<br>                     <b>Víctima:</b> Soldados IDF (apps fake de citas)<br>                     <b>Daño:</b> Datos de localización robados<br>                     <b>Severidad:</b> ALTA                 </div>                 </div>`)[0];
+                popup_838ece2233b7074f08665a9a517e3e9b.setContent(html_67cf3e3a91e7df1d6c7e51ad2f634218);
             
         
 
-        circle_marker_bd672f3812cf591d3c5e6021a8da86d3.bindPopup(popup_707a8fe530bd35796e1d68ac060a6a2c)
+        circle_marker_2115a0b3e077bc9e0ca11c9f8df10797.bindPopup(popup_838ece2233b7074f08665a9a517e3e9b)
         ;
 
         
     
     
-            feature_group_32b233ebdc1125eb44639eddc69e1540.addTo(map_6663ed8ac7c000572464eb3e986bd403);
+            feature_group_91a20e9b770952b7dbef5fdc63124902.addTo(map_0276d9f4803c8808fd6a6dc485b78439);
         
     
-            var feature_group_91f48e4374168ae0394a42939ee0725c = L.featureGroup(
+            var feature_group_4c9a78a83882f4b948393ee918358841 = L.featureGroup(
                 {
 }
             );
         
     
-            ant_path_28e095924914209554d918f370b2e221 = L.polyline.antPath(
+            ant_path_f78f4f084ad5b731da9a0381fbfb6880 = L.polyline.antPath(
               [[34.6401, 50.8764], [32.9642, 35.4984]],
               {
   "stroke": true,
@@ -783,10 +783,10 @@
   "delay": 800,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_91f48e4374168ae0394a42939ee0725c);
+        ).addTo(feature_group_4c9a78a83882f4b948393ee918358841);
         
     
-            ant_path_28e095924914209554d918f370b2e221.bindTooltip(
+            ant_path_f78f4f084ad5b731da9a0381fbfb6880.bindTooltip(
                 `<div>
                      Vector: Emennet Pasargad -> Hospital Ziv (Safed)
                  </div>`,
@@ -796,7 +796,7 @@
             );
         
     
-            ant_path_9bf5fb2e64a50c85713c0445463de0f8 = L.polyline.antPath(
+            ant_path_29c811e4e9209a7b01f7cf00cafd296c = L.polyline.antPath(
               [[32.0853, 34.7818], [27.1832, 56.2666]],
               {
   "stroke": true,
@@ -823,10 +823,10 @@
   "delay": 800,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_91f48e4374168ae0394a42939ee0725c);
+        ).addTo(feature_group_4c9a78a83882f4b948393ee918358841);
         
     
-            ant_path_9bf5fb2e64a50c85713c0445463de0f8.bindTooltip(
+            ant_path_29c811e4e9209a7b01f7cf00cafd296c.bindTooltip(
                 `<div>
                      Vector: Unit 8200 -> Sistema aduanero puerto Bandar Abbas
                  </div>`,
@@ -836,7 +836,7 @@
             );
         
     
-            ant_path_085a61fda9ff099b56f1c29c4fc8e9b9 = L.polyline.antPath(
+            ant_path_28f8ab66166340d1df848774ea7a5dfb = L.polyline.antPath(
               [[15.5007, 32.5599], [32.0, 34.87]],
               {
   "stroke": true,
@@ -863,10 +863,10 @@
   "delay": 800,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_91f48e4374168ae0394a42939ee0725c);
+        ).addTo(feature_group_4c9a78a83882f4b948393ee918358841);
         
     
-            ant_path_085a61fda9ff099b56f1c29c4fc8e9b9.bindTooltip(
+            ant_path_28f8ab66166340d1df848774ea7a5dfb.bindTooltip(
                 `<div>
                      Vector: Anonymous Sudan -> Aeropuerto Ben Gurion
                  </div>`,
@@ -876,7 +876,7 @@
             );
         
     
-            ant_path_2d07bd506ff3a3da47e982a097210ea6 = L.polyline.antPath(
+            ant_path_6f2b78f5394efab81cdc457779e1d5f9 = L.polyline.antPath(
               [[31.5017, 34.4668], [31.5017, 34.4668]],
               {
   "stroke": true,
@@ -903,10 +903,10 @@
   "delay": 800,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_91f48e4374168ae0394a42939ee0725c);
+        ).addTo(feature_group_4c9a78a83882f4b948393ee918358841);
         
     
-            ant_path_2d07bd506ff3a3da47e982a097210ea6.bindTooltip(
+            ant_path_6f2b78f5394efab81cdc457779e1d5f9.bindTooltip(
                 `<div>
                      Vector: Gaza Cybergang -> Soldados IDF (apps fake de citas)
                  </div>`,
@@ -916,23 +916,23 @@
             );
         
     
-            feature_group_91f48e4374168ae0394a42939ee0725c.addTo(map_6663ed8ac7c000572464eb3e986bd403);
+            feature_group_4c9a78a83882f4b948393ee918358841.addTo(map_0276d9f4803c8808fd6a6dc485b78439);
         
     
-            var feature_group_24eed1ac85dff3d25a667ae432768393 = L.featureGroup(
+            var feature_group_59ebe21024d1db5635fcc3303599f07f = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_fc7de93abd52083dd3a60cb6751483c9 = L.marker(
+            var marker_8dd361156fd77c54976cbcb353aa951c = L.marker(
                 [31.7683, 35.2137],
                 {
 }
-            ).addTo(feature_group_24eed1ac85dff3d25a667ae432768393);
+            ).addTo(feature_group_59ebe21024d1db5635fcc3303599f07f);
         
     
-            var icon_5203c192eba5a2ea4580876cce168809 = L.AwesomeMarkers.icon(
+            var icon_620c1e25885a0fe06f0d23d46498d509 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "lightgray",
   "iconColor": "white",
@@ -943,24 +943,24 @@
             );
         
     
-        var popup_e1be6f3ca9536505a6c90860b373af47 = L.popup({
+        var popup_397941548476b1f454cf8ad5b29a6b2e = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_e0a9ec6ae17780aafdbcf93ebab6aae4 = $(`<div id="html_e0a9ec6ae17780aafdbcf93ebab6aae4" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>Data Center Gov.IL (Jerusalén)</b><br>Sector: Gubernamental</div></div>`)[0];
-                popup_e1be6f3ca9536505a6c90860b373af47.setContent(html_e0a9ec6ae17780aafdbcf93ebab6aae4);
+                var html_01542ca96501d60e90a36f152b2ef3f6 = $(`<div id="html_01542ca96501d60e90a36f152b2ef3f6" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>Data Center Gov.IL (Jerusalén)</b><br>Sector: Gubernamental</div></div>`)[0];
+                popup_397941548476b1f454cf8ad5b29a6b2e.setContent(html_01542ca96501d60e90a36f152b2ef3f6);
             
         
 
-        marker_fc7de93abd52083dd3a60cb6751483c9.bindPopup(popup_e1be6f3ca9536505a6c90860b373af47)
+        marker_8dd361156fd77c54976cbcb353aa951c.bindPopup(popup_397941548476b1f454cf8ad5b29a6b2e)
         ;
 
         
     
     
-            marker_fc7de93abd52083dd3a60cb6751483c9.bindTooltip(
+            marker_8dd361156fd77c54976cbcb353aa951c.bindTooltip(
                 `<div>
                      Infraestructura Crítica
                  </div>`,
@@ -970,17 +970,17 @@
             );
         
     
-                marker_fc7de93abd52083dd3a60cb6751483c9.setIcon(icon_5203c192eba5a2ea4580876cce168809);
+                marker_8dd361156fd77c54976cbcb353aa951c.setIcon(icon_620c1e25885a0fe06f0d23d46498d509);
             
     
-            var marker_921798975beb5270528e5430afbdc718 = L.marker(
+            var marker_6ac7ed1e42fa70edbcea85d037cc4460 = L.marker(
                 [32.4667, 34.8667],
                 {
 }
-            ).addTo(feature_group_24eed1ac85dff3d25a667ae432768393);
+            ).addTo(feature_group_59ebe21024d1db5635fcc3303599f07f);
         
     
-            var icon_27e6a4effddf2961da438a625f72155c = L.AwesomeMarkers.icon(
+            var icon_7847860a0d9de21bea1d334b17c9ccc9 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "lightgray",
   "iconColor": "white",
@@ -991,24 +991,24 @@
             );
         
     
-        var popup_4f84643264ad71575f38c7615f7a363e = L.popup({
+        var popup_6a69d74cdaa20b7f40cf2dd4b68a7e76 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_ba49122c12d29a0a2845b1367b80d96b = $(`<div id="html_ba49122c12d29a0a2845b1367b80d96b" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>Central Eléctrica Orot Rabin</b><br>Sector: Energía (SCADA)</div></div>`)[0];
-                popup_4f84643264ad71575f38c7615f7a363e.setContent(html_ba49122c12d29a0a2845b1367b80d96b);
+                var html_2169de987f347b6d30f52e0b997b5578 = $(`<div id="html_2169de987f347b6d30f52e0b997b5578" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>Central Eléctrica Orot Rabin</b><br>Sector: Energía (SCADA)</div></div>`)[0];
+                popup_6a69d74cdaa20b7f40cf2dd4b68a7e76.setContent(html_2169de987f347b6d30f52e0b997b5578);
             
         
 
-        marker_921798975beb5270528e5430afbdc718.bindPopup(popup_4f84643264ad71575f38c7615f7a363e)
+        marker_6ac7ed1e42fa70edbcea85d037cc4460.bindPopup(popup_6a69d74cdaa20b7f40cf2dd4b68a7e76)
         ;
 
         
     
     
-            marker_921798975beb5270528e5430afbdc718.bindTooltip(
+            marker_6ac7ed1e42fa70edbcea85d037cc4460.bindTooltip(
                 `<div>
                      Infraestructura Crítica
                  </div>`,
@@ -1018,17 +1018,17 @@
             );
         
     
-                marker_921798975beb5270528e5430afbdc718.setIcon(icon_27e6a4effddf2961da438a625f72155c);
+                marker_6ac7ed1e42fa70edbcea85d037cc4460.setIcon(icon_7847860a0d9de21bea1d334b17c9ccc9);
             
     
-            var marker_6c776fa565ee690f46ad06892af423ef = L.marker(
+            var marker_fc8624c4332bc41c562d1b34a00b0753 = L.marker(
                 [32.0853, 34.7818],
                 {
 }
-            ).addTo(feature_group_24eed1ac85dff3d25a667ae432768393);
+            ).addTo(feature_group_59ebe21024d1db5635fcc3303599f07f);
         
     
-            var icon_bad612be67688d436072be9a6c5f94c6 = L.AwesomeMarkers.icon(
+            var icon_ec6419163d320b69be1c7b5006ce1ab0 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "lightgray",
   "iconColor": "white",
@@ -1039,24 +1039,24 @@
             );
         
     
-        var popup_940fd8c551ed784743b824912f513f83 = L.popup({
+        var popup_824d617d5ca00a10c1c3bf2f788770e9 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_928d6e21b697aafde882bf8307a5df7a = $(`<div id="html_928d6e21b697aafde882bf8307a5df7a" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>IXP (Internet Exchange Tel Aviv)</b><br>Sector: Telecomunicaciones</div></div>`)[0];
-                popup_940fd8c551ed784743b824912f513f83.setContent(html_928d6e21b697aafde882bf8307a5df7a);
+                var html_ce985f870b485b8e40ee52188d0a8a5d = $(`<div id="html_ce985f870b485b8e40ee52188d0a8a5d" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>IXP (Internet Exchange Tel Aviv)</b><br>Sector: Telecomunicaciones</div></div>`)[0];
+                popup_824d617d5ca00a10c1c3bf2f788770e9.setContent(html_ce985f870b485b8e40ee52188d0a8a5d);
             
         
 
-        marker_6c776fa565ee690f46ad06892af423ef.bindPopup(popup_940fd8c551ed784743b824912f513f83)
+        marker_fc8624c4332bc41c562d1b34a00b0753.bindPopup(popup_824d617d5ca00a10c1c3bf2f788770e9)
         ;
 
         
     
     
-            marker_6c776fa565ee690f46ad06892af423ef.bindTooltip(
+            marker_fc8624c4332bc41c562d1b34a00b0753.bindTooltip(
                 `<div>
                      Infraestructura Crítica
                  </div>`,
@@ -1066,17 +1066,17 @@
             );
         
     
-                marker_6c776fa565ee690f46ad06892af423ef.setIcon(icon_bad612be67688d436072be9a6c5f94c6);
+                marker_fc8624c4332bc41c562d1b34a00b0753.setIcon(icon_ec6419163d320b69be1c7b5006ce1ab0);
             
     
-            var marker_c784fd09c2b4a02752aac04afc8c933d = L.marker(
+            var marker_75a43738e452ec627a53a5ff5b836a79 = L.marker(
                 [32.8184, 35.0019],
                 {
 }
-            ).addTo(feature_group_24eed1ac85dff3d25a667ae432768393);
+            ).addTo(feature_group_59ebe21024d1db5635fcc3303599f07f);
         
     
-            var icon_79b897256385432e8338ad6a00dd83cd = L.AwesomeMarkers.icon(
+            var icon_355886e0f25962aeafbca5fd96d8b76a = L.AwesomeMarkers.icon(
                 {
   "markerColor": "lightgray",
   "iconColor": "white",
@@ -1087,24 +1087,24 @@
             );
         
     
-        var popup_e4fb15e60ff55b9fe85709536fa2e4d3 = L.popup({
+        var popup_6934ef121c6611596510359bbd34ac8d = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_1cc16c17511fa3161e3153dbe69e6ffb = $(`<div id="html_1cc16c17511fa3161e3153dbe69e6ffb" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>Instalación Portuaria Haifa</b><br>Sector: Logística Marítima</div></div>`)[0];
-                popup_e4fb15e60ff55b9fe85709536fa2e4d3.setContent(html_1cc16c17511fa3161e3153dbe69e6ffb);
+                var html_928f64746baf876631543ff51b055c6d = $(`<div id="html_928f64746baf876631543ff51b055c6d" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>Instalación Portuaria Haifa</b><br>Sector: Logística Marítima</div></div>`)[0];
+                popup_6934ef121c6611596510359bbd34ac8d.setContent(html_928f64746baf876631543ff51b055c6d);
             
         
 
-        marker_c784fd09c2b4a02752aac04afc8c933d.bindPopup(popup_e4fb15e60ff55b9fe85709536fa2e4d3)
+        marker_75a43738e452ec627a53a5ff5b836a79.bindPopup(popup_6934ef121c6611596510359bbd34ac8d)
         ;
 
         
     
     
-            marker_c784fd09c2b4a02752aac04afc8c933d.bindTooltip(
+            marker_75a43738e452ec627a53a5ff5b836a79.bindTooltip(
                 `<div>
                      Infraestructura Crítica
                  </div>`,
@@ -1114,17 +1114,17 @@
             );
         
     
-                marker_c784fd09c2b4a02752aac04afc8c933d.setIcon(icon_79b897256385432e8338ad6a00dd83cd);
+                marker_75a43738e452ec627a53a5ff5b836a79.setIcon(icon_355886e0f25962aeafbca5fd96d8b76a);
             
     
-            var marker_37470d7ff9e4fca7facc3174fcf02882 = L.marker(
+            var marker_4363874a175ef9b2ec7dc1b80b638416 = L.marker(
                 [32.0, 34.87],
                 {
 }
-            ).addTo(feature_group_24eed1ac85dff3d25a667ae432768393);
+            ).addTo(feature_group_59ebe21024d1db5635fcc3303599f07f);
         
     
-            var icon_953636674238acc0af3af22cfedb0c07 = L.AwesomeMarkers.icon(
+            var icon_e6861659aa48f5a2b3bf2eb8dfe6b937 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "lightgray",
   "iconColor": "white",
@@ -1135,24 +1135,24 @@
             );
         
     
-        var popup_85efbd45a5daaf4affdfe9c8018b3f08 = L.popup({
+        var popup_784db1b733d858eb2dc602107dc30b9a = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_a55f480df216bc7470861eb93e67e632 = $(`<div id="html_a55f480df216bc7470861eb93e67e632" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>Torre de Control Ben Gurion</b><br>Sector: Aviación</div></div>`)[0];
-                popup_85efbd45a5daaf4affdfe9c8018b3f08.setContent(html_a55f480df216bc7470861eb93e67e632);
+                var html_1d650209da5b11ea56788732e2a7340f = $(`<div id="html_1d650209da5b11ea56788732e2a7340f" style="width: 100.0%; height: 100.0%;"><div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>Torre de Control Ben Gurion</b><br>Sector: Aviación</div></div>`)[0];
+                popup_784db1b733d858eb2dc602107dc30b9a.setContent(html_1d650209da5b11ea56788732e2a7340f);
             
         
 
-        marker_37470d7ff9e4fca7facc3174fcf02882.bindPopup(popup_85efbd45a5daaf4affdfe9c8018b3f08)
+        marker_4363874a175ef9b2ec7dc1b80b638416.bindPopup(popup_784db1b733d858eb2dc602107dc30b9a)
         ;
 
         
     
     
-            marker_37470d7ff9e4fca7facc3174fcf02882.bindTooltip(
+            marker_4363874a175ef9b2ec7dc1b80b638416.bindTooltip(
                 `<div>
                      Infraestructura Crítica
                  </div>`,
@@ -1162,33 +1162,33 @@
             );
         
     
-                marker_37470d7ff9e4fca7facc3174fcf02882.setIcon(icon_953636674238acc0af3af22cfedb0c07);
+                marker_4363874a175ef9b2ec7dc1b80b638416.setIcon(icon_e6861659aa48f5a2b3bf2eb8dfe6b937);
             
     
-            feature_group_24eed1ac85dff3d25a667ae432768393.addTo(map_6663ed8ac7c000572464eb3e986bd403);
+            feature_group_59ebe21024d1db5635fcc3303599f07f.addTo(map_0276d9f4803c8808fd6a6dc485b78439);
         
     
-            var layer_control_0c55abc1a0ca19ab2215c88150230da2_layers = {
+            var layer_control_e49c65432113f1d5cf20784bcec44c40_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_a78a9b130daaf2c387c2f95f05bb6806,
+                    "cartodbdarkmatter" : tile_layer_4191be5d1588814034ede5113353f7f8,
                 },
                 overlays :  {
-                    "\ud83c\udfaf APTs Estatales" : feature_group_4caee337a08324067fadb92479e4fdba,
-                    "\ud83d\udd25 C\u00e9lulas Hacktivistas" : feature_group_02807872367912f66fff15ae75049173,
-                    "\ud83d\udca5 Ciberataques Confirmados" : feature_group_32b233ebdc1125eb44639eddc69e1540,
-                    "\u26a1 Vectores de Ataque" : feature_group_91f48e4374168ae0394a42939ee0725c,
-                    "\ud83c\udfdb\ufe0f Infraestructura Cr\u00edtica" : feature_group_24eed1ac85dff3d25a667ae432768393,
+                    "\ud83c\udfaf APTs Estatales" : feature_group_eac951614a9700f3e962c6f390ba84fc,
+                    "\ud83d\udd25 C\u00e9lulas Hacktivistas" : feature_group_c34966a9b6fa517d6984241afa104b4d,
+                    "\ud83d\udca5 Ciberataques Confirmados" : feature_group_91a20e9b770952b7dbef5fdc63124902,
+                    "\u26a1 Vectores de Ataque" : feature_group_4c9a78a83882f4b948393ee918358841,
+                    "\ud83c\udfdb\ufe0f Infraestructura Cr\u00edtica" : feature_group_59ebe21024d1db5635fcc3303599f07f,
                 },
             };
-            let layer_control_0c55abc1a0ca19ab2215c88150230da2 = L.control.layers(
-                layer_control_0c55abc1a0ca19ab2215c88150230da2_layers.base_layers,
-                layer_control_0c55abc1a0ca19ab2215c88150230da2_layers.overlays,
+            let layer_control_e49c65432113f1d5cf20784bcec44c40 = L.control.layers(
+                layer_control_e49c65432113f1d5cf20784bcec44c40_layers.base_layers,
+                layer_control_e49c65432113f1d5cf20784bcec44c40_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_6663ed8ac7c000572464eb3e986bd403);
+            ).addTo(map_0276d9f4803c8808fd6a6dc485b78439);
 
         
 </script>
