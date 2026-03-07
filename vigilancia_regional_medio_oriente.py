@@ -184,24 +184,6 @@ def obtener_datos_nasa(rango_dias=2):
         print(f"   [!] Error NASA: {str(e)[:60]}")
         return None
 
-def obtener_datos_chinos():
-    """Capa 1.5: Simulación de datos de satélites chinos Gaofen/Fengyun"""
-    print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Escaneando satélites chinos (Gaofen-1/Fengyun-4)...")
-    
-    eventos_chinos = [
-        [33.5138, 36.2765, 445, "ALTA", "GAOFEN-1", "Damasco rural"],
-        [36.2021, 37.1343, 380, "MEDIA", "GAOFEN-1", "Alepo"],
-        [34.6401, 50.8764, 420, "ALTA", "FENGYUN-4", "Qom"],
-        [35.6892, 51.3890, 365, "MEDIA", "GAOFEN-1", "Teherán (periferia)"],
-        [15.3694, 44.2045, 390, "ALTA", "FENGYUN-4", "Saná"],
-        [14.7979, 42.9530, 410, "ALTA", "GAOFEN-1", "Hodeida (puerto)"],
-        [33.3152, 44.3661, 355, "MEDIA", "GAOFEN-1", "Bagdad"],
-        [33.8938, 35.5018, 375, "MEDIA", "GAOFEN-1", "Beirut"],
-    ]
-    
-    print(f"   -> Datos chinos integrados: {len(eventos_chinos)} eventos de alta prioridad")
-    return eventos_chinos
-
 def obtener_alertas_aereas_mejorado():
     """Capa 2: Sirenas antiaéreas con múltiples fuentes y geolocalización precisa"""
     print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Interceptando red de sirenas multicanal...")
@@ -300,22 +282,20 @@ def generar_mapa_fusionado_v2():
     print("\n" + "="*60)
     print("INICIANDO FUSIÓN MULTISENSOR E.T.B. v2.0")
     print("="*60)
-    print("Sensores: NASA VIIRS | Gaofen/Fengyun | Red de Sirenas")
+    print("Sensores: NASA VIIRS | Red de Sirenas")
     
     df_nasa = obtener_datos_nasa(rango_dias=2)
-    eventos_chinos = obtener_datos_chinos()
     alertas_israel = obtener_alertas_aereas_mejorado()
 
     mapa = folium.Map(location=[31.5, 38.0], zoom_start=6, tiles='CartoDB dark_matter')
     
     capa_nasa = folium.FeatureGroup(name="🔥 NASA: Explosiones/Incendios").add_to(mapa)
-    capa_china = folium.FeatureGroup(name="🇨🇳 China: Detecciones Satelitales").add_to(mapa)
     capa_sirenas = folium.FeatureGroup(name="🚨 Israel: Sirenas Antiaéreas").add_to(mapa)
     capa_calor = folium.FeatureGroup(name="🌡️ Mapa de Calor (Fusión)").add_to(mapa)
 
     puntos_calor = []
 
-    # --- 1. DATOS NASA ---
+    # --- 1. DATOS NASA (100% REALES) ---
     if df_nasa is not None and not df_nasa.empty:
         for _, fila in df_nasa.iterrows():
             temp_c = round(fila['bright_ti4'] - 273.15, 1)
@@ -359,34 +339,7 @@ def generar_mapa_fusionado_v2():
                 weight=2
             ).add_to(capa_nasa)
 
-    # --- 2. DATOS CHINOS ---
-    for evento in eventos_chinos:
-        lat, lon, temp, conf, fuente, ubicacion = evento
-        puntos_calor.append([lat, lon, temp/500])
-        
-        info = f"""
-        <div style="font-family: 'Courier New', monospace; width: 280px; 
-                    background: rgba(0,0,0,0.95); color: #fff; padding: 12px; 
-                    border-radius: 8px; border-left: 5px solid #de2910;">
-            <b style="color:#de2910; font-size: 16px;">🇨🇳 DETECCIÓN SATELITAL CHINA</b><br>
-            <hr style="border-color: #333; margin: 8px 0;">
-            <b>📍 Ubicación:</b> {ubicacion}<br>
-            <b>📍 Coordenadas:</b> {round(lat, 5)}, {round(lon, 5)}<br>
-            <b>🌡️ Temperatura Est.:</b> <span style="color:#ff6666; font-size: 14px;">{temp}°C</span><br>
-            <b>🎯 Confianza:</b> {conf}<br>
-            <b>🛰️ Satélite:</b> {fuente}<br>
-            <b>📡 Tipo:</b> Anomalía térmica de alta energía
-        </div>
-        """
-        
-        folium.Marker(
-            location=[lat, lon],
-            popup=folium.Popup(info, max_width=300),
-            icon=folium.Icon(color='darkred', icon='satellite', prefix='fa'),
-            tooltip=f"{fuente}: {ubicacion}"
-        ).add_to(capa_china)
-
-    # --- 3. ALERTAS DE SIRENAS ---
+    # --- 2. ALERTAS DE SIRENAS (OSINT EN VIVO) ---
     if alertas_israel:
         for alerta in alertas_israel:
             lat, lon = alerta['lat'], alerta['lon']
@@ -420,7 +373,7 @@ def generar_mapa_fusionado_v2():
                 tooltip=f"{alerta['tipo_ataque']}: {alerta['zona']}"
             ).add_to(capa_sirenas)
 
-    # --- 4. MAPA DE CALOR CONJUNTO ---
+    # --- 3. MAPA DE CALOR CONJUNTO ---
     if puntos_calor:
         HeatMap(
             puntos_calor, 
@@ -430,7 +383,7 @@ def generar_mapa_fusionado_v2():
             gradient={0.4: 'blue', 0.65: 'lime', 0.8: 'yellow', 1: 'red'}
         ).add_to(capa_calor)
 
-    # Controles y Panel HTML
+    # Controles y Panel HTML Purificado
     folium.LayerControl(collapsed=False).add_to(mapa)
     
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -453,13 +406,6 @@ def generar_mapa_fusionado_v2():
                 </div>
             </div>
             <div style="display: flex; align-items: center; margin-top: 8px;">
-                <span style="color:#de2910; font-size: 16px; margin-right: 8px;">🇨🇳</span>
-                <div>
-                    <b style="color:#de2910;">Gaofen/Fengyun</b><br>
-                    <span style="font-size: 9px; color: #888;">Cobertura asiática complementaria</span>
-                </div>
-            </div>
-            <div style="display: flex; align-items: center; margin-top: 8px;">
                 <span style="color:#0066cc; font-size: 16px; margin-right: 8px;">🚨</span>
                 <div>
                     <b style="color:#0066cc;">Red de Sirenas</b><br>
@@ -478,7 +424,7 @@ def generar_mapa_fusionado_v2():
                     font-size: 10px; color: #666; text-align: center;">
             <b>Última actualización:</b><br>
             {timestamp}<br>
-            <span style="color: #444;">Sistema E.T.B. v2.0</span>
+            <span style="color: #444;">Sistema E.T.B. v2.0 (Verificado)</span>
         </div>
     </div>
     """
@@ -490,7 +436,7 @@ def generar_mapa_fusionado_v2():
     print("\n" + "="*60)
     print(f"[✅ MAPA MULTISENSOR GENERADO]")
     print(f"Archivo: {nombre_mapa}")
-    print(f"Capas: NASA VIIRS | China Gaofen | Sirenas | Heatmap")
+    print(f"Capas: NASA VIIRS | Sirenas | Heatmap")
     print("="*60 + "\n")
 
 if __name__ == "__main__":
