@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_ec104cf619dc0df744364c3e4d0ad9b8 {
+                #map_199ac14a7a5a30fb2045f00203ea7fa4 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -55,62 +55,41 @@
 <body>
     
     
-        <div style="position: fixed; top: 20px; right: 20px; width: 300px; 
-                    background-color: rgba(10,10,10,0.95); color: #fff; 
-                    border: 2px solid #ffcc00; padding: 15px; border-radius: 10px; 
-                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;
-                    box-shadow: 0 0 20px rgba(255,204,0,0.3);">
-            <h4 style="color:#ffcc00; margin-top:0; text-align:center; font-size: 14px; 
-                       border-bottom: 2px solid #333; padding-bottom: 8px;">
-                💰 RADAR FINANCIERO E.T.B.
-            </h4>
-            <div style="background: rgba(255,204,0,0.1); padding: 8px; border-radius: 5px; 
-                        margin-bottom: 10px; text-align: center; border: 1px solid #ffcc00;">
-                <b style="color:#ffcc00; letter-spacing: 1px;">PRECIOS GLOBALES DEL CRUDO</b>
-            </div>
-            <div style="line-height: 1.6;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>🇺🇸 Brent (Referencia):</span>
-                    <span style="color:#00ff41; font-weight:bold;">$84.5</span>
+        <div style="position: fixed; top: 20px; right: 20px; width: 300px; background: rgba(10,10,10,0.95); 
+                    color: #fff; border: 2px solid #ffcc00; padding: 15px; border-radius: 10px; 
+                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;">
+            <h4 style="color:#ffcc00; text-align:center; margin:0 0 10px 0;">💰 RADAR FINANCIERO E.T.B.</h4>
+            <div style="border-bottom: 1px solid #333; padding-bottom: 8px; margin-bottom: 10px;">
+                <b>MERCADO EN VIVO:</b><br>
+                <div style="display:flex; justify-content:space-between; margin-top:5px;">
+                    <span>🛢️ Brent:</span> <span style="color:#00ff41;">$92.69</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>🇺🇸 WTI (Texas):</span>
-                    <span style="color:#00ff41;">$79.2</span>
+                <div style="display:flex; justify-content:space-between;">
+                    <span>🔥 Gas Natural:</span> <span style="color:#00ff41;">$3.19</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>🇮🇷 Iran Heavy (Gris):</span>
-                    <span style="color:#ff4444; font-weight:bold;">$72.3</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span>🇷🇺 Ural Ruso (Gris):</span>
-                    <span style="color:#ffaa00;">$76.8</span>
+                <div style="display:flex; justify-content:space-between;">
+                    <span>🇮🇷 Iran Heavy:</span> <span style="color:#ff4444;">$78.79</span>
                 </div>
             </div>
-            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px;">
-                <b style="color:#cc66ff;">EVASIÓN DE SANCIONES:</b><br>
-                Flujos Detectados: <span style="color:#ffcc00;">3 Rutas Activas</span><br>
-                Dark Fleet Identificada: <span style="color:#ff4444;">5 Buques</span><br>
-                Fuga Financiera Estimada: ~$50M USD/día
-            </div>
-            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px; 
-                        font-size: 10px; color: #666; text-align: center;">
-                <b>Última actualización:</b><br>
-                2026-03-07 12:36:17<br>
-                <span style="color: #444;">Sistema E.T.B. v2.0</span>
+            <div style="font-size: 10px; line-height: 1.4;">
+                <b>ESTADO DE SANCIONES:</b><br>
+                Rutas Activas: 3 detectadas<br>
+                Sistema Evasión: Activo (Bypass SWIFT)<br>
+                Actualizado: 2026-03-07 13:20
             </div>
         </div>
         
     
-            <div class="folium-map" id="map_ec104cf619dc0df744364c3e4d0ad9b8" ></div>
+            <div class="folium-map" id="map_199ac14a7a5a30fb2045f00203ea7fa4" ></div>
         
 </body>
 <script>
     
     
-            var map_ec104cf619dc0df744364c3e4d0ad9b8 = L.map(
-                "map_ec104cf619dc0df744364c3e4d0ad9b8",
+            var map_199ac14a7a5a30fb2045f00203ea7fa4 = L.map(
+                "map_199ac14a7a5a30fb2045f00203ea7fa4",
                 {
-                    center: [30.0, 35.0],
+                    center: [20.0, 40.0],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 3,
@@ -125,7 +104,7 @@
 
         
     
-            var tile_layer_2f3ff4509b77399b8ab2880f596e1eb5 = L.tileLayer(
+            var tile_layer_3dfd45bdd26188bd0f69dd847a9109e5 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -142,22 +121,22 @@
             );
         
     
-            tile_layer_2f3ff4509b77399b8ab2880f596e1eb5.addTo(map_ec104cf619dc0df744364c3e4d0ad9b8);
+            tile_layer_3dfd45bdd26188bd0f69dd847a9109e5.addTo(map_199ac14a7a5a30fb2045f00203ea7fa4);
         
     
-            var feature_group_673b892cee498b7e328a6ee499a22a30 = L.featureGroup(
+            var feature_group_47ea41f232890e841d7e673968a3976a = L.featureGroup(
                 {
 }
             );
         
     
-            ant_path_ae2e1a6f78c4ceaf989ea2b76eff223f = L.polyline.antPath(
-              [[27.1832, 56.2666], [29.8683, 121.544]],
+            ant_path_275cb526d3d44b7c799208c81f052a73 = L.polyline.antPath(
+              [[35.18, 35.93], [34.73, 36.7]],
               {
   "stroke": true,
   "color": "#ffcc00",
   "weight": 3,
-  "opacity": 0.7,
+  "opacity": 0.8,
   "lineCap": "round",
   "lineJoin": "round",
   "dashArray": [
@@ -175,15 +154,15 @@
   "paused": false,
   "reverse": false,
   "hardwareAcceleration": false,
-  "delay": 1200,
+  "delay": 1000,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_673b892cee498b7e328a6ee499a22a30);
+        ).addTo(feature_group_47ea41f232890e841d7e673968a3976a);
         
     
-            ant_path_ae2e1a6f78c4ceaf989ea2b76eff223f.bindTooltip(
+            ant_path_275cb526d3d44b7c799208c81f052a73.bindTooltip(
                 `<div>
-                     Flujo Financiero: Bandar Abbas, Irán → Puerto de Ningbo, China
+                     Suministro Regional Eje Resistencia
                  </div>`,
                 {
   "sticky": true,
@@ -191,14 +170,14 @@
             );
         
     
-            var marker_7046d386fe627f93131a74f942253735 = L.marker(
-                [27.1832, 56.2666],
+            var marker_b1e357caa37c5c3c61410152aa064a86 = L.marker(
+                [35.18, 35.93],
                 {
 }
-            ).addTo(feature_group_673b892cee498b7e328a6ee499a22a30);
+            ).addTo(feature_group_47ea41f232890e841d7e673968a3976a);
         
     
-            var icon_70e968437aaf5a81dfeb01f51c9cdfc9 = L.AwesomeMarkers.icon(
+            var icon_ffde68bde1266bb02212def4edb25757 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -209,44 +188,34 @@
             );
         
     
-        var popup_44e416d066ae160d7842f474585eb244 = L.popup({
-  "maxWidth": 300,
+        var popup_60fe8b9df1345412c4e828600877fa8e = L.popup({
+  "maxWidth": "100%",
 });
 
         
             
-                var html_76116fe19080b29c1a30074a44c35e60 = $(`<div id="html_76116fe19080b29c1a30074a44c35e60" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Bandar Abbas, Irán<br>                 <b>Destino:</b> Puerto de Ningbo, China<br>                 <b>Volumen:</b> 2.1M barriles<br>                 <b>Valor Estimado:</b> $150M USD<br>                 <b>Estructura de Pago:</b> Yuanes chinos (bypass SWIFT)<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Sanciones EEUU</span>             </div>             </div>`)[0];
-                popup_44e416d066ae160d7842f474585eb244.setContent(html_76116fe19080b29c1a30074a44c35e60);
+                var html_c2e69ce732512ad975442f29665fe9a1 = $(`<div id="html_c2e69ce732512ad975442f29665fe9a1" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DE FLUJO</b><br><br>                 <b>Estatus:</b> Suministro Regional Eje Resistencia<br>                 <b>Reporte:</b> US military boards sanctioned oil tanker in the Indian Ocean after pursuit ...             </div>             </div>`)[0];
+                popup_60fe8b9df1345412c4e828600877fa8e.setContent(html_c2e69ce732512ad975442f29665fe9a1);
             
         
 
-        marker_7046d386fe627f93131a74f942253735.bindPopup(popup_44e416d066ae160d7842f474585eb244)
+        marker_b1e357caa37c5c3c61410152aa064a86.bindPopup(popup_60fe8b9df1345412c4e828600877fa8e)
         ;
 
         
     
     
-            marker_7046d386fe627f93131a74f942253735.bindTooltip(
-                `<div>
-                     Nodo de Extracción Sancionado
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_7046d386fe627f93131a74f942253735.setIcon(icon_70e968437aaf5a81dfeb01f51c9cdfc9);
+                marker_b1e357caa37c5c3c61410152aa064a86.setIcon(icon_ffde68bde1266bb02212def4edb25757);
             
     
-            var marker_df539157108036473a53a4706b41db5d = L.marker(
-                [29.8683, 121.544],
+            var marker_5f05972bb73bc32adbd80815341c58a7 = L.marker(
+                [34.73, 36.7],
                 {
 }
-            ).addTo(feature_group_673b892cee498b7e328a6ee499a22a30);
+            ).addTo(feature_group_47ea41f232890e841d7e673968a3976a);
         
     
-            var icon_3f39d24140dfcf2c040a80eeba8e4103 = L.AwesomeMarkers.icon(
+            var icon_1458c1e712bb540c0064fd854f95dd43 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -257,43 +226,16 @@
             );
         
     
-        var popup_75c99af4b5282a8aaf0694350c8b602d = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_cd165a765f331d55656dda94a9834d12 = $(`<div id="html_cd165a765f331d55656dda94a9834d12" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Bandar Abbas, Irán<br>                 <b>Destino:</b> Puerto de Ningbo, China<br>                 <b>Volumen:</b> 2.1M barriles<br>                 <b>Valor Estimado:</b> $150M USD<br>                 <b>Estructura de Pago:</b> Yuanes chinos (bypass SWIFT)<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Sanciones EEUU</span>             </div>             </div>`)[0];
-                popup_75c99af4b5282a8aaf0694350c8b602d.setContent(html_cd165a765f331d55656dda94a9834d12);
-            
-        
-
-        marker_df539157108036473a53a4706b41db5d.bindPopup(popup_75c99af4b5282a8aaf0694350c8b602d)
-        ;
-
-        
-    
-    
-            marker_df539157108036473a53a4706b41db5d.bindTooltip(
-                `<div>
-                     Refinería/Comprador
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_df539157108036473a53a4706b41db5d.setIcon(icon_3f39d24140dfcf2c040a80eeba8e4103);
+                marker_5f05972bb73bc32adbd80815341c58a7.setIcon(icon_1458c1e712bb540c0064fd854f95dd43);
             
     
-            ant_path_21ddd7a5e373692fc552b8ee0f1f15cf = L.polyline.antPath(
-              [[29.2333, 50.3167], [35.1833, 35.9333]],
+            ant_path_a74b2c717338c0bae7c8cd5fd3c1dbb1 = L.polyline.antPath(
+              [[25.63, 57.76], [10.06, -64.83]],
               {
   "stroke": true,
   "color": "#ffcc00",
   "weight": 3,
-  "opacity": 0.7,
+  "opacity": 0.8,
   "lineCap": "round",
   "lineJoin": "round",
   "dashArray": [
@@ -311,15 +253,15 @@
   "paused": false,
   "reverse": false,
   "hardwareAcceleration": false,
-  "delay": 1200,
+  "delay": 1000,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_673b892cee498b7e328a6ee499a22a30);
+        ).addTo(feature_group_47ea41f232890e841d7e673968a3976a);
         
     
-            ant_path_21ddd7a5e373692fc552b8ee0f1f15cf.bindTooltip(
+            ant_path_a74b2c717338c0bae7c8cd5fd3c1dbb1.bindTooltip(
                 `<div>
-                     Flujo Financiero: Kharg Island, Irán → Baniyas, Siria
+                     Ruta Transatlántica (Trueque/Barter)
                  </div>`,
                 {
   "sticky": true,
@@ -327,14 +269,14 @@
             );
         
     
-            var marker_f89c8570e0bd407d3a35cec60faca300 = L.marker(
-                [29.2333, 50.3167],
+            var marker_7e2f98d636e014473dc5df6f6b126855 = L.marker(
+                [25.63, 57.76],
                 {
 }
-            ).addTo(feature_group_673b892cee498b7e328a6ee499a22a30);
+            ).addTo(feature_group_47ea41f232890e841d7e673968a3976a);
         
     
-            var icon_6eaf89f08318bb91eb9bbcc59bca178f = L.AwesomeMarkers.icon(
+            var icon_618534e409eac1a08f2a03cfaaf59390 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -345,44 +287,34 @@
             );
         
     
-        var popup_ac14cf337d69986bdbbc861dbb246bb5 = L.popup({
-  "maxWidth": 300,
+        var popup_7c4265d5ac8cd45ed43be22632002501 = L.popup({
+  "maxWidth": "100%",
 });
 
         
             
-                var html_27d14a0cba1e29641146b6936e1b7e98 = $(`<div id="html_27d14a0cba1e29641146b6936e1b7e98" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Kharg Island, Irán<br>                 <b>Destino:</b> Baniyas, Siria<br>                 <b>Volumen:</b> 1M barriles<br>                 <b>Valor Estimado:</b> $45M USD (subprecio)<br>                 <b>Estructura de Pago:</b> Efectivo/oro<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Financiamiento Hezbollah</span>             </div>             </div>`)[0];
-                popup_ac14cf337d69986bdbbc861dbb246bb5.setContent(html_27d14a0cba1e29641146b6936e1b7e98);
+                var html_491ca3a593dae20c0bdd0d0d64279d81 = $(`<div id="html_491ca3a593dae20c0bdd0d0d64279d81" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DE FLUJO</b><br><br>                 <b>Estatus:</b> Ruta Transatlántica (Trueque/Barter)<br>                 <b>Reporte:</b> Top ship recycler GMS says it is in talks to buy Venezuela-linked ships sei...             </div>             </div>`)[0];
+                popup_7c4265d5ac8cd45ed43be22632002501.setContent(html_491ca3a593dae20c0bdd0d0d64279d81);
             
         
 
-        marker_f89c8570e0bd407d3a35cec60faca300.bindPopup(popup_ac14cf337d69986bdbbc861dbb246bb5)
+        marker_7e2f98d636e014473dc5df6f6b126855.bindPopup(popup_7c4265d5ac8cd45ed43be22632002501)
         ;
 
         
     
     
-            marker_f89c8570e0bd407d3a35cec60faca300.bindTooltip(
-                `<div>
-                     Nodo de Extracción Sancionado
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_f89c8570e0bd407d3a35cec60faca300.setIcon(icon_6eaf89f08318bb91eb9bbcc59bca178f);
+                marker_7e2f98d636e014473dc5df6f6b126855.setIcon(icon_618534e409eac1a08f2a03cfaaf59390);
             
     
-            var marker_52e7de24de650b3e1075954986e70206 = L.marker(
-                [35.1833, 35.9333],
+            var marker_b3bed0a1f7e3a730359da20e0f9e1a61 = L.marker(
+                [10.06, -64.83],
                 {
 }
-            ).addTo(feature_group_673b892cee498b7e328a6ee499a22a30);
+            ).addTo(feature_group_47ea41f232890e841d7e673968a3976a);
         
     
-            var icon_6345655e16629e6b73f7a380332357d0 = L.AwesomeMarkers.icon(
+            var icon_2e665502696e1b8583cfeba906a84c2d = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -393,43 +325,16 @@
             );
         
     
-        var popup_deb7642b887733320eb57d14928a351a = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_a25b48d280c4f64b58c4049e8ba7145e = $(`<div id="html_a25b48d280c4f64b58c4049e8ba7145e" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Kharg Island, Irán<br>                 <b>Destino:</b> Baniyas, Siria<br>                 <b>Volumen:</b> 1M barriles<br>                 <b>Valor Estimado:</b> $45M USD (subprecio)<br>                 <b>Estructura de Pago:</b> Efectivo/oro<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Financiamiento Hezbollah</span>             </div>             </div>`)[0];
-                popup_deb7642b887733320eb57d14928a351a.setContent(html_a25b48d280c4f64b58c4049e8ba7145e);
-            
-        
-
-        marker_52e7de24de650b3e1075954986e70206.bindPopup(popup_deb7642b887733320eb57d14928a351a)
-        ;
-
-        
-    
-    
-            marker_52e7de24de650b3e1075954986e70206.bindTooltip(
-                `<div>
-                     Refinería/Comprador
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_52e7de24de650b3e1075954986e70206.setIcon(icon_6345655e16629e6b73f7a380332357d0);
+                marker_b3bed0a1f7e3a730359da20e0f9e1a61.setIcon(icon_2e665502696e1b8583cfeba906a84c2d);
             
     
-            ant_path_d1c17032ca449db1a68e45cd9a4dda10 = L.polyline.antPath(
-              [[25.6333, 57.7667], [10.0667, -64.8333]],
+            ant_path_4ca67ff363185884911d836d013f1731 = L.polyline.antPath(
+              [[35.18, 35.93], [34.73, 36.7]],
               {
   "stroke": true,
   "color": "#ffcc00",
   "weight": 3,
-  "opacity": 0.7,
+  "opacity": 0.8,
   "lineCap": "round",
   "lineJoin": "round",
   "dashArray": [
@@ -447,15 +352,15 @@
   "paused": false,
   "reverse": false,
   "hardwareAcceleration": false,
-  "delay": 1200,
+  "delay": 1000,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_673b892cee498b7e328a6ee499a22a30);
+        ).addTo(feature_group_47ea41f232890e841d7e673968a3976a);
         
     
-            ant_path_d1c17032ca449db1a68e45cd9a4dda10.bindTooltip(
+            ant_path_4ca67ff363185884911d836d013f1731.bindTooltip(
                 `<div>
-                     Flujo Financiero: Jask, Irán → Puerto Jose, Venezuela
+                     Suministro Regional Eje Resistencia
                  </div>`,
                 {
   "sticky": true,
@@ -463,14 +368,14 @@
             );
         
     
-            var marker_968860aa40f059a30c1dcf6f83897584 = L.marker(
-                [25.6333, 57.7667],
+            var marker_8d0856cf38f116b9b1b68098293e5743 = L.marker(
+                [35.18, 35.93],
                 {
 }
-            ).addTo(feature_group_673b892cee498b7e328a6ee499a22a30);
+            ).addTo(feature_group_47ea41f232890e841d7e673968a3976a);
         
     
-            var icon_52c12488f67d97fd815e6a6905956bb1 = L.AwesomeMarkers.icon(
+            var icon_b81ea8169a712005c2624c032c73b7d0 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -481,44 +386,34 @@
             );
         
     
-        var popup_d95ec0563960cb7dec0be6b8694729f4 = L.popup({
-  "maxWidth": 300,
+        var popup_f68c5b27ad7296c4cc8fc373e2eb447b = L.popup({
+  "maxWidth": "100%",
 });
 
         
             
-                var html_5969bfc134e26caaba8c7bfcaca1c9c2 = $(`<div id="html_5969bfc134e26caaba8c7bfcaca1c9c2" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Jask, Irán<br>                 <b>Destino:</b> Puerto Jose, Venezuela<br>                 <b>Volumen:</b> 800K barriles<br>                 <b>Valor Estimado:</b> Trueque (alimentos/medicinas)<br>                 <b>Estructura de Pago:</b> Barter<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Evasión de Sanciones</span>             </div>             </div>`)[0];
-                popup_d95ec0563960cb7dec0be6b8694729f4.setContent(html_5969bfc134e26caaba8c7bfcaca1c9c2);
+                var html_595a464ca4ff2bf365e530db9df4f028 = $(`<div id="html_595a464ca4ff2bf365e530db9df4f028" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DE FLUJO</b><br><br>                 <b>Estatus:</b> Suministro Regional Eje Resistencia<br>                 <b>Reporte:</b> Dark fleet ship-to-ship transfers off Malaysia more than double...             </div>             </div>`)[0];
+                popup_f68c5b27ad7296c4cc8fc373e2eb447b.setContent(html_595a464ca4ff2bf365e530db9df4f028);
             
         
 
-        marker_968860aa40f059a30c1dcf6f83897584.bindPopup(popup_d95ec0563960cb7dec0be6b8694729f4)
+        marker_8d0856cf38f116b9b1b68098293e5743.bindPopup(popup_f68c5b27ad7296c4cc8fc373e2eb447b)
         ;
 
         
     
     
-            marker_968860aa40f059a30c1dcf6f83897584.bindTooltip(
-                `<div>
-                     Nodo de Extracción Sancionado
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_968860aa40f059a30c1dcf6f83897584.setIcon(icon_52c12488f67d97fd815e6a6905956bb1);
+                marker_8d0856cf38f116b9b1b68098293e5743.setIcon(icon_b81ea8169a712005c2624c032c73b7d0);
             
     
-            var marker_dc34b776a23c9a6054dac2259492f2fd = L.marker(
-                [10.0667, -64.8333],
+            var marker_a32bbf2b4fdaa209cec0ff600890d3ee = L.marker(
+                [34.73, 36.7],
                 {
 }
-            ).addTo(feature_group_673b892cee498b7e328a6ee499a22a30);
+            ).addTo(feature_group_47ea41f232890e841d7e673968a3976a);
         
     
-            var icon_4f64578d79b763933f6ff8135d78f39e = L.AwesomeMarkers.icon(
+            var icon_79f5680318576189dfbd651daf939fdc = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -529,431 +424,108 @@
             );
         
     
-        var popup_7f05226860582d3b5978238082b5561a = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_9774764b14d6f798fa70234a9a5134c0 = $(`<div id="html_9774764b14d6f798fa70234a9a5134c0" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #ffcc00;">                 <b style="color:#ffcc00; font-size: 14px;">🛢️ VINCULACIÓN COMERCIAL</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Origen:</b> Jask, Irán<br>                 <b>Destino:</b> Puerto Jose, Venezuela<br>                 <b>Volumen:</b> 800K barriles<br>                 <b>Valor Estimado:</b> Trueque (alimentos/medicinas)<br>                 <b>Estructura de Pago:</b> Barter<br>                 <b>Alerta Táctica:</b> <span style='color:#ff4444;'>Evasión de Sanciones</span>             </div>             </div>`)[0];
-                popup_7f05226860582d3b5978238082b5561a.setContent(html_9774764b14d6f798fa70234a9a5134c0);
-            
-        
-
-        marker_dc34b776a23c9a6054dac2259492f2fd.bindPopup(popup_7f05226860582d3b5978238082b5561a)
-        ;
-
-        
-    
-    
-            marker_dc34b776a23c9a6054dac2259492f2fd.bindTooltip(
-                `<div>
-                     Refinería/Comprador
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_dc34b776a23c9a6054dac2259492f2fd.setIcon(icon_4f64578d79b763933f6ff8135d78f39e);
+                marker_a32bbf2b4fdaa209cec0ff600890d3ee.setIcon(icon_79f5680318576189dfbd651daf939fdc);
             
     
-            feature_group_673b892cee498b7e328a6ee499a22a30.addTo(map_ec104cf619dc0df744364c3e4d0ad9b8);
+            feature_group_47ea41f232890e841d7e673968a3976a.addTo(map_199ac14a7a5a30fb2045f00203ea7fa4);
         
     
-            var feature_group_c3e9b2818da8c7e8bfec071390e5aaca = L.featureGroup(
+            var feature_group_a87e341c3fd64736bd67f5edf2d94b92 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_367cbfe094bf987e432964ff0384b8a9 = L.marker(
-                [32.6207292903432, 31.607879389135284],
-                {
-}
-            ).addTo(feature_group_c3e9b2818da8c7e8bfec071390e5aaca);
+            var circle_marker_2b773e1e440f82f5dc11c4425fd2d4c0 = L.circleMarker(
+                [25.2, 55.2],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a87e341c3fd64736bd67f5edf2d94b92);
         
     
-            var icon_9081da22d7332650998f8b8b6893ebf4 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "black",
-  "iconColor": "white",
-  "icon": "ship",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_eb2dbab363d7661e5fdc77185eb5495d = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_16b43b6bb06ec6fc6636e6c25c86411d = $(`<div id="html_16b43b6bb06ec6fc6636e6c25c86411d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #aaaaaa;">                 <b style="color:#aaaaaa; font-size: 14px;">🚢 DARK FLEET (BUQUE FANTASMA)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Nombre AIS:</b> Adrian Darya 1<br>                 <b>IMO Registrado:</b> 9115892<br>                 <b>Bandera Falsa:</b> <span style="color:#ff4444;">Panamá</span><br>                 <b>Origen Real:</b> Irán<br>                 <b>Carga Sancionada:</b> Petróleo<br>                 <b>Vector de Ruta:</b> Bandar Abbas → Siria             </div>             </div>`)[0];
-                popup_eb2dbab363d7661e5fdc77185eb5495d.setContent(html_16b43b6bb06ec6fc6636e6c25c86411d);
-            
-        
-
-        marker_367cbfe094bf987e432964ff0384b8a9.bindPopup(popup_eb2dbab363d7661e5fdc77185eb5495d)
-        ;
-
-        
-    
-    
-            marker_367cbfe094bf987e432964ff0384b8a9.bindTooltip(
-                `<div>
-                     AIS APAGADO: Adrian Darya 1
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_367cbfe094bf987e432964ff0384b8a9.setIcon(icon_9081da22d7332650998f8b8b6893ebf4);
-            
-    
-            var marker_c33e52a2629c3be085e77df37622065b = L.marker(
-                [32.813750644737176, 31.398957793800076],
-                {
-}
-            ).addTo(feature_group_c3e9b2818da8c7e8bfec071390e5aaca);
-        
-    
-            var icon_cd9d8cf59a23fd13e308c95675c64c07 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "black",
-  "iconColor": "white",
-  "icon": "ship",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_0f202db076aa93bf22072fc1e06590f1 = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_de9a405f8da54bc15c0d30f600943e01 = $(`<div id="html_de9a405f8da54bc15c0d30f600943e01" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #aaaaaa;">                 <b style="color:#aaaaaa; font-size: 14px;">🚢 DARK FLEET (BUQUE FANTASMA)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Nombre AIS:</b> Grace 1<br>                 <b>IMO Registrado:</b> 9119412<br>                 <b>Bandera Falsa:</b> <span style="color:#ff4444;">Panamá</span><br>                 <b>Origen Real:</b> Irán<br>                 <b>Carga Sancionada:</b> Petróleo<br>                 <b>Vector de Ruta:</b> Gibraltar → Siria             </div>             </div>`)[0];
-                popup_0f202db076aa93bf22072fc1e06590f1.setContent(html_de9a405f8da54bc15c0d30f600943e01);
-            
-        
-
-        marker_c33e52a2629c3be085e77df37622065b.bindPopup(popup_0f202db076aa93bf22072fc1e06590f1)
-        ;
-
-        
-    
-    
-            marker_c33e52a2629c3be085e77df37622065b.bindTooltip(
-                `<div>
-                     AIS APAGADO: Grace 1
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_c33e52a2629c3be085e77df37622065b.setIcon(icon_cd9d8cf59a23fd13e308c95675c64c07);
-            
-    
-            var marker_cfee015e52f700fbbde05a7cead87421 = L.marker(
-                [20.680313506236306, 39.61433174363725],
-                {
-}
-            ).addTo(feature_group_c3e9b2818da8c7e8bfec071390e5aaca);
-        
-    
-            var icon_cb78e7eeb1d52165399c1c8b320b45d7 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "black",
-  "iconColor": "white",
-  "icon": "ship",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_5baa2214a5777ce2143f0cc1f1d59a0c = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_c447e433f7af074bebbca2f8ea644717 = $(`<div id="html_c447e433f7af074bebbca2f8ea644717" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #aaaaaa;">                 <b style="color:#aaaaaa; font-size: 14px;">🚢 DARK FLEET (BUQUE FANTASMA)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Nombre AIS:</b> Bella<br>                 <b>IMO Registrado:</b> 9208102<br>                 <b>Bandera Falsa:</b> <span style="color:#ff4444;">Tanzania</span><br>                 <b>Origen Real:</b> Irán<br>                 <b>Carga Sancionada:</b> Condensado<br>                 <b>Vector de Ruta:</b> Emiratos → Venezuela             </div>             </div>`)[0];
-                popup_5baa2214a5777ce2143f0cc1f1d59a0c.setContent(html_c447e433f7af074bebbca2f8ea644717);
-            
-        
-
-        marker_cfee015e52f700fbbde05a7cead87421.bindPopup(popup_5baa2214a5777ce2143f0cc1f1d59a0c)
-        ;
-
-        
-    
-    
-            marker_cfee015e52f700fbbde05a7cead87421.bindTooltip(
-                `<div>
-                     AIS APAGADO: Bella
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_cfee015e52f700fbbde05a7cead87421.setIcon(icon_cb78e7eeb1d52165399c1c8b320b45d7);
-            
-    
-            var marker_203be4dfe18523e6bea4b67383f4046e = L.marker(
-                [26.157836549853297, 59.95782295087056],
-                {
-}
-            ).addTo(feature_group_c3e9b2818da8c7e8bfec071390e5aaca);
-        
-    
-            var icon_85ea8c874cb62c734008530e616e384c = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "black",
-  "iconColor": "white",
-  "icon": "ship",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_c0bf240cbb0b796e22adb247b6d118cb = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_422f7a9b213f9ef79d70ff424a733be4 = $(`<div id="html_422f7a9b213f9ef79d70ff424a733be4" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #aaaaaa;">                 <b style="color:#aaaaaa; font-size: 14px;">🚢 DARK FLEET (BUQUE FANTASMA)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Nombre AIS:</b> Bering<br>                 <b>IMO Registrado:</b> 9208126<br>                 <b>Bandera Falsa:</b> <span style="color:#ff4444;">Tanzania</span><br>                 <b>Origen Real:</b> Irán<br>                 <b>Carga Sancionada:</b> Petróleo<br>                 <b>Vector de Ruta:</b> Omán → China             </div>             </div>`)[0];
-                popup_c0bf240cbb0b796e22adb247b6d118cb.setContent(html_422f7a9b213f9ef79d70ff424a733be4);
-            
-        
-
-        marker_203be4dfe18523e6bea4b67383f4046e.bindPopup(popup_c0bf240cbb0b796e22adb247b6d118cb)
-        ;
-
-        
-    
-    
-            marker_203be4dfe18523e6bea4b67383f4046e.bindTooltip(
-                `<div>
-                     AIS APAGADO: Bering
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_203be4dfe18523e6bea4b67383f4046e.setIcon(icon_85ea8c874cb62c734008530e616e384c);
-            
-    
-            var marker_1f788256561450a976c3491e840e3803 = L.marker(
-                [32.60031557371797, 30.70807083484795],
-                {
-}
-            ).addTo(feature_group_c3e9b2818da8c7e8bfec071390e5aaca);
-        
-    
-            var icon_574d8f9725d4c562abc3d785849e753a = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "black",
-  "iconColor": "white",
-  "icon": "ship",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_6e57f620ae9960f734e624d3e9837e5f = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_076b83b4c2882144532901f5b9914d13 = $(`<div id="html_076b83b4c2882144532901f5b9914d13" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid #aaaaaa;">                 <b style="color:#aaaaaa; font-size: 14px;">🚢 DARK FLEET (BUQUE FANTASMA)</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Nombre AIS:</b> Pandi<br>                 <b>IMO Registrado:</b> 9222650<br>                 <b>Bandera Falsa:</b> <span style="color:#ff4444;">Albania</span><br>                 <b>Origen Real:</b> Irán<br>                 <b>Carga Sancionada:</b> Petróleo<br>                 <b>Vector de Ruta:</b> Irán → Siria             </div>             </div>`)[0];
-                popup_6e57f620ae9960f734e624d3e9837e5f.setContent(html_076b83b4c2882144532901f5b9914d13);
-            
-        
-
-        marker_1f788256561450a976c3491e840e3803.bindPopup(popup_6e57f620ae9960f734e624d3e9837e5f)
-        ;
-
-        
-    
-    
-            marker_1f788256561450a976c3491e840e3803.bindTooltip(
-                `<div>
-                     AIS APAGADO: Pandi
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_1f788256561450a976c3491e840e3803.setIcon(icon_574d8f9725d4c562abc3d785849e753a);
-            
-    
-            feature_group_c3e9b2818da8c7e8bfec071390e5aaca.addTo(map_ec104cf619dc0df744364c3e4d0ad9b8);
-        
-    
-            var feature_group_ce8fb3519b21c1ec99f8c564a95610d5 = L.featureGroup(
-                {
-}
-            );
-        
-    
-            var circle_marker_834b97dd5f786eb6d9a43a17a256f44c = L.circleMarker(
-                [25.2048, 55.2708],
-                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
-            ).addTo(feature_group_ce8fb3519b21c1ec99f8c564a95610d5);
-        
-    
-        var popup_c12f7e657a4d123dd7ca6d343b79b6c6 = L.popup({
+        var popup_d443d66a9276f44ddc71fa88bf1b7466 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_6ec7fea3b8203ee35a4a9e79f50ea133 = $(`<div id="html_6ec7fea3b8203ee35a4a9e79f50ea133" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid purple;">                     <b style="color:#cc66ff;">Dubai (Hawala/Oro)</b><br>                     Nodo de evasión financiera al sistema SWIFT occidental.                 </div>                 </div>`)[0];
-                popup_c12f7e657a4d123dd7ca6d343b79b6c6.setContent(html_6ec7fea3b8203ee35a4a9e79f50ea133);
+                var html_7ee986b720e2d3a5058ff5703eb1f922 = $(`<div id="html_7ee986b720e2d3a5058ff5703eb1f922" style="width: 100.0%; height: 100.0%;">Dubai (Hawala)</div>`)[0];
+                popup_d443d66a9276f44ddc71fa88bf1b7466.setContent(html_7ee986b720e2d3a5058ff5703eb1f922);
             
         
 
-        circle_marker_834b97dd5f786eb6d9a43a17a256f44c.bindPopup(popup_c12f7e657a4d123dd7ca6d343b79b6c6)
+        circle_marker_2b773e1e440f82f5dc11c4425fd2d4c0.bindPopup(popup_d443d66a9276f44ddc71fa88bf1b7466)
         ;
 
         
     
     
-            var circle_marker_d05762e04a72db1b323e1a2601797fbf = L.circleMarker(
-                [41.0082, 28.9784],
-                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
-            ).addTo(feature_group_ce8fb3519b21c1ec99f8c564a95610d5);
+            var circle_marker_a8f202f3f305f1b74da450c939cd1177 = L.circleMarker(
+                [55.7, 37.6],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a87e341c3fd64736bd67f5edf2d94b92);
         
     
-        var popup_b9e5f373b3a231993bb20a2ddf689f46 = L.popup({
+        var popup_0386bd7f80a1011938799aef5b922577 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_859e5e54a9f9b25b34aa944902f274fb = $(`<div id="html_859e5e54a9f9b25b34aa944902f274fb" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid purple;">                     <b style="color:#cc66ff;">Estambul (Banca)</b><br>                     Nodo de evasión financiera al sistema SWIFT occidental.                 </div>                 </div>`)[0];
-                popup_b9e5f373b3a231993bb20a2ddf689f46.setContent(html_859e5e54a9f9b25b34aa944902f274fb);
+                var html_6a70c9c5cc17b2baecce1e0aa326d513 = $(`<div id="html_6a70c9c5cc17b2baecce1e0aa326d513" style="width: 100.0%; height: 100.0%;">Moscú (SPFS)</div>`)[0];
+                popup_0386bd7f80a1011938799aef5b922577.setContent(html_6a70c9c5cc17b2baecce1e0aa326d513);
             
         
 
-        circle_marker_d05762e04a72db1b323e1a2601797fbf.bindPopup(popup_b9e5f373b3a231993bb20a2ddf689f46)
+        circle_marker_a8f202f3f305f1b74da450c939cd1177.bindPopup(popup_0386bd7f80a1011938799aef5b922577)
         ;
 
         
     
     
-            var circle_marker_cbdde8b2901aee8f03b3a944a1633ba8 = L.circleMarker(
-                [55.7558, 37.6173],
-                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
-            ).addTo(feature_group_ce8fb3519b21c1ec99f8c564a95610d5);
+            var circle_marker_0a06aa9d0033224efa09cc25811aa5a3 = L.circleMarker(
+                [39.9, 116.4],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_a87e341c3fd64736bd67f5edf2d94b92);
         
     
-        var popup_a54e421a2dc41b6aec2b0f6621764c45 = L.popup({
+        var popup_537068f89254a73736f3926b6369c2cf = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_ff02941332e7140ff2e69163c8986274 = $(`<div id="html_ff02941332e7140ff2e69163c8986274" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid purple;">                     <b style="color:#cc66ff;">Moscú (Sistema SPFS)</b><br>                     Nodo de evasión financiera al sistema SWIFT occidental.                 </div>                 </div>`)[0];
-                popup_a54e421a2dc41b6aec2b0f6621764c45.setContent(html_ff02941332e7140ff2e69163c8986274);
+                var html_18e2cdbccda00d5d668fc12c4220a9cf = $(`<div id="html_18e2cdbccda00d5d668fc12c4220a9cf" style="width: 100.0%; height: 100.0%;">Pekín (CIPS)</div>`)[0];
+                popup_537068f89254a73736f3926b6369c2cf.setContent(html_18e2cdbccda00d5d668fc12c4220a9cf);
             
         
 
-        circle_marker_cbdde8b2901aee8f03b3a944a1633ba8.bindPopup(popup_a54e421a2dc41b6aec2b0f6621764c45)
+        circle_marker_0a06aa9d0033224efa09cc25811aa5a3.bindPopup(popup_537068f89254a73736f3926b6369c2cf)
         ;
 
         
     
     
-            var circle_marker_004184af72698455ec06f9a274e1ed84 = L.circleMarker(
-                [39.9042, 116.4074],
-                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
-            ).addTo(feature_group_ce8fb3519b21c1ec99f8c564a95610d5);
+            feature_group_a87e341c3fd64736bd67f5edf2d94b92.addTo(map_199ac14a7a5a30fb2045f00203ea7fa4);
         
     
-        var popup_b63d03a910f3f6253dfa9cf3db621e72 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_f685efc3dcf212776e948cea208e31de = $(`<div id="html_f685efc3dcf212776e948cea208e31de" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid purple;">                     <b style="color:#cc66ff;">Pekín (Sistema CIPS)</b><br>                     Nodo de evasión financiera al sistema SWIFT occidental.                 </div>                 </div>`)[0];
-                popup_b63d03a910f3f6253dfa9cf3db621e72.setContent(html_f685efc3dcf212776e948cea208e31de);
-            
-        
-
-        circle_marker_004184af72698455ec06f9a274e1ed84.bindPopup(popup_b63d03a910f3f6253dfa9cf3db621e72)
-        ;
-
-        
-    
-    
-            var circle_marker_f44a067128c86af807bee1521524e685 = L.circleMarker(
-                [10.4806, -66.9036],
-                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
-            ).addTo(feature_group_ce8fb3519b21c1ec99f8c564a95610d5);
-        
-    
-        var popup_6e9359f976613be0694f17aa4087b3c3 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_0d96f060bb22dd0ed222c42425fa8d48 = $(`<div id="html_0d96f060bb22dd0ed222c42425fa8d48" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid purple;">                     <b style="color:#cc66ff;">Caracas (Estructura Trueque)</b><br>                     Nodo de evasión financiera al sistema SWIFT occidental.                 </div>                 </div>`)[0];
-                popup_6e9359f976613be0694f17aa4087b3c3.setContent(html_0d96f060bb22dd0ed222c42425fa8d48);
-            
-        
-
-        circle_marker_f44a067128c86af807bee1521524e685.bindPopup(popup_6e9359f976613be0694f17aa4087b3c3)
-        ;
-
-        
-    
-    
-            feature_group_ce8fb3519b21c1ec99f8c564a95610d5.addTo(map_ec104cf619dc0df744364c3e4d0ad9b8);
-        
-    
-            var layer_control_08bf7d3bf30fb8016885ff6a315e8e53_layers = {
+            var layer_control_83eae43d8a38c1efccd26d64a87b2c8b_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_2f3ff4509b77399b8ab2880f596e1eb5,
+                    "cartodbdarkmatter" : tile_layer_3dfd45bdd26188bd0f69dd847a9109e5,
                 },
                 overlays :  {
-                    "\ud83d\udee2\ufe0f Flujos de Petr\u00f3leo Ir\u00e1n/Rusia" : feature_group_673b892cee498b7e328a6ee499a22a30,
-                    "\u26a0\ufe0f Flota Fantasma (Dark Fleet)" : feature_group_c3e9b2818da8c7e8bfec071390e5aaca,
-                    "\ud83d\udcb0 Nodos Financieros / Sanciones" : feature_group_ce8fb3519b21c1ec99f8c564a95610d5,
+                    "\ud83d\udee2\ufe0f Flujos Energ\u00e9ticos (OSINT)" : feature_group_47ea41f232890e841d7e673968a3976a,
+                    "\ud83d\udcb0 Nodos de Evasi\u00f3n SWIFT" : feature_group_a87e341c3fd64736bd67f5edf2d94b92,
                 },
             };
-            let layer_control_08bf7d3bf30fb8016885ff6a315e8e53 = L.control.layers(
-                layer_control_08bf7d3bf30fb8016885ff6a315e8e53_layers.base_layers,
-                layer_control_08bf7d3bf30fb8016885ff6a315e8e53_layers.overlays,
+            let layer_control_83eae43d8a38c1efccd26d64a87b2c8b = L.control.layers(
+                layer_control_83eae43d8a38c1efccd26d64a87b2c8b_layers.base_layers,
+                layer_control_83eae43d8a38c1efccd26d64a87b2c8b_layers.overlays,
                 {
   "position": "topright",
-  "collapsed": false,
+  "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_ec104cf619dc0df744364c3e4d0ad9b8);
+            ).addTo(map_199ac14a7a5a30fb2045f00203ea7fa4);
 
         
 </script>

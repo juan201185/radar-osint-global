@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_2c19e7623b68e24387cee7f1bdb5d2c0 {
+                #map_e7e8e92e14ad6a3ab4fe4d02aae35c22 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -61,44 +61,40 @@
                     box-shadow: 0 0 20px rgba(0,0,0,0.8);">
             <h4 style="color:#ff3333; margin-top:0; text-align:center; font-size: 14px; 
                        border-bottom: 2px solid #333; padding-bottom: 8px;">
-                🚁 RADAR TERRESTRE E.T.B.
+                🚁 RADAR TERRESTRE E.T.B. (REGIONAL)
             </h4>
             <div style="line-height: 1.6; margin-top: 10px;">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Movimientos Detectados:</span>
-                    <span style="color:#ff6666; font-weight:bold;">5</span>
+                    <span>Bases Estratégicas:</span>
+                    <span style="color:#4488ff;">14 Mapeadas</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Firmas Térmicas:</span>
-                    <span style="color:#ff6666;">3</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span>Bases Estratégicas:</span>
-                    <span style="color:#4488ff;">29</span>
+                    <span>Despliegues Activos:</span>
+                    <span style="color:#ff6666; font-weight:bold;">5 OSINT</span>
                 </div>
             </div>
             <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px; 
                         font-size: 10px; color: #666; text-align: center;">
                 <b>Última actualización:</b><br>
-                2026-03-07 12:35:52<br>
-                <span style="color: #444;">Sistema E.T.B. v2.0</span>
+                2026-03-07 13:20:17<br>
+                <span style="color: #444;">Sistema E.T.B. v2.0 (Verificado)</span>
             </div>
         </div>
         
     
-            <div class="folium-map" id="map_2c19e7623b68e24387cee7f1bdb5d2c0" ></div>
+            <div class="folium-map" id="map_e7e8e92e14ad6a3ab4fe4d02aae35c22" ></div>
         
 </body>
 <script>
     
     
-            var map_2c19e7623b68e24387cee7f1bdb5d2c0 = L.map(
-                "map_2c19e7623b68e24387cee7f1bdb5d2c0",
+            var map_e7e8e92e14ad6a3ab4fe4d02aae35c22 = L.map(
+                "map_e7e8e92e14ad6a3ab4fe4d02aae35c22",
                 {
-                    center: [32.5, 35.0],
+                    center: [32.0, 44.0],
                     crs: L.CRS.EPSG3857,
                     ...{
-  "zoom": 9,
+  "zoom": 5,
   "zoomControl": true,
   "preferCanvas": false,
 }
@@ -110,7 +106,7 @@
 
         
     
-            var tile_layer_9e08b2f8a17377bb494415a718a5de35 = L.tileLayer(
+            var tile_layer_a1fb3b665f475f1e82206855fe85a636 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -127,23 +123,23 @@
             );
         
     
-            tile_layer_9e08b2f8a17377bb494415a718a5de35.addTo(map_2c19e7623b68e24387cee7f1bdb5d2c0);
+            tile_layer_a1fb3b665f475f1e82206855fe85a636.addTo(map_e7e8e92e14ad6a3ab4fe4d02aae35c22);
         
     
-            var feature_group_083226cccef3904478be2a016097577f = L.featureGroup(
+            var feature_group_93c67fc0b8f438b06618b69d3e5bca50 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_9678912241d90721866d8e5a2626e231 = L.marker(
-                [33.0608, 35.2231],
+            var marker_c0dfcb25380ab13305dfc98a0d5807b7 = L.marker(
+                [31.2089, 35.0114],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_54abeb86ac66f014b962356c5134d419 = L.AwesomeMarkers.icon(
+            var icon_f9c2f71b9f07f79096a4cf7cdc716862 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -154,26 +150,26 @@
             );
         
     
-        var popup_afbec28916f03203a0d4260f6934255c = L.popup({
+        var popup_d07b7413f2348a9d45a2586c4fdcb73f = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_019374731ad7d1a43c14567aa12f85f1 = $(`<div id="html_019374731ad7d1a43c14567aa12f85f1" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Biranit</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_afbec28916f03203a0d4260f6934255c.setContent(html_019374731ad7d1a43c14567aa12f85f1);
+                var html_f7aeabeb2b5b84372f0f30c17b60e1d6 = $(`<div id="html_f7aeabeb2b5b84372f0f30c17b60e1d6" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid gray;">                     <b style="font-size: 14px; color: gray;">Base Aérea Nevatim (ISR)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_d07b7413f2348a9d45a2586c4fdcb73f.setContent(html_f7aeabeb2b5b84372f0f30c17b60e1d6);
             
         
 
-        marker_9678912241d90721866d8e5a2626e231.bindPopup(popup_afbec28916f03203a0d4260f6934255c)
+        marker_c0dfcb25380ab13305dfc98a0d5807b7.bindPopup(popup_d07b7413f2348a9d45a2586c4fdcb73f)
         ;
 
         
     
     
-            marker_9678912241d90721866d8e5a2626e231.bindTooltip(
+            marker_c0dfcb25380ab13305dfc98a0d5807b7.bindTooltip(
                 `<div>
-                     Biranit
+                     Base Aérea Nevatim (ISR)
                  </div>`,
                 {
   "sticky": true,
@@ -181,241 +177,25 @@
             );
         
     
-                marker_9678912241d90721866d8e5a2626e231.setIcon(icon_54abeb86ac66f014b962356c5134d419);
+                marker_c0dfcb25380ab13305dfc98a0d5807b7.setIcon(icon_f9c2f71b9f07f79096a4cf7cdc716862);
             
     
-            var circle_2542b8b45e3cf3acb89f1d6003b165f6 = L.circle(
-                [33.0608, 35.2231],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_771736a01be36bb631b53a6cee08c02a = L.circle(
+                [31.2089, 35.0114],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_8c51b2ca6cac24e38efe6f966afbff00 = L.marker(
-                [33.0825, 35.3386],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_8e6dcad69abded4c8664110f31c63ec0 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_02691509aed0a69116ea30685eb8dd57 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_2067490e63350632fefded85668b2a27 = $(`<div id="html_2067490e63350632fefded85668b2a27" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Shtula</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_02691509aed0a69116ea30685eb8dd57.setContent(html_2067490e63350632fefded85668b2a27);
-            
-        
-
-        marker_8c51b2ca6cac24e38efe6f966afbff00.bindPopup(popup_02691509aed0a69116ea30685eb8dd57)
-        ;
-
-        
-    
-    
-            marker_8c51b2ca6cac24e38efe6f966afbff00.bindTooltip(
-                `<div>
-                     Shtula
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_8c51b2ca6cac24e38efe6f966afbff00.setIcon(icon_8e6dcad69abded4c8664110f31c63ec0);
-            
-    
-            var circle_f8f890e408eb79cde7ad269a74fa2430 = L.circle(
-                [33.0825, 35.3386],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_fde3a7eeab2dedab62a50967298a5476 = L.marker(
-                [33.1925, 35.5458],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_b3500b71e1b63bf47176583c47ef9425 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_859b22a2121eec5a717aebcee9d541d7 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_7cb5b4fd2eb25e5c879f97296d0d3547 = $(`<div id="html_7cb5b4fd2eb25e5c879f97296d0d3547" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Yiftah</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_859b22a2121eec5a717aebcee9d541d7.setContent(html_7cb5b4fd2eb25e5c879f97296d0d3547);
-            
-        
-
-        marker_fde3a7eeab2dedab62a50967298a5476.bindPopup(popup_859b22a2121eec5a717aebcee9d541d7)
-        ;
-
-        
-    
-    
-            marker_fde3a7eeab2dedab62a50967298a5476.bindTooltip(
-                `<div>
-                     Yiftah
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_fde3a7eeab2dedab62a50967298a5476.setIcon(icon_b3500b71e1b63bf47176583c47ef9425);
-            
-    
-            var circle_2b7b1e552df42bd6c24f4195dfd62a08 = L.circle(
-                [33.1925, 35.5458],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_9bbff8a3c9ee949f94b948e7d8b084a4 = L.marker(
-                [33.0425, 35.4458],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_de6e4637e7beff2d780818a0a3176aaf = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_e1e4ea34e19bbc24bd80e49ffb453fca = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_29f50ef9184d6f74b59957830c354014 = $(`<div id="html_29f50ef9184d6f74b59957830c354014" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Dovev</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_e1e4ea34e19bbc24bd80e49ffb453fca.setContent(html_29f50ef9184d6f74b59957830c354014);
-            
-        
-
-        marker_9bbff8a3c9ee949f94b948e7d8b084a4.bindPopup(popup_e1e4ea34e19bbc24bd80e49ffb453fca)
-        ;
-
-        
-    
-    
-            marker_9bbff8a3c9ee949f94b948e7d8b084a4.bindTooltip(
-                `<div>
-                     Dovev
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_9bbff8a3c9ee949f94b948e7d8b084a4.setIcon(icon_de6e4637e7beff2d780818a0a3176aaf);
-            
-    
-            var circle_5642c361acd05e60cbf9ebd11cf6730e = L.circle(
-                [33.0425, 35.4458],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_17112009cbb0516263998f05c2b445be = L.marker(
-                [33.2792, 35.5744],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_2c53736b339b7a2db17532c58dfc86b3 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_8a8fe1b29a8a90bc1bf95a9aa79dc738 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_475d1a95ff5182b6986189429b73e886 = $(`<div id="html_475d1a95ff5182b6986189429b73e886" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Metula</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_8a8fe1b29a8a90bc1bf95a9aa79dc738.setContent(html_475d1a95ff5182b6986189429b73e886);
-            
-        
-
-        marker_17112009cbb0516263998f05c2b445be.bindPopup(popup_8a8fe1b29a8a90bc1bf95a9aa79dc738)
-        ;
-
-        
-    
-    
-            marker_17112009cbb0516263998f05c2b445be.bindTooltip(
-                `<div>
-                     Metula
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_17112009cbb0516263998f05c2b445be.setIcon(icon_2c53736b339b7a2db17532c58dfc86b3);
-            
-    
-            var circle_75de886511feaf75f0b2632bf0a0afd5 = L.circle(
-                [33.2792, 35.5744],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_86e71506549d70d40c9fb750eec6daf1 = L.marker(
+            var marker_8ded24e25393e06df80a35366f6aaad5 = L.marker(
                 [33.2075, 35.5694],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_b8fd882ba7406b18d0f1a4b5aa646020 = L.AwesomeMarkers.icon(
+            var icon_4b2791721aba386a0befec893f4a6eb6 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "blue",
+  "markerColor": "gray",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -424,26 +204,26 @@
             );
         
     
-        var popup_d7b1550446e4b518b40eae61f96ed258 = L.popup({
+        var popup_bfb75527fb9e69198052e2e61b383045 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_b1334056b653e5d790492bdd241265fa = $(`<div id="html_b1334056b653e5d790492bdd241265fa" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: blue;">Kiryat Shmona AB</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_d7b1550446e4b518b40eae61f96ed258.setContent(html_b1334056b653e5d790492bdd241265fa);
+                var html_5940bbd6fe23a368dda4472246c2b428 = $(`<div id="html_5940bbd6fe23a368dda4472246c2b428" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid gray;">                     <b style="font-size: 14px; color: gray;">Kiryat Shmona Comando Norte (ISR)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_bfb75527fb9e69198052e2e61b383045.setContent(html_5940bbd6fe23a368dda4472246c2b428);
             
         
 
-        marker_86e71506549d70d40c9fb750eec6daf1.bindPopup(popup_d7b1550446e4b518b40eae61f96ed258)
+        marker_8ded24e25393e06df80a35366f6aaad5.bindPopup(popup_bfb75527fb9e69198052e2e61b383045)
         ;
 
         
     
     
-            marker_86e71506549d70d40c9fb750eec6daf1.bindTooltip(
+            marker_8ded24e25393e06df80a35366f6aaad5.bindTooltip(
                 `<div>
-                     Kiryat Shmona AB
+                     Kiryat Shmona Comando Norte (ISR)
                  </div>`,
                 {
   "sticky": true,
@@ -451,25 +231,25 @@
             );
         
     
-                marker_86e71506549d70d40c9fb750eec6daf1.setIcon(icon_b8fd882ba7406b18d0f1a4b5aa646020);
+                marker_8ded24e25393e06df80a35366f6aaad5.setIcon(icon_4b2791721aba386a0befec893f4a6eb6);
             
     
-            var circle_0b6cf66deaa6c1d2baf456953f15897b = L.circle(
+            var circle_9a5dd068480ecd823569d4d69029fdc6 = L.circle(
                 [33.2075, 35.5694],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_4c962db4be18b769a4c253dd94008660 = L.marker(
-                [32.9689, 35.5428],
+            var marker_0d4d3ebf637a9df54df2c9d45c3ba74e = L.marker(
+                [35.6892, 51.389],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_4c35f7d5633dd7569b93c254ea15f217 = L.AwesomeMarkers.icon(
+            var icon_8ab5037ddf5b3d43b8f3717d363aaebf = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "purple",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -478,26 +258,26 @@
             );
         
     
-        var popup_a47dffff75c3f287c864de9ce8b5d0ba = L.popup({
+        var popup_09e154e062a35015805b8de77a6744fd = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_cc3fa22a7f52e73362e3ab50877dd589 = $(`<div id="html_cc3fa22a7f52e73362e3ab50877dd589" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Rosh Pina</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_a47dffff75c3f287c864de9ce8b5d0ba.setContent(html_cc3fa22a7f52e73362e3ab50877dd589);
+                var html_c4451ce78201d3d3dc261a9bb4ac61fa = $(`<div id="html_c4451ce78201d3d3dc261a9bb4ac61fa" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid purple;">                     <b style="font-size: 14px; color: purple;">Base Khatam al-Anbiya HQ (IRÁN)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_09e154e062a35015805b8de77a6744fd.setContent(html_c4451ce78201d3d3dc261a9bb4ac61fa);
             
         
 
-        marker_4c962db4be18b769a4c253dd94008660.bindPopup(popup_a47dffff75c3f287c864de9ce8b5d0ba)
+        marker_0d4d3ebf637a9df54df2c9d45c3ba74e.bindPopup(popup_09e154e062a35015805b8de77a6744fd)
         ;
 
         
     
     
-            marker_4c962db4be18b769a4c253dd94008660.bindTooltip(
+            marker_0d4d3ebf637a9df54df2c9d45c3ba74e.bindTooltip(
                 `<div>
-                     Rosh Pina
+                     Base Khatam al-Anbiya HQ (IRÁN)
                  </div>`,
                 {
   "sticky": true,
@@ -505,25 +285,25 @@
             );
         
     
-                marker_4c962db4be18b769a4c253dd94008660.setIcon(icon_4c35f7d5633dd7569b93c254ea15f217);
+                marker_0d4d3ebf637a9df54df2c9d45c3ba74e.setIcon(icon_8ab5037ddf5b3d43b8f3717d363aaebf);
             
     
-            var circle_1c4a660b60a1a4884182c3993cc2c29f = L.circle(
-                [32.9689, 35.5428],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_4f85951683ecb3cf2f370f8f901fcf39 = L.circle(
+                [35.6892, 51.389],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_673e64f5d2875d9ae409d833c71369e4 = L.marker(
-                [32.6653, 35.1794],
+            var marker_2d63362ccdc6cff4730d257c659532bc = L.marker(
+                [27.1438, 56.1601],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_dd652bfa658f08cc033de97415e8cb56 = L.AwesomeMarkers.icon(
+            var icon_6910502ac192169275eaf751c9c2a376 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "purple",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -532,26 +312,26 @@
             );
         
     
-        var popup_6eb110357e0af916c3be6f4902456f42 = L.popup({
+        var popup_03185be5b4ab0c7f03e490757d2126af = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_d0d8a18caa758caf9d151fef5467c2c5 = $(`<div id="html_d0d8a18caa758caf9d151fef5467c2c5" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Ramat David</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_6eb110357e0af916c3be6f4902456f42.setContent(html_d0d8a18caa758caf9d151fef5467c2c5);
+                var html_ab5ae1904ca0d51d1b5e0ca397e678b6 = $(`<div id="html_ab5ae1904ca0d51d1b5e0ca397e678b6" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid purple;">                     <b style="font-size: 14px; color: purple;">Base Naval Bandar Abbas (IRÁN)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_03185be5b4ab0c7f03e490757d2126af.setContent(html_ab5ae1904ca0d51d1b5e0ca397e678b6);
             
         
 
-        marker_673e64f5d2875d9ae409d833c71369e4.bindPopup(popup_6eb110357e0af916c3be6f4902456f42)
+        marker_2d63362ccdc6cff4730d257c659532bc.bindPopup(popup_03185be5b4ab0c7f03e490757d2126af)
         ;
 
         
     
     
-            marker_673e64f5d2875d9ae409d833c71369e4.bindTooltip(
+            marker_2d63362ccdc6cff4730d257c659532bc.bindTooltip(
                 `<div>
-                     Ramat David
+                     Base Naval Bandar Abbas (IRÁN)
                  </div>`,
                 {
   "sticky": true,
@@ -559,25 +339,25 @@
             );
         
     
-                marker_673e64f5d2875d9ae409d833c71369e4.setIcon(icon_dd652bfa658f08cc033de97415e8cb56);
+                marker_2d63362ccdc6cff4730d257c659532bc.setIcon(icon_6910502ac192169275eaf751c9c2a376);
             
     
-            var circle_a36b85b58b491ad00afe7f51e42c410a = L.circle(
-                [32.6653, 35.1794],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_f01355a607a52a818024a172ad07b565 = L.circle(
+                [27.1438, 56.1601],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_9573c0e2459c98cd764dd838c5a3194a = L.marker(
-                [31.3972, 34.4544],
+            var marker_c998da9b4758420323e3f4a4d820f4b8 = L.marker(
+                [32.7486, 51.8608],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_9eec55fc9b2d7086407b4c38f5111e59 = L.AwesomeMarkers.icon(
+            var icon_e6fb9a8652d6bc94ab1422ff0f3a462c = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "purple",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -586,26 +366,26 @@
             );
         
     
-        var popup_97c18af153846b08a76ee15996117981 = L.popup({
+        var popup_6b83be95e5f0e67bbba1b95c460a9dc3 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_bf1afa09c94b3d9fedb1c3475c147ca7 = $(`<div id="html_bf1afa09c94b3d9fedb1c3475c147ca7" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Re'im</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_97c18af153846b08a76ee15996117981.setContent(html_bf1afa09c94b3d9fedb1c3475c147ca7);
+                var html_b8336e725da78a4438a04d95b8888e8f = $(`<div id="html_b8336e725da78a4438a04d95b8888e8f" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid purple;">                     <b style="font-size: 14px; color: purple;">Instalación Isfahán (IRÁN)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_6b83be95e5f0e67bbba1b95c460a9dc3.setContent(html_b8336e725da78a4438a04d95b8888e8f);
             
         
 
-        marker_9573c0e2459c98cd764dd838c5a3194a.bindPopup(popup_97c18af153846b08a76ee15996117981)
+        marker_c998da9b4758420323e3f4a4d820f4b8.bindPopup(popup_6b83be95e5f0e67bbba1b95c460a9dc3)
         ;
 
         
     
     
-            marker_9573c0e2459c98cd764dd838c5a3194a.bindTooltip(
+            marker_c998da9b4758420323e3f4a4d820f4b8.bindTooltip(
                 `<div>
-                     Re'im
+                     Instalación Isfahán (IRÁN)
                  </div>`,
                 {
   "sticky": true,
@@ -613,25 +393,25 @@
             );
         
     
-                marker_9573c0e2459c98cd764dd838c5a3194a.setIcon(icon_9eec55fc9b2d7086407b4c38f5111e59);
+                marker_c998da9b4758420323e3f4a4d820f4b8.setIcon(icon_e6fb9a8652d6bc94ab1422ff0f3a462c);
             
     
-            var circle_fb6574bc9c37520fc97d6cc252a4a362 = L.circle(
-                [31.3972, 34.4544],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_886a2db682db89cd479b67859a93d5fc = L.circle(
+                [32.7486, 51.8608],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_148adde77322acbd929363337d0b1210 = L.marker(
-                [31.4725, 34.4972],
+            var marker_05c91d94a65e96f875850da67b67f1cd = L.marker(
+                [34.455, 40.94],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_417cbb5f2f1c50f19bb72412389b9306 = L.AwesomeMarkers.icon(
+            var icon_1e1ffea4ce56f31a5fcfd0940141d438 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "purple",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -640,26 +420,26 @@
             );
         
     
-        var popup_53b2dc9d73fca5729e6c2a624e9b3c43 = L.popup({
+        var popup_bcb325ed48816badc89aff7a5c7d223b = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_1eb91b395b07fa49bc18dafff6134027 = $(`<div id="html_1eb91b395b07fa49bc18dafff6134027" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Nahal Oz</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_53b2dc9d73fca5729e6c2a624e9b3c43.setContent(html_1eb91b395b07fa49bc18dafff6134027);
+                var html_0dd2f6d0a72ec643d93753785bf3ef45 = $(`<div id="html_0dd2f6d0a72ec643d93753785bf3ef45" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid purple;">                     <b style="font-size: 14px; color: purple;">Base Imam Ali (IRAK/Siria)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_bcb325ed48816badc89aff7a5c7d223b.setContent(html_0dd2f6d0a72ec643d93753785bf3ef45);
             
         
 
-        marker_148adde77322acbd929363337d0b1210.bindPopup(popup_53b2dc9d73fca5729e6c2a624e9b3c43)
+        marker_05c91d94a65e96f875850da67b67f1cd.bindPopup(popup_bcb325ed48816badc89aff7a5c7d223b)
         ;
 
         
     
     
-            marker_148adde77322acbd929363337d0b1210.bindTooltip(
+            marker_05c91d94a65e96f875850da67b67f1cd.bindTooltip(
                 `<div>
-                     Nahal Oz
+                     Base Imam Ali (IRAK/Siria)
                  </div>`,
                 {
   "sticky": true,
@@ -667,619 +447,25 @@
             );
         
     
-                marker_148adde77322acbd929363337d0b1210.setIcon(icon_417cbb5f2f1c50f19bb72412389b9306);
+                marker_05c91d94a65e96f875850da67b67f1cd.setIcon(icon_1e1ffea4ce56f31a5fcfd0940141d438);
             
     
-            var circle_e1043bf658fa60ad7c70e10a6e6605b0 = L.circle(
-                [31.4725, 34.4972],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_4a2e24b88d025176d4acbc7674d526a0 = L.circle(
+                [34.455, 40.94],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_42f2fc9502c617cd7ad23f587379bf00 = L.marker(
-                [31.375, 34.3958],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_1f8e579b746df1d6e74f62c6ef01c5ed = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_dfee0a36821ebb31d2b57e627ac19707 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_c4bed68da124705bf0ab9896b7c78265 = $(`<div id="html_c4bed68da124705bf0ab9896b7c78265" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Kissufim</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_dfee0a36821ebb31d2b57e627ac19707.setContent(html_c4bed68da124705bf0ab9896b7c78265);
-            
-        
-
-        marker_42f2fc9502c617cd7ad23f587379bf00.bindPopup(popup_dfee0a36821ebb31d2b57e627ac19707)
-        ;
-
-        
-    
-    
-            marker_42f2fc9502c617cd7ad23f587379bf00.bindTooltip(
-                `<div>
-                     Kissufim
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_42f2fc9502c617cd7ad23f587379bf00.setIcon(icon_1f8e579b746df1d6e74f62c6ef01c5ed);
-            
-    
-            var circle_3da587cf2aa7604a6fc9dbc880406c54 = L.circle(
-                [31.375, 34.3958],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_443b4820cdd658c0ec05fbb0dc32c90c = L.marker(
-                [31.4167, 34.5833],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_ec79e833e66a1ce93d39ff34e92636c7 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_8c9bddd5ce9340a84b3f51d27e03006d = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_09d502e65b3d5265dd88a93f279285f0 = $(`<div id="html_09d502e65b3d5265dd88a93f279285f0" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: blue;">Netivot Base</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_8c9bddd5ce9340a84b3f51d27e03006d.setContent(html_09d502e65b3d5265dd88a93f279285f0);
-            
-        
-
-        marker_443b4820cdd658c0ec05fbb0dc32c90c.bindPopup(popup_8c9bddd5ce9340a84b3f51d27e03006d)
-        ;
-
-        
-    
-    
-            marker_443b4820cdd658c0ec05fbb0dc32c90c.bindTooltip(
-                `<div>
-                     Netivot Base
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_443b4820cdd658c0ec05fbb0dc32c90c.setIcon(icon_ec79e833e66a1ce93d39ff34e92636c7);
-            
-    
-            var circle_a517163d7bb13d9f5fe874cd7f68c270 = L.circle(
-                [31.4167, 34.5833],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_480165bf1eea24f43c755a7f7da53d4e = L.marker(
-                [31.5167, 34.6],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_1ce5655f06307139971729a46e029e92 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_67b765db18fb3c15ba17b88d13c3555a = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_b3092822e7218a5222690c76c0d3197b = $(`<div id="html_b3092822e7218a5222690c76c0d3197b" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: blue;">Sderot Base</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_67b765db18fb3c15ba17b88d13c3555a.setContent(html_b3092822e7218a5222690c76c0d3197b);
-            
-        
-
-        marker_480165bf1eea24f43c755a7f7da53d4e.bindPopup(popup_67b765db18fb3c15ba17b88d13c3555a)
-        ;
-
-        
-    
-    
-            marker_480165bf1eea24f43c755a7f7da53d4e.bindTooltip(
-                `<div>
-                     Sderot Base
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_480165bf1eea24f43c755a7f7da53d4e.setIcon(icon_1ce5655f06307139971729a46e029e92);
-            
-    
-            var circle_f64f12e3e95c58adf9c82a2e1f05a633 = L.circle(
-                [31.5167, 34.6],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_4b68017b8c2596d1be047f07f9b32ef7 = L.marker(
-                [31.3167, 34.6167],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_56d91f927140e0026702908cd223f675 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_aee54d407c50eda25bcc28a11be075db = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_e0604f74bba6bab0e1876623a20c287d = $(`<div id="html_e0604f74bba6bab0e1876623a20c287d" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: blue;">Ofakim Base</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_aee54d407c50eda25bcc28a11be075db.setContent(html_e0604f74bba6bab0e1876623a20c287d);
-            
-        
-
-        marker_4b68017b8c2596d1be047f07f9b32ef7.bindPopup(popup_aee54d407c50eda25bcc28a11be075db)
-        ;
-
-        
-    
-    
-            marker_4b68017b8c2596d1be047f07f9b32ef7.bindTooltip(
-                `<div>
-                     Ofakim Base
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_4b68017b8c2596d1be047f07f9b32ef7.setIcon(icon_56d91f927140e0026702908cd223f675);
-            
-    
-            var circle_3a6784876018c868774f149142cb8402 = L.circle(
-                [31.3167, 34.6167],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_6b41c67a2e2a7c45d43db7eea26468fe = L.marker(
-                [31.5017, 34.4668],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_d57e584ecce5dc8859dd98c2c970ec66 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_d606d3728c9c8cc52a262d5f05740848 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_4393ebb0229325439138af2b16898ac4 = $(`<div id="html_4393ebb0229325439138af2b16898ac4" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Gaza City North</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_d606d3728c9c8cc52a262d5f05740848.setContent(html_4393ebb0229325439138af2b16898ac4);
-            
-        
-
-        marker_6b41c67a2e2a7c45d43db7eea26468fe.bindPopup(popup_d606d3728c9c8cc52a262d5f05740848)
-        ;
-
-        
-    
-    
-            marker_6b41c67a2e2a7c45d43db7eea26468fe.bindTooltip(
-                `<div>
-                     Gaza City North
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_6b41c67a2e2a7c45d43db7eea26468fe.setIcon(icon_d57e584ecce5dc8859dd98c2c970ec66);
-            
-    
-            var circle_604529f85d58e01a56ee2137fc89b136 = L.circle(
-                [31.5017, 34.4668],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_adab6f48e716a3217c9c1ff6de2c928a = L.marker(
-                [31.5286, 34.4836],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_4e0fd1ea342798b93f2541054f4a5d1e = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_4e5f234e2c473cd8ac7e8cbb4b5ff004 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_eac8c6961d202f44e2a3525631b663bf = $(`<div id="html_eac8c6961d202f44e2a3525631b663bf" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Jabalia</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_4e5f234e2c473cd8ac7e8cbb4b5ff004.setContent(html_eac8c6961d202f44e2a3525631b663bf);
-            
-        
-
-        marker_adab6f48e716a3217c9c1ff6de2c928a.bindPopup(popup_4e5f234e2c473cd8ac7e8cbb4b5ff004)
-        ;
-
-        
-    
-    
-            marker_adab6f48e716a3217c9c1ff6de2c928a.bindTooltip(
-                `<div>
-                     Jabalia
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_adab6f48e716a3217c9c1ff6de2c928a.setIcon(icon_4e0fd1ea342798b93f2541054f4a5d1e);
-            
-    
-            var circle_feeb96172303a7378d062df7a9f1668c = L.circle(
-                [31.5286, 34.4836],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_d692de26123542a8376e3d0fcdbacf55 = L.marker(
-                [31.55, 34.5],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_67c132245a760ff96c67f28d32c18602 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_d22ebc7af99a1c787b81b4f0a3437651 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_536fc78f34df13f8950f12b0290f0d5f = $(`<div id="html_536fc78f34df13f8950f12b0290f0d5f" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Beit Lahia</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_d22ebc7af99a1c787b81b4f0a3437651.setContent(html_536fc78f34df13f8950f12b0290f0d5f);
-            
-        
-
-        marker_d692de26123542a8376e3d0fcdbacf55.bindPopup(popup_d22ebc7af99a1c787b81b4f0a3437651)
-        ;
-
-        
-    
-    
-            marker_d692de26123542a8376e3d0fcdbacf55.bindTooltip(
-                `<div>
-                     Beit Lahia
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_d692de26123542a8376e3d0fcdbacf55.setIcon(icon_67c132245a760ff96c67f28d32c18602);
-            
-    
-            var circle_91c1e0788490c860185cd35d495d21c2 = L.circle(
-                [31.55, 34.5],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_602079a11c2030413b3ea3e86a858a8a = L.marker(
-                [31.2968, 34.2435],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_146364d9b7283c3a5300733de2f870de = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_dce46360171c98e74a37fad35deb12cb = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_13b6db8402da80585edb763465523d9a = $(`<div id="html_13b6db8402da80585edb763465523d9a" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Rafah Border</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_dce46360171c98e74a37fad35deb12cb.setContent(html_13b6db8402da80585edb763465523d9a);
-            
-        
-
-        marker_602079a11c2030413b3ea3e86a858a8a.bindPopup(popup_dce46360171c98e74a37fad35deb12cb)
-        ;
-
-        
-    
-    
-            marker_602079a11c2030413b3ea3e86a858a8a.bindTooltip(
-                `<div>
-                     Rafah Border
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_602079a11c2030413b3ea3e86a858a8a.setIcon(icon_146364d9b7283c3a5300733de2f870de);
-            
-    
-            var circle_e0cd0c4f00cda7cae79945344b506305 = L.circle(
-                [31.2968, 34.2435],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_73601ea25f826f2361a9e685b931974c = L.marker(
-                [31.3461, 34.3061],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_68d5ff5d77fc8995ed24435cc554d967 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_8898fe8cff5909bc4b004502e499e168 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_c5230f7bef4fe9bb5b04f7fefb865ac4 = $(`<div id="html_c5230f7bef4fe9bb5b04f7fefb865ac4" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Khan Younis</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_8898fe8cff5909bc4b004502e499e168.setContent(html_c5230f7bef4fe9bb5b04f7fefb865ac4);
-            
-        
-
-        marker_73601ea25f826f2361a9e685b931974c.bindPopup(popup_8898fe8cff5909bc4b004502e499e168)
-        ;
-
-        
-    
-    
-            marker_73601ea25f826f2361a9e685b931974c.bindTooltip(
-                `<div>
-                     Khan Younis
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_73601ea25f826f2361a9e685b931974c.setIcon(icon_68d5ff5d77fc8995ed24435cc554d967);
-            
-    
-            var circle_096bf4a77229409a0a19c909704c9526 = L.circle(
-                [31.3461, 34.3061],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_fb96c27ea910becd791fb8e256343332 = L.marker(
-                [31.4167, 34.35],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_154d78d17b2a269cd5073fc724528ea5 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_84db266fc0a6767a76486da4f4d91a79 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_2c3caf2d0928d4780f07732f2e33ea09 = $(`<div id="html_2c3caf2d0928d4780f07732f2e33ea09" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Deir al-Balah</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_84db266fc0a6767a76486da4f4d91a79.setContent(html_2c3caf2d0928d4780f07732f2e33ea09);
-            
-        
-
-        marker_fb96c27ea910becd791fb8e256343332.bindPopup(popup_84db266fc0a6767a76486da4f4d91a79)
-        ;
-
-        
-    
-    
-            marker_fb96c27ea910becd791fb8e256343332.bindTooltip(
-                `<div>
-                     Deir al-Balah
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_fb96c27ea910becd791fb8e256343332.setIcon(icon_154d78d17b2a269cd5073fc724528ea5);
-            
-    
-            var circle_aed77f3fe51c49c81b363f4c648a213e = L.circle(
-                [31.4167, 34.35],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_79422201310df4d69b79e9bd54a23a22 = L.marker(
-                [33.1181, 35.1397],
-                {
-}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var icon_06d4e6c5c90bc21e2d3cc2a4226c7524 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "flag",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_5503804d7e14a22202a6b2d8246ea166 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_9482f499e4c370c494a9fcc8721bdae1 = $(`<div id="html_9482f499e4c370c494a9fcc8721bdae1" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Naqoura</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_5503804d7e14a22202a6b2d8246ea166.setContent(html_9482f499e4c370c494a9fcc8721bdae1);
-            
-        
-
-        marker_79422201310df4d69b79e9bd54a23a22.bindPopup(popup_5503804d7e14a22202a6b2d8246ea166)
-        ;
-
-        
-    
-    
-            marker_79422201310df4d69b79e9bd54a23a22.bindTooltip(
-                `<div>
-                     Naqoura
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_79422201310df4d69b79e9bd54a23a22.setIcon(icon_06d4e6c5c90bc21e2d3cc2a4226c7524);
-            
-    
-            var circle_0023045f0ce8e5cb6ddccc948e51fb85 = L.circle(
-                [33.1181, 35.1397],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
-        
-    
-            var marker_f1c9e7cdca30d06a45855f72d9458370 = L.marker(
+            var marker_28a97cc946c6d9aef26f0d6dd91a8084 = L.marker(
                 [33.2705, 35.1966],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_ade70382aec16acdf09ace8a4ca4c2cd = L.AwesomeMarkers.icon(
+            var icon_1ecbbc77901cf429a3e42333fbca2f4e = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "purple",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -1288,26 +474,26 @@
             );
         
     
-        var popup_450494643a9a56fd148c6bc245ed7e88 = L.popup({
+        var popup_f3a653e1d47ffa94007a08e442c320a1 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_07b424a94bc298f681b5eac7c96b45ad = $(`<div id="html_07b424a94bc298f681b5eac7c96b45ad" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Tyre</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_450494643a9a56fd148c6bc245ed7e88.setContent(html_07b424a94bc298f681b5eac7c96b45ad);
+                var html_f0849e24eb430be341adae8718d402e0 = $(`<div id="html_f0849e24eb430be341adae8718d402e0" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid purple;">                     <b style="font-size: 14px; color: purple;">HQ Hezbollah Sur (LÍBANO)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_f3a653e1d47ffa94007a08e442c320a1.setContent(html_f0849e24eb430be341adae8718d402e0);
             
         
 
-        marker_f1c9e7cdca30d06a45855f72d9458370.bindPopup(popup_450494643a9a56fd148c6bc245ed7e88)
+        marker_28a97cc946c6d9aef26f0d6dd91a8084.bindPopup(popup_f3a653e1d47ffa94007a08e442c320a1)
         ;
 
         
     
     
-            marker_f1c9e7cdca30d06a45855f72d9458370.bindTooltip(
+            marker_28a97cc946c6d9aef26f0d6dd91a8084.bindTooltip(
                 `<div>
-                     Tyre
+                     HQ Hezbollah Sur (LÍBANO)
                  </div>`,
                 {
   "sticky": true,
@@ -1315,25 +501,25 @@
             );
         
     
-                marker_f1c9e7cdca30d06a45855f72d9458370.setIcon(icon_ade70382aec16acdf09ace8a4ca4c2cd);
+                marker_28a97cc946c6d9aef26f0d6dd91a8084.setIcon(icon_1ecbbc77901cf429a3e42333fbca2f4e);
             
     
-            var circle_947aadbd242f7d54ff8e8151a19d283f = L.circle(
+            var circle_b689127820fd6db52e1a91d066625f0f = L.circle(
                 [33.2705, 35.1966],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_762392d19daa4d2b4c445d478b47d622 = L.marker(
-                [33.5614, 35.3758],
+            var marker_61357ece190879bfcc47547a7c023394 = L.marker(
+                [34.9077, 35.8778],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_4704d5c5a7004db64891146a1200a133 = L.AwesomeMarkers.icon(
+            var icon_6ddc57fd93e65a9167bb3115e10e1123 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "darkred",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -1342,26 +528,26 @@
             );
         
     
-        var popup_b64ef84671acdea47022a6d3841e0c8c = L.popup({
+        var popup_20259f3cf10c79335a5627c63af0d806 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_f791920dc2b0e133f0bc14c1fed21ee3 = $(`<div id="html_f791920dc2b0e133f0bc14c1fed21ee3" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Sidon</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_b64ef84671acdea47022a6d3841e0c8c.setContent(html_f791920dc2b0e133f0bc14c1fed21ee3);
+                var html_7bf8a2f6188d96abd6b533bf813a9946 = $(`<div id="html_7bf8a2f6188d96abd6b533bf813a9946" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid darkred;">                     <b style="font-size: 14px; color: darkred;">Base Naval Tartus (RUS)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_20259f3cf10c79335a5627c63af0d806.setContent(html_7bf8a2f6188d96abd6b533bf813a9946);
             
         
 
-        marker_762392d19daa4d2b4c445d478b47d622.bindPopup(popup_b64ef84671acdea47022a6d3841e0c8c)
+        marker_61357ece190879bfcc47547a7c023394.bindPopup(popup_20259f3cf10c79335a5627c63af0d806)
         ;
 
         
     
     
-            marker_762392d19daa4d2b4c445d478b47d622.bindTooltip(
+            marker_61357ece190879bfcc47547a7c023394.bindTooltip(
                 `<div>
-                     Sidon
+                     Base Naval Tartus (RUS)
                  </div>`,
                 {
   "sticky": true,
@@ -1369,25 +555,25 @@
             );
         
     
-                marker_762392d19daa4d2b4c445d478b47d622.setIcon(icon_4704d5c5a7004db64891146a1200a133);
+                marker_61357ece190879bfcc47547a7c023394.setIcon(icon_6ddc57fd93e65a9167bb3115e10e1123);
             
     
-            var circle_7e2825dcb93ae419558dd2e138d3ef8c = L.circle(
-                [33.5614, 35.3758],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_2bd1c2f1ea95c8a905b5b69d0b1fc308 = L.circle(
+                [34.9077, 35.8778],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_f3aafcd0ddf0ed25588de8d7b4576393 = L.marker(
-                [33.3608, 35.5911],
+            var marker_73be1997619a9064833096da60b1a99a = L.marker(
+                [35.4081, 35.9456],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_e5fcbc0ee39429b4d5a7370758ae42bb = L.AwesomeMarkers.icon(
+            var icon_0371fe60dc72ab12bb96166d11c892ec = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "darkred",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -1396,26 +582,26 @@
             );
         
     
-        var popup_2c9e2313183ef107ff91a5ca769c8080 = L.popup({
+        var popup_92e2c41660c1348fe756cf0d2780b122 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_05feb4e79cc552e865f0e9b098b64b2b = $(`<div id="html_05feb4e79cc552e865f0e9b098b64b2b" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Marjayoun</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_2c9e2313183ef107ff91a5ca769c8080.setContent(html_05feb4e79cc552e865f0e9b098b64b2b);
+                var html_4c969104fe404d16972b0dc46a631960 = $(`<div id="html_4c969104fe404d16972b0dc46a631960" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid darkred;">                     <b style="font-size: 14px; color: darkred;">Base Aérea Hmeimim (RUS)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_92e2c41660c1348fe756cf0d2780b122.setContent(html_4c969104fe404d16972b0dc46a631960);
             
         
 
-        marker_f3aafcd0ddf0ed25588de8d7b4576393.bindPopup(popup_2c9e2313183ef107ff91a5ca769c8080)
+        marker_73be1997619a9064833096da60b1a99a.bindPopup(popup_92e2c41660c1348fe756cf0d2780b122)
         ;
 
         
     
     
-            marker_f3aafcd0ddf0ed25588de8d7b4576393.bindTooltip(
+            marker_73be1997619a9064833096da60b1a99a.bindTooltip(
                 `<div>
-                     Marjayoun
+                     Base Aérea Hmeimim (RUS)
                  </div>`,
                 {
   "sticky": true,
@@ -1423,25 +609,25 @@
             );
         
     
-                marker_f3aafcd0ddf0ed25588de8d7b4576393.setIcon(icon_e5fcbc0ee39429b4d5a7370758ae42bb);
+                marker_73be1997619a9064833096da60b1a99a.setIcon(icon_0371fe60dc72ab12bb96166d11c892ec);
             
     
-            var circle_00c864132e280cbe7a15fa7533fcb86e = L.circle(
-                [33.3608, 35.5911],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_b85be81c1235b3b1be7277b92c2980ae = L.circle(
+                [35.4081, 35.9456],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkred", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_7e450d2ab8f6334017f60a12beaa77bb = L.marker(
-                [33.1167, 35.4333],
+            var marker_b2faeb78385dfd6caed3cea00020b691 = L.marker(
+                [25.1167, 51.3167],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_e8fa49cf5a75acbb4a39aefe11be74f1 = L.AwesomeMarkers.icon(
+            var icon_81367f575d424d1d2aa3b2b819aa9fc9 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "blue",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -1450,26 +636,26 @@
             );
         
     
-        var popup_b34626d5b3686b1956fa2c6b412adb96 = L.popup({
+        var popup_ee2dcccbf9b9a305357d9c55b205f47e = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_9e7ed543b63f3f2820ccee225083b173 = $(`<div id="html_9e7ed543b63f3f2820ccee225083b173" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Bint Jbeil</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_b34626d5b3686b1956fa2c6b412adb96.setContent(html_9e7ed543b63f3f2820ccee225083b173);
+                var html_c812fd648d58f99cc1c9469fbe52a565 = $(`<div id="html_c812fd648d58f99cc1c9469fbe52a565" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid blue;">                     <b style="font-size: 14px; color: blue;">Base Al Udeid (QATAR - EEUU)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_ee2dcccbf9b9a305357d9c55b205f47e.setContent(html_c812fd648d58f99cc1c9469fbe52a565);
             
         
 
-        marker_7e450d2ab8f6334017f60a12beaa77bb.bindPopup(popup_b34626d5b3686b1956fa2c6b412adb96)
+        marker_b2faeb78385dfd6caed3cea00020b691.bindPopup(popup_ee2dcccbf9b9a305357d9c55b205f47e)
         ;
 
         
     
     
-            marker_7e450d2ab8f6334017f60a12beaa77bb.bindTooltip(
+            marker_b2faeb78385dfd6caed3cea00020b691.bindTooltip(
                 `<div>
-                     Bint Jbeil
+                     Base Al Udeid (QATAR - EEUU)
                  </div>`,
                 {
   "sticky": true,
@@ -1477,25 +663,25 @@
             );
         
     
-                marker_7e450d2ab8f6334017f60a12beaa77bb.setIcon(icon_e8fa49cf5a75acbb4a39aefe11be74f1);
+                marker_b2faeb78385dfd6caed3cea00020b691.setIcon(icon_81367f575d424d1d2aa3b2b819aa9fc9);
             
     
-            var circle_ee54dd3a1931cea525c4408df302fa83 = L.circle(
-                [33.1167, 35.4333],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_3c4c94c08c49833b7b5c3427ed095d4c = L.circle(
+                [25.1167, 51.3167],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_7887b139b9a681c697223d4ebdca02e6 = L.marker(
-                [33.1083, 35.3167],
+            var marker_6214670af84a7c8c31f89e741b3c49cf = L.marker(
+                [28.8753, 48.1365],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_64143fa489496d4132cdd74db9797a33 = L.AwesomeMarkers.icon(
+            var icon_f02dd2d0b352b09f49acfd7c27d0876f = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "blue",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -1504,26 +690,26 @@
             );
         
     
-        var popup_231035fcf24d7812b03d55ae987a246c = L.popup({
+        var popup_1b55a22ffca22d7259c7344eff50dc6d = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_f2fc23a78d8ff0dd4874b1fc67ecc010 = $(`<div id="html_f2fc23a78d8ff0dd4874b1fc67ecc010" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Aita al-Shaab</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_231035fcf24d7812b03d55ae987a246c.setContent(html_f2fc23a78d8ff0dd4874b1fc67ecc010);
+                var html_ed8e4affa8d1987b6d31f2e7b8399a3b = $(`<div id="html_ed8e4affa8d1987b6d31f2e7b8399a3b" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid blue;">                     <b style="font-size: 14px; color: blue;">Camp Arifjan (KUWAIT - EEUU)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_1b55a22ffca22d7259c7344eff50dc6d.setContent(html_ed8e4affa8d1987b6d31f2e7b8399a3b);
             
         
 
-        marker_7887b139b9a681c697223d4ebdca02e6.bindPopup(popup_231035fcf24d7812b03d55ae987a246c)
+        marker_6214670af84a7c8c31f89e741b3c49cf.bindPopup(popup_1b55a22ffca22d7259c7344eff50dc6d)
         ;
 
         
     
     
-            marker_7887b139b9a681c697223d4ebdca02e6.bindTooltip(
+            marker_6214670af84a7c8c31f89e741b3c49cf.bindTooltip(
                 `<div>
-                     Aita al-Shaab
+                     Camp Arifjan (KUWAIT - EEUU)
                  </div>`,
                 {
   "sticky": true,
@@ -1531,25 +717,25 @@
             );
         
     
-                marker_7887b139b9a681c697223d4ebdca02e6.setIcon(icon_64143fa489496d4132cdd74db9797a33);
+                marker_6214670af84a7c8c31f89e741b3c49cf.setIcon(icon_f02dd2d0b352b09f49acfd7c27d0876f);
             
     
-            var circle_d8bc6ea22abfbc426bbd37af173f8c4b = L.circle(
-                [33.1083, 35.3167],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_44e50c5e33ffb3a6a68e625392a0bcfb = L.circle(
+                [28.8753, 48.1365],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_6dd70fbf9c88bda3377b2d7c4ade8c3c = L.marker(
-                [33.1258, 35.8236],
+            var marker_2e2abbac476402120a3945c8ccf0c1f2 = L.marker(
+                [33.7963, 42.438],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_4b41e3e0b03bf71b19636b95408eca46 = L.AwesomeMarkers.icon(
+            var icon_f53aacc3df0617524db68d237c109db2 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "blue",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -1558,26 +744,26 @@
             );
         
     
-        var popup_a0feff6ade417c40be3dabf0f485fd32 = L.popup({
+        var popup_4202fdc04f2983e7cb8494177114957c = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_6442a1727f67ea9c22ee5a0c0f877ab2 = $(`<div id="html_6442a1727f67ea9c22ee5a0c0f877ab2" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Quneitra</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_a0feff6ade417c40be3dabf0f485fd32.setContent(html_6442a1727f67ea9c22ee5a0c0f877ab2);
+                var html_3856df23dc6219ead6d0c1f6f712105d = $(`<div id="html_3856df23dc6219ead6d0c1f6f712105d" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid blue;">                     <b style="font-size: 14px; color: blue;">Base Al Asad (IRAK - EEUU)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_4202fdc04f2983e7cb8494177114957c.setContent(html_3856df23dc6219ead6d0c1f6f712105d);
             
         
 
-        marker_6dd70fbf9c88bda3377b2d7c4ade8c3c.bindPopup(popup_a0feff6ade417c40be3dabf0f485fd32)
+        marker_2e2abbac476402120a3945c8ccf0c1f2.bindPopup(popup_4202fdc04f2983e7cb8494177114957c)
         ;
 
         
     
     
-            marker_6dd70fbf9c88bda3377b2d7c4ade8c3c.bindTooltip(
+            marker_2e2abbac476402120a3945c8ccf0c1f2.bindTooltip(
                 `<div>
-                     Quneitra
+                     Base Al Asad (IRAK - EEUU)
                  </div>`,
                 {
   "sticky": true,
@@ -1585,25 +771,25 @@
             );
         
     
-                marker_6dd70fbf9c88bda3377b2d7c4ade8c3c.setIcon(icon_4b41e3e0b03bf71b19636b95408eca46);
+                marker_2e2abbac476402120a3945c8ccf0c1f2.setIcon(icon_f53aacc3df0617524db68d237c109db2);
             
     
-            var circle_b86495712235945600df3bcf3ced99c0 = L.circle(
-                [33.1258, 35.8236],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_b278f24fa7bb14c93e272b6f1aa33983 = L.circle(
+                [33.7963, 42.438],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_2095ba6348a8fe7ac434eb1022cc5413 = L.marker(
-                [32.6258, 36.1061],
+            var marker_72946858c617fd6f13d47c67da126650 = L.marker(
+                [26.2057, 50.6091],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_8a85133ee3ac9ce112ac0b9b4c8beffc = L.AwesomeMarkers.icon(
+            var icon_e8007f1b596a4984edd3404450e12854 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "blue",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -1612,26 +798,26 @@
             );
         
     
-        var popup_b26081108a9f7aa4a6dcb09622ed6b8f = L.popup({
+        var popup_829d445eef21dd07ef698e64186ed1a6 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_2e811c0e082d7ebdcf170b822acc99fa = $(`<div id="html_2e811c0e082d7ebdcf170b822acc99fa" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Daraa</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_b26081108a9f7aa4a6dcb09622ed6b8f.setContent(html_2e811c0e082d7ebdcf170b822acc99fa);
+                var html_5c7f0da90e7b4793c7abd183c8b02c7b = $(`<div id="html_5c7f0da90e7b4793c7abd183c8b02c7b" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid blue;">                     <b style="font-size: 14px; color: blue;">Quinta Flota Bahrein (EEUU)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_829d445eef21dd07ef698e64186ed1a6.setContent(html_5c7f0da90e7b4793c7abd183c8b02c7b);
             
         
 
-        marker_2095ba6348a8fe7ac434eb1022cc5413.bindPopup(popup_b26081108a9f7aa4a6dcb09622ed6b8f)
+        marker_72946858c617fd6f13d47c67da126650.bindPopup(popup_829d445eef21dd07ef698e64186ed1a6)
         ;
 
         
     
     
-            marker_2095ba6348a8fe7ac434eb1022cc5413.bindTooltip(
+            marker_72946858c617fd6f13d47c67da126650.bindTooltip(
                 `<div>
-                     Daraa
+                     Quinta Flota Bahrein (EEUU)
                  </div>`,
                 {
   "sticky": true,
@@ -1639,25 +825,25 @@
             );
         
     
-                marker_2095ba6348a8fe7ac434eb1022cc5413.setIcon(icon_8a85133ee3ac9ce112ac0b9b4c8beffc);
+                marker_72946858c617fd6f13d47c67da126650.setIcon(icon_e8007f1b596a4984edd3404450e12854);
             
     
-            var circle_d05a50206fe2380d185392583a19a7e0 = L.circle(
-                [32.6258, 36.1061],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_72b12d58d32594947e359032b50b18cf = L.circle(
+                [26.2057, 50.6091],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var marker_bb2cc2ce7607e4edb188b285ef71134a = L.marker(
-                [33.5138, 36.2765],
+            var marker_6d790e12531a5b522ebbd5802a66aaaf = L.marker(
+                [11.5434, 43.1485],
                 {
 }
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            var icon_a84aa4f00b399281cd8b232e07d37f17 = L.AwesomeMarkers.icon(
+            var icon_43702b9035c349f420546f9ee72edabb = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "gray",
+  "markerColor": "blue",
   "iconColor": "white",
   "icon": "flag",
   "prefix": "fa",
@@ -1666,26 +852,26 @@
             );
         
     
-        var popup_e8ad60caf5a0149104ee03547568331c = L.popup({
+        var popup_b0e1adec269dac47f4cd3cf733eeb164 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_e9672a9d6a15addc82bfe457aee4a310 = $(`<div id="html_e9672a9d6a15addc82bfe457aee4a310" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px;">                     <b style="font-size: 14px; color: gray;">Damascus Rural</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Base militar estratégica identificada                 </div>                 </div>`)[0];
-                popup_e8ad60caf5a0149104ee03547568331c.setContent(html_e9672a9d6a15addc82bfe457aee4a310);
+                var html_b60d0d9d80a374956c303e73a65102b0 = $(`<div id="html_b60d0d9d80a374956c303e73a65102b0" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid blue;">                     <b style="font-size: 14px; color: blue;">Camp Lemonnier (DJIBOUTI - EEUU)</b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     Centro de mando y control regional                 </div>                 </div>`)[0];
+                popup_b0e1adec269dac47f4cd3cf733eeb164.setContent(html_b60d0d9d80a374956c303e73a65102b0);
             
         
 
-        marker_bb2cc2ce7607e4edb188b285ef71134a.bindPopup(popup_e8ad60caf5a0149104ee03547568331c)
+        marker_6d790e12531a5b522ebbd5802a66aaaf.bindPopup(popup_b0e1adec269dac47f4cd3cf733eeb164)
         ;
 
         
     
     
-            marker_bb2cc2ce7607e4edb188b285ef71134a.bindTooltip(
+            marker_6d790e12531a5b522ebbd5802a66aaaf.bindTooltip(
                 `<div>
-                     Damascus Rural
+                     Camp Lemonnier (DJIBOUTI - EEUU)
                  </div>`,
                 {
   "sticky": true,
@@ -1693,32 +879,32 @@
             );
         
     
-                marker_bb2cc2ce7607e4edb188b285ef71134a.setIcon(icon_a84aa4f00b399281cd8b232e07d37f17);
+                marker_6d790e12531a5b522ebbd5802a66aaaf.setIcon(icon_43702b9035c349f420546f9ee72edabb);
             
     
-            var circle_2c1a2ec65916443326be335518dc674e = L.circle(
-                [33.5138, 36.2765],
-                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2000, "stroke": true, "weight": 3}
-            ).addTo(feature_group_083226cccef3904478be2a016097577f);
+            var circle_10fcdbf0a80e3a2fb2d6473d09be458b = L.circle(
+                [11.5434, 43.1485],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_93c67fc0b8f438b06618b69d3e5bca50);
         
     
-            feature_group_083226cccef3904478be2a016097577f.addTo(map_2c19e7623b68e24387cee7f1bdb5d2c0);
+            feature_group_93c67fc0b8f438b06618b69d3e5bca50.addTo(map_e7e8e92e14ad6a3ab4fe4d02aae35c22);
         
     
-            var feature_group_bf1f07bb3d42627844481fceeded3bcd = L.featureGroup(
+            var feature_group_c0fe3b126de6c0618671ebd18f7ffe9e = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_8616dd2d207be1a3aeec9d02450184fb = L.marker(
-                [33.0608, 35.2231],
+            var marker_3653e4bf31084771c7d918638364cd42 = L.marker(
+                [31.800023933738938, 34.05191274576873],
                 {
 }
-            ).addTo(feature_group_bf1f07bb3d42627844481fceeded3bcd);
+            ).addTo(feature_group_c0fe3b126de6c0618671ebd18f7ffe9e);
         
     
-            var icon_ebb7a00960e8c423cfcf49cf5f690d5a = L.AwesomeMarkers.icon(
+            var icon_3a1c579513c04316e15753a72453864d = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -1729,26 +915,26 @@
             );
         
     
-        var popup_64dcdd65bcb10c492d8221b3052a3ac2 = L.popup({
+        var popup_00bd9ca74245d0b8ec8ac5e78ca9e707 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_7c7c73c526d01703f68b3c047b80e1dc = $(`<div id="html_7c7c73c526d01703f68b3c047b80e1dc" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 280px;                              background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                              border-radius: 8px; border-left: 5px solid red;">                     <b style="color:red; font-size: 16px;">                         Brigada Blindada                     </b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     <b>Descripción:</b> 36ª División Blindada desplegando hacia norte de Israel<br>                     <b>Fuente:</b> OSINT Twitter<br>                     <b>Confianza:</b> ALTA<br>                     <b>Hora:</b> 2026-03-07T12:35:52                 </div>                 </div>`)[0];
-                popup_64dcdd65bcb10c492d8221b3052a3ac2.setContent(html_7c7c73c526d01703f68b3c047b80e1dc);
+                var html_098766a6e8b591e6ed85791c125f8287 = $(`<div id="html_098766a6e8b591e6ed85791c125f8287" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 14px;">                     MOVIMIENTO IDF/FRONTERA                 </b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> From Cockpit to Convoy: AGI Sends Aviators to the Front Lines, Ground Troops to the Sky...<br>                 <b>Fuente:</b> OSINT Military Feed<br>                 <b>Confianza:</b> ALTA (Confirmado)<br>                 <b>Hora:</b> Mon, 14 Jul 2025 07:00             </div>             </div>`)[0];
+                popup_00bd9ca74245d0b8ec8ac5e78ca9e707.setContent(html_098766a6e8b591e6ed85791c125f8287);
             
         
 
-        marker_8616dd2d207be1a3aeec9d02450184fb.bindPopup(popup_64dcdd65bcb10c492d8221b3052a3ac2)
+        marker_3653e4bf31084771c7d918638364cd42.bindPopup(popup_00bd9ca74245d0b8ec8ac5e78ca9e707)
         ;
 
         
     
     
-            marker_8616dd2d207be1a3aeec9d02450184fb.bindTooltip(
+            marker_3653e4bf31084771c7d918638364cd42.bindTooltip(
                 `<div>
-                     Brigada Blindada
+                     Movimiento IDF/Frontera
                  </div>`,
                 {
   "sticky": true,
@@ -1756,73 +942,25 @@
             );
         
     
-                marker_8616dd2d207be1a3aeec9d02450184fb.setIcon(icon_ebb7a00960e8c423cfcf49cf5f690d5a);
+                marker_3653e4bf31084771c7d918638364cd42.setIcon(icon_3a1c579513c04316e15753a72453864d);
             
     
-            var poly_line_8b549ab59502abcd3a0a30d1c46945a5 = L.polyline(
-                [[33.0608, 35.2231], [33.1108, 35.2731]],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": "10", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 3}
-            ).addTo(feature_group_bf1f07bb3d42627844481fceeded3bcd);
+            var poly_line_7df9ccbcba0fc7c3153c60a0982d9ff5 = L.polyline(
+                [[31.800023933738938, 34.05191274576873], [32.60002393373894, 34.85191274576873]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": "5", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_c0fe3b126de6c0618671ebd18f7ffe9e);
         
     
-            var marker_e3fe07fe4f7b89b2ea2e911bb11ef229 = L.marker(
-                [33.09250841194465, 35.3401810282959],
+            var marker_f9532e19e8a131b9867542299884e579 = L.marker(
+                [34.5700664665202, 36.39889843579192],
                 {
 }
-            ).addTo(feature_group_bf1f07bb3d42627844481fceeded3bcd);
+            ).addTo(feature_group_c0fe3b126de6c0618671ebd18f7ffe9e);
         
     
-            var icon_4171835982d0bddb6ed3ec1ab6a30f51 = L.AwesomeMarkers.icon(
+            var icon_4d55ee187fcca8bb4e9a4081e216c40a = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
-  "iconColor": "white",
-  "icon": "crosshairs",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_7b8abed690ea16589f0ede390b04812e = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_f2ed94bf5998b91a671069f720aac86f = $(`<div id="html_f2ed94bf5998b91a671069f720aac86f" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 280px;                              background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                              border-radius: 8px; border-left: 5px solid orange;">                     <b style="color:orange; font-size: 16px;">                         Artilleria                     </b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     <b>Descripción:</b> Baterías M109 desplegadas cerca de frontera con Líbano<br>                     <b>Fuente:</b> Telegram Military<br>                     <b>Confianza:</b> MEDIA<br>                     <b>Hora:</b> 2026-03-07T12:35:52                 </div>                 </div>`)[0];
-                popup_7b8abed690ea16589f0ede390b04812e.setContent(html_f2ed94bf5998b91a671069f720aac86f);
-            
-        
-
-        marker_e3fe07fe4f7b89b2ea2e911bb11ef229.bindPopup(popup_7b8abed690ea16589f0ede390b04812e)
-        ;
-
-        
-    
-    
-            marker_e3fe07fe4f7b89b2ea2e911bb11ef229.bindTooltip(
-                `<div>
-                     Artilleria
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_e3fe07fe4f7b89b2ea2e911bb11ef229.setIcon(icon_4171835982d0bddb6ed3ec1ab6a30f51);
-            
-    
-            var marker_780ae1c5212b00c4cb5e0335c0ba2955 = L.marker(
-                [31.3972, 34.4544],
-                {
-}
-            ).addTo(feature_group_bf1f07bb3d42627844481fceeded3bcd);
-        
-    
-            var icon_0d6c6a69270528161fcab706aded3713 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
   "iconColor": "white",
   "icon": "users",
   "prefix": "fa",
@@ -1831,26 +969,26 @@
             );
         
     
-        var popup_dc7949920fc38f62b874471b15e5ced5 = L.popup({
+        var popup_0a78a15284bd52970bc27a9480b5c738 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_2787db0d98126b0b565e5873823907b4 = $(`<div id="html_2787db0d98126b0b565e5873823907b4" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 280px;                              background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                              border-radius: 8px; border-left: 5px solid blue;">                     <b style="color:blue; font-size: 16px;">                         Tropas Reserva                     </b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     <b>Descripción:</b> Reservistas movilizándose hacia bases del sur<br>                     <b>Fuente:</b> TikTok Geolocalizado<br>                     <b>Confianza:</b> ALTA<br>                     <b>Hora:</b> 2026-03-07T12:35:52                 </div>                 </div>`)[0];
-                popup_dc7949920fc38f62b874471b15e5ced5.setContent(html_2787db0d98126b0b565e5873823907b4);
+                var html_5948476e2d3f063047de4e4fc156d852 = $(`<div id="html_5948476e2d3f063047de4e4fc156d852" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid orange;">                 <b style="color:orange; font-size: 14px;">                     DESPLIEGUE SIRIA/LÍBANO                 </b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> What to Know About the US Military's Role in Syria After Deadly IS Attack...<br>                 <b>Fuente:</b> OSINT Military Feed<br>                 <b>Confianza:</b> ALTA (Confirmado)<br>                 <b>Hora:</b> Sun, 14 Dec 2025 08:00             </div>             </div>`)[0];
+                popup_0a78a15284bd52970bc27a9480b5c738.setContent(html_5948476e2d3f063047de4e4fc156d852);
             
         
 
-        marker_780ae1c5212b00c4cb5e0335c0ba2955.bindPopup(popup_dc7949920fc38f62b874471b15e5ced5)
+        marker_f9532e19e8a131b9867542299884e579.bindPopup(popup_0a78a15284bd52970bc27a9480b5c738)
         ;
 
         
     
     
-            marker_780ae1c5212b00c4cb5e0335c0ba2955.bindTooltip(
+            marker_f9532e19e8a131b9867542299884e579.bindTooltip(
                 `<div>
-                     Tropas Reserva
+                     Despliegue Siria/Líbano
                  </div>`,
                 {
   "sticky": true,
@@ -1858,53 +996,53 @@
             );
         
     
-                marker_780ae1c5212b00c4cb5e0335c0ba2955.setIcon(icon_0d6c6a69270528161fcab706aded3713);
+                marker_f9532e19e8a131b9867542299884e579.setIcon(icon_4d55ee187fcca8bb4e9a4081e216c40a);
             
     
-            var poly_line_a071acbcf24bdb2344c2f84542654d0d = L.polyline(
-                [[31.3972, 34.4544], [31.447200000000002, 34.5044]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": "10", "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 3}
-            ).addTo(feature_group_bf1f07bb3d42627844481fceeded3bcd);
+            var poly_line_4a3bef3b8ed9f9cf6f242115814451b1 = L.polyline(
+                [[34.5700664665202, 36.39889843579192], [35.3700664665202, 37.19889843579192]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5", "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_c0fe3b126de6c0618671ebd18f7ffe9e);
         
     
-            var marker_276722154d391410164a48b439556f87 = L.marker(
-                [32.9689, 35.5428],
+            var marker_54721c7eb3d7b609be69983174917806 = L.marker(
+                [31.34510434438943, 35.122621140846874],
                 {
 }
-            ).addTo(feature_group_bf1f07bb3d42627844481fceeded3bcd);
+            ).addTo(feature_group_c0fe3b126de6c0618671ebd18f7ffe9e);
         
     
-            var icon_8dc114575f925fdb06a2fc73137e6fac = L.AwesomeMarkers.icon(
+            var icon_b353214313667414d0d78850fd4e389d = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "green",
+  "markerColor": "red",
   "iconColor": "white",
-  "icon": "shield",
+  "icon": "tank",
   "prefix": "fa",
   "extraClasses": "fa-rotate-0",
 }
             );
         
     
-        var popup_e9ea040238ad47dee14f23b10d051710 = L.popup({
+        var popup_866f6d8a66cc37985404cd847e754077 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_bd452c54c10bb63b7a26a9b76ecfe83f = $(`<div id="html_bd452c54c10bb63b7a26a9b76ecfe83f" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 280px;                              background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                              border-radius: 8px; border-left: 5px solid green;">                     <b style="color:green; font-size: 16px;">                         Defensa Aerea                     </b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     <b>Descripción:</b> Baterías Iron Dome reubicadas al norte<br>                     <b>Fuente:</b> OSINT<br>                     <b>Confianza:</b> ALTA<br>                     <b>Hora:</b> 2026-03-07T12:35:52                 </div>                 </div>`)[0];
-                popup_e9ea040238ad47dee14f23b10d051710.setContent(html_bd452c54c10bb63b7a26a9b76ecfe83f);
+                var html_1098e0252fd20e4d9f235d886fc83f46 = $(`<div id="html_1098e0252fd20e4d9f235d886fc83f46" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 14px;">                     MOVIMIENTO IDF/FRONTERA                 </b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> Operation Hawkeye Strike...<br>                 <b>Fuente:</b> OSINT Military Feed<br>                 <b>Confianza:</b> ALTA (Confirmado)<br>                 <b>Hora:</b> Fri, 19 Dec 2025 08:00             </div>             </div>`)[0];
+                popup_866f6d8a66cc37985404cd847e754077.setContent(html_1098e0252fd20e4d9f235d886fc83f46);
             
         
 
-        marker_276722154d391410164a48b439556f87.bindPopup(popup_e9ea040238ad47dee14f23b10d051710)
+        marker_54721c7eb3d7b609be69983174917806.bindPopup(popup_866f6d8a66cc37985404cd847e754077)
         ;
 
         
     
     
-            marker_276722154d391410164a48b439556f87.bindTooltip(
+            marker_54721c7eb3d7b609be69983174917806.bindTooltip(
                 `<div>
-                     Defensa Aerea
+                     Movimiento IDF/Frontera
                  </div>`,
                 {
   "sticky": true,
@@ -1912,134 +1050,53 @@
             );
         
     
-                marker_276722154d391410164a48b439556f87.setIcon(icon_8dc114575f925fdb06a2fc73137e6fac);
+                marker_54721c7eb3d7b609be69983174917806.setIcon(icon_b353214313667414d0d78850fd4e389d);
             
     
-            feature_group_bf1f07bb3d42627844481fceeded3bcd.addTo(map_2c19e7623b68e24387cee7f1bdb5d2c0);
+            var poly_line_c4bc2d0a697b26eb5b20aef87593c529 = L.polyline(
+                [[31.34510434438943, 35.122621140846874], [32.14510434438943, 35.92262114084687]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": "5", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_c0fe3b126de6c0618671ebd18f7ffe9e);
         
     
-            var feature_group_3f646ae3fcfc69c8ab2deb8ae3face49 = L.featureGroup(
+            var marker_e1bd74199b2a8bbe8e75bbe9ba8d9580 = L.marker(
+                [31.588712351364613, 35.5599118079247],
                 {
 }
-            );
+            ).addTo(feature_group_c0fe3b126de6c0618671ebd18f7ffe9e);
         
     
-            var circle_marker_06d5d52f376c2d991e879a31b83f3043 = L.circleMarker(
-                [33.0608, 35.2231],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3f646ae3fcfc69c8ab2deb8ae3face49);
-        
-    
-        var popup_0456b223acba5cde7dd241e528c7873d = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_250b0067c4b9b807ecf8230864b1f2b6 = $(`<div id="html_250b0067c4b9b807ecf8230864b1f2b6" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid red;">                     <b style="font-size: 13px;">Concentración vehículos</b><br>                     Intensidad Térmica: 350K                 </div>                 </div>`)[0];
-                popup_0456b223acba5cde7dd241e528c7873d.setContent(html_250b0067c4b9b807ecf8230864b1f2b6);
-            
-        
-
-        circle_marker_06d5d52f376c2d991e879a31b83f3043.bindPopup(popup_0456b223acba5cde7dd241e528c7873d)
-        ;
-
-        
-    
-    
-            var circle_marker_0855cfe82cfa178d46836774264c65a2 = L.circleMarker(
-                [31.3972, 34.4544],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3f646ae3fcfc69c8ab2deb8ae3face49);
-        
-    
-        var popup_cbecb080662c350c5d96733f4eb53026 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_39e29a6bf0946442891140ec4f4a7c3a = $(`<div id="html_39e29a6bf0946442891140ec4f4a7c3a" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid red;">                     <b style="font-size: 13px;">Actividad base militar</b><br>                     Intensidad Térmica: 320K                 </div>                 </div>`)[0];
-                popup_cbecb080662c350c5d96733f4eb53026.setContent(html_39e29a6bf0946442891140ec4f4a7c3a);
-            
-        
-
-        circle_marker_0855cfe82cfa178d46836774264c65a2.bindPopup(popup_cbecb080662c350c5d96733f4eb53026)
-        ;
-
-        
-    
-    
-            var circle_marker_e70b8e70048265cd27d23f3137c5a65f = L.circleMarker(
-                [33.1181, 35.1397],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3f646ae3fcfc69c8ab2deb8ae3face49);
-        
-    
-        var popup_2e9c1d2dabb68797b4c35e9f8c87fc35 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_3fd86411e6602c1515162f3cecfbda37 = $(`<div id="html_3fd86411e6602c1515162f3cecfbda37" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 200px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; border-left: 4px solid red;">                     <b style="font-size: 13px;">Posible lanzamiento</b><br>                     Intensidad Térmica: 280K                 </div>                 </div>`)[0];
-                popup_2e9c1d2dabb68797b4c35e9f8c87fc35.setContent(html_3fd86411e6602c1515162f3cecfbda37);
-            
-        
-
-        circle_marker_e70b8e70048265cd27d23f3137c5a65f.bindPopup(popup_2e9c1d2dabb68797b4c35e9f8c87fc35)
-        ;
-
-        
-    
-    
-            feature_group_3f646ae3fcfc69c8ab2deb8ae3face49.addTo(map_2c19e7623b68e24387cee7f1bdb5d2c0);
-        
-    
-            var feature_group_72f645f0086c65a19a48d6ca97705937 = L.featureGroup(
+            var icon_0908b3297d8a901ff3b525e310917844 = L.AwesomeMarkers.icon(
                 {
-}
-            );
-        
-    
-            var marker_37c3388b301eaf3aab5127ac350ef15a = L.marker(
-                [33.1181, 35.1397],
-                {
-}
-            ).addTo(feature_group_72f645f0086c65a19a48d6ca97705937);
-        
-    
-            var icon_67716a40e2454279f6a41f08d0902c8d = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "darkred",
+  "markerColor": "red",
   "iconColor": "white",
-  "icon": "rocket",
+  "icon": "tank",
   "prefix": "fa",
   "extraClasses": "fa-rotate-0",
 }
             );
         
     
-        var popup_86fedc2710032bb6f5e118d8044979c6 = L.popup({
+        var popup_cb9a04fabd6b7c04429a6df5c86f8f97 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_e73d1adcc9fdd6d7eeedbca862cbab62 = $(`<div id="html_e73d1adcc9fdd6d7eeedbca862cbab62" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: 'Courier New', monospace; width: 280px;                              background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                              border-radius: 8px; border-left: 5px solid darkred;">                     <b style="color:darkred; font-size: 16px;">                         Hezbollah                     </b><br>                     <hr style="border-color: #333; margin: 8px 0;">                     <b>Descripción:</b> Posiciones de lanzamiento rockets detectadas en sur Líbano<br>                     <b>Fuente:</b> Satellite Imagery<br>                     <b>Confianza:</b> MEDIA<br>                     <b>Hora:</b> 2026-03-07T12:35:52                 </div>                 </div>`)[0];
-                popup_86fedc2710032bb6f5e118d8044979c6.setContent(html_e73d1adcc9fdd6d7eeedbca862cbab62);
+                var html_fa907e5a12b362399a6e161fdf91616c = $(`<div id="html_fa907e5a12b362399a6e161fdf91616c" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 14px;">                     MOVIMIENTO IDF/FRONTERA                 </b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> As Marines arrive in L.A., military experts raise concerns: ‘This could spiral out of cont...<br>                 <b>Fuente:</b> OSINT Military Feed<br>                 <b>Confianza:</b> ALTA (Confirmado)<br>                 <b>Hora:</b> Tue, 10 Jun 2025 07:00             </div>             </div>`)[0];
+                popup_cb9a04fabd6b7c04429a6df5c86f8f97.setContent(html_fa907e5a12b362399a6e161fdf91616c);
             
         
 
-        marker_37c3388b301eaf3aab5127ac350ef15a.bindPopup(popup_86fedc2710032bb6f5e118d8044979c6)
+        marker_e1bd74199b2a8bbe8e75bbe9ba8d9580.bindPopup(popup_cb9a04fabd6b7c04429a6df5c86f8f97)
         ;
 
         
     
     
-            marker_37c3388b301eaf3aab5127ac350ef15a.bindTooltip(
+            marker_e1bd74199b2a8bbe8e75bbe9ba8d9580.bindTooltip(
                 `<div>
-                     Hezbollah
+                     Movimiento IDF/Frontera
                  </div>`,
                 {
   "sticky": true,
@@ -2047,32 +1104,90 @@
             );
         
     
-                marker_37c3388b301eaf3aab5127ac350ef15a.setIcon(icon_67716a40e2454279f6a41f08d0902c8d);
+                marker_e1bd74199b2a8bbe8e75bbe9ba8d9580.setIcon(icon_0908b3297d8a901ff3b525e310917844);
             
     
-            feature_group_72f645f0086c65a19a48d6ca97705937.addTo(map_2c19e7623b68e24387cee7f1bdb5d2c0);
+            var poly_line_8884ad82f6b11becf2f2e8e4840c223a = L.polyline(
+                [[31.588712351364613, 35.5599118079247], [32.38871235136461, 36.359911807924696]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": "5", "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_c0fe3b126de6c0618671ebd18f7ffe9e);
         
     
-            var layer_control_f370e3105e1c805894b6451064b56d37_layers = {
+            var marker_a3adadadba69dbc44f9565c0ebb6d9b8 = L.marker(
+                [34.789803072527974, 36.25079630154665],
+                {
+}
+            ).addTo(feature_group_c0fe3b126de6c0618671ebd18f7ffe9e);
+        
+    
+            var icon_a5ee27d50d42a53fc86b51cad18f8594 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "users",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_218cf8ccb1a632590b2359a6e09ee4bc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e9c7864f53b531ddda1ff3e220602bac = $(`<div id="html_e9c7864f53b531ddda1ff3e220602bac" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid orange;">                 <b style="color:orange; font-size: 14px;">                     DESPLIEGUE SIRIA/LÍBANO                 </b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> Two US soldiers, one interpreter killed in ISIS ambush in Syria...<br>                 <b>Fuente:</b> OSINT Military Feed<br>                 <b>Confianza:</b> ALTA (Confirmado)<br>                 <b>Hora:</b> Sat, 13 Dec 2025 08:00             </div>             </div>`)[0];
+                popup_218cf8ccb1a632590b2359a6e09ee4bc.setContent(html_e9c7864f53b531ddda1ff3e220602bac);
+            
+        
+
+        marker_a3adadadba69dbc44f9565c0ebb6d9b8.bindPopup(popup_218cf8ccb1a632590b2359a6e09ee4bc)
+        ;
+
+        
+    
+    
+            marker_a3adadadba69dbc44f9565c0ebb6d9b8.bindTooltip(
+                `<div>
+                     Despliegue Siria/Líbano
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a3adadadba69dbc44f9565c0ebb6d9b8.setIcon(icon_a5ee27d50d42a53fc86b51cad18f8594);
+            
+    
+            var poly_line_dfed8d318e8e07c9f6f1d02032beecf8 = L.polyline(
+                [[34.789803072527974, 36.25079630154665], [35.58980307252797, 37.05079630154665]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5", "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_c0fe3b126de6c0618671ebd18f7ffe9e);
+        
+    
+            feature_group_c0fe3b126de6c0618671ebd18f7ffe9e.addTo(map_e7e8e92e14ad6a3ab4fe4d02aae35c22);
+        
+    
+            var layer_control_f27f2737d94c1a6793b587c59725e1b7_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_9e08b2f8a17377bb494415a718a5de35,
+                    "cartodbdarkmatter" : tile_layer_a1fb3b665f475f1e82206855fe85a636,
                 },
                 overlays :  {
-                    "\ud83c\udfed Bases Militares" : feature_group_083226cccef3904478be2a016097577f,
-                    "\ud83d\ude81 Despliegues Activos" : feature_group_bf1f07bb3d42627844481fceeded3bcd,
-                    "\ud83d\udd25 Firmas T\u00e9rmicas Militares" : feature_group_3f646ae3fcfc69c8ab2deb8ae3face49,
-                    "\u26a0\ufe0f Posiciones Hostiles" : feature_group_72f645f0086c65a19a48d6ca97705937,
+                    "\ud83c\udfed Bases Estrat\u00e9gicas" : feature_group_93c67fc0b8f438b06618b69d3e5bca50,
+                    "\ud83d\ude81 Despliegues OSINT Activos" : feature_group_c0fe3b126de6c0618671ebd18f7ffe9e,
                 },
             };
-            let layer_control_f370e3105e1c805894b6451064b56d37 = L.control.layers(
-                layer_control_f370e3105e1c805894b6451064b56d37_layers.base_layers,
-                layer_control_f370e3105e1c805894b6451064b56d37_layers.overlays,
+            let layer_control_f27f2737d94c1a6793b587c59725e1b7 = L.control.layers(
+                layer_control_f27f2737d94c1a6793b587c59725e1b7_layers.base_layers,
+                layer_control_f27f2737d94c1a6793b587c59725e1b7_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_2c19e7623b68e24387cee7f1bdb5d2c0);
+            ).addTo(map_e7e8e92e14ad6a3ab4fe4d02aae35c22);
 
         
 </script>

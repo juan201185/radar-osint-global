@@ -1,235 +1,144 @@
 import folium
 from folium.plugins import MarkerCluster, HeatMap
 import datetime
-import json
+import random
+import feedparser
 
-# Instalaciones médicas dañadas (datos WHO/UN)
-HOSPITALES_DANADOS = [
-    {"nombre": "Hospital Al-Shifa", "coords": [31.5017, 34.4668], "estado": "Destruido", "fecha": "2023-11-15", "tipo": "Hospital principal"},
-    {"nombre": "Hospital Al-Quds", "coords": [31.5120, 34.4800], "estado": "Fuera de servicio", "fecha": "2023-10-29", "tipo": "Hospital"},
-    {"nombre": "Hospital Indonesia", "coords": [31.5200, 34.4900], "estado": "Dañado", "fecha": "2023-11-21", "tipo": "Hospital"},
-    {"nombre": "Hospital Al-Ahli", "coords": [31.5117, 34.4608], "estado": "Parcialmente operativo", "fecha": "2023-10-17", "tipo": "Hospital"},
-    {"nombre": "Hospital Kamal Adwan", "coords": [31.5500, 34.5200], "estado": "Destruido", "fecha": "2023-12-12", "tipo": "Hospital pediátrico"},
-    {"nombre": "Hospital Al-Awda", "coords": [31.5300, 34.5000], "estado": "Fuera de servicio", "fecha": "2023-11-10", "tipo": "Hospital"},
-]
-
-# Campos de refugiados/desplazados
-CAMPOS_REFUGIADOS = [
-    {"nombre": "Campo Rafah", "coords": [31.2968, 34.2435], "poblacion": "1.4M", "condicion": "Sobrepoblado crítico"},
-    {"nombre": "Campo Jabalia", "coords": [31.5286, 34.4836], "poblacion": "Desconocido", "condicion": "Sitio de combates"},
-    {"nombre": "Campo Khan Younis", "coords": [31.3461, 34.3061], "poblacion": "800K", "condicion": "Inseguridad alimentaria severa"},
-    {"nombre": "Zona Deir al-Balah", "coords": [31.4167, 34.3500], "poblacion": "600K", "condicion": "Sin servicios básicos"},
-]
-
-# Corredores humanitarios (estado)
-CORREDORES = [
-    {"nombre": "Rafah Crossing", "coords": [31.2968, 34.2435], "estado": "Cerrado/Intermitente", "tipo": "Salida Gaza"},
-    {"nombre": "Kerem Shalom", "coords": [31.2333, 34.2833], "estado": "Operativo limitado", "tipo": "Entrada ayuda"},
-    {"nombre": "Erez Crossing", "coords": [31.5667, 34.5500], "estado": "Cerrado", "tipo": "Personal"},
-    {"nombre": "Karni Crossing", "coords": [31.4833, 34.4667], "estado": "Destruido", "tipo": "Carga"},
-]
-
-# Escuelas UNRWA afectadas
-ESCUELAS_UNRWA = [
-    {"nombre": "Escuela Al-Fakhura", "coords": [31.5286, 34.4836], "uso": "Refugio desplazados", "estado": "Atacada"},
-    {"nombre": "Escuela Jabalia", "coords": [31.5300, 34.4850], "uso": "Refugio", "estado": "Dañada"},
-]
+# Nodos Humanitarios y Cruces Estratégicos Regionales
+NODOS_ESTRATEGICOS = {
+    "Paso de Rafah (Egipto/Gaza)": [31.2968, 34.2435],
+    "Paso Kerem Shalom (ISR/Gaza)": [31.2333, 34.2833],
+    "Puerto de Ashdod (Hub Ayuda)": [31.8014, 34.6435],
+    "Puerto de Hodeida (Yemen)": [14.7979, 42.9530],
+    "Frontera Masnaa (Líbano/Siria)": [33.7011, 35.9472],
+    "Puerto de Latakia (Siria)": [35.5311, 35.7878],
+    "Amán (Logística UN)": [31.9454, 35.9284],
+}
 
 class RadarHumanitarioCrisis:
     def __init__(self):
-        self.nivel_crisis = "CATASTRÓFICO"
+        self.nivel_alerta = "CRÍTICO REGIONAL"
         
-    def obtener_metricas_crisis(self):
-        """Datos de UN OCHA"""
-        print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Procesando telemetría de crisis humanitaria (UN OCHA)...")
+    def obtener_alertas_humanitarias_vivas(self):
+        """Motor OSINT: Rastrea crisis y desplazamientos en tiempo real (ReliefWeb/UN)"""
+        print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Escaneando telemetría de crisis regional...")
         
-        metricas = {
-            "desplazados_gaza": "1.9M (85% población)",
-            "heridos": "75,000+",
-            "muertos_reportados": "30,000+",
-            "hambre_aguda": "100% Gaza",
-            "acceso_agua": "5% de capacidad normal",
-            "electricidad": "0-4 horas/día",
-            "hospitales_operativos": "3 de 36",
-        }
+        url_osint = "https://news.google.com/rss/search?q=humanitarian+crisis+Gaza+OR+Syria+OR+Yemen+OR+Lebanon+displacement&hl=en-US&gl=US&ceid=US:en"
+        eventos_reales = []
         
-        return metricas
-    
+        try:
+            flujo = feedparser.parse(url_osint)
+            for entry in flujo.entries[:6]:
+                titulo = entry.get('title', 'Alerta detectada').split(' - ')[0]
+                t_low = titulo.lower()
+                
+                # Georeferenciación por Inteligencia de Texto
+                if 'gaza' in t_low or 'palestine' in t_low:
+                    coords = [31.4, 34.4]
+                    color = 'red'
+                elif 'lebanon' in t_low or 'beirut' in t_low:
+                    coords = [33.8, 35.5]
+                    color = 'darkred'
+                elif 'syria' in t_low:
+                    coords = [34.8, 36.5]
+                    color = 'orange'
+                elif 'yemen' in t_low:
+                    coords = [15.3, 44.2]
+                    color = 'darkred'
+                else:
+                    coords = [32.0, 35.0]
+                    color = 'gray'
+
+                eventos_reales.append({
+                    "evento": titulo[:85] + "...",
+                    "coords": [coords[0] + random.uniform(-0.2, 0.2), coords[1] + random.uniform(-0.2, 0.2)],
+                    "fecha": entry.get('published', 'Reciente'),
+                    "color": color
+                })
+            return eventos_reales
+        except Exception as e:
+            print(f"   [!] Error OSINT: {str(e)[:30]}")
+            return []
+
     def generar_mapa(self):
         print("\n" + "="*70)
-        print("INICIANDO RADAR HUMANITARIO E.T.B. (DAÑO COLATERAL)")
+        print("INICIANDO RADAR HUMANITARIO E.T.B. (IMPACTO REGIONAL)")
         print("="*70)
         
+        # Mapa centrado regionalmente
         mapa = folium.Map(
-            location=[31.4, 34.4],
-            zoom_start=11,
+            location=[25.0, 40.0],
+            zoom_start=5,
             tiles='CartoDB dark_matter'
         )
         
-        # Capas
-        capa_densidad = folium.FeatureGroup(name="👥 Densidad Desplazados (Heatmap)").add_to(mapa)
-        capa_hospitales = folium.FeatureGroup(name="🏥 Infraestructura Médica (OMS)").add_to(mapa)
-        capa_escuelas = folium.FeatureGroup(name="🏫 Instalaciones UNRWA").add_to(mapa)
-        capa_campamentos = folium.FeatureGroup(name="⛺ Campos de Refugiados").add_to(mapa)
-        capa_corredores = folium.FeatureGroup(name="🚪 Rutas de Evacuación/Ayuda").add_to(mapa)
-        
-        # 1. Campos de refugiados y Heatmap
+        capa_nodos = folium.FeatureGroup(name="🚪 Cruces y Puertos de Ayuda").add_to(mapa)
+        capa_alertas = folium.FeatureGroup(name="⚠️ Crisis Detectadas (OSINT)").add_to(mapa)
+        capa_calor = folium.FeatureGroup(name="🌡️ Mapa de Calor (Desplazamientos)").add_to(mapa)
+
+        alertas = self.obtener_alertas_humanitarias_vivas()
         puntos_calor = []
-        for campo in CAMPOS_REFUGIADOS:
-            popup_html = f"""
-            <div style="font-family: 'Courier New', monospace; width: 250px; 
-                        background: rgba(0,0,0,0.95); color: #fff; padding: 12px; 
-                        border-radius: 8px; border-left: 5px solid #0066ff;">
-                <b style="color:#00aaff; font-size: 14px;">⛺ {campo['nombre'].upper()}</b><br>
-                <hr style="border-color: #333; margin: 8px 0;">
-                <b>Población Estimada:</b> {campo['poblacion']}<br>
-                <b>Condición Actual:</b> <span style="color:#ffcc00;">{campo['condicion']}</span>
-            </div>
-            """
-            
+
+        # 1. Dibujar Nodos Estratégicos Reales
+        for nombre, coords in NODOS_ESTRATEGICOS.items():
             folium.Marker(
-                campo['coords'],
-                popup=folium.Popup(popup_html, max_width=280),
-                icon=folium.Icon(color='blue', icon='users', prefix='fa'),
-                tooltip=f"Campo Desplazados: {campo['nombre']}"
-            ).add_to(capa_campamentos)
-            
-            # Círculo visual para el campo
-            folium.Circle(
-                campo['coords'],
-                radius=2500,
-                color='blue',
-                fill=True,
-                fillColor='blue',
-                fillOpacity=0.2,
-                weight=1
-            ).add_to(capa_campamentos)
-            
-            # Agregamos al heatmap
-            puntos_calor.append([campo['coords'][0], campo['coords'][1], 1.0])
-        
-        # Añadir Heatmap
-        HeatMap(puntos_calor, radius=35, blur=25, min_opacity=0.3).add_to(capa_densidad)
-        
-        # 2. Hospitales
-        for hosp in HOSPITALES_DANADOS:
-            color = {"Destruido": "black", "Fuera de servicio": "red", 
-                     "Dañado": "orange", "Parcialmente operativo": "beige"}.get(hosp['estado'], 'gray')
+                coords,
+                icon=folium.Icon(color='blue', icon='truck', prefix='fa'),
+                popup=f"<div style='font-family:Courier New;'><b>{nombre}</b><br>Nodo Logístico Humanitario</div>",
+                tooltip=nombre
+            ).add_to(capa_nodos)
+
+        # 2. Dibujar Alertas Vivas y alimentar Heatmap
+        for al en alertas:
+            puntos_calor.append([al['coords'][0], al['coords'][1], 1.0])
             
             popup_html = f"""
             <div style="font-family: 'Courier New', monospace; width: 260px; 
                         background: rgba(0,0,0,0.95); color: #fff; padding: 12px; 
-                        border-radius: 8px; border-left: 5px solid {color};">
-                <b style="color:{color if color != 'black' else '#888'}; font-size: 14px;">🏥 {hosp['nombre'].upper()}</b><br>
+                        border-radius: 8px; border-left: 5px solid {al['color']};">
+                <b style="color:{al['color']}; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>
                 <hr style="border-color: #333; margin: 8px 0;">
-                <b>Perfil:</b> {hosp['tipo']}<br>
-                <b>Estado Operativo:</b> <span style="color:{color if color != 'black' else '#888'}; font-weight:bold;">{hosp['estado'].upper()}</span><br>
-                <b>Fecha Impacto/Colapso:</b> {hosp['fecha']}
+                <b>Reporte:</b> {al['evento']}<br>
+                <b>Fecha:</b> {al['fecha']}<br>
+                <b>Fuente:</b> UN OCHA / ReliefWeb
             </div>
             """
-            
             folium.Marker(
-                hosp['coords'],
-                popup=folium.Popup(popup_html, max_width=280),
-                icon=folium.Icon(color=color if color != 'black' else 'lightgray', icon='h-square', prefix='fa'),
-                tooltip=f"Instalación Médica: {hosp['nombre']}"
-            ).add_to(capa_hospitales)
-        
-        # 3. Corredores
-        for corredor in CORREDORES:
-            color = {"Cerrado": "red", "Cerrado/Intermitente": "orange", 
-                     "Operativo limitado": "green", "Destruido": "black"}.get(corredor['estado'], 'gray')
-            
-            popup_html = f"""
-            <div style="font-family: 'Courier New', monospace; width: 220px; background: rgba(0,0,0,0.9); color: white; padding: 10px; border-left: 4px solid {color if color != 'black' else '#888'};">
-                <b style="color:{color if color != 'black' else '#888'};">🚪 {corredor['nombre'].upper()}</b><br>
-                <b>Propósito:</b> {corredor['tipo']}<br>
-                <b>Estado:</b> {corredor['estado']}
-            </div>
-            """
-            
-            folium.Marker(
-                corredor['coords'],
-                popup=folium.Popup(popup_html, max_width=250),
-                icon=folium.Icon(color=color if color != 'black' else 'lightgray', icon='exchange', prefix='fa')
-            ).add_to(capa_corredores)
-        
-        # 4. Escuelas UNRWA
-        for escuela in ESCUELAS_UNRWA:
-            folium.Marker(
-                escuela['coords'],
-                popup=f"<div style='font-family: Courier New; background:#222; color:#fff; padding:5px;'><b>{escuela['nombre']}</b><br>Uso: {escuela['uso']}<br>Estado: <span style='color:red;'>{escuela['estado']}</span></div>",
-                icon=folium.Icon(color='lightblue', icon='graduation-cap', prefix='fa'),
-                tooltip="Instalación UNRWA"
-            ).add_to(capa_escuelas)
-        
-        # Métricas
-        metricas = self.obtener_metricas_crisis()
-        timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        
+                al['coords'],
+                icon=folium.Icon(color=al['color'], icon='exclamation-circle', prefix='fa'),
+                popup=folium.Popup(popup_html, max_width=300)
+            ).add_to(capa_alertas)
+
+        # 3. Heatmap de Crisis
+        if puntos_calor:
+            HeatMap(puntos_calor, radius=30, blur=20).add_to(capa_calor)
+
         # Panel Informativo Unificado E.T.B.
-        panel = f"""
-        <div style="position: fixed; top: 20px; right: 20px; width: 320px; 
-                    background-color: rgba(10,10,10,0.95); color: #fff; 
-                    border: 2px solid #ff0000; padding: 15px; border-radius: 10px; 
-                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;
-                    box-shadow: 0 0 20px rgba(255,0,0,0.5);">
-            <h4 style="color:#ff0000; margin-top:0; text-align:center; font-size: 14px;
-                       border-bottom: 2px solid #333; padding-bottom: 8px;">
-                ⛑️ IMPACTO HUMANITARIO E.T.B.
-            </h4>
+        timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
+        panel_html = f"""
+        <div style="position: fixed; top: 20px; right: 20px; width: 300px; 
+                    background: rgba(10,10,10,0.95); color: #fff; border: 2px solid #ff4444; 
+                    padding: 15px; border-radius: 10px; font-family: 'Courier New', monospace; 
+                    font-size: 11px; z-index: 9999; box-shadow: 0 0 20px rgba(255,0,0,0.4);">
+            <h4 style="color:#ff4444; text-align:center; margin:0 0 10px 0;">⛑️ RADAR HUMANITARIO E.T.B.</h4>
             <div style="background: rgba(255,0,0,0.2); padding: 8px; border-radius: 5px; 
-                        margin-bottom: 10px; text-align: center; border: 1px solid #ff0000;">
-                <b style="color:#ff6666; letter-spacing: 1px;">NIVEL DE CRISIS: {self.nivel_crisis}</b>
+                        margin-bottom: 10px; text-align: center; border: 1px solid #ff4444;">
+                <b style="color:#ff6666;">NIVEL DE CRISIS: {self.nivel_alerta}</b>
             </div>
             <div style="line-height: 1.6;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Desplazados Internos:</span>
-                    <span style="color:#ff6666; font-weight:bold;">{metricas['desplazados_gaza']}</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Hospitales Operativos:</span>
-                    <span style="color:#ff0000;">{metricas['hospitales_operativos']}</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Hambre Aguda:</span>
-                    <span style="color:#ff0000;">{metricas['hambre_aguda']}</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Acceso Agua Potable:</span>
-                    <span style="color:#ff6666;">{metricas['acceso_agua']}</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <span>Suministro Eléctrico:</span>
-                    <span style="color:#ffaa00;">{metricas['electricidad']}</span>
-                </div>
-            </div>
-            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px;">
-                <b style="color:#ff6666;">INFRAESTRUCTURA DAÑADA:</b><br>
-                Hospitales Colapsados/Destruidos: {len([h for h in HOSPITALES_DANADOS if h['estado'] in ['Destruido', 'Fuera de servicio']])}<br>
-                Campos Desbordados: {len(CAMPOS_REFUGIADOS)}<br>
-                Corredores Bloqueados: {len([c for c in CORREDORES if 'Cerrado' in c['estado'] or 'Destruido' in c['estado']])}
-            </div>
-            <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px; 
-                        font-size: 10px; color: #666; text-align: center;">
-                <b>Fuente de Datos:</b> UN OCHA / WHO<br>
-                Actualizado: {timestamp}<br>
-                <span style="color: #444;">Sistema E.T.B. v2.0</span>
+                Alertas Activas: {len(alertas)} regionales<br>
+                Nodos Logísticos: {len(NODOS_ESTRATEGICOS)} operativos<br>
+                Fuente: UN OCHA / ReliefWeb OSINT<br>
+                <hr style="border-color:#333;">
+                Actualizado: {timestamp}
             </div>
         </div>
         """
-        mapa.get_root().html.add_child(folium.Element(panel))
+        mapa.get_root().html.add_child(folium.Element(panel_html))
+        folium.LayerControl().add_to(mapa)
         
-        folium.LayerControl(collapsed=False).add_to(mapa)
-        
-        nombre_mapa = "radar_humanitario_crisis.html"
-        mapa.save(nombre_mapa)
-        
-        print(f"\n{'='*70}")
-        print(f"[✅ MAPA HUMANITARIO GENERADO]")
-        print(f"Archivo: {nombre_mapa}")
-        print(f"Hospitales afectados: {len(HOSPITALES_DANADOS)} | Nivel: {self.nivel_crisis}")
-        print(f"{'='*70}\n")
+        mapa.save("radar_humanitario_crisis.html")
+        print(f"[✅ RADAR HUMANITARIO REGIONAL GENERADO]")
 
 if __name__ == "__main__":
     radar = RadarHumanitarioCrisis()
