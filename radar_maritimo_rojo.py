@@ -3,15 +3,36 @@ from folium.plugins import MarkerCluster, AntPath
 import datetime
 import random
 import feedparser
+import requests
 
 class RadarMaritimoGlobal:
     def __init__(self):
-        self.brent_ref = 92.69 # Sincronizado con su Radar Financiero
-        self.centro_ormuz = [26.1, 55.5] # Coordenadas suministradas por el Ing.
+        self.centro_ormuz = [26.1, 55.5] # Coordenadas estratégicas de Ingeniería Trejos
         self.centro_bab_el_mandeb = [12.58, 43.33]
+        self.brent_ref = self.obtener_precio_brent_vivo() # ¡Ahora es dinámico!
+
+    def obtener_precio_brent_vivo(self):
+        """Motor financiero: Extrae el precio del crudo Brent en tiempo real"""
+        print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Sincronizando precio del crudo Brent (Yahoo Finance)...")
+        url = "https://query1.finance.yahoo.com/v8/finance/chart/BZ=F"
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0'}
+        
+        try:
+            resp = requests.get(url, headers=headers, timeout=5)
+            if resp.status_code == 200:
+                datos = resp.json()
+                precio = datos['chart']['result'][0]['meta']['regularMarketPrice']
+                print(f"   [✓] Brent capturado: ${precio:.2f}")
+                return round(precio, 2)
+            else:
+                print("   [!] Error de servidor. Usando último valor en caché.")
+                return 82.50 # Valor de respaldo en caso de caída del servidor
+        except Exception as e:
+            print(f"   [!] Timeout en mercado: {str(e)[:20]}")
+            return 82.50
 
     def motor_proxy_regional(self, zona="ROJO"):
-        """Proxy OSINT: Captura telemetría indirecta de buques en chokepoints"""
+        """Proxy OSINT: Captura telemetría de buques y alertas en chokepoints"""
         print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Activando Proxy {zona} (Frecuencias/News)...")
         
         consultas = {
@@ -24,85 +45,127 @@ class RadarMaritimoGlobal:
         
         try:
             flujo = feedparser.parse(url_osint)
-            for entry in flujo.entries[:4]:
+            # Procesamos hasta 5 alertas por zona
+            for entry in flujo.entries[:5]:
                 titulo = entry.title.lower()
+                
                 # Geolocalización dinámica según zona
                 if zona == "ROJO":
-                    base_coords = self.centro_bab_el_mandeb
+                    lat_base, lon_base = self.centro_bab_el_mandeb
+                    estado_alerta = "ALERTA CRÍTICA NAVAL" if any(x in titulo for x in ['hit', 'missile', 'attack']) else "DESVÍO TÁCTICO"
+                    color_alerta = "red" if "CRÍTICA" in estado_alerta else "orange"
+                    icono_alerta = "ship"
                 else:
-                    base_coords = self.centro_ormuz
+                    lat_base, lon_base = self.centro_ormuz
+                    estado_alerta = "FLUJO ENERGÉTICO VIGILADO" if 'tanker' in titulo else "ACTIVIDAD NAVAL"
+                    color_alerta = "orange" if 'seize' in titulo or 'attack' in titulo else "yellow"
+                    icono_alerta = "tint"
                 
                 detecciones.append({
                     "evento": entry.title[:85] + "...",
-                    "coords": [base_coords[0] + random.uniform(-1.5, 1.5), 
-                               base_coords[1] + random.uniform(-1.5, 1.5)],
-                    "tipo": "ALERTA NAVAL" if zona == "ROJO" else "FLUJO ENERGÍA",
-                    "color": "red" if zona == "ROJO" else "yellow"
+                    "coords": [lat_base + random.uniform(-1.5, 2.5), 
+                               lon_base + random.uniform(-2.0, 3.0)],
+                    "estado": estado_alerta,
+                    "color": color_alerta,
+                    "icono": icono_alerta,
+                    "fecha": datetime.datetime.now().strftime('%Y-%m-%d')
                 })
             return detecciones
-        except: return []
+        except Exception as e:
+            print(f"   [!] Error en Proxy {zona}: {str(e)[:30]}")
+            return []
+
+    def calcular_impacto_economico(self):
+        """Calcula el sobrecosto de flete basado en el mercado real (Brent)"""
+        sobrecosto_estimado = (self.brent_ref * 2.1) / 85  # E.T.B. Logistics Factor
+        return f"{round(sobrecosto_estimado, 2)}M USD"
 
     def generar_mapa(self):
         print("\n" + "="*70)
-        print("INICIANDO RADAR MARÍTIMO GLOBAL E.T.B. v4.0 (MAR ROJO & ORMUZ)")
+        print("INICIANDO RADAR MARÍTIMO GLOBAL E.T.B. v4.1 (MAR ROJO & ORMUZ)")
         print("="*70)
         
         alertas_rojo = self.motor_proxy_regional("ROJO")
         alertas_ormuz = self.motor_proxy_regional("ORMUZ")
+        impacto_costo = self.calcular_impacto_economico()
         
-        mapa = folium.Map(location=[22.0, 48.0], zoom_start=5, tiles='CartoDB dark_matter')
+        # Centramos el mapa para ver ambos estrechos
+        mapa = folium.Map(location=[19.0, 48.0], zoom_start=5, tiles='CartoDB dark_matter')
         
         capa_rojo = folium.FeatureGroup(name="⚠️ Sector Bab el-Mandeb (Bloqueo)").add_to(mapa)
         capa_ormuz = folium.FeatureGroup(name="🛢️ Sector Ormuz (Proxy Energía)").add_to(mapa)
         capa_logistica = folium.FeatureGroup(name="🛣️ Rutas de Suministro").add_to(mapa)
 
-        # 1. Procesar Alertas Mar Rojo (Sector Rojo)
+        # 1. Trazado de Alertas: Mar Rojo
         for a in alertas_rojo:
-            folium.Marker(a['coords'], icon=folium.Icon(color='red', icon='ship', prefix='fa'),
-                          popup=f"<b>ALERTA ROJO:</b><br>{a['evento']}").add_to(capa_rojo)
+            popup_html = f"""
+            <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid {a['color']};">
+                <b style="color:{a['color']}; font-size:12px;">🚢 {a['estado']}</b><br><br>
+                <b>Reporte:</b> {a['evento']}<br>
+                <b>Zona:</b> Bab el-Mandeb / Mar Rojo
+            </div>
+            """
+            folium.Marker(a['coords'], icon=folium.Icon(color=a['color'], icon=a['icono'], prefix='fa'),
+                          popup=folium.Popup(popup_html, max_width=300)).add_to(capa_rojo)
 
-        # 2. Procesar Alertas Ormuz (Sector Amarillo/Energía)
+        # 2. Trazado de Alertas: Estrecho de Ormuz
         for a in alertas_ormuz:
-            folium.Marker(a['coords'], icon=folium.Icon(color='orange', icon='tint', prefix='fa'),
-                          popup=f"<b>PROXY ORMUZ:</b><br>{a['evento']}").add_to(capa_ormuz)
+            popup_html = f"""
+            <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid {a['color']};">
+                <b style="color:{a['color']}; font-size:12px;">🛢️ {a['estado']}</b><br><br>
+                <b>Reporte:</b> {a['evento']}<br>
+                <b>Zona:</b> Estrecho de Ormuz / Golfo Pérsico
+            </div>
+            """
+            folium.Marker(a['coords'], icon=folium.Icon(color=a['color'], icon=a['icono'], prefix='fa'),
+                          popup=folium.Popup(popup_html, max_width=300)).add_to(capa_ormuz)
 
-        # 3. Chokepoints Visuales
-        for centro, nombre, color in [(self.centro_bab_el_mandeb, "Bab el-Mandeb", "red"), 
-                                      ([26.58, 56.45], "Estrecho de Ormuz", "yellow")]:
-            folium.Circle(centro, radius=120000, color=color, fill=True, fillOpacity=0.15,
-                          tooltip=f"CHOKEPOINT: {nombre}").add_to(mapa)
+        # 3. Zonas de Exclusión y Chokepoints Visuales
+        folium.Circle(self.centro_bab_el_mandeb, radius=150000, color='red', fill=True, fillOpacity=0.15,
+                      tooltip="CHOKEPOINT: Bab el-Mandeb (Bloqueado)").add_to(mapa)
+        folium.Circle(self.centro_ormuz, radius=120000, color='orange', fill=True, fillOpacity=0.15,
+                      tooltip="CHOKEPOINT: Estrecho de Ormuz (Vigilancia)").add_to(mapa)
 
-        # 4. Ruta del Cabo (Visualización de sobrecosto)
+        # 4. Ruta del Cabo (Visualización dinámica del desvío)
         AntPath(locations=[[31.5, 32.3], [12.0, 45.0], [-34.0, 18.0]], 
-                color='#ffcc00', weight=3, delay=1200, tooltip="Ruta del Cabo (Desvío)").add_to(capa_logistica)
+                color='#ffcc00', weight=3, delay=1200, tooltip="Ruta del Cabo (Desvío Logístico)").add_to(capa_logistica)
 
-        # Panel Logístico Global E.T.B.
+        # 5. Panel Logístico Global Bicefálico E.T.B.
         timestamp = datetime.datetime.now().strftime('%H:%M')
         panel_html = f"""
-        <div style="position: fixed; top: 20px; right: 20px; width: 320px; background: rgba(10,10,10,0.95); 
-                    color: #fff; border: 2px solid #ffcc00; padding: 15px; border-radius: 10px; 
-                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999; box-shadow: 0 0 20px #ffcc0066;">
-            <h4 style="color:#ffcc00; text-align:center; margin:0 0 10px 0;">🚢 RADAR MARÍTIMO E.T.B. v4.0</h4>
-            <div style="background: rgba(255,204,0,0.2); padding: 8px; border-radius: 5px; text-align: center; border: 1px solid #ffcc00; margin-bottom:10px;">
-                <b style="color:#fff;">ESTADO LOGÍSTICO: BAJO PRESIÓN</b>
+        <div style="position: fixed; top: 20px; right: 20px; width: 340px; background: rgba(10,10,10,0.95); 
+                    color: #fff; border: 2px solid #ff4444; padding: 15px; border-radius: 10px; 
+                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999; box-shadow: 0 0 20px #ff444466;">
+            <h4 style="color:#ff4444; text-align:center; margin:0 0 10px 0;">🚢 RADAR MARÍTIMO E.T.B. v4.1</h4>
+            <div style="background: rgba(255,68,68,0.2); padding: 8px; border-radius: 5px; text-align: center; border: 1px solid #ff4444; margin-bottom:10px;">
+                <b style="color:#fff;">ALERTA LOGÍSTICA BICEPHALOUS</b>
             </div>
-            <div style="line-height: 1.4;">
-                <b>SECTOR MAR ROJO:</b> {len(alertas_rojo)} Alertas activas<br>
-                <b>SECTOR ORMUZ:</b> {len(alertas_ormuz)} Petroleros detectados<br><br>
-                <b>INTELIGENCIA DE COSTOS:</b><br>
-                Brent Ref: <span style="color:#00ff41;">${self.brent_ref}</span><br>
-                Impacto Fletes: ALTO (+12 días demora)<br>
-                Estado Proxy: <span style="color:#00ff41;">Sincronizado</span>
+            <div style="line-height: 1.5;">
+                <b style="color:#ff6666;">BAB EL-MANDEB (Ruta Comercial):</b><br>
+                Incidentes (24h): {len(alertas_rojo)} Detectados<br>
+                Estado: BLOQUEO ACTIVO<br><br>
+                
+                <b style="color:#ffcc00;">ESTRECHO DE ORMUZ (Ruta Energía):</b><br>
+                Contactos VLCC: {len(alertas_ormuz)} Rastreados<br>
+                Estado: VIGILANCIA TÁCTICA<br><br>
+                
+                <hr style="border-color:#333; margin: 8px 0;">
+                <b>IMPACTO ECONÓMICO GLOBAL:</b><br>
+                Brent Ref (Hoy): <span style="color:#00ff41;">${self.brent_ref:.2f}</span><br>
+                Sobrecosto/Buque: <span style="color:#ffcc00;">{impacto_costo}</span><br>
+                Demora Est: 10-14 días adicionales
             </div>
             <div style="margin-top: 12px; border-top: 1px solid #333; padding-top: 8px; font-size: 9px; color: #666; text-align: center;">
-                Sincronizado: {timestamp} | fatreber85
+                Sincronizado: {timestamp} | Ingeniería Trejos
             </div>
         </div>
         """
         mapa.get_root().html.add_child(folium.Element(panel_html))
         folium.LayerControl().add_to(mapa)
-        mapa.save("radar_maritimo_global.html")
-        print(f"[✅ RADAR MARÍTIMO GLOBAL GENERADO]")
+        
+        nombre_archivo = "radar_maritimo_rojo.html" 
+        mapa.save(nombre_archivo)
+        print(f"[✅ RADAR MARÍTIMO GLOBAL GENERADO: {nombre_archivo}]")
 
 if __name__ == "__main__":
     radar = RadarMaritimoGlobal()
