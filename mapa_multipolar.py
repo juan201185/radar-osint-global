@@ -93,6 +93,10 @@ def obtener_datos_petroleo():
         return 0.0, 0
 
 def obtener_feeds_masivos():
+    """
+    Motor de Ingesta Masiva E.T.B.
+    Integración de Proxies Bing para evasión de WAF (Zero-Google tracking para nodos bloqueados)
+    """
     return [
         ("https://gcaptain.com/feed/", "gCaptain (Naval)", "occidental"),
         ("https://feeds.bbci.co.uk/mundo/rss.xml", "BBC Mundo (UK)", "occidental"),
@@ -105,9 +109,15 @@ def obtener_feeds_masivos():
         ("https://actualidad.rt.com/rss", "RT (Rusia)", "alternativo"),
         ("https://sputniknews.lat/export/rss2/archive/index.xml", "Sputnik (Rusia)", "alternativo"),
         ("https://news.google.com/rss/search?q=site:spanish.news.cn+israel+OR+iran+OR+oriente&hl=es-419&gl=CO&ceid=CO:es-419", "Xinhua (Proxy)", "chino"),
-        ("https://www.globaltimes.cn/rss/", "Global Times (China)", "chino"),
+        
+        # --- BYPASS TÁCTICO: PROXY BING (Cero Google, Cero Bloqueo) ---
+        ("https://www.bing.com/news/search?q=site:globaltimes.cn+israel+OR+iran+OR+middle+east&format=rss", "Global Times (Proxy Bing)", "chino"),
+        
         ("https://news.google.com/rss/search?q=site:timesofisrael.com+israel&hl=en-US&gl=US&ceid=US:en", "Times of Israel (Proxy)", "occidental"),
-        ("https://news.google.com/rss/search?q=site:jpost.com+israel&hl=en-US&gl=US&ceid=US:en", "Jerusalem Post (Proxy)", "occidental"),
+        
+        # --- BYPASS TÁCTICO: PROXY BING (Cero Google, Cero Bloqueo) ---
+        ("https://www.bing.com/news/search?q=site:jpost.com+israel+OR+iran&format=rss", "Jerusalem Post (Proxy Bing)", "occidental"),
+        
         ("https://www.middleeasteye.net/rss", "Middle East Eye", "independiente"),
         ("https://www.al-monitor.com/rss", "Al-Monitor", "independiente"),
     ]
