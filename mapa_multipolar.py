@@ -193,8 +193,8 @@ def generar_mapa_volumen_maximo():
     print(f"\n{'='*70}")
     print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] RADAR E.T.B. - MODO INGESTA MASIVA")
     print(f"{'='*70}")
-    print("[*] Configuración: Volumen extremo + Evasión activa + Dispersión Táctica")
-    print("[*] Objetivo: Procesar 100% de noticias disponibles sin apilamiento")
+    print("[*] Configuración: Volumen extremo + Efecto Spiderfy (Espiral) Activado")
+    print("[*] Objetivo: Procesar 100% de noticias disponibles y anclar a nodo central")
     print(f"{'='*70}\n")
     
     feeds = obtener_feeds_masivos()
@@ -278,7 +278,6 @@ def generar_mapa_volumen_maximo():
                         titulo_es = titulo[:100] if len(titulo) > 100 else titulo
                     
                     coords, ciudad = detectar_ciudad(texto_completo)
-                    ciudad_exacta = bool(coords)
                     
                     if not coords:
                         if bloque == 'resistencia':
@@ -294,11 +293,10 @@ def generar_mapa_volumen_maximo():
                         else:
                             coords, ciudad = [31.0, 40.0], "Zona de Conflicto"
                     
-                    # --- ALGORITMO DE DISPERSIÓN TÁCTICA ---
-                    radio = 0.05 if ciudad_exacta else 2.5
-                    lat_dispersion = coords[0] + random.uniform(-radio, radio)
-                    lon_dispersion = coords[1] + random.uniform(-radio, radio)
-                    coords_finales = [lat_dispersion, lon_dispersion]
+                    # --- ALGORITMO DE APILAMIENTO EXACTO (EFECTO ESPIRAL / SPIDERFY) ---
+                    # Al asignar la coordenada exacta sin dispersión, Folium agrupará
+                    # todos los pines en un solo punto y creará la espiral al hacer clic.
+                    coords_finales = coords
                     
                     color, icono = color_y_icono(bloque, agencia)
                     url_orig = entry.get('link', url)
