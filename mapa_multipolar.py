@@ -58,44 +58,35 @@ def traducir_texto(texto):
     if not texto:
         return ""
     try:
-        # PAUSA TÁCTICA ANTI-BAN: Evita que Google Translate congele el script
         time.sleep(0.5) 
-        
         if any('\u4e00' <= char <= '\u9fff' for char in texto):
             return GoogleTranslator(source='zh-CN', target='es').translate(texto)
         if any('\u0600' <= char <= '\u06ff' for char in texto):
             return GoogleTranslator(source='ar', target='es').translate(texto)
         return GoogleTranslator(source='auto', target='es').translate(texto)
     except Exception as e:
-        # En lugar de colgarse, si falla, imprime un aviso y devuelve el texto original
         print(f"      [!] Error traducción: {str(e)[:30]}")
         return texto
 
 def obtener_datos_petroleo():
     """
-    Extracción pura de Brent. Sin respaldos falsos ni hardcoding.
+    Extracción robusta vía CNBC (Bypass Wall Street WAF)
     """
-    url = "https://query1.finance.yahoo.com/v8/finance/chart/BZ=F"
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
+    url_cnbc = "https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols=@LCO.1&requestMethod=itv&noform=1&exthrs=1&output=json"
+    headers = {'User-Agent': random.choice(USER_AGENTS), 'Accept': 'application/json'}
     
     try:
-        resp = requests.get(url, headers=headers)
-        if resp.status_code == 200:
-            datos = resp.json()
-            precio = datos['chart']['result'][0]['meta']['regularMarketPrice']
-            variacion = (precio - 74.0) / 74.0
-            alza = int(15600 * (variacion * 0.65))
-            
-            return precio, alza
-        else:
-            return 0.0, 0
+        respuesta = requests.get(url_cnbc, headers=headers, timeout=10)
+        precio = float(respuesta.json()['FormattedQuoteResult']['FormattedQuote'][0]['last'])
+        variacion = (precio - 74.0) / 74.0
+        alza = int(15600 * (variacion * 0.65))
+        return round(precio, 2), max(0, alza)
     except:
         return 0.0, 0
 
 def obtener_feeds_masivos():
     """
-    Motor de Ingesta Masiva E.T.B.
-    Integración de Proxies Yahoo para evasión de WAF en nodos restringidos
+    Motor de Ingesta Masiva E.T.B. con Fuentes Purificadas
     """
     return [
         ("https://gcaptain.com/feed/", "gCaptain (Naval)", "occidental"),
@@ -110,13 +101,13 @@ def obtener_feeds_masivos():
         ("https://sputniknews.lat/export/rss2/archive/index.xml", "Sputnik (Rusia)", "alternativo"),
         ("https://news.google.com/rss/search?q=site:spanish.news.cn+israel+OR+iran+OR+oriente&hl=es-419&gl=CO&ceid=CO:es-419", "Xinhua (Proxy)", "chino"),
         
-        # --- BYPASS TÁCTICO: PROXY YAHOO ---
-        ("https://news.search.yahoo.com/rss?p=site:globaltimes.cn+israel+OR+iran+OR+military", "Global Times (Proxy Yahoo)", "chino"),
+        # --- SUSTITUCIÓN TÁCTICA: SCMP EN LUGAR DE GLOBAL TIMES ---
+        ("https://www.scmp.com/rss/91/feed", "South China Morning Post (China)", "chino"),
         
         ("https://news.google.com/rss/search?q=site:timesofisrael.com+israel&hl=en-US&gl=US&ceid=US:en", "Times of Israel (Proxy)", "occidental"),
         
-        # --- BYPASS TÁCTICO: PROXY YAHOO ---
-        ("https://news.search.yahoo.com/rss?p=site:jpost.com+israel+OR+iran+OR+gaza", "Jerusalem Post (Proxy Yahoo)", "occidental"),
+        # --- SUSTITUCIÓN TÁCTICA: ISRAEL HAYOM EN LUGAR DE JPOST ---
+        ("https://www.israelhayom.com/feed/", "Israel Hayom (Israel)", "occidental"),
         
         ("https://www.middleeasteye.net/rss", "Middle East Eye", "independiente"),
         ("https://www.al-monitor.com/rss", "Al-Monitor", "independiente"),
@@ -187,8 +178,8 @@ def generar_mapa_volumen_maximo():
     print(f"\n{'='*70}")
     print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] RADAR E.T.B. - MODO INGESTA MASIVA")
     print(f"{'='*70}")
-    print("[*] Configuración: Volumen extremo + Evasión activa")
-    print("[*] Objetivo: Procesar 100% de noticias disponibles")
+    print("[*] Configuración: Volumen extremo + Evasión activa + Dispersión Táctica")
+    print("[*] Objetivo: Procesar 100% de noticias disponibles sin apilamiento")
     print(f"{'='*70}\n")
     
     feeds = obtener_feeds_masivos()
@@ -272,6 +263,7 @@ def generar_mapa_volumen_maximo():
                         titulo_es = titulo[:100] if len(titulo) > 100 else titulo
                     
                     coords, ciudad = detectar_ciudad(texto_completo)
+                    ciudad_exacta = bool(coords)
                     
                     if not coords:
                         if bloque == 'resistencia':
@@ -286,6 +278,13 @@ def generar_mapa_volumen_maximo():
                             coords, ciudad = [26.56, 56.25], "Estrecho de Ormuz"
                         else:
                             coords, ciudad = [31.0, 40.0], "Zona de Conflicto"
+                    
+                    # --- ALGORITMO DE DISPERSIÓN TÁCTICA ---
+                    # Desapilamiento de coordenadas para no ocultar noticias
+                    radio = 0.05 if ciudad_exacta else 2.5
+                    lat_dispersion = coords[0] + random.uniform(-radio, radio)
+                    lon_dispersion = coords[1] + random.uniform(-radio, radio)
+                    coords_finales = [lat_dispersion, lon_dispersion]
                     
                     color, icono = color_y_icono(bloque, agencia)
                     url_orig = entry.get('link', url)
@@ -306,7 +305,7 @@ def generar_mapa_volumen_maximo():
                     """
                     
                     marcador = folium.Marker(
-                        location=coords,
+                        location=coords_finales,  # Usamos las coordenadas esparcidas
                         popup=folium.Popup(popup_html, max_width=270),
                         icon=folium.Icon(color=color, icon=icono, prefix='glyphicon'),
                         tooltip=f"{agencia[:18]}: {titulo_es[:32]}..."
@@ -349,7 +348,7 @@ def generar_mapa_volumen_maximo():
     p_brent, a_gas = obtener_datos_petroleo()
     
     if p_brent == 0:
-        print(f"   [!] Error de conexión con Yahoo Finance. Mostrando $0.00")
+        print(f"   [!] Error de conexión. Mostrando $0.00")
         
     # --- LÓGICA DINÁMICA REAL PARA EL PANEL ---
     if a_gas > 0:
@@ -361,7 +360,7 @@ def generar_mapa_volumen_maximo():
         color_dinamico = "#00ff41"  # Verde (Baja)
         signo = "-"
         texto_etiqueta = "PROY. BAJA GASOLINA:"
-        valor_mostrar = abs(a_gas)  # Extrae el valor positivo para usarlo con el signo '-'
+        valor_mostrar = abs(a_gas)
     else:
         color_dinamico = "#ffcc00"  # Amarillo (Estable)
         signo = ""

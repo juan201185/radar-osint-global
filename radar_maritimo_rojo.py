@@ -9,27 +9,33 @@ class RadarMaritimoGlobal:
     def __init__(self):
         self.centro_ormuz = [26.1, 55.5] # Coordenadas estratégicas de Ingeniería Trejos
         self.centro_bab_el_mandeb = [12.58, 43.33]
-        self.brent_ref = self.obtener_precio_brent_vivo() # ¡Ahora es dinámico!
+        self.brent_ref = self.obtener_precio_brent_vivo() # Motor CNBC dinámico y blindado
 
     def obtener_precio_brent_vivo(self):
-        """Motor financiero: Extrae el precio del crudo Brent en tiempo real"""
-        print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Sincronizando precio del crudo Brent (Yahoo Finance)...")
-        url = "https://query1.finance.yahoo.com/v8/finance/chart/BZ=F"
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0'}
+        """Motor financiero: Extrae el precio del crudo Brent en tiempo real (Bypass CNBC)"""
+        print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Sincronizando precio del crudo Brent (CNBC Markets)...")
+        
+        # Uso de red institucional para evadir bloqueos WAF (Cero Yahoo)
+        url_cnbc = "https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols=@LCO.1&requestMethod=itv&noform=1&exthrs=1&output=json"
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/122.0.0.0',
+            'Accept': 'application/json'
+        }
         
         try:
-            resp = requests.get(url, headers=headers, timeout=5)
+            resp = requests.get(url_cnbc, headers=headers, timeout=10)
             if resp.status_code == 200:
                 datos = resp.json()
-                precio = datos['chart']['result'][0]['meta']['regularMarketPrice']
-                print(f"   [✓] Brent capturado: ${precio:.2f}")
+                precio_str = datos['FormattedQuoteResult']['FormattedQuote'][0]['last']
+                precio = float(precio_str)
+                print(f"   [✓] Extracción limpia. Brent capturado: ${precio:.2f}")
                 return round(precio, 2)
             else:
                 print("   [!] Error de servidor. Usando último valor en caché.")
-                return 82.50 # Valor de respaldo en caso de caída del servidor
+                return 93.06 # Valor de respaldo táctico
         except Exception as e:
             print(f"   [!] Timeout en mercado: {str(e)[:20]}")
-            return 82.50
+            return 93.06
 
     def motor_proxy_regional(self, zona="ROJO"):
         """Proxy OSINT: Captura telemetría de buques y alertas en chokepoints"""
@@ -58,7 +64,8 @@ class RadarMaritimoGlobal:
                 else:
                     lat_base, lon_base = self.centro_ormuz
                     estado_alerta = "FLUJO ENERGÉTICO VIGILADO" if 'tanker' in titulo else "ACTIVIDAD NAVAL"
-                    color_alerta = "orange" if 'seize' in titulo or 'attack' in titulo else "yellow"
+                    # CORRECCIÓN FOLIUM APLICADA: 'cadetblue' en lugar de 'yellow' para barcos civiles
+                    color_alerta = "orange" if 'seize' in titulo or 'attack' in titulo else "cadetblue"
                     icono_alerta = "tint"
                 
                 detecciones.append({
@@ -82,7 +89,7 @@ class RadarMaritimoGlobal:
 
     def generar_mapa(self):
         print("\n" + "="*70)
-        print("INICIANDO RADAR MARÍTIMO GLOBAL E.T.B. v4.1 (MAR ROJO & ORMUZ)")
+        print("INICIANDO RADAR MARÍTIMO GLOBAL E.T.B. v4.2 (MAR ROJO & ORMUZ)")
         print("="*70)
         
         alertas_rojo = self.motor_proxy_regional("ROJO")
@@ -136,7 +143,7 @@ class RadarMaritimoGlobal:
         <div style="position: fixed; top: 20px; right: 20px; width: 340px; background: rgba(10,10,10,0.95); 
                     color: #fff; border: 2px solid #ff4444; padding: 15px; border-radius: 10px; 
                     font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999; box-shadow: 0 0 20px #ff444466;">
-            <h4 style="color:#ff4444; text-align:center; margin:0 0 10px 0;">🚢 RADAR MARÍTIMO E.T.B. v4.1</h4>
+            <h4 style="color:#ff4444; text-align:center; margin:0 0 10px 0;">🚢 RADAR MARÍTIMO E.T.B. v4.2</h4>
             <div style="background: rgba(255,68,68,0.2); padding: 8px; border-radius: 5px; text-align: center; border: 1px solid #ff4444; margin-bottom:10px;">
                 <b style="color:#fff;">ALERTA LOGÍSTICA BICEPHALOUS</b>
             </div>
