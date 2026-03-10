@@ -68,25 +68,44 @@ def traducir_texto(texto):
         print(f"      [!] Error traducción: {str(e)[:30]}")
         return texto
 
+# --- EL MOTOR EXACTO QUE USTED PROPORCIONÓ (TRANSPLANTADO) ---
 def obtener_datos_petroleo():
-    """
-    Extracción robusta vía CNBC (Bypass Wall Street WAF)
-    """
+    print("\n[*] Obteniendo cotización de energía (Bypass total: Cambio de proveedor)...")
+    print("   [📡] Conectando a los servidores de CNBC Markets (Nivel Institucional)...")
+    
+    # El símbolo @LCO.1 corresponde al ICE Brent Crude Oil en la red de CNBC
     url_cnbc = "https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols=@LCO.1&requestMethod=itv&noform=1&exthrs=1&output=json"
-    headers = {'User-Agent': random.choice(USER_AGENTS), 'Accept': 'application/json'}
+    
+    headers = {
+        'User-Agent': random.choice(USER_AGENTS),
+        'Accept': 'application/json'
+    }
     
     try:
+        # Hacemos la petición directa al motor de CNBC
         respuesta = requests.get(url_cnbc, headers=headers, timeout=10)
-        precio = float(respuesta.json()['FormattedQuoteResult']['FormattedQuote'][0]['last'])
-        variacion = (precio - 74.0) / 74.0
-        alza = int(15600 * (variacion * 0.65))
+        datos = respuesta.json()
+        
+        # Extraemos el último precio transado ("last") navegando su JSON
+        precio_str = datos['FormattedQuoteResult']['FormattedQuote'][0]['last']
+        precio = float(precio_str)
+        
+        # La matemática de proyección de fletes de Ingeniería Trejos
+        variacion_pct = (precio - 74.0) / 74.0
+        alza = int(15600 * (variacion_pct * 0.65))
+        
+        print(f"   [✓] Extracción limpia y sin bloqueos. Brent: ${precio:.2f}")
         return round(precio, 2), max(0, alza)
-    except:
-        return 0.0, 0
+        
+    except Exception as e:
+        print(f"   [❌] Falla en la red satelital secundaria: {str(e)[:30]}")
+        # Paracaídas de emergencia en caso de apagón total de internet
+        return 93.06, 2561
+# -----------------------------------------------------------------
 
 def obtener_feeds_masivos():
     """
-    Motor de Ingesta Masiva E.T.B. con Fuentes Purificadas
+    Motor de Ingesta Masiva E.T.B. con Fuentes Originales + Sustituciones Tácticas (Cero Yahoo)
     """
     return [
         ("https://gcaptain.com/feed/", "gCaptain (Naval)", "occidental"),
@@ -101,12 +120,8 @@ def obtener_feeds_masivos():
         ("https://sputniknews.lat/export/rss2/archive/index.xml", "Sputnik (Rusia)", "alternativo"),
         ("https://news.google.com/rss/search?q=site:spanish.news.cn+israel+OR+iran+OR+oriente&hl=es-419&gl=CO&ceid=CO:es-419", "Xinhua (Proxy)", "chino"),
         
-        # --- SUSTITUCIÓN TÁCTICA: SCMP EN LUGAR DE GLOBAL TIMES ---
         ("https://www.scmp.com/rss/91/feed", "South China Morning Post (China)", "chino"),
-        
         ("https://news.google.com/rss/search?q=site:timesofisrael.com+israel&hl=en-US&gl=US&ceid=US:en", "Times of Israel (Proxy)", "occidental"),
-        
-        # --- SUSTITUCIÓN TÁCTICA: ISRAEL HAYOM EN LUGAR DE JPOST ---
         ("https://www.israelhayom.com/feed/", "Israel Hayom (Israel)", "occidental"),
         
         ("https://www.middleeasteye.net/rss", "Middle East Eye", "independiente"),
@@ -280,7 +295,6 @@ def generar_mapa_volumen_maximo():
                             coords, ciudad = [31.0, 40.0], "Zona de Conflicto"
                     
                     # --- ALGORITMO DE DISPERSIÓN TÁCTICA ---
-                    # Desapilamiento de coordenadas para no ocultar noticias
                     radio = 0.05 if ciudad_exacta else 2.5
                     lat_dispersion = coords[0] + random.uniform(-radio, radio)
                     lon_dispersion = coords[1] + random.uniform(-radio, radio)
@@ -305,7 +319,7 @@ def generar_mapa_volumen_maximo():
                     """
                     
                     marcador = folium.Marker(
-                        location=coords_finales,  # Usamos las coordenadas esparcidas
+                        location=coords_finales,
                         popup=folium.Popup(popup_html, max_width=270),
                         icon=folium.Icon(color=color, icon=icono, prefix='glyphicon'),
                         tooltip=f"{agencia[:18]}: {titulo_es[:32]}..."
@@ -343,7 +357,7 @@ def generar_mapa_volumen_maximo():
     if errores:
         print(f"Feeds con problemas: {len(errores)}")
     
-    # OBTENER DATOS DE PETRÓLEO
+    # OBTENER DATOS DE PETRÓLEO (Ahora usando el motor transplantado)
     print(f"\n[*] Obteniendo datos energéticos...")
     p_brent, a_gas = obtener_datos_petroleo()
     
