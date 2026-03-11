@@ -105,18 +105,12 @@ def obtener_datos_petroleo():
 
 def obtener_feeds_masivos():
     """
-    Motor de Ingesta Masiva E.T.B. con Fuentes Originales + Agencias Gringas + Sustituciones Tácticas
+    Motor de Ingesta Masiva E.T.B. con Fuentes Originales + Sustituciones Tácticas (Cero Yahoo)
     """
     return [
         ("https://gcaptain.com/feed/", "gCaptain (Naval)", "occidental"),
         ("https://feeds.bbci.co.uk/mundo/rss.xml", "BBC Mundo (UK)", "occidental"),
         ("https://feeds.bbci.co.uk/news/rss.xml", "BBC News (UK)", "occidental"),
-        # --- NUEVOS PORTALES GRINGOS (Vía Proxy para evitar bloqueos) ---
-        ("https://news.google.com/rss/search?q=site:cnn.com+israel+OR+iran+OR+middle+east&hl=en-US&gl=US&ceid=US:en", "CNN (USA)", "occidental"),
-        ("https://news.google.com/rss/search?q=site:foxnews.com+israel+OR+iran+OR+middle+east&hl=en-US&gl=US&ceid=US:en", "Fox News (USA)", "occidental"),
-        ("https://news.google.com/rss/search?q=site:nytimes.com+israel+OR+iran+OR+middle+east&hl=en-US&gl=US&ceid=US:en", "NY Times (USA)", "occidental"),
-        ("https://news.google.com/rss/search?q=site:apnews.com+israel+OR+iran+OR+middle+east&hl=en-US&gl=US&ceid=US:en", "AP News (USA)", "occidental"),
-        # ----------------------------------------------------------------
         ("https://news.google.com/rss/search?q=site:elpais.com+oriente+medio+OR+israel+OR+iran&hl=es-419&gl=CO&ceid=CO:es-419", "El País (Proxy)", "occidental"),
         ("https://news.google.com/rss/search?q=source:reuters+middle+east&hl=en-US&gl=US&ceid=US:en", "Reuters (Proxy)", "occidental"),
         ("https://news.google.com/rss/search?q=site:hispantv.com+israel+OR+iran+OR+eeuu+OR+guerra&hl=es-419&gl=CO&ceid=CO:es-419", "HispanTV (Proxy)", "resistencia"),
@@ -125,9 +119,11 @@ def obtener_feeds_masivos():
         ("https://actualidad.rt.com/rss", "RT (Rusia)", "alternativo"),
         ("https://sputniknews.lat/export/rss2/archive/index.xml", "Sputnik (Rusia)", "alternativo"),
         ("https://news.google.com/rss/search?q=site:spanish.news.cn+israel+OR+iran+OR+oriente&hl=es-419&gl=CO&ceid=CO:es-419", "Xinhua (Proxy)", "chino"),
+        
         ("https://www.scmp.com/rss/91/feed", "South China Morning Post (China)", "chino"),
         ("https://news.google.com/rss/search?q=site:timesofisrael.com+israel&hl=en-US&gl=US&ceid=US:en", "Times of Israel (Proxy)", "occidental"),
         ("https://www.israelhayom.com/feed/", "Israel Hayom (Israel)", "occidental"),
+        
         ("https://www.middleeasteye.net/rss", "Middle East Eye", "independiente"),
         ("https://www.al-monitor.com/rss", "Al-Monitor", "independiente"),
     ]
@@ -225,14 +221,10 @@ def generar_mapa_volumen_maximo():
         tiles='CartoDB dark_matter'
     )
     
-    # --- CORRECCIÓN APLICADA: CLÚSTER MAESTRO ÚNICO ---
-    # Esto garantiza que el efecto espiral (Spiderfy) funcione integrando todas las capas.
-    cluster_maestro = MarkerCluster(
-        name="🛰️ REPORTE GLOBAL UNIFICADO",
-        spiderfyOnMaxZoom=True,
-        showCoverageOnHover=False,
-        zoomToBoundsOnClick=True
-    ).add_to(mapa)
+    c_resistencia = MarkerCluster(name="🔴 Eje Resistencia (Irán/Aliados)").add_to(mapa)
+    c_oriental = MarkerCluster(name="🔵 Eje Oriental (Rusia/China)").add_to(mapa)
+    c_occidente = MarkerCluster(name="🟠 Bloque Occidental").add_to(mapa)
+    c_independiente = MarkerCluster(name="🟢 Medios Independientes").add_to(mapa)
     
     total_procesados = 0
     total_filtrados = 0
@@ -301,7 +293,9 @@ def generar_mapa_volumen_maximo():
                         else:
                             coords, ciudad = [31.0, 40.0], "Zona de Conflicto"
                     
-                    # --- ALGORITMO DE APILAMIENTO EXACTO ---
+                    # --- ALGORITMO DE APILAMIENTO EXACTO (EFECTO ESPIRAL / SPIDERFY) ---
+                    # Al asignar la coordenada exacta sin dispersión, Folium agrupará
+                    # todos los pines en un solo punto y creará la espiral al hacer clic.
                     coords_finales = coords
                     
                     color, icono = color_y_icono(bloque, agencia)
@@ -329,8 +323,14 @@ def generar_mapa_volumen_maximo():
                         tooltip=f"{agencia[:18]}: {titulo_es[:32]}..."
                     )
                     
-                    # Agregamos el marcador al único clúster maestro
-                    marcador.add_to(cluster_maestro)
+                    if bloque == 'resistencia':
+                        marcador.add_to(c_resistencia)
+                    elif bloque in ['alternativo', 'chino']:
+                        marcador.add_to(c_oriental)
+                    elif bloque == 'occidental':
+                        marcador.add_to(c_occidente)
+                    else:
+                        marcador.add_to(c_independiente)
                     
                     filtrados_feed += 1
                     total_filtrados += 1
