@@ -13,13 +13,24 @@ from sklearn.cluster import DBSCAN
 
 # --- CONFIGURACIÓN ESTRATÉGICA E.T.B. v2.0 ---
 MAP_KEY_NASA = "c7d1ad2cb48cfb61a3b6653a1cf98ea9"
-# Zona expandida: W=25, S=-10, E=75, N=40 (Cubre Chipre, Medio Oriente y Diego García)
+# Zona expandida: W=25, S=-10, E=75, N=40 (Cubre Chipre, Medio Oriente, Cuerno de África y Diego García)
 ZONA_REGIONAL = "25,-10,75,40"
 
 # --- BASES ESTRATÉGICAS OTAN / COALICIÓN ---
 BASES_ESTRATEGICAS = [
+    {"nombre": "Base Aérea Al Udeid (EEUU)", "coords": [25.116, 51.314], "tipo": "Cuartel General CENTCOM (Qatar)"},
+    {"nombre": "Naval Support Activity (EEUU)", "coords": [26.208, 50.606], "tipo": "Base de la 5ta Flota Naval (Bahréin)"},
+    {"nombre": "Base Aérea Al Dhafra (EEUU/Francia)", "coords": [24.248, 54.547], "tipo": "Centro de Cazas F-35 y Drones (EAU)"},
+    {"nombre": "Camp Arifjan / Ali Al Salem (EEUU)", "coords": [29.346, 47.521], "tipo": "Cubo Logístico Terrestre (Kuwait)"},
+    {"nombre": "Base Aérea Prince Sultan (EEUU)", "coords": [24.064, 47.563], "tipo": "Defensa Antiaérea Patriot/THAAD (Arabia Saudita)"},
+    {"nombre": "Base Aérea Muwaffaq Salti (EEUU/UK)", "coords": [31.835, 36.788], "tipo": "Operaciones de Drones (Jordania)"},
+    {"nombre": "Base Aérea Incirlik (EEUU/OTAN)", "coords": [37.001, 35.425], "tipo": "Almacén de Armas Nucleares Tácticas (Turquía)"},
+    {"nombre": "Camp Lemonnier (EEUU)", "coords": [11.549, 43.148], "tipo": "Control del Mar Rojo / Cuerno de África (Yibuti)"},
+    {"nombre": "Base Aérienne 188 (Francia)", "coords": [11.544, 43.149], "tipo": "Operaciones Conjuntas Mar Rojo (Yibuti)"},
+    {"nombre": "Base Navale de la Paix (Francia)", "coords": [24.502, 54.380], "tipo": "Despliegue Naval Francés (EAU)"},
+    {"nombre": "HMS Jufair (Reino Unido)", "coords": [26.209, 50.607], "tipo": "Base Naval Británica Permanente (Bahréin)"},
     {"nombre": "Base Naval/Aérea Diego García (UK/EEUU)", "coords": [-7.3195, 72.4228], "tipo": "Centro Logístico y Bombarderos Estratégicos"},
-    {"nombre": "Base Aérea RAF Akrotiri (UK/EEUU)", "coords": [34.5714, 32.9405], "tipo": "Proyección de Cazas y Drones en el Mediterráneo"}
+    {"nombre": "Base Aérea RAF Akrotiri (UK/EEUU)", "coords": [34.5714, 32.9405], "tipo": "Proyección de Cazas y Drones (Chipre)"}
 ]
 
 # Zonas de refinerías/petróleo para EXCLUIR (ruido térmico conocido)
@@ -59,7 +70,7 @@ ZONAS_ISRAEL = {
 
 def haversine_distance(lat1, lon1, lat2, lon2):
     """Calcula distancia en km entre dos puntos geográficos"""
-    R = 6371  # Radio de la Tierra en km
+    R = 6371  
     lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
     dlat = lat2 - lat1
     dlon = lon2 - lon1
@@ -273,10 +284,10 @@ def generar_mapa_fusionado_v2():
     df_nasa = obtener_datos_nasa(rango_dias=2)
     alertas_israel = obtener_alertas_aereas_mejorado()
 
-    # Ajuste de ubicación inicial y zoom para ver Diego García y Medio Oriente
-    mapa = folium.Map(location=[15.0, 50.0], zoom_start=4, tiles='CartoDB dark_matter')
+    # Ajuste de ubicación inicial y zoom para abarcar Medio Oriente y Cuerno de África
+    mapa = folium.Map(location=[24.0, 50.0], zoom_start=5, tiles='CartoDB dark_matter')
     
-    capa_bases = folium.FeatureGroup(name="🛡️ Bases Estratégicas (UK/US)").add_to(mapa)
+    capa_bases = folium.FeatureGroup(name="🛡️ Bases Estratégicas (Coalición)").add_to(mapa)
     capa_nasa = folium.FeatureGroup(name="🔥 NASA: Explosiones/Incendios").add_to(mapa)
     capa_sirenas = folium.FeatureGroup(name="🚨 Israel: Sirenas Antiaéreas").add_to(mapa)
     capa_calor = folium.FeatureGroup(name="🌡️ Mapa de Calor (Fusión)").add_to(mapa)
@@ -286,11 +297,22 @@ def generar_mapa_fusionado_v2():
     # --- 0. BASES ESTRATÉGICAS ---
     for base in BASES_ESTRATEGICAS:
         lat, lon = base["coords"]
+        
+        # Determinar el color del escudo basado en el país
+        if "EEUU" in base["nombre"] and not "UK" in base["nombre"] and not "Francia" in base["nombre"]:
+            color_escudo = "#3399ff" # Azul claro para EEUU
+        elif "Francia" in base["nombre"]:
+            color_escudo = "#ffffff" # Blanco para Francia
+        elif "UK" in base["nombre"] or "Reino Unido" in base["nombre"]:
+            color_escudo = "#ff3333" # Rojo para UK
+        else:
+            color_escudo = "#00ffcc" # Turquesa mixto
+            
         info_base = f"""
         <div style="font-family: 'Courier New', monospace; width: 250px; 
                     background: rgba(0,0,0,0.95); color: #fff; padding: 12px; 
-                    border-radius: 8px; border-left: 5px solid #00ffcc;">
-            <b style="color:#00ffcc; font-size: 16px;">🛡️ {base['nombre']}</b><br>
+                    border-radius: 8px; border-left: 5px solid {color_escudo};">
+            <b style="color:{color_escudo}; font-size: 14px;">🛡️ {base['nombre']}</b><br>
             <hr style="border-color: #333; margin: 8px 0;">
             <b>📍 Coordenadas:</b> {lat}, {lon}<br>
             <b>📌 Rol:</b> {base['tipo']}<br>
@@ -410,7 +432,7 @@ def generar_mapa_fusionado_v2():
                 <span style="color:#00ffcc; font-size: 16px; margin-right: 8px;">🛡️</span>
                 <div>
                     <b style="color:#00ffcc;">Bases Estratégicas</b><br>
-                    <span style="font-size: 9px; color: #888;">Posiciones UK/US (Nuevas)</span>
+                    <span style="font-size: 9px; color: #888;">Posiciones Coalición (Actualizado)</span>
                 </div>
             </div>
             <div style="display: flex; align-items: center; margin-top: 8px;">
