@@ -20,9 +20,8 @@ USER_AGENTS = [
     "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0"
 ]
 
-# --- DICCIONARIO TÁCTICO GLOBAL (MEDIO ORIENTE + ÁFRICA SUMADOS) ---
+# --- DICCIONARIO TÁCTICO GLOBAL ---
 COORDENADAS_CLAVE = {
-    # ORIGINALES MEDIO ORIENTE
     "tel aviv": [32.0853, 34.7818], "telavit": [32.0853, 34.7818],
     "jerusalén": [31.7683, 35.2137], "jerusalem": [31.7683, 35.2137],
     "haifa": [32.7940, 34.9896], "gaza": [31.5017, 34.4668],
@@ -52,17 +51,7 @@ COORDENADAS_CLAVE = {
     "pekín": [39.9042, 116.4074], "beijing": [39.9042, 116.4074],
     "moscú": [55.7558, 37.6173], "moscow": [55.7558, 37.6173],
     "ankara": [39.9334, 32.8597], "turquía": [39.9334, 32.8597],
-    "cairo": [30.0444, 31.2357], "el cairo": [30.0444, 31.2357],
-    # AGREGADOS ÁFRICA
-    "niamey": [13.5116, 2.1254], "níger": [13.5116, 2.1254], "niger": [13.5116, 2.1254],
-    "bamako": [12.6392, -8.0029], "malí": [12.6392, -8.0029], "mali": [12.6392, -8.0029],
-    "ouagadougou": [12.3714, -1.5197], "burkina faso": [12.3714, -1.5197],
-    "dakar": [14.7167, -17.4677], "senegal": [14.7167, -17.4677],
-    "abuja": [9.0579, 7.4951], "nigeria": [9.0579, 7.4951],
-    "jartum": [15.5007, 32.5599], "khartoum": [15.5007, 32.5599], "sudán": [15.5007, 32.5599], "sudan": [15.5007, 32.5599],
-    "yibuti": [11.8251, 42.5903], "djibouti": [11.8251, 42.5903],
-    "mogadiscio": [2.0469, 45.3182], "mogadishu": [2.0469, 45.3182], "somalia": [2.0469, 45.3182],
-    "sahel": [14.0, 0.0]
+    "cairo": [30.0444, 31.2357], "el cairo": [30.0444, 31.2357]
 }
 
 def traducir_texto(texto):
@@ -116,17 +105,18 @@ def obtener_datos_petroleo():
 
 def obtener_feeds_masivos():
     """
-    Motor de Ingesta Masiva E.T.B. con Fuentes Originales + Agencias Gringas + Sustituciones Tácticas + ÁFRICA
+    Motor de Ingesta Masiva E.T.B. con Fuentes Originales + Agencias Gringas + Sustituciones Tácticas
     """
     return [
-        # TUS 22 ORIGINALES INTACTOS
         ("https://gcaptain.com/feed/", "gCaptain (Naval)", "occidental"),
         ("https://feeds.bbci.co.uk/mundo/rss.xml", "BBC Mundo (UK)", "occidental"),
         ("https://feeds.bbci.co.uk/news/rss.xml", "BBC News (UK)", "occidental"),
+        # --- NUEVOS PORTALES GRINGOS (Vía Proxy para evitar bloqueos) ---
         ("https://news.google.com/rss/search?q=site:cnn.com+israel+OR+iran+OR+middle+east&hl=en-US&gl=US&ceid=US:en", "CNN (USA)", "occidental"),
         ("https://news.google.com/rss/search?q=site:foxnews.com+israel+OR+iran+OR+middle+east&hl=en-US&gl=US&ceid=US:en", "Fox News (USA)", "occidental"),
         ("https://news.google.com/rss/search?q=site:nytimes.com+israel+OR+iran+OR+middle+east&hl=en-US&gl=US&ceid=US:en", "NY Times (USA)", "occidental"),
         ("https://news.google.com/rss/search?q=site:apnews.com+israel+OR+iran+OR+middle+east&hl=en-US&gl=US&ceid=US:en", "AP News (USA)", "occidental"),
+        # ----------------------------------------------------------------
         ("https://news.google.com/rss/search?q=site:elpais.com+oriente+medio+OR+israel+OR+iran&hl=es-419&gl=CO&ceid=CO:es-419", "El País (Proxy)", "occidental"),
         ("https://news.google.com/rss/search?q=source:reuters+middle+east&hl=en-US&gl=US&ceid=US:en", "Reuters (Proxy)", "occidental"),
         ("https://news.google.com/rss/search?q=site:hispantv.com+israel+OR+iran+OR+eeuu+OR+guerra&hl=es-419&gl=CO&ceid=CO:es-419", "HispanTV (Proxy)", "resistencia"),
@@ -139,16 +129,11 @@ def obtener_feeds_masivos():
         ("https://www.scmp.com/rss/91/feed", "South China Morning Post (China)", "chino"),
         ("https://news.google.com/rss/search?q=site:timesofisrael.com+israel&hl=en-US&gl=US&ceid=US:en", "Times of Israel (Proxy)", "occidental"),
         ("https://www.israelhayom.com/feed/", "Israel Hayom (Israel)", "occidental"),
+        # --- AQUÍ ESTÁ YNET ---
         ("https://news.google.com/rss/search?q=site:ynet.co.il+OR+site:ynetnews.com+israel+OR+iran+OR+gaza+OR+hezbollah&hl=en-US&gl=US&ceid=US:en", "Ynet (Israel)", "occidental"),
+        # ----------------------
         ("https://www.middleeasteye.net/rss", "Middle East Eye", "independiente"),
         ("https://www.al-monitor.com/rss", "Al-Monitor", "independiente"),
-        # AGREGADOS ÁFRICA
-        ("https://es.africanews.com/feed", "Africanews (África)", "independiente"),
-        ("https://news.google.com/rss/search?q=site:jeuneafrique.com+mali+OR+niger+OR+sudan+OR+sahel&hl=fr&gl=FR&ceid=FR:fr", "Jeune Afrique (Proxy Francia)", "occidental"),
-        ("https://actualidad.rt.com/rss/africa", "RT África (Rusia)", "alternativo"),
-        ("https://news.google.com/rss/search?q=site:aljazeera.com/africa+military+OR+conflict&hl=en-US&gl=US&ceid=US:en", "Al Jazeera África", "independiente"),
-        ("https://news.google.com/rss/search?q=site:allafrica.com+military+OR+conflict+OR+sahel&hl=en-US&gl=US&ceid=US:en", "AllAfrica (Proxy)", "independiente"),
-        ("https://news.google.com/rss/search?q=site:rfi.fr/es/áfrica+militar+OR+wagner+OR+sahel&hl=es-419&gl=CO&ceid=CO:es-419", "RFI África (Francia)", "occidental"),
     ]
 
 def generar_enlaces(titulo, agencia, url_original, bloque):
@@ -214,7 +199,7 @@ def detectar_ciudad(texto):
 
 def generar_mapa_volumen_maximo():
     print(f"\n{'='*70}")
-    print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] RADAR E.T.B. - MODO INGESTA MASIVA (MEDIO ORIENTE + ÁFRICA)")
+    print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] RADAR E.T.B. - MODO INGESTA MASIVA")
     print(f"{'='*70}")
     print("[*] Configuración: Volumen extremo + Efecto Spiderfy (Espiral) Activado")
     print("[*] Objetivo: Procesar 100% de noticias disponibles y anclar a nodo central")
@@ -222,9 +207,7 @@ def generar_mapa_volumen_maximo():
     
     feeds = obtener_feeds_masivos()
     
-    # LISTA COMBINADA DE PALABRAS CLAVE
     palabras_clave = [
-        # Originales Medio Oriente
         'misil', 'misiles', 'ataque', 'bombardeo', 'dron', 'impacto', 'explosión', 
         'ofensiva', 'sionista', 'resistencia', 'represalia', 'cohete', 'hezbollah',
         'hamas', 'yihad', 'fuerza quds', 'ejército', 'defensa', 'escudo',
@@ -233,26 +216,21 @@ def generar_mapa_volumen_maximo():
         'tension', 'conflict', 'war', 'military', 'naval', 'blockade',
         'tanker', 'vessel', 'ship', 'shipping', 'hormuz', 'barco', 'petrolero',
         'carrier', 'portaaviones', 'destroyer', 'frigate', 'submarine', 'fleet',
-        'embargo', 'sanctions', 'oil', 'gas', 'energy',
+        'blockade', 'embargo', 'sanctions', 'oil', 'gas', 'energy',
         'brics', 'multipolar', 'ceasefire', 'truce', 'netanyahu', 'mossad',
         'ayatollah', 'revolutionary guard', 'houthis', 'houthi', 'hutí',
         'palestina', 'palestine', 'gaza', 'cisjordania', 'west bank', 'jerusalem',
-        'iran', 'israel', 'lebanon', 'libano', 'syria', 'siria', 'yemen', 'iraq', 'irak',
-        # Nuevas África
-        'sahel', 'níger', 'niger', 'malí', 'mali', 'burkina faso',
-        'sudán', 'sudan', 'djibouti', 'somalia', 'africom', 'wagner',
-        'africa corps', 'cedeao', 'ecowas', 'uranio', 'tuareg', 'jihadist',
-        'yihadista', 'mercenary', 'mercenario', 'rsf', 'saf'
+        'iran', 'israel', 'lebanon', 'libano', 'syria', 'siria', 'yemen', 'iraq', 'irak'
     ]
     
-    # Modificamos la cámara del mapa para que abarque África y Medio Oriente juntos
     mapa = folium.Map(
-        location=[20.0, 25.0],
-        zoom_start=3,
+        location=[30.0, 40.0],
+        zoom_start=5,
         tiles='CartoDB dark_matter'
     )
     
     # --- CORRECCIÓN APLICADA: CLÚSTER MAESTRO ÚNICO ---
+    # Esto garantiza que el efecto espiral (Spiderfy) funcione integrando todas las capas.
     cluster_maestro = MarkerCluster(
         name="🛰️ REPORTE GLOBAL UNIFICADO",
         spiderfyOnMaxZoom=True,
@@ -324,8 +302,6 @@ def generar_mapa_volumen_maximo():
                             coords, ciudad = [32.0853, 34.7818], "Tel Aviv"
                         elif 'naval' in agencia.lower() or 'gCaptain' in agencia:
                             coords, ciudad = [26.56, 56.25], "Estrecho de Ormuz"
-                        elif 'africa' in agencia.lower() or 'afrique' in agencia.lower():
-                            coords, ciudad = [14.0, 0.0], "Sahel / África"
                         else:
                             coords, ciudad = [31.0, 40.0], "Zona de Conflicto"
                     
@@ -413,7 +389,7 @@ def generar_mapa_volumen_maximo():
     <div style="position:fixed;top:20px;right:20px;width:260px;background:rgba(10,10,10,0.95);border:2px solid #444;padding:15px;border-radius:10px;font-family:'Courier New',monospace;font-size:10px;color:#fff;z-index:9999;">
         <h4 style="color:#00ff41;margin:0 0 10px 0;text-align:center;font-size:13px;">🛰️ RADAR E.T.B.</h4>
         <div style="border-top:1px solid #333;padding-top:10px;line-height:1.6;">
-            <span style="color:#ff4444;">🔴</span> Eje Resistencia (MO+África)<br>
+            <span style="color:#ff4444;">🔴</span> Eje Resistencia<br>
             <span style="color:#8b0000;">🔴</span> Rusia/Aliados<br>
             <span style="color:#00008b;">🔵</span> China<br>
             <span style="color:#ffa500;">🟠</span> Occidente<br>
