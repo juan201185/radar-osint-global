@@ -128,6 +128,9 @@ def obtener_feeds_masivos():
         ("https://www.scmp.com/rss/91/feed", "South China Morning Post (China)", "chino"),
         ("https://news.google.com/rss/search?q=site:timesofisrael.com+israel&hl=en-US&gl=US&ceid=US:en", "Times of Israel (Proxy)", "occidental"),
         ("https://www.israelhayom.com/feed/", "Israel Hayom (Israel)", "occidental"),
+        # --- AQUÍ ESTÁ YNET ---
+        ("https://news.google.com/rss/search?q=site:ynet.co.il+OR+site:ynetnews.com+israel+OR+iran+OR+gaza+OR+hezbollah&hl=en-US&gl=US&ceid=US:en", "Ynet (Israel)", "occidental"),
+        # ----------------------
         ("https://www.middleeasteye.net/rss", "Middle East Eye", "independiente"),
         ("https://www.al-monitor.com/rss", "Al-Monitor", "independiente"),
     ]
