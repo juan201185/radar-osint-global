@@ -121,7 +121,6 @@ def obtener_feeds_masivos():
         ("https://news.google.com/rss/search?q=source:reuters+middle+east&hl=en-US&gl=US&ceid=US:en", "Reuters (Proxy)", "occidental"),
         ("https://news.google.com/rss/search?q=site:hispantv.com+israel+OR+iran+OR+eeuu+OR+guerra&hl=es-419&gl=CO&ceid=CO:es-419", "HispanTV (Proxy)", "resistencia"),
         ("https://news.google.com/rss/search?q=site:en.irna.ir+israel+OR+iran+OR+military&hl=en-US&gl=US&ceid=US:en", "IRNA (Proxy)", "resistencia"),
-        ("https://news.google.com/rss/search?q=site:tasnimnews.com+israel+OR+iran+OR+military&hl=en-US&gl=US&ceid=US:en", "Tasnim News (Proxy)", "resistencia"),
         ("https://www.aljazeera.com/xml/rss/all.xml", "Al Jazeera (Qatar)", "independiente"),
         ("https://actualidad.rt.com/rss", "RT (Rusia)", "alternativo"),
         ("https://sputniknews.lat/export/rss2/archive/index.xml", "Sputnik (Rusia)", "alternativo"),
