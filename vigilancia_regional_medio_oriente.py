@@ -11,10 +11,19 @@ import numpy as np
 from scipy.spatial.distance import pdist, squareform
 from sklearn.cluster import DBSCAN
 
-# --- CONFIGURACIÓN ESTRATÉGICA E.T.B. v2.0 ---
+# --- CONFIGURACIÓN ESTRATÉGICA E.T.B. v3.0 ---
 MAP_KEY_NASA = "c7d1ad2cb48cfb61a3b6653a1cf98ea9"
 # Zona expandida: W=25, S=-10, E=75, N=40 (Cubre Chipre, Medio Oriente, Cuerno de África y Diego García)
 ZONA_REGIONAL = "25,-10,75,40"
+
+# --- CAPA 3: ZONAS DE BLOQUEO GPS (GUERRA ELECTRÓNICA) ---
+# Nodos principales de emisión de interferencia para spoofing de drones y censura de datos
+ZONAS_JAMMING = [
+    {"nombre": "Paraguas EW Norte (Haifa/Líbano)", "coords": [32.9, 35.2], "radio": 60000}, # 60km radio
+    {"nombre": "Paraguas EW Centro (Tel Aviv/Jerusalén)", "coords": [31.9, 34.9], "radio": 50000},
+    {"nombre": "Escudo EW Sur (Eilat/Mar Rojo)", "coords": [29.65, 34.95], "radio": 40000},
+    {"nombre": "Censura GPS (Golán)", "coords": [33.1, 35.7], "radio": 35000}
+]
 
 # --- BASES ESTRATÉGICAS OTAN / COALICIÓN ---
 BASES_ESTRATEGICAS = [
@@ -46,6 +55,7 @@ REFINERIAS_RUIDO = [
     {"nombre": "Zona Ras Tanura", "coords": [26.7731, 50.0600], "radio_km": 18},
     {"nombre": "Zona Industrial Damasco", "coords": [33.5138, 36.2765], "radio_km": 5},
     {"nombre": "Refinería Teherán", "coords": [35.6892, 51.3890], "radio_km": 10},
+    {"nombre": "Complejo Jamnagar (India)", "coords": [22.342, 69.866], "radio_km": 25}, # Filtro para limpiar el ruido agrícola/industrial en India
 ]
 
 ZONAS_ISRAEL = {
@@ -275,11 +285,11 @@ def geolocalizar_alerta(texto):
         coords = [32.0853 + random.uniform(-0.15, 0.15), 34.7818 + random.uniform(-0.15, 0.15)]
         return coords, "Área Central (Estimado)"
 
-def generar_mapa_fusionado_v2():
+def generar_mapa_fusionado_v3():
     print("\n" + "="*60)
-    print("INICIANDO FUSIÓN MULTISENSOR E.T.B. v2.0")
+    print("INICIANDO FUSIÓN MULTISENSOR E.T.B. v3.0")
     print("="*60)
-    print("Sensores: NASA VIIRS | Red de Sirenas | Bases Estratégicas")
+    print("Sensores: NASA VIIRS | Red de Sirenas | Bases Estratégicas | Guerra Electrónica")
     
     df_nasa = obtener_datos_nasa(rango_dias=2)
     alertas_israel = obtener_alertas_aereas_mejorado()
@@ -287,12 +297,26 @@ def generar_mapa_fusionado_v2():
     # Ajuste de ubicación inicial y zoom para abarcar Medio Oriente y Cuerno de África
     mapa = folium.Map(location=[24.0, 50.0], zoom_start=5, tiles='CartoDB dark_matter')
     
+    capa_ew = folium.FeatureGroup(name="🧲 Guerra Electrónica (Jamming GPS)").add_to(mapa)
     capa_bases = folium.FeatureGroup(name="🛡️ Bases Estratégicas (Coalición)").add_to(mapa)
     capa_nasa = folium.FeatureGroup(name="🔥 NASA: Explosiones/Incendios").add_to(mapa)
     capa_sirenas = folium.FeatureGroup(name="🚨 Israel: Sirenas Antiaéreas").add_to(mapa)
     capa_calor = folium.FeatureGroup(name="🌡️ Mapa de Calor (Fusión)").add_to(mapa)
 
     puntos_calor = []
+
+    # --- CAPA 3: GUERRA ELECTRÓNICA (ZONAS JAMMING) ---
+    for jam in ZONAS_JAMMING:
+        folium.Circle(
+            location=jam["coords"],
+            radius=jam["radio"],
+            color="#aa00ff",
+            weight=1,
+            fill_opacity=0.15,
+            fill_color="#aa00ff",
+            tooltip=f"🧲 {jam['nombre']} (Bloqueo de Datos Activo)",
+            popup="Censura térmica y desviación de coordenadas GPS activa en este perímetro."
+        ).add_to(capa_ew)
 
     # --- 0. BASES ESTRATÉGICAS ---
     for base in BASES_ESTRATEGICAS:
@@ -403,7 +427,7 @@ def generar_mapa_fusionado_v2():
                 tooltip=f"{alerta['tipo_ataque']}: {alerta['zona']}"
             ).add_to(capa_sirenas)
 
-    # --- 3. MAPA DE CALOR ---
+    # --- 4. MAPA DE CALOR ---
     if puntos_calor:
         HeatMap(
             puntos_calor, 
@@ -425,28 +449,35 @@ def generar_mapa_fusionado_v2():
                 box-shadow: 0 0 20px rgba(0,0,0,0.8);">
         <h4 style="color:#ff3333; margin-top:0; text-align:center; font-size: 14px; 
                    border-bottom: 2px solid #333; padding-bottom: 8px;">
-            🛰️ RADAR E.T.B. v2.0
+            🛰️ RADAR E.T.B. v3.0
         </h4>
         <div style="line-height: 1.8; margin-top: 10px;">
             <div style="display: flex; align-items: center;">
+                <span style="color:#aa00ff; font-size: 16px; margin-right: 8px;">🧲</span>
+                <div>
+                    <b style="color:#aa00ff;">Guerra Electrónica</b><br>
+                    <span style="font-size: 9px; color: #888;">Censura GPS/Spoofing (Capa 3)</span>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; margin-top: 8px;">
                 <span style="color:#00ffcc; font-size: 16px; margin-right: 8px;">🛡️</span>
                 <div>
                     <b style="color:#00ffcc;">Bases Estratégicas</b><br>
-                    <span style="font-size: 9px; color: #888;">Posiciones Coalición (Actualizado)</span>
+                    <span style="font-size: 9px; color: #888;">Posiciones de la Coalición</span>
                 </div>
             </div>
             <div style="display: flex; align-items: center; margin-top: 8px;">
                 <span style="color:#ff0000; font-size: 16px; margin-right: 8px;">🔥</span>
                 <div>
                     <b style="color:#ff6666;">NASA VIIRS</b><br>
-                    <span style="font-size: 9px; color: #888;">Anomalías Térmicas</span>
+                    <span style="font-size: 9px; color: #888;">Anomalías Térmicas Físicas</span>
                 </div>
             </div>
             <div style="display: flex; align-items: center; margin-top: 8px;">
                 <span style="color:#0066cc; font-size: 16px; margin-right: 8px;">🚨</span>
                 <div>
                     <b style="color:#0066cc;">Red de Sirenas</b><br>
-                    <span style="font-size: 9px; color: #888;">OSINT Israel</span>
+                    <span style="font-size: 9px; color: #888;">OSINT Acústico Activo</span>
                 </div>
             </div>
         </div>
@@ -454,7 +485,7 @@ def generar_mapa_fusionado_v2():
                     font-size: 10px; color: #666; text-align: center;">
             <b>Última actualización:</b><br>
             {timestamp}<br>
-            <span style="color: #444;">Sistema E.T.B. v2.0 (Verificado)</span>
+            <span style="color: #444;">Sistema E.T.B. v3.0 (Verificado)</span>
         </div>
     </div>
     """
@@ -464,10 +495,10 @@ def generar_mapa_fusionado_v2():
     mapa.save(nombre_mapa)
     
     print("\n" + "="*60)
-    print(f"[✅ MAPA MULTISENSOR GENERADO]")
+    print(f"[✅ MAPA MULTISENSOR v3.0 GENERADO]")
     print(f"Archivo: {nombre_mapa}")
-    print(f"Capas: Bases | NASA VIIRS | Sirenas | Heatmap")
+    print(f"Capas: EW/Jamming | Bases | NASA VIIRS | Sirenas | Heatmap")
     print("="*60 + "\n")
 
 if __name__ == "__main__":
-    generar_mapa_fusionado_v2()
+    generar_mapa_fusionado_v3()
