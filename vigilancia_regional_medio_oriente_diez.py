@@ -13,14 +13,7 @@ from sklearn.cluster import DBSCAN
 
 # --- CONFIGURACIÓN ESTRATÉGICA E.T.B. v2.0 ---
 MAP_KEY_NASA = "c7d1ad2cb48cfb61a3b6653a1cf98ea9"
-# Zona expandida: W=25, S=-10, E=75, N=40 (Cubre Chipre, Medio Oriente y Diego García)
-ZONA_REGIONAL = "25,-10,75,40"
-
-# --- BASES ESTRATÉGICAS OTAN / COALICIÓN ---
-BASES_ESTRATEGICAS = [
-    {"nombre": "Base Naval/Aérea Diego García (UK/EEUU)", "coords": [-7.3195, 72.4228], "tipo": "Centro Logístico y Bombarderos Estratégicos"},
-    {"nombre": "Base Aérea RAF Akrotiri (UK/EEUU)", "coords": [34.5714, 32.9405], "tipo": "Proyección de Cazas y Drones en el Mediterráneo"}
-]
+ZONA_REGIONAL = "32,12,63,38"
 
 # Zonas de refinerías/petróleo para EXCLUIR (ruido térmico conocido)
 REFINERIAS_RUIDO = [
@@ -68,7 +61,10 @@ def haversine_distance(lat1, lon1, lat2, lon2):
     return R * c
 
 def filtrar_refinerias(df):
-    """Algoritmo de filtrado de ruido térmico industrial"""
+    """
+    Algoritmo de filtrado de ruido térmico industrial
+    Elimina puntos dentro del radio de refinerías conocidas
+    """
     if df is None or df.empty:
         return df
     
@@ -78,6 +74,7 @@ def filtrar_refinerias(df):
     for ref in REFINERIAS_RUIDO:
         lat_ref, lon_ref = ref["coords"]
         
+        # Vectorizar cálculo de distancias (más rápido)
         distancias = df_filtrado.apply(
             lambda row: haversine_distance(row['latitude'], row['longitude'], lat_ref, lon_ref),
             axis=1
@@ -88,11 +85,15 @@ def filtrar_refinerias(df):
     puntos_filtrados = mascara_ruido.sum()
     if puntos_filtrados > 0:
         print(f"   [FILTRO] Eliminados {puntos_filtrados} puntos de ruido industrial")
+        print(f"            Refinerías detectadas: {ref['nombre']}")
     
     return df_filtrado[~mascara_ruido]
 
 def detectar_anomalias_explosiones(df):
-    """Algoritmo DBSCAN para clasificar eventos térmicos"""
+    """
+    Algoritmo de clustering DBSCAN para clasificar eventos térmicos
+    Diferencia entre explosiones (puntuales, intensas) e incendios (difusos)
+    """
     if df is None or len(df) < 3:
         if df is not None:
             df['tipo_evento'] = 'DESCONOCIDO'
@@ -105,37 +106,47 @@ def detectar_anomalias_explosiones(df):
     clustering = DBSCAN(eps=0.03, min_samples=2).fit(coords)
     df['cluster'] = clustering.labels_
     
+    # Clasificar cada cluster
     for cluster_id in set(clustering.labels_):
-        if cluster_id == -1:
+        if cluster_id == -1:  # Puntos aislados (ruido para DBSCAN)
             continue
         
         cluster_data = df[df['cluster'] == cluster_id]
+        
         temp_max = cluster_data['bright_ti4'].max()
         n_puntos = len(cluster_data)
         
+        # Calcular dispersión geográfica
         if n_puntos > 1:
             dispersion = np.mean(pdist(cluster_data[['latitude', 'longitude']].values))
         else:
             dispersion = 0
         
+        # Clasificación táctica
         if temp_max > 380 and n_puntos <= 3 and dispersion < 0.01:
-            tipo, conf = 'EXPLOSION_CONFIRMADA', 'ALTA'
+            tipo = 'EXPLOSION_CONFIRMADA'
+            conf = 'ALTA'
         elif temp_max > 360 and n_puntos <= 5:
-            tipo, conf = 'POSIBLE_EXPLOSION', 'MEDIA'
+            tipo = 'POSIBLE_EXPLOSION'
+            conf = 'MEDIA'
         elif temp_max > 340:
-            tipo, conf = 'INCENDIO_ESTRUCTURAL', 'MEDIA'
+            tipo = 'INCENDIO_ESTRUCTURAL'
+            conf = 'MEDIA'
         else:
-            tipo, conf = 'INCENDIO_NATURAL', 'BAJA'
+            tipo = 'INCENDIO_NATURAL'
+            conf = 'BAJA'
         
         df.loc[cluster_data.index, 'tipo_evento'] = tipo
         df.loc[cluster_data.index, 'confianza'] = conf
     
+    # Puntos aislados (sin cluster) pero muy calientes = explosión solitaria
     puntos_aislados = df[df['cluster'] == -1]
     explosiones_aisladas = puntos_aislados[puntos_aislados['bright_ti4'] > 400]
     
     df.loc[explosiones_aisladas.index, 'tipo_evento'] = 'EXPLOSION_AISLADA'
     df.loc[explosiones_aisladas.index, 'confianza'] = 'ALTA'
     
+    # Resto de aislados = incendios menores
     otros_aislados = puntos_aislados[puntos_aislados['bright_ti4'] <= 400]
     df.loc[otros_aislados.index, 'tipo_evento'] = 'ANOMALIA_MENOR'
     df.loc[otros_aislados.index, 'confianza'] = 'BAJA'
@@ -153,9 +164,11 @@ def obtener_datos_nasa(rango_dias=2):
             df = pd.read_csv(StringIO(response.text))
             print(f"   -> Raw data: {len(df)} anomalías térmicas brutas")
             
+            # Pipeline de filtrado inteligente
             df = filtrar_refinerias(df)
             df = detectar_anomalias_explosiones(df)
             
+            # Filtrar solo eventos tácticos relevantes
             df_tactico = df[
                 (df['bright_ti4'] > 340) | 
                 (df['tipo_evento'].isin(['EXPLOSION_CONFIRMADA', 'EXPLOSION_AISLADA', 'POSIBLE_EXPLOSION']))
@@ -172,7 +185,7 @@ def obtener_datos_nasa(rango_dias=2):
         return None
 
 def obtener_alertas_aereas_mejorado():
-    """Capa 2: Sirenas antiaéreas con múltiples fuentes"""
+    """Capa 2: Sirenas antiaéreas con múltiples fuentes y geolocalización precisa"""
     print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Interceptando red de sirenas multicanal...")
     
     feedparser.USER_AGENT = random.choice([
@@ -223,13 +236,14 @@ def obtener_alertas_aereas_mejorado():
                     'tipo_ataque': 'Hezbollah' if 'hezbollah' in texto else 'Hamas' if 'hamas' in texto else 'Desconocido'
                 })
         except Exception as e:
+            print(f"   [!] Error fuente: {str(e)[:40]}")
             continue
-            
+    
     print(f"   -> Éxito: {len(alertas_totales)} alertas únicas detectadas")
     return alertas_totales
 
 def geolocalizar_alerta(texto):
-    """Sistema de geolocalización granular"""
+    """Sistema de geolocalización granular para alertas de sirenas en Israel"""
     texto = texto.lower()
     
     if any(x in texto for x in ['kiryat shmona', 'kiryat shmonah', 'galilee', 'galil', 'north', 'lebanon', 'hezbollah', 'nazareth illit']):
@@ -268,42 +282,20 @@ def generar_mapa_fusionado_v2():
     print("\n" + "="*60)
     print("INICIANDO FUSIÓN MULTISENSOR E.T.B. v2.0")
     print("="*60)
-    print("Sensores: NASA VIIRS | Red de Sirenas | Bases Estratégicas")
+    print("Sensores: NASA VIIRS | Red de Sirenas")
     
     df_nasa = obtener_datos_nasa(rango_dias=2)
     alertas_israel = obtener_alertas_aereas_mejorado()
 
-    # Ajuste de ubicación inicial y zoom para ver Diego García y Medio Oriente
-    mapa = folium.Map(location=[15.0, 50.0], zoom_start=4, tiles='CartoDB dark_matter')
+    mapa = folium.Map(location=[31.5, 38.0], zoom_start=6, tiles='CartoDB dark_matter')
     
-    capa_bases = folium.FeatureGroup(name="🛡️ Bases Estratégicas (UK/US)").add_to(mapa)
     capa_nasa = folium.FeatureGroup(name="🔥 NASA: Explosiones/Incendios").add_to(mapa)
     capa_sirenas = folium.FeatureGroup(name="🚨 Israel: Sirenas Antiaéreas").add_to(mapa)
     capa_calor = folium.FeatureGroup(name="🌡️ Mapa de Calor (Fusión)").add_to(mapa)
 
     puntos_calor = []
 
-    # --- 0. BASES ESTRATÉGICAS ---
-    for base in BASES_ESTRATEGICAS:
-        lat, lon = base["coords"]
-        info_base = f"""
-        <div style="font-family: 'Courier New', monospace; width: 250px; 
-                    background: rgba(0,0,0,0.95); color: #fff; padding: 12px; 
-                    border-radius: 8px; border-left: 5px solid #00ffcc;">
-            <b style="color:#00ffcc; font-size: 16px;">🛡️ {base['nombre']}</b><br>
-            <hr style="border-color: #333; margin: 8px 0;">
-            <b>📍 Coordenadas:</b> {lat}, {lon}<br>
-            <b>📌 Rol:</b> {base['tipo']}<br>
-        </div>
-        """
-        folium.Marker(
-            location=[lat, lon],
-            popup=folium.Popup(info_base, max_width=300),
-            icon=folium.Icon(color='black', icon='shield', prefix='fa'),
-            tooltip=base['nombre']
-        ).add_to(capa_bases)
-
-    # --- 1. DATOS NASA ---
+    # --- 1. DATOS NASA (100% REALES) ---
     if df_nasa is not None and not df_nasa.empty:
         for _, fila in df_nasa.iterrows():
             temp_c = round(fila['bright_ti4'] - 273.15, 1)
@@ -347,7 +339,7 @@ def generar_mapa_fusionado_v2():
                 weight=2
             ).add_to(capa_nasa)
 
-    # --- 2. ALERTAS DE SIRENAS ---
+    # --- 2. ALERTAS DE SIRENAS (OSINT EN VIVO) ---
     if alertas_israel:
         for alerta in alertas_israel:
             lat, lon = alerta['lat'], alerta['lon']
@@ -362,7 +354,7 @@ def generar_mapa_fusionado_v2():
                 <b style="color:{color_sirena}; font-size: 16px;">🚨 ALERTA ANTIAÉREA</b><br>
                 <hr style="border-color: #333; margin: 8px 0;">
                 <b>📍 Zona:</b> {alerta['zona']}<br>
-                <b>📍 Coordenadas:</b> {round(lat, 5)}, {round(lon, 5)}<br>
+                <b>📍 Coordenadas (Est.):</b> {round(lat, 5)}, {round(lon, 5)}<br>
                 <b>🚀 Agresor:</b> {alerta['tipo_ataque']}<br>
                 <b>📰 Evento:</b> {alerta['titulo']}<br>
                 <b>🕐 Hora:</b> {alerta['fecha'][:25]}<br>
@@ -381,7 +373,7 @@ def generar_mapa_fusionado_v2():
                 tooltip=f"{alerta['tipo_ataque']}: {alerta['zona']}"
             ).add_to(capa_sirenas)
 
-    # --- 3. MAPA DE CALOR ---
+    # --- 3. MAPA DE CALOR CONJUNTO ---
     if puntos_calor:
         HeatMap(
             puntos_calor, 
@@ -391,7 +383,7 @@ def generar_mapa_fusionado_v2():
             gradient={0.4: 'blue', 0.65: 'lime', 0.8: 'yellow', 1: 'red'}
         ).add_to(capa_calor)
 
-    # Controles y Panel HTML
+    # Controles y Panel HTML Purificado
     folium.LayerControl(collapsed=False).add_to(mapa)
     
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -403,28 +395,28 @@ def generar_mapa_fusionado_v2():
                 box-shadow: 0 0 20px rgba(0,0,0,0.8);">
         <h4 style="color:#ff3333; margin-top:0; text-align:center; font-size: 14px; 
                    border-bottom: 2px solid #333; padding-bottom: 8px;">
-            🛰️ RADAR E.T.B. v2.0
+            🛰️ RADAR MULTISENSOR E.T.B.
         </h4>
         <div style="line-height: 1.8; margin-top: 10px;">
             <div style="display: flex; align-items: center;">
-                <span style="color:#00ffcc; font-size: 16px; margin-right: 8px;">🛡️</span>
-                <div>
-                    <b style="color:#00ffcc;">Bases Estratégicas</b><br>
-                    <span style="font-size: 9px; color: #888;">Posiciones UK/US (Nuevas)</span>
-                </div>
-            </div>
-            <div style="display: flex; align-items: center; margin-top: 8px;">
                 <span style="color:#ff0000; font-size: 16px; margin-right: 8px;">🔥</span>
                 <div>
                     <b style="color:#ff6666;">NASA VIIRS</b><br>
-                    <span style="font-size: 9px; color: #888;">Anomalías Térmicas</span>
+                    <span style="font-size: 9px; color: #888;">Filtrado industrial + Clustering</span>
                 </div>
             </div>
             <div style="display: flex; align-items: center; margin-top: 8px;">
                 <span style="color:#0066cc; font-size: 16px; margin-right: 8px;">🚨</span>
                 <div>
                     <b style="color:#0066cc;">Red de Sirenas</b><br>
-                    <span style="font-size: 9px; color: #888;">OSINT Israel</span>
+                    <span style="font-size: 9px; color: #888;">Inteligencia OSINT multicanal</span>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; margin-top: 8px;">
+                <span style="color:#ffcc00; font-size: 16px; margin-right: 8px;">🌡️</span>
+                <div>
+                    <b style="color:#ffcc00;">Heatmap Fusión</b><br>
+                    <span style="font-size: 9px; color: #888;">Correlación de todas las fuentes</span>
                 </div>
             </div>
         </div>
@@ -444,7 +436,7 @@ def generar_mapa_fusionado_v2():
     print("\n" + "="*60)
     print(f"[✅ MAPA MULTISENSOR GENERADO]")
     print(f"Archivo: {nombre_mapa}")
-    print(f"Capas: Bases | NASA VIIRS | Sirenas | Heatmap")
+    print(f"Capas: NASA VIIRS | Sirenas | Heatmap")
     print("="*60 + "\n")
 
 if __name__ == "__main__":
