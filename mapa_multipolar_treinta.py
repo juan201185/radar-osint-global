@@ -66,16 +66,11 @@ COORDENADAS_CLAVE = {
     "yibuti": [11.8251, 42.5903], "djibouti": [11.8251, 42.5903],
     "mogadiscio": [2.0469, 45.3182], "mogadishu": [2.0469, 45.3182], "somalia": [2.0469, 45.3182],
     "sahel": [14.0, 0.0],
-    # AGREGADOS LATAM Y OTROS (AMPLIADO)
+    # AGREGADOS LATAM (EJE SOBERANÍA)
     "malvinas": [-51.7963, -59.5236], "falkland": [-51.7963, -59.5236],
     "esequibo": [6.13, -59.0], "georgetown": [6.8013, -58.1551],
-    "buenos aires": [-34.6037, -58.3816], "caracas": [10.4806, -66.9036], "venezuela": [10.4806, -66.9036],
-    "popayán": [2.4411, -76.6061], "colombia": [4.5709, -74.2973], "bogotá": [4.7110, -74.0721],
-    "paraguay": [-23.4425, -58.4438], "asunción": [-25.2637, -57.5759],
-    "cuba": [21.5218, -77.7812], "la habana": [23.1136, -82.3666],
-    "florida": [27.9944, -81.7603], "miami": [25.7617, -80.1918],
-    "comando sur": [25.8028, -80.3292], "southcom": [25.8028, -80.3292],
-    "caribe": [15.3281, -76.1551]
+    "buenos aires": [-34.6037, -58.3816], "caracas": [10.4806, -66.9036],
+    "popayán": [2.4411, -76.6061]
 }
 
 # --- CÁLCULO DE FRP TÉRMICO ---
@@ -97,7 +92,6 @@ def traducir_texto(texto):
     except Exception:
         # Fallback silencioso: si Google tumba la conexión, pasa el texto original sin tirar error en consola
         return texto
-
 def obtener_datos_petroleo():
     print("\n[*] Obteniendo cotización de energía (Bypass total: Cambio de proveedor)...")
     print("   [📡] Conectando a los servidores de CNBC Markets (Nivel Institucional)...")
@@ -195,7 +189,7 @@ def obtener_feeds_masivos():
         # AGREGADOS LATAM (EJE SOBERANÍA)
         ("https://www.telesurtv.net/rss/rss.xml", "TeleSUR (LatAm)", "resistencia"),
         ("https://actualidad.rt.com/rss/america_latina", "RT LatAm", "alternativo"),
-        ("https://news.google.com/rss/search?q=esequibo+OR+malvinas+OR+comando+sur+OR+paraguay+OR+cuba&hl=es-419&gl=CO&ceid=CO:es-419", "Monitor Sur", "independiente")
+        ("https://news.google.com/rss/search?q=esequibo+OR+malvinas+OR+comando+sur&hl=es-419&gl=CO&ceid=CO:es-419", "Monitor Sur", "independiente")
     ]
 
 def generar_enlaces(titulo, agencia, url_original, bloque):
@@ -237,44 +231,10 @@ def color_y_icono(bloque, agencia):
     else: return 'green', 'info-sign'
 
 def detectar_ciudad(texto):
-    """Sistema de geolocalización ampliado para América, África y Medio Oriente"""
     texto_lower = texto.lower()
-    
-    # Busca directamente en el diccionario de coordenadas
     for ciudad, coords in COORDENADAS_CLAVE.items():
         if ciudad in texto_lower: return coords, ciudad
-        
-    # --- BLOQUE DE BÚSQUEDA SECUNDARIA (Contexto General) ---
-    if any(x in texto_lower for x in ['kiryat shmona', 'galilee', 'north', 'lebanon', 'libano']):
-        return [33.2075, 35.5694], "Norte / Líbano"
-    elif any(x in texto_lower for x in ['tel aviv', 'yafo', 'gush dan']):
-        return [32.0853, 34.7818], "Tel Aviv / Centro"
-    elif 'gaza' in texto_lower:
-        return [31.5017, 34.4668], "Franja de Gaza"
-    elif 'siria' in texto_lower or 'syria' in texto_lower:
-        return [34.8021, 38.9968], "Siria (General)"
-    elif 'yemen' in texto_lower or 'houthi' in texto_lower or 'hutí' in texto_lower:
-        return [15.5527, 48.5164], "Yemen (General)"
-    
-    # --- ÁFRICA ---
-    elif 'sahel' in texto_lower or 'wagner' in texto_lower:
-        return [14.0, 0.0], "Región del Sahel"
-        
-    # --- LATAM (Nuevos Agregados) ---
-    elif any(x in texto_lower for x in ['comando sur', 'southcom', 'florida']):
-        return [25.8028, -80.3292], "Comando Sur (USA)"
-    elif 'cuba' in texto_lower or 'la habana' in texto_lower:
-        return [21.5218, -77.7812], "Cuba"
-    elif 'paraguay' in texto_lower or 'asunción' in texto_lower:
-        return [-23.4425, -58.4438], "Paraguay"
-    elif 'venezuela' in texto_lower or 'caracas' in texto_lower or 'maduro' in texto_lower:
-        return [10.4806, -66.9036], "Venezuela"
-    elif 'colombia' in texto_lower or 'bogotá' in texto_lower or 'petro' in texto_lower:
-        return [4.5709, -74.2973], "Colombia"
-    
-    # Fallback si no encuentra nada
     return None, None
-
 def generar_mapa_volumen_maximo():
     print(f"\n{'='*70}")
     print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] RADAR E.T.B. v4.0 - MODO INTEGRAL (REAL-TIME NASA + SIGINT)")
@@ -303,7 +263,7 @@ def generar_mapa_volumen_maximo():
         'africa corps', 'cedeao', 'ecowas', 'uranio', 'tuareg', 'jihadist',
         'yihadista', 'mercenary', 'mercenario', 'rsf', 'saf',
         # LatAm (Eje Soberanía)
-        'malvinas', 'falkland', 'esequibo', 'comando sur', 'southcom', 'litio', 'soberanía', 'petro', 'milei', 'paraguay', 'cuba', 'florida', 'caribe'
+        'malvinas', 'falkland', 'esequibo', 'comando sur', 'southcom', 'litio', 'soberanía', 'petro', 'milei'
     ]
     
     # Términos específicos para disparar la alerta SIGINT (Capa 3 en vivo)
@@ -374,17 +334,14 @@ def generar_mapa_volumen_maximo():
                     coords, ciudad = detectar_ciudad(texto_completo)
                     
                     if not coords:
-                        # Fallbacks Regionales si no encuentra coordenadas exactas
-                        if bloque == 'resistencia': coords, ciudad = [35.6892, 51.3890], "Teherán (Referencia)"
-                        elif bloque == 'alternativo': coords, ciudad = [55.7558, 37.6173], "Moscú (Referencia)"
-                        elif bloque == 'chino': coords, ciudad = [39.9042, 116.4074], "Beijing (Referencia)"
-                        elif 'israel' in agencia.lower(): coords, ciudad = [32.0853, 34.7818], "Israel (Referencia)"
-                        elif 'naval' in agencia.lower() or 'gCaptain' in agencia: coords, ciudad = [26.56, 56.25], "Estrecho de Ormuz (Referencia)"
-                        elif 'africa' in agencia.lower() or 'afrique' in agencia.lower(): coords, ciudad = [14.0, 0.0], "África (Referencia)"
-                        elif 'latam' in agencia.lower() or 'telesur' in agencia.lower(): coords, ciudad = [4.0, -65.0], "Latinoamérica (Referencia)"
-                        # Si es de occidente pero no es Israel, lo mandamos a un punto neutral en el Atlántico para que no se amontonen en Europa
-                        elif bloque == 'occidental': coords, ciudad = [35.0, -40.0], "Reporte Occidental (Sin Geolocalización)"
-                        else: coords, ciudad = [0.0, 0.0], "Zona No Identificada"
+                        if bloque == 'resistencia': coords, ciudad = [35.6892, 51.3890], "Teherán"
+                        elif bloque == 'alternativo': coords, ciudad = [55.7558, 37.6173], "Moscú"
+                        elif bloque == 'chino': coords, ciudad = [39.9042, 116.4074], "Beijing"
+                        elif 'israel' in agencia.lower(): coords, ciudad = [32.0853, 34.7818], "Tel Aviv"
+                        elif 'naval' in agencia.lower() or 'gCaptain' in agencia: coords, ciudad = [26.56, 56.25], "Estrecho de Ormuz"
+                        elif 'africa' in agencia.lower() or 'afrique' in agencia.lower(): coords, ciudad = [14.0, 0.0], "Sahel / África"
+                        elif 'latam' in agencia.lower() or 'telesur' in agencia.lower(): coords, ciudad = [4.0, -65.0], "Latinoamérica"
+                        else: coords, ciudad = [31.0, 40.0], "Zona de Conflicto"
                     
                     color, icono = color_y_icono(bloque, agencia)
                     url_original = entry.get('link', url)
