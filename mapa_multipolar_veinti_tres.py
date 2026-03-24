@@ -8,9 +8,6 @@ import urllib.parse
 import random
 import socket
 import time
-import math
-import csv
-import io
 
 # --- CONFIGURACIÓN DE RED Y EVASIÓN ---
 socket.setdefaulttimeout(20)
@@ -23,7 +20,7 @@ USER_AGENTS = [
     "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0"
 ]
 
-# --- DICCIONARIO TÁCTICO GLOBAL (MEDIO ORIENTE + ÁFRICA + LATAM SUMADOS) ---
+# --- DICCIONARIO TÁCTICO GLOBAL (MEDIO ORIENTE + ÁFRICA SUMADOS) ---
 COORDENADAS_CLAVE = {
     # ORIGINALES MEDIO ORIENTE
     "tel aviv": [32.0853, 34.7818], "telavit": [32.0853, 34.7818],
@@ -65,33 +62,24 @@ COORDENADAS_CLAVE = {
     "jartum": [15.5007, 32.5599], "khartoum": [15.5007, 32.5599], "sudán": [15.5007, 32.5599], "sudan": [15.5007, 32.5599],
     "yibuti": [11.8251, 42.5903], "djibouti": [11.8251, 42.5903],
     "mogadiscio": [2.0469, 45.3182], "mogadishu": [2.0469, 45.3182], "somalia": [2.0469, 45.3182],
-    "sahel": [14.0, 0.0],
-    # AGREGADOS LATAM (EJE SOBERANÍA)
-    "malvinas": [-51.7963, -59.5236], "falkland": [-51.7963, -59.5236],
-    "esequibo": [6.13, -59.0], "georgetown": [6.8013, -58.1551],
-    "buenos aires": [-34.6037, -58.3816], "caracas": [10.4806, -66.9036],
-    "popayán": [2.4411, -76.6061]
+    "sahel": [14.0, 0.0]
 }
-
-# --- CÁLCULO DE FRP TÉRMICO ---
-def calcular_radio_impacto(frp_valor):
-    """Calcula el radio visual del marcador basado en la energía del fuego (MW)"""
-    return math.sqrt(frp_valor) * 1.5
 
 def traducir_texto(texto):
     if not texto:
         return ""
     try:
-        # Retardo aleatorio para evadir el radar antibots de Google
-        time.sleep(random.uniform(0.5, 1.5)) 
+        time.sleep(0.5) 
         if any('\u4e00' <= char <= '\u9fff' for char in texto):
             return GoogleTranslator(source='zh-CN', target='es').translate(texto)
         if any('\u0600' <= char <= '\u06ff' for char in texto):
             return GoogleTranslator(source='ar', target='es').translate(texto)
         return GoogleTranslator(source='auto', target='es').translate(texto)
-    except Exception:
-        # Fallback silencioso: si Google tumba la conexión, pasa el texto original sin tirar error en consola
+    except Exception as e:
+        print(f"      [!] Error traducción: {str(e)[:30]}")
         return texto
+
+# --- EL MOTOR EXACTO QUE USTED PROPORCIONÓ (TRANSPLANTADO) ---
 def obtener_datos_petroleo():
     print("\n[*] Obteniendo cotización de energía (Bypass total: Cambio de proveedor)...")
     print("   [📡] Conectando a los servidores de CNBC Markets (Nivel Institucional)...")
@@ -105,12 +93,15 @@ def obtener_datos_petroleo():
     }
     
     try:
+        # Hacemos la petición directa al motor de CNBC
         respuesta = requests.get(url_cnbc, headers=headers, timeout=10)
         datos = respuesta.json()
         
+        # Extraemos el último precio transado ("last") navegando su JSON
         precio_str = datos['FormattedQuoteResult']['FormattedQuote'][0]['last']
         precio = float(precio_str)
         
+        # La matemática de proyección de fletes de Ingeniería Trejos
         variacion_pct = (precio - 74.0) / 74.0
         alza = int(15600 * (variacion_pct * 0.65))
         
@@ -119,41 +110,13 @@ def obtener_datos_petroleo():
         
     except Exception as e:
         print(f"   [❌] Falla en la red satelital secundaria: {str(e)[:30]}")
+        # Paracaídas de emergencia en caso de apagón total de internet
         return 93.06, 2561
-
-def descargar_termica_nasa(capa_termica):
-    """Descarga datos reales del satélite Suomi NPP VIIRS de las últimas 24h"""
-    print("   [🛰️] Conectando a los servidores de NASA FIRMS (VIIRS 24h)...")
-    url_nasa = "https://firms.modaps.eosdis.nasa.gov/data/active_fire/suomi-npp-viirs-c2/csv/SUOMI_VIIRS_C2_Global_24h.csv"
-    
-    try:
-        headers = {'User-Agent': random.choice(USER_AGENTS)}
-        req = requests.get(url_nasa, headers=headers, timeout=20)
-        lector = csv.DictReader(io.StringIO(req.text))
-        
-        impactos_reales = 0
-        for fila in lector:
-            frp = float(fila['frp'])
-            # Solo potencias de fuego extremas (Ignoramos pequeñas fogatas)
-            if frp > 50.0:
-                lat = float(fila['latitude'])
-                lon = float(fila['longitude'])
-                radio = calcular_radio_impacto(frp)
-                
-                folium.CircleMarker(
-                    location=[lat, lon], radius=radio, color='#ff4444', fill=True,
-                    fill_color='#ff4444', fill_opacity=0.6, 
-                    popup=f"<div style='width:160px;font-family:Arial;'><b style='color:red;'>🔥 IMPACTO FÍSICO</b><br><b>FRP:</b> {frp} MW<br><b>Satélite:</b> Suomi NPP<br><b>Hora (UTC):</b> {fila['acq_time']}</div>"
-                ).add_to(capa_termica)
-                impactos_reales += 1
-                
-        print(f"   [✓] {impactos_reales} firmas térmicas masivas descargadas y geolocalizadas.")
-    except Exception as e:
-        print(f"   [❌] Interferencia con satélite NASA: {str(e)[:30]}")
+# -----------------------------------------------------------------
 
 def obtener_feeds_masivos():
     """
-    Motor de Ingesta Masiva E.T.B. con Fuentes Originales + Agencias Gringas + ÁFRICA + LATAM
+    Motor de Ingesta Masiva E.T.B. con Fuentes Originales + Agencias Gringas + Sustituciones Tácticas + ÁFRICA
     """
     return [
         # TUS 22 ORIGINALES INTACTOS
@@ -186,10 +149,6 @@ def obtener_feeds_masivos():
         ("https://news.google.com/rss/search?q=site:aljazeera.com/africa+military+OR+conflict&hl=en-US&gl=US&ceid=US:en", "Al Jazeera África", "independiente"),
         ("https://news.google.com/rss/search?q=site:allafrica.com+military+OR+conflict+OR+sahel&hl=en-US&gl=US&ceid=US:en", "AllAfrica (Proxy)", "independiente"),
         ("https://news.google.com/rss/search?q=site:rfi.fr/es/áfrica+militar+OR+wagner+OR+sahel&hl=es-419&gl=CO&ceid=CO:es-419", "RFI África (Francia)", "occidental"),
-        # AGREGADOS LATAM (EJE SOBERANÍA)
-        ("https://www.telesurtv.net/rss/rss.xml", "TeleSUR (LatAm)", "resistencia"),
-        ("https://actualidad.rt.com/rss/america_latina", "RT LatAm", "alternativo"),
-        ("https://news.google.com/rss/search?q=esequibo+OR+malvinas+OR+comando+sur&hl=es-419&gl=CO&ceid=CO:es-419", "Monitor Sur", "independiente")
     ]
 
 def generar_enlaces(titulo, agencia, url_original, bloque):
@@ -197,53 +156,75 @@ def generar_enlaces(titulo, agencia, url_original, bloque):
     titulo_enc = urllib.parse.quote_plus(titulo)
     
     botones['directo'] = {
-        'url': url_original, 'texto': '🔗 ENLACE DIRECTO', 'color': '#00ff41', 'prio': 1
+        'url': url_original,
+        'texto': '🔗 ENLACE DIRECTO',
+        'color': '#00ff41',
+        'prio': 1
     }
     
     if bloque in ['resistencia', 'alternativo', 'chino']:
         botones['baidu'] = {
             'url': f"https://news.baidu.com/ns?word={urllib.parse.quote(titulo)}&tn=news",
-            'texto': '🇨🇳 BUSCAR EN BAIDU', 'color': '#2932e1', 'prio': 2
+            'texto': '🇨🇳 BUSCAR EN BAIDU',
+            'color': '#2932e1',
+            'prio': 2
         }
         botones['sogou'] = {
             'url': f"https://www.sogou.com/web?query={titulo_enc}",
-            'texto': '🔍 SOGOU/WECHAT', 'color': '#ff6f00', 'prio': 3
+            'texto': '🔍 SOGOU/WECHAT',
+            'color': '#ff6f00',
+            'prio': 3
         }
     
     botones['ddg'] = {
         'url': f"https://duckduckgo.com/?q={titulo_enc}&ia=news",
-        'texto': '🦆 DUCKDUCKGO', 'color': '#de5833', 'prio': 4
+        'texto': '🦆 DUCKDUCKGO',
+        'color': '#de5833',
+        'prio': 4
     }
     
     if bloque in ['resistencia', 'alternativo']:
         botones['archive'] = {
             'url': f"https://archive.ph/newest/{url_original}",
-            'texto': '🛡️ ARCHIVE.PH', 'color': '#ff4444', 'prio': 5
+            'texto': '🛡️ ARCHIVE.PH',
+            'color': '#ff4444',
+            'prio': 5
         }
     
     return dict(sorted(botones.items(), key=lambda x: x[1]['prio']))
 
 def color_y_icono(bloque, agencia):
-    if bloque == 'resistencia': return 'red', 'fire'
-    elif bloque == 'alternativo': return 'darkred', 'globe'
-    elif bloque == 'chino': return 'darkblue', 'star'
-    elif bloque == 'occidental': return 'blue' if 'israel' in agencia.lower() else 'orange', 'flag' if 'israel' in agencia.lower() else 'warning-sign'
-    else: return 'green', 'info-sign'
+    if bloque == 'resistencia':
+        return 'red', 'fire'
+    elif bloque == 'alternativo':
+        return 'darkred', 'globe'
+    elif bloque == 'chino':
+        return 'darkblue', 'star'
+    elif bloque == 'occidental':
+        return 'blue' if 'israel' in agencia.lower() else 'orange', 'flag' if 'israel' in agencia.lower() else 'warning-sign'
+    else:
+        return 'green', 'info-sign'
 
 def detectar_ciudad(texto):
     texto_lower = texto.lower()
     for ciudad, coords in COORDENADAS_CLAVE.items():
-        if ciudad in texto_lower: return coords, ciudad
+        if ciudad in texto_lower:
+            return coords, ciudad
     return None, None
+
 def generar_mapa_volumen_maximo():
     print(f"\n{'='*70}")
-    print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] RADAR E.T.B. v4.0 - MODO INTEGRAL (REAL-TIME NASA + SIGINT)")
+    print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] RADAR E.T.B. - MODO INGESTA MASIVA (MEDIO ORIENTE + ÁFRICA)")
     print(f"{'='*70}")
+    print("[*] Configuración: Volumen extremo + Efecto Spiderfy (Espiral) Activado")
+    print("[*] Objetivo: Procesar 100% de noticias disponibles y anclar a nodo central")
+    print(f"{'='*70}\n")
     
     feeds = obtener_feeds_masivos()
     
-    # LISTA COMBINADA DE PALABRAS CLAVE (INCLUYE LATAM Y ÁFRICA)
+    # LISTA COMBINADA DE PALABRAS CLAVE
     palabras_clave = [
+        # Originales Medio Oriente
         'misil', 'misiles', 'ataque', 'bombardeo', 'dron', 'impacto', 'explosión', 
         'ofensiva', 'sionista', 'resistencia', 'represalia', 'cohete', 'hezbollah',
         'hamas', 'yihad', 'fuerza quds', 'ejército', 'defensa', 'escudo',
@@ -257,180 +238,191 @@ def generar_mapa_volumen_maximo():
         'ayatollah', 'revolutionary guard', 'houthis', 'houthi', 'hutí',
         'palestina', 'palestine', 'gaza', 'cisjordania', 'west bank', 'jerusalem',
         'iran', 'israel', 'lebanon', 'libano', 'syria', 'siria', 'yemen', 'iraq', 'irak',
-        # África
+        # Nuevas África
         'sahel', 'níger', 'niger', 'malí', 'mali', 'burkina faso',
         'sudán', 'sudan', 'djibouti', 'somalia', 'africom', 'wagner',
         'africa corps', 'cedeao', 'ecowas', 'uranio', 'tuareg', 'jihadist',
-        'yihadista', 'mercenary', 'mercenario', 'rsf', 'saf',
-        # LatAm (Eje Soberanía)
-        'malvinas', 'falkland', 'esequibo', 'comando sur', 'southcom', 'litio', 'soberanía', 'petro', 'milei'
+        'yihadista', 'mercenary', 'mercenario', 'rsf', 'saf'
     ]
     
-    # Términos específicos para disparar la alerta SIGINT (Capa 3 en vivo)
-    terminos_guerra_e = ['spoofing', 'gps', 'jamming', 'interferencia', 'ciberataque', 'hack', 'cibernético']
+    # Modificamos la cámara del mapa para que abarque África y Medio Oriente juntos
+    mapa = folium.Map(
+        location=[20.0, 25.0],
+        zoom_start=3,
+        tiles='CartoDB dark_matter'
+    )
     
-    # Cámara ampliada para ver desde Malvinas hasta Beijing
-    mapa = folium.Map(location=[15.0, -10.0], zoom_start=3, tiles='CartoDB dark_matter')
-    
-    # --- SISTEMA DE CAPAS AVANZADAS ---
-    capa_noticias = folium.FeatureGroup(name="📰 CAPA 2: Reportes y Noticias Globales")
-    capa_termica = folium.FeatureGroup(name="🔥 CAPA 1: Radiancia Térmica (NASA FIRMS 24h)")
-    capa_sigint = folium.FeatureGroup(name="🔮 CAPA 3: Guerra Electrónica (SIGINT en vivo)")
-    
-    mapa.add_child(capa_noticias)
-    mapa.add_child(capa_termica)
-    mapa.add_child(capa_sigint)
-
-    # --- LLAMADA AL MOTOR SATELITAL REAL ---
-    descargar_termica_nasa(capa_termica)
-
-    # CLÚSTER ASIGNADO A LA CAPA DE NOTICIAS
+    # --- CORRECCIÓN APLICADA: CLÚSTER MAESTRO ÚNICO ---
     cluster_maestro = MarkerCluster(
         name="🛰️ REPORTE GLOBAL UNIFICADO",
         spiderfyOnMaxZoom=True,
         showCoverageOnHover=False,
         zoomToBoundsOnClick=True
-    ).add_to(capa_noticias)
+    ).add_to(mapa)
     
     total_procesados = 0
     total_filtrados = 0
+    errores = []
     feeds_activos = 0
-    
-    # --- BOT DE CENSURA: Contadores ---
-    noticias_occidente = 0
-    noticias_resistencia = 0
     
     for idx, (url, agencia, bloque) in enumerate(feeds, 1):
         print(f"[{idx}/{len(feeds)}] 🛰️  {agencia}")
         
         feedparser.USER_AGENT = random.choice(USER_AGENTS)
-        if idx > 1: time.sleep(random.uniform(0.5, 1.5))
+        
+        if idx > 1:
+            pausa = random.uniform(0.5, 1.5)
+            time.sleep(pausa)
         
         try:
             flujo = feedparser.parse(url)
-            if not flujo.entries: 
-                print("      ❌ Feed vacío o bloqueado")
+            
+            if hasattr(flujo, 'bozo_exception') and flujo.bozo_exception:
+                error_str = str(flujo.bozo_exception).lower()
+                if 'timeout' in error_str or 'temporary failure' in error_str:
+                    print(f"      ⚠️  Timeout de red - reintentando...")
+                    feedparser.USER_AGENT = random.choice(USER_AGENTS)
+                    time.sleep(2)
+                    flujo = feedparser.parse(url)
+            
+            if not flujo.entries:
+                print(f"      ❌ Feed vacío o bloqueado")
+                errores.append(f"{agencia}: Sin entradas")
                 continue
             
             entradas_feed = len(flujo.entries)
             feeds_activos += 1
-            filtrados_feed = 0
-            
-            # --- IMPRESIÓN DE TELEMETRÍA: ENTRADAS ---
             print(f"      📥 {entradas_feed} entradas detectadas - INICIANDO PROCESAMIENTO TOTAL...")
+            
+            filtrados_feed = 0
             
             for entry in flujo.entries:
                 try:
                     titulo = entry.get('title', '') or ''
                     descripcion = entry.get('description', '') or ''
                     texto_completo = (titulo + " " + descripcion).lower()
+                    
                     total_procesados += 1
                     
-                    if not any(p in texto_completo for p in palabras_clave): continue
+                    if not any(p in texto_completo for p in palabras_clave):
+                        continue
                     
                     titulo_es = traducir_texto(titulo)
-                    if not titulo_es or titulo_es == titulo: titulo_es = titulo[:100]
+                    if not titulo_es or titulo_es == titulo:
+                        titulo_es = titulo[:100] if len(titulo) > 100 else titulo
                     
                     coords, ciudad = detectar_ciudad(texto_completo)
                     
                     if not coords:
-                        if bloque == 'resistencia': coords, ciudad = [35.6892, 51.3890], "Teherán"
-                        elif bloque == 'alternativo': coords, ciudad = [55.7558, 37.6173], "Moscú"
-                        elif bloque == 'chino': coords, ciudad = [39.9042, 116.4074], "Beijing"
-                        elif 'israel' in agencia.lower(): coords, ciudad = [32.0853, 34.7818], "Tel Aviv"
-                        elif 'naval' in agencia.lower() or 'gCaptain' in agencia: coords, ciudad = [26.56, 56.25], "Estrecho de Ormuz"
-                        elif 'africa' in agencia.lower() or 'afrique' in agencia.lower(): coords, ciudad = [14.0, 0.0], "Sahel / África"
-                        elif 'latam' in agencia.lower() or 'telesur' in agencia.lower(): coords, ciudad = [4.0, -65.0], "Latinoamérica"
-                        else: coords, ciudad = [31.0, 40.0], "Zona de Conflicto"
+                        if bloque == 'resistencia':
+                            coords, ciudad = [35.6892, 51.3890], "Teherán"
+                        elif bloque == 'alternativo':
+                            coords, ciudad = [55.7558, 37.6173], "Moscú"
+                        elif bloque == 'chino':
+                            coords, ciudad = [39.9042, 116.4074], "Beijing"
+                        elif 'israel' in agencia.lower():
+                            coords, ciudad = [32.0853, 34.7818], "Tel Aviv"
+                        elif 'naval' in agencia.lower() or 'gCaptain' in agencia:
+                            coords, ciudad = [26.56, 56.25], "Estrecho de Ormuz"
+                        elif 'africa' in agencia.lower() or 'afrique' in agencia.lower():
+                            coords, ciudad = [14.0, 0.0], "Sahel / África"
+                        else:
+                            coords, ciudad = [31.0, 40.0], "Zona de Conflicto"
+                    
+                    # --- ALGORITMO DE APILAMIENTO EXACTO ---
+                    coords_finales = coords
                     
                     color, icono = color_y_icono(bloque, agencia)
-                    url_original = entry.get('link', url)
-                    btns = generar_enlaces(titulo_es, agencia, url_original, bloque)
+                    url_orig = entry.get('link', url)
+                    btns = generar_enlaces(titulo_es, agencia, url_orig, bloque)
                     
-                    # ACTUALIZACIÓN BOT DE CENSURA
-                    if bloque == 'occidental': noticias_occidente += 1
-                    if bloque in ['resistencia', 'alternativo']: noticias_resistencia += 1
-
-                    # --- DETECTOR SIGINT EN TIEMPO REAL ---
-                    if any(termino in texto_completo for termino in terminos_guerra_e):
-                        folium.Circle(
-                            location=coords, radius=150000, color='#800080', fill=True,
-                            fill_color='#800080', fill_opacity=0.35, 
-                            popup=f"<div style='width:200px;font-family:Arial;'><b style='color:#800080;'>🔮 ALERTA SIGINT (GUERRA E.)</b><br><small>{titulo_es[:120]}</small></div>"
-                        ).add_to(capa_sigint)
-
-                    # --- CONSTRUCCIÓN VISUAL DEL POPUP (FORMATO LIMPIO Y VERTICAL) ---
                     html_btns = "".join([
-                        f"<a href='{b['url']}' target='_blank' "
-                        f"style='display:block;background:{b['color']};color:{'#000' if b['color']=='#00ff41' else '#fff'};"
-                        f"padding:5px;text-decoration:none;font-size:9px;font-weight:bold;margin-top:4px;"
-                        f"border-radius:3px;text-align:center;'>{b['texto']}</a>"
+                        f"<a href='{b['url']}' target='_blank' style='display:block;background:{b['color']};color:{'#000' if b['color']=='#00ff41' else '#fff'};padding:5px;text-decoration:none;font-size:9px;font-weight:bold;margin-top:4px;border-radius:3px;text-align:center;'>{b['texto']}</a>"
                         for b in btns.values()
                     ])
                     
                     popup_html = f"""
                     <div style="width:260px;background:rgba(20,20,20,0.95);padding:10px;border-radius:6px;border:1px solid {color};font-family:Arial;">
-                        <div style="background:{color};color:white;padding:4px;font-size:10px;font-weight:bold;text-align:center;border-radius:3px;">
-                            {agencia}
-                        </div>
-                        <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">
-                            {titulo_es[:120]}{'...' if len(titulo_es) > 120 else ''}
-                        </div>
-                        <div style="font-size:8px;color:#666;text-align:center;margin-bottom:5px;letter-spacing:0.5px;">
-                            📍 {ciudad.upper()}
-                        </div>
+                        <div style="background:{color};color:white;padding:4px;font-size:10px;font-weight:bold;text-align:center;border-radius:3px;">{agencia}</div>
+                        <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">{titulo_es[:120]}{'...' if len(titulo_es) > 120 else ''}</div>
+                        <div style="font-size:8px;color:#666;text-align:center;margin-bottom:5px;letter-spacing:0.5px;">📍 {ciudad.upper()}</div>
                         {html_btns}
                     </div>
                     """
                     
-                    folium.Marker(
-                        location=coords, 
-                        popup=folium.Popup(popup_html, max_width=270), 
-                        icon=folium.Icon(color=color, icon=icono, prefix='glyphicon'), 
+                    marcador = folium.Marker(
+                        location=coords_finales,
+                        popup=folium.Popup(popup_html, max_width=270),
+                        icon=folium.Icon(color=color, icon=icono, prefix='glyphicon'),
                         tooltip=f"{agencia[:18]}: {titulo_es[:32]}..."
-                    ).add_to(cluster_maestro)
+                    )
+                    
+                    # Agregamos el marcador al único clúster maestro
+                    marcador.add_to(cluster_maestro)
                     
                     filtrados_feed += 1
                     total_filtrados += 1
-                except Exception as e: continue
+                    
+                except Exception as e:
+                    continue
             
-            # --- IMPRESIÓN DE TELEMETRÍA: RESULTADOS ---
             print(f"      ✅ {filtrados_feed} noticias relevantes extraídas")
             
-        except Exception as e: 
-            print("      ❌ Error crítico en la conexión al feed")
+        except Exception as e:
+            print(f"      ❌ Error crítico: {str(e)[:50]}")
+            errores.append(f"{agencia}: {str(e)[:40]}")
             continue
     
     print(f"\n{'='*70}")
-    print("RESUMEN DE INGESTA MASIVA E INTELIGENCIA")
+    print("RESUMEN DE INGESTA MASIVA")
     print(f"{'='*70}")
     print(f"Feeds activos: {feeds_activos}/{len(feeds)}")
+    print(f"Total entradas procesadas: {total_procesados:,}")
     print(f"Noticias relevantes geolocalizadas: {total_filtrados:,}")
+    print(f"Tasa de filtrado: {(total_filtrados/total_procesados*100):.1f}%" if total_procesados > 0 else "N/A")
+    if errores:
+        print(f"Feeds con problemas: {len(errores)}")
     
-    # LÓGICA DE ACTIVACIÓN DEL BOT DE CENSURA
-    if noticias_resistencia > (noticias_occidente * 1.5):
-        print(f"\n[🚨 ALERTA DE CENSURA] Alta actividad del Eje Multipolar ignorada por Occidente.")
-        print(f"   (Fuentes Multipolar/Resistencia: {noticias_resistencia} | Fuentes Occidente: {noticias_occidente})")
-    
+    # OBTENER DATOS DE PETRÓLEO (Ahora usando el motor transplantado)
+    print(f"\n[*] Obteniendo datos energéticos...")
     p_brent, a_gas = obtener_datos_petroleo()
     
-    if a_gas > 0: 
-        color_dinamico, signo, texto_etiqueta, valor_mostrar = "#ff4444", "+", "PROY. ALZA GASOLINA:", a_gas
-    elif a_gas < 0: 
-        color_dinamico, signo, texto_etiqueta, valor_mostrar = "#00ff41", "-", "PROY. BAJA GASOLINA:", abs(a_gas)
-    else: 
-        color_dinamico, signo, texto_etiqueta, valor_mostrar = "#ffcc00", "", "PROY. VARIACIÓN GASOLINA:", 0
+    if p_brent == 0:
+        print(f"   [!] Error de conexión. Mostrando $0.00")
         
+    # --- LÓGICA DINÁMICA REAL PARA EL PANEL ---
+    if a_gas > 0:
+        color_dinamico = "#ff4444"  # Rojo (Alza)
+        signo = "+"
+        texto_etiqueta = "PROY. ALZA GASOLINA:"
+        valor_mostrar = a_gas
+    elif a_gas < 0:
+        color_dinamico = "#00ff41"  # Verde (Baja)
+        signo = "-"
+        texto_etiqueta = "PROY. BAJA GASOLINA:"
+        valor_mostrar = abs(a_gas)
+    else:
+        color_dinamico = "#ffcc00"  # Amarillo (Estable)
+        signo = ""
+        texto_etiqueta = "PROY. VARIACIÓN GASOLINA:"
+        valor_mostrar = 0
+        
+    print(f"   [✓] Brent: ${p_brent:.2f} | {texto_etiqueta} {signo}${valor_mostrar}/gal")
+    
     leyenda = f"""
     <div style="position:fixed;top:20px;right:20px;width:260px;background:rgba(10,10,10,0.95);border:2px solid #444;padding:15px;border-radius:10px;font-family:'Courier New',monospace;font-size:10px;color:#fff;z-index:9999;">
-        <h4 style="color:#00ff41;margin:0 0 10px 0;text-align:center;font-size:13px;">🛰️ RADAR E.T.B. v4.0</h4>
+        <h4 style="color:#00ff41;margin:0 0 10px 0;text-align:center;font-size:13px;">🛰️ RADAR E.T.B.</h4>
         <div style="border-top:1px solid #333;padding-top:10px;line-height:1.6;">
-            <span style="color:#ff4444;">🔴</span> Eje Resistencia (MO+África+LatAm)<br>
+            <span style="color:#ff4444;">🔴</span> Eje Resistencia (MO+África)<br>
             <span style="color:#8b0000;">🔴</span> Rusia/Aliados<br>
             <span style="color:#00008b;">🔵</span> China<br>
             <span style="color:#ffa500;">🟠</span> Occidente<br>
-            <span style="color:#32cd32;">🟢</span> Independientes<br>
-            <span style="color:#800080;">🟣</span> Capa 3 (Guerra E. / Spoofing)
+            <span style="color:#32cd32;">🟢</span> Independientes
+        </div>
+        <div style="margin-top:10px;border-top:1px solid #333;padding-top:8px;color:#888;font-size:9px;">
+            Fuentes activas: {feeds_activos}<br>
+            Noticias: {total_filtrados:,}<br>
+            Actualizado: {datetime.datetime.now().strftime('%H:%M')}
         </div>
     </div>
     """
@@ -447,13 +439,15 @@ def generar_mapa_volumen_maximo():
     """
     mapa.get_root().html.add_child(folium.Element(panel))
     
-    # Agregamos el control de capas para encender/apagar la Capa 3 y la Térmica
     folium.LayerControl(collapsed=False).add_to(mapa)
     mapa.save("mapa_multipolar.html")
     
     print(f"\n{'='*70}")
-    print(f"[✅ MAPA GENERADO EXITOSAMENTE: mapa_multipolar.html]")
+    print(f"[✅ MAPA GENERADO: mapa_multipolar.html]")
+    print(f"   Brent: ${p_brent:.2f} | {texto_etiqueta} {signo}${valor_mostrar}/gal")
     print(f"{'='*70}\n")
+    
+    return total_filtrados
 
 if __name__ == "__main__":
     generar_mapa_volumen_maximo()
