@@ -432,6 +432,11 @@ def generar_mapa_volumen_maximo():
             <span style="color:#32cd32;">🟢</span> Independientes<br>
             <span style="color:#800080;">🟣</span> Capa 3 (Guerra E. / Spoofing)
         </div>
+        <div style="margin-top:10px;border-top:1px solid #333;padding-top:8px;color:#888;font-size:9px;">
+            Fuentes activas: {feeds_activos}<br>
+            Noticias: {total_filtrados:,}<br>
+            Actualizado: {datetime.datetime.now().strftime('%H:%M')}
+        </div>
     </div>
     """
     mapa.get_root().html.add_child(folium.Element(leyenda))
