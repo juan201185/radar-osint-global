@@ -154,8 +154,10 @@ def descargar_termica_nasa(capa_termica):
                 impactos_reales += 1
                 
         print(f"   [✓] {impactos_reales} firmas térmicas masivas descargadas y geolocalizadas.")
+        return impactos_reales  # <-- AÑADIDO: Devuelve el número al sistema principal
     except Exception as e:
         print(f"   [❌] Interferencia con satélite NASA: {str(e)[:30]}")
+        return 0  # <-- AÑADIDO: Si falla, devuelve cero para no romper el mapa
 
 def obtener_feeds_masivos():
     """
@@ -322,7 +324,7 @@ def generar_mapa_volumen_maximo():
     mapa.add_child(capa_sigint)
 
     # --- LLAMADA AL MOTOR SATELITAL REAL ---
-    descargar_termica_nasa(capa_termica)
+    total_termicas = descargar_termica_nasa(capa_termica) # <-- Modifica esta línea
 
     # CLÚSTER ASIGNADO A LA CAPA DE NOTICIAS
     cluster_maestro = MarkerCluster(
@@ -477,8 +479,8 @@ def generar_mapa_volumen_maximo():
         </div>
         <div style="margin-top:10px;border-top:1px solid #333;padding-top:8px;color:#888;font-size:9px;">
             Fuentes activas: {feeds_activos}<br>
-            Noticias: {total_filtrados:,}<br>
-            Actualizado: {datetime.datetime.now().strftime('%H:%M')}
+            Noticias filtradas: {total_filtrados:,}<br>
+            <span style="color:#ff4444;">🔥 Firmas Térmicas: {total_termicas:,}</span><br> Actualizado: {datetime.datetime.now().strftime('%H:%M')}
         </div>
     </div>
     """
