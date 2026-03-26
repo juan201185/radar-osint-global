@@ -58,14 +58,14 @@ class CerebroNeuronalETB:
 class RadarVisiónTotal:
     def __init__(self):
         self.ia = CerebroNeuronalETB()
-        # --- EL ÚNICO AÑADIDO: SESIÓN Y USER-AGENT ---
         self.session = requests.Session()
         self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'application/json'
         })
         
     def generar_mapa(self):
-        print("\n" + "="*70 + "\nRADAR E.T.B. v10.1 - VISIÓN TOTAL (CON PARCHE ANTI-BLOQUEO)\n" + "="*70)
+        print("\n" + "="*70 + "\nRADAR E.T.B. v10.2 - REPARACIÓN DE SENSORES OSINT\n" + "="*70)
         
         mapa = folium.Map(location=[31.0, 45.0], zoom_start=5, tiles='CartoDB dark_matter')
         
@@ -85,29 +85,44 @@ class RadarVisiónTotal:
                 popup=folium.Popup(html_nodo, max_width=250)
             ).add_to(capa_ciudadelas)
 
-        # 2. PINTAR DATOS BRUTOS: SENSORES DE RADIACIÓN (SafeCast)
+        # 2. PINTAR DATOS BRUTOS: SENSORES DE RADIACIÓN (PARCHE DEFINITIVO)
         rad_count = 0
         try:
             print("Descargando telemetría de radiación OSINT...")
-            url_rad = "https://api.safecast.org/measurements.json?limit=500&min_latitude=20&max_latitude=45&min_longitude=25&max_longitude=65"
-            # --- CAMBIO A self.session.get ---
-            rad_resp = self.session.get(url_rad, timeout=10)
-            if rad_resp.status_code == 200:
-                estaciones = {}
-                for r in rad_resp.json():
-                    id_est = f"{round(r['latitude'],3)}_{round(r['longitude'],3)}"
-                    if id_est not in estaciones:
-                        estaciones[id_est] = r
-                        html_rad = f"<div style='width:150px;'><b>Sensor OSINT</b><br>Valor: {r['value']} {r['unit']}<br>Fecha: {r['captured_at'][:10]}</div>"
-                        folium.CircleMarker(
-                            [r['latitude'], r['longitude']], radius=4, color="lime", fill=True, fillOpacity=0.7,
-                            popup=folium.Popup(html_rad, max_width=200)
-                        ).add_to(capa_sensores)
-                rad_count = len(estaciones)
-                print(f"-> {rad_count} sensores verdes plasmados en el mapa.")
+            # --- CAMBIO DE ESTRATEGIA: Búsqueda dinámica en múltiples coordenadas para evitar bloqueos ---
+            coordenadas_tacticas = [
+                (31.7, 35.2), # Israel
+                (32.0, 50.0), # Centro Irán
+                (24.0, 54.0), # Golfo / Omán
+                (39.0, 35.0)  # Turquía
+            ]
+            
+            estaciones = {}
+            for lat_base, lon_base in coordenadas_tacticas:
+                # Buscamos en un radio de 1000km alrededor de cada punto táctico
+                url_rad = f"https://api.safecast.org/measurements.json?latitude={lat_base}&longitude={lon_base}&distance=1000000"
+                rad_resp = self.session.get(url_rad, timeout=10)
+                
+                if rad_resp.status_code == 200:
+                    data = rad_resp.json()
+                    # Tomamos las últimas 20 lecturas de cada zona para no apilar demasiadas
+                    for r in data[:20]:
+                        id_est = f"{round(r['latitude'],3)}_{round(r['longitude'],3)}"
+                        if id_est not in estaciones:
+                            estaciones[id_est] = r
+                            html_rad = f"<div style='width:150px;'><b>Sensor OSINT</b><br>Valor: {r['value']} {r['unit']}<br>Fecha: {r['captured_at'][:10]}</div>"
+                            folium.CircleMarker(
+                                [r['latitude'], r['longitude']], radius=4, color="lime", fill=True, fillOpacity=0.7,
+                                popup=folium.Popup(html_rad, max_width=200)
+                            ).add_to(capa_sensores)
+                
+            rad_count = len(estaciones)
+            if rad_count > 0:
+                print(f"-> EXITO: {rad_count} sensores verdes plasmados en el mapa.")
             else:
-                print(f"-> Error HTTP SafeCast: {rad_resp.status_code}")
-        except Exception as e: print(f"-> Error cargando radiación: {e}")
+                print("-> AVISO: Red SafeCast inactiva en la región actualmente (Devolvió 0 datos).")
+                
+        except Exception as e: print(f"-> Error crítico cargando radiación: {e}")
 
         # 3. PINTAR DATOS BRUTOS: MOVIMIENTOS TECTÓNICOS (USGS) + ANÁLISIS IA
         sismos_total, alertas_ia = 0, 0
@@ -115,7 +130,6 @@ class RadarVisiónTotal:
             print("Descargando telemetría sísmica del USGS...")
             start = (datetime.datetime.now() - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
             url_sismos = f"https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime={start}&minmagnitude=2.5&minlatitude=20&maxlatitude=45&minlongitude=25&maxlongitude=65"
-            # --- CAMBIO A self.session.get ---
             sismos_resp = self.session.get(url_sismos, timeout=10)
             
             if sismos_resp.status_code == 200:
@@ -158,7 +172,7 @@ class RadarVisiónTotal:
                         [lat, lon], radius=radio, color=color, fill=True, fillOpacity=0.6,
                         popup=folium.Popup(html_sismo, max_width=250)
                     ).add_to(capa_destino)
-                print(f"-> {sismos_total} sismos brutos plasmados en el mapa.")
+                print(f"-> EXITO: {sismos_total} sismos brutos plasmados en el mapa.")
             else:
                 print(f"-> Error HTTP USGS: {sismos_resp.status_code}")
         except Exception as e: print(f"-> Error cargando sismos: {e}")
@@ -166,7 +180,7 @@ class RadarVisiónTotal:
         # --- HUD DE PATÍA GLOBAL ---
         panel_html = f"""
         <div style="position: fixed; top: 20px; right: 20px; width: 340px; background: rgba(0,0,0,0.9); border: 2px solid {'red' if alertas_ia > 0 else 'lime'}; padding: 15px; color: #fff; font-family: monospace; z-index: 9999;">
-            <b style="font-size:16px; color:{'red' if alertas_ia > 0 else 'lime'};">🌐 E.T.B. v10.1 - VISIÓN TOTAL</b><br>
+            <b style="font-size:16px; color:{'red' if alertas_ia > 0 else 'lime'};">🌐 E.T.B. v10.2 - VISIÓN TOTAL</b><br>
             <span style="font-size:10px; color:#aaa;">DATOS BRUTOS + ANÁLISIS DE RED NEURONAL</span><hr style="border-color:#444;">
             Nodos y Ciudadelas Vigiladas: <b>{len(INSTALACIONES_NUCLEAR_ME)}</b><br>
             Sensores OSINT en el mapa: <b style="color:lime;">{rad_count}</b><br>
