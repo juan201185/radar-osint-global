@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_0feb378f849ab01b288e59396817b9f2 {
+                #map_42072971ee53e83aa14d35f3c9197d83 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,29 +54,27 @@
 <body>
     
     
-        <div style="position: fixed; top: 20px; right: 20px; width: 340px; background: rgba(0,0,0,0.9); border: 2px solid lime; padding: 15px; color: #fff; font-family: monospace; z-index: 9999;">
-            <b style="font-size:16px; color:lime;">🌐 E.T.B. v10.0 - VISIÓN TOTAL</b><br>
-            <span style="font-size:10px; color:#aaa;">DATOS BRUTOS + ANÁLISIS DE RED NEURONAL</span><hr style="border-color:#444;">
-            Nodos y Ciudadelas Vigiladas: <b>11</b><br>
-            Sensores OSINT en el mapa: <b style="color:lime;">1</b><br>
-            Sismos Brutos (7 días): <b style="color:#4287f5;">4</b><br>
-            Anomalías Detectadas (IA): <b style="color:red; font-size:14px;">0</b><br>
-            <div style="margin-top: 10px; border-top: 1px solid #333; padding-top: 5px; font-size: 9px; color: #888; text-align: center;">
-                Sincronizado: 00:15
+        <div style="position: fixed; top: 20px; right: 20px; width: 320px; background: rgba(0,0,0,0.9); border: 2px solid lime; padding: 15px; color: #fff; font-family: monospace; z-index: 9999;">
+            <b style="color:lime;">🌐 E.T.B. v11.0 - VISIÓN TOTAL</b><hr>
+            Sensores OSINT (SafeCast): <b style="color:lime;">10</b><br>
+            Sismos Brutos (7d): <b style="color:cyan;">4</b><br>
+            Alertas IA: <b style="color:red;">0</b><br>
+            <div style="margin-top: 10px; font-size: 9px; color: #888; text-align: center;">
+                Sincronizado: 01:11
             </div>
         </div>
         
     
-            <div class="folium-map" id="map_0feb378f849ab01b288e59396817b9f2" ></div>
+            <div class="folium-map" id="map_42072971ee53e83aa14d35f3c9197d83" ></div>
         
 </body>
 <script>
     
     
-            var map_0feb378f849ab01b288e59396817b9f2 = L.map(
-                "map_0feb378f849ab01b288e59396817b9f2",
+            var map_42072971ee53e83aa14d35f3c9197d83 = L.map(
+                "map_42072971ee53e83aa14d35f3c9197d83",
                 {
-                    center: [31.0, 45.0],
+                    center: [30.0, 45.0],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 5,
@@ -91,7 +89,7 @@
 
         
     
-            var tile_layer_7f15792672ec642b151a089c2d4065ce = L.tileLayer(
+            var tile_layer_b02a4dc1a1a39486e62cf6cbba7bb750 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -108,598 +106,239 @@
             );
         
     
-            tile_layer_7f15792672ec642b151a089c2d4065ce.addTo(map_0feb378f849ab01b288e59396817b9f2);
+            tile_layer_b02a4dc1a1a39486e62cf6cbba7bb750.addTo(map_42072971ee53e83aa14d35f3c9197d83);
         
     
-            var feature_group_1695b82d2a03e36ab3f4021118b9609b = L.featureGroup(
+            var feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_1888313c25b97d5fb5db75d3bf16a17e = L.marker(
-                [33.7233, 51.7267],
-                {
-}
-            ).addTo(feature_group_1695b82d2a03e36ab3f4021118b9609b);
+            var circle_marker_a55996fa99ddd714fd469e156f190419 = L.circleMarker(
+                [37.13052666666667, 140.213945],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969);
         
     
-            var icon_a9e040875fc012ddd3213b87fbc6a2e3 = L.AwesomeMarkers.icon(
+            circle_marker_a55996fa99ddd714fd469e156f190419.bindTooltip(
+                `<div>
+                     32.0 cpm
+                 </div>`,
                 {
-  "markerColor": "darkred",
-  "iconColor": "white",
-  "icon": "mountain",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
+  "sticky": true,
 }
             );
         
     
-        var popup_525542d265c7f0fb6856eb7f564f2ee8 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_d25c91be65352b781550fac0dae3110e = $(`<div id="html_d25c91be65352b781550fac0dae3110e" style="width: 100.0%; height: 100.0%;"><div style='width:200px; font-family:Arial;'><b>Natanz (SUB)</b><hr><b>País:</b> Irán<br><b>Tipo:</b> Enriquecimiento Subterráneo</div></div>`)[0];
-                popup_525542d265c7f0fb6856eb7f564f2ee8.setContent(html_d25c91be65352b781550fac0dae3110e);
-            
-        
-
-        marker_1888313c25b97d5fb5db75d3bf16a17e.bindPopup(popup_525542d265c7f0fb6856eb7f564f2ee8)
-        ;
-
+            var circle_marker_268c46cd5dbbfd47fd3e9549e229c4ce = L.circleMarker(
+                [35.74591, 139.91815],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969);
         
     
-    
-                marker_1888313c25b97d5fb5db75d3bf16a17e.setIcon(icon_a9e040875fc012ddd3213b87fbc6a2e3);
-            
-    
-            var marker_f6380f0a58f8c14d05d51ae62ba89df3 = L.marker(
-                [34.8858, 50.9958],
+            circle_marker_268c46cd5dbbfd47fd3e9549e229c4ce.bindTooltip(
+                `<div>
+                     10.0 cpm
+                 </div>`,
                 {
-}
-            ).addTo(feature_group_1695b82d2a03e36ab3f4021118b9609b);
-        
-    
-            var icon_16d374ce885bc846cfc67386523009c4 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "darkred",
-  "iconColor": "white",
-  "icon": "mountain",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
+  "sticky": true,
 }
             );
         
     
-        var popup_a6ed6abc4bdb5bbba9d80e8b7bcc5b9a = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_68cbc863110f2f7701932d2f01034016 = $(`<div id="html_68cbc863110f2f7701932d2f01034016" style="width: 100.0%; height: 100.0%;"><div style='width:200px; font-family:Arial;'><b>Fordow (SUB)</b><hr><b>País:</b> Irán<br><b>Tipo:</b> Centrifugadoras de Montaña (80m)</div></div>`)[0];
-                popup_a6ed6abc4bdb5bbba9d80e8b7bcc5b9a.setContent(html_68cbc863110f2f7701932d2f01034016);
-            
-        
-
-        marker_f6380f0a58f8c14d05d51ae62ba89df3.bindPopup(popup_a6ed6abc4bdb5bbba9d80e8b7bcc5b9a)
-        ;
-
+            var circle_marker_f27b2fce4761b03583e9a4168df366fd = L.circleMarker(
+                [34.122147, -118.26136],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969);
         
     
-    
-                marker_f6380f0a58f8c14d05d51ae62ba89df3.setIcon(icon_16d374ce885bc846cfc67386523009c4);
-            
-    
-            var marker_37ccf17c7e763af77bef95c319633544 = L.marker(
-                [35.5156, 51.8311],
+            circle_marker_f27b2fce4761b03583e9a4168df366fd.bindTooltip(
+                `<div>
+                     11.0 cpm
+                 </div>`,
                 {
-}
-            ).addTo(feature_group_1695b82d2a03e36ab3f4021118b9609b);
-        
-    
-            var icon_8114aed7a824442200354d03de07a4fc = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "darkred",
-  "iconColor": "white",
-  "icon": "mountain",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
+  "sticky": true,
 }
             );
         
     
-        var popup_8caf08272a4ddd44b3d267fcb216be20 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_66e73bb625697b06b047aee3cdeee4e2 = $(`<div id="html_66e73bb625697b06b047aee3cdeee4e2" style="width: 100.0%; height: 100.0%;"><div style='width:200px; font-family:Arial;'><b>Parchin (SUB)</b><hr><b>País:</b> Irán<br><b>Tipo:</b> Complejo Militar / Pruebas</div></div>`)[0];
-                popup_8caf08272a4ddd44b3d267fcb216be20.setContent(html_66e73bb625697b06b047aee3cdeee4e2);
-            
-        
-
-        marker_37ccf17c7e763af77bef95c319633544.bindPopup(popup_8caf08272a4ddd44b3d267fcb216be20)
-        ;
-
+            var circle_marker_ace7b42bf06827a1188ca6485ad4174f = L.circleMarker(
+                [41.3303, -73.834],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969);
         
     
-    
-                marker_37ccf17c7e763af77bef95c319633544.setIcon(icon_8114aed7a824442200354d03de07a4fc);
-            
-    
-            var marker_add63138580b179bf30b3b5fc9f052ea = L.marker(
-                [29.9692, 55.8719],
+            circle_marker_ace7b42bf06827a1188ca6485ad4174f.bindTooltip(
+                `<div>
+                     14.0 cpm
+                 </div>`,
                 {
-}
-            ).addTo(feature_group_1695b82d2a03e36ab3f4021118b9609b);
-        
-    
-            var icon_20c77f89c9111e2297e8f76b12db6494 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "darkred",
-  "iconColor": "white",
-  "icon": "mountain",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
+  "sticky": true,
 }
             );
         
     
-        var popup_d4933903fe36c08b0b5644760d6d62b1 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_394a8b0b7886a530807de44690966ebb = $(`<div id="html_394a8b0b7886a530807de44690966ebb" style="width: 100.0%; height: 100.0%;"><div style='width:200px; font-family:Arial;'><b>Mes-e Sarcheshmeh</b><hr><b>País:</b> Irán<br><b>Tipo:</b> Mina / Túneles Logísticos</div></div>`)[0];
-                popup_d4933903fe36c08b0b5644760d6d62b1.setContent(html_394a8b0b7886a530807de44690966ebb);
-            
-        
-
-        marker_add63138580b179bf30b3b5fc9f052ea.bindPopup(popup_d4933903fe36c08b0b5644760d6d62b1)
-        ;
-
+            var circle_marker_07461df9848dc365ada664e8be462e7d = L.circleMarker(
+                [25.0439, 121.529],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969);
         
     
-    
-                marker_add63138580b179bf30b3b5fc9f052ea.setIcon(icon_20c77f89c9111e2297e8f76b12db6494);
-            
-    
-            var marker_d0630d1a52a2654d606d8ddbaf2daaf4 = L.marker(
-                [32.6804, 51.6861],
+            circle_marker_07461df9848dc365ada664e8be462e7d.bindTooltip(
+                `<div>
+                     47.0 cpm
+                 </div>`,
                 {
-}
-            ).addTo(feature_group_1695b82d2a03e36ab3f4021118b9609b);
-        
-    
-            var icon_d43d20bba61acbf8c742932b073da4c0 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "radiation",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
+  "sticky": true,
 }
             );
         
     
-        var popup_261d4f01183830f38a9a166961df6d76 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_07dadc391b6151b9412d079a5c5c2670 = $(`<div id="html_07dadc391b6151b9412d079a5c5c2670" style="width: 100.0%; height: 100.0%;"><div style='width:200px; font-family:Arial;'><b>Isfahan</b><hr><b>País:</b> Irán<br><b>Tipo:</b> Conversión de Uranio</div></div>`)[0];
-                popup_261d4f01183830f38a9a166961df6d76.setContent(html_07dadc391b6151b9412d079a5c5c2670);
-            
-        
-
-        marker_d0630d1a52a2654d606d8ddbaf2daaf4.bindPopup(popup_261d4f01183830f38a9a166961df6d76)
-        ;
-
+            var circle_marker_8e7b4dee6e84330864e18d45ee6005e1 = L.circleMarker(
+                [37.563006, 140.995268],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969);
         
     
-    
-                marker_d0630d1a52a2654d606d8ddbaf2daaf4.setIcon(icon_d43d20bba61acbf8c742932b073da4c0);
-            
-    
-            var marker_768ff1241c60c4ab5ec7591cbb918ded = L.marker(
-                [28.8283, 50.8839],
+            circle_marker_8e7b4dee6e84330864e18d45ee6005e1.bindTooltip(
+                `<div>
+                     38.0 cpm
+                 </div>`,
                 {
-}
-            ).addTo(feature_group_1695b82d2a03e36ab3f4021118b9609b);
-        
-    
-            var icon_cd3ffbf01a7cc10c1567b948557e643d = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "radiation",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
+  "sticky": true,
 }
             );
         
     
-        var popup_fe552b9fb632810ab59a07a06dabbf27 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_3f46b458a0ef1b2e59d12db10ec77685 = $(`<div id="html_3f46b458a0ef1b2e59d12db10ec77685" style="width: 100.0%; height: 100.0%;"><div style='width:200px; font-family:Arial;'><b>Bushehr</b><hr><b>País:</b> Irán<br><b>Tipo:</b> Reactor de Potencia Civil</div></div>`)[0];
-                popup_fe552b9fb632810ab59a07a06dabbf27.setContent(html_3f46b458a0ef1b2e59d12db10ec77685);
-            
-        
-
-        marker_768ff1241c60c4ab5ec7591cbb918ded.bindPopup(popup_fe552b9fb632810ab59a07a06dabbf27)
-        ;
-
+            var circle_marker_0786bd85b71d2b12374c0f50ad954585 = L.circleMarker(
+                [41.218815, -74.005501],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969);
         
     
-    
-                marker_768ff1241c60c4ab5ec7591cbb918ded.setIcon(icon_cd3ffbf01a7cc10c1567b948557e643d);
-            
-    
-            var marker_454bfcc5e9a0231000f568caae8f6e71 = L.marker(
-                [34.3747, 49.4736],
+            circle_marker_0786bd85b71d2b12374c0f50ad954585.bindTooltip(
+                `<div>
+                     59.0 cpm
+                 </div>`,
                 {
-}
-            ).addTo(feature_group_1695b82d2a03e36ab3f4021118b9609b);
-        
-    
-            var icon_3586e5b9619e3a161c1ee60ea1cfbe4b = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "radiation",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
+  "sticky": true,
 }
             );
         
     
-        var popup_f7de3c4aded4610567f3f27931ea2c12 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_d78a2f19784444d807bfa66bb5e99f86 = $(`<div id="html_d78a2f19784444d807bfa66bb5e99f86" style="width: 100.0%; height: 100.0%;"><div style='width:200px; font-family:Arial;'><b>Arak</b><hr><b>País:</b> Irán<br><b>Tipo:</b> Reactor de Agua Pesada</div></div>`)[0];
-                popup_f7de3c4aded4610567f3f27931ea2c12.setContent(html_d78a2f19784444d807bfa66bb5e99f86);
-            
-        
-
-        marker_454bfcc5e9a0231000f568caae8f6e71.bindPopup(popup_f7de3c4aded4610567f3f27931ea2c12)
-        ;
-
+            var circle_marker_e660129f0fdea874d9410b7e35a9188e = L.circleMarker(
+                [35.26828, 136.2493],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969);
         
     
-    
-                marker_454bfcc5e9a0231000f568caae8f6e71.setIcon(icon_3586e5b9619e3a161c1ee60ea1cfbe4b);
-            
-    
-            var marker_df8baee96efe6f8682091c9a5f8f38cb = L.marker(
-                [31.0011, 35.1469],
+            circle_marker_e660129f0fdea874d9410b7e35a9188e.bindTooltip(
+                `<div>
+                     17.0 cpm
+                 </div>`,
                 {
-}
-            ).addTo(feature_group_1695b82d2a03e36ab3f4021118b9609b);
-        
-    
-            var icon_f8f6cc5fbbbd151b38412bbbcfe425e6 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "radiation",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
+  "sticky": true,
 }
             );
         
     
-        var popup_edd9ca096011e2094dfba48d7ffd5413 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_9d31eab1c7449f879b7c385021d73fb1 = $(`<div id="html_9d31eab1c7449f879b7c385021d73fb1" style="width: 100.0%; height: 100.0%;"><div style='width:200px; font-family:Arial;'><b>Dimona (NNRC)</b><hr><b>País:</b> Israel<br><b>Tipo:</b> Centro de Investigación Nuclear (Armas)</div></div>`)[0];
-                popup_edd9ca096011e2094dfba48d7ffd5413.setContent(html_9d31eab1c7449f879b7c385021d73fb1);
-            
-        
-
-        marker_df8baee96efe6f8682091c9a5f8f38cb.bindPopup(popup_edd9ca096011e2094dfba48d7ffd5413)
-        ;
-
+            var circle_marker_acc696b82f17bb37a5cdaa01d17ae6d9 = L.circleMarker(
+                [51.0634, 11.7586],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969);
         
     
-    
-                marker_df8baee96efe6f8682091c9a5f8f38cb.setIcon(icon_f8f6cc5fbbbd151b38412bbbcfe425e6);
-            
-    
-            var marker_f6403a3b0750f1031daa9d5541a2a808 = L.marker(
-                [31.9054, 34.782],
+            circle_marker_acc696b82f17bb37a5cdaa01d17ae6d9.bindTooltip(
+                `<div>
+                     29.0 cpm
+                 </div>`,
                 {
-}
-            ).addTo(feature_group_1695b82d2a03e36ab3f4021118b9609b);
-        
-    
-            var icon_ae596c192b157dc7263d4a965e9ba605 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "radiation",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
+  "sticky": true,
 }
             );
         
     
-        var popup_83c5231878a363f96fccc71c4e356c73 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_ebf2dfcd418bd764aec87dbb1ef16594 = $(`<div id="html_ebf2dfcd418bd764aec87dbb1ef16594" style="width: 100.0%; height: 100.0%;"><div style='width:200px; font-family:Arial;'><b>Soreq</b><hr><b>País:</b> Israel<br><b>Tipo:</b> Centro Nuclear de Soreq</div></div>`)[0];
-                popup_83c5231878a363f96fccc71c4e356c73.setContent(html_ebf2dfcd418bd764aec87dbb1ef16594);
-            
-        
-
-        marker_f6403a3b0750f1031daa9d5541a2a808.bindPopup(popup_83c5231878a363f96fccc71c4e356c73)
-        ;
-
+            var circle_marker_6eba0d24fae64b4b5fa8b16142bcc74e = L.circleMarker(
+                [37.63726, 139.66036],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969);
         
     
-    
-                marker_f6403a3b0750f1031daa9d5541a2a808.setIcon(icon_ae596c192b157dc7263d4a965e9ba605);
-            
-    
-            var marker_9255414ee65150cbb89318cb1fd20a25 = L.marker(
-                [36.1436, 33.5411],
+            circle_marker_6eba0d24fae64b4b5fa8b16142bcc74e.bindTooltip(
+                `<div>
+                     -1000.0 status
+                 </div>`,
                 {
-}
-            ).addTo(feature_group_1695b82d2a03e36ab3f4021118b9609b);
-        
-    
-            var icon_172d8b688d2c3575517bf174993c5d98 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "radiation",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
+  "sticky": true,
 }
             );
         
     
-        var popup_fa939928241001948f93dfa75bdb56e8 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_7efdd535233252e687d32ea644644dc2 = $(`<div id="html_7efdd535233252e687d32ea644644dc2" style="width: 100.0%; height: 100.0%;"><div style='width:200px; font-family:Arial;'><b>Akkuyu NPP</b><hr><b>País:</b> Turquía<br><b>Tipo:</b> Central Nuclear (Rusa)</div></div>`)[0];
-                popup_fa939928241001948f93dfa75bdb56e8.setContent(html_7efdd535233252e687d32ea644644dc2);
-            
-        
-
-        marker_9255414ee65150cbb89318cb1fd20a25.bindPopup(popup_fa939928241001948f93dfa75bdb56e8)
-        ;
-
+            feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969.addTo(map_42072971ee53e83aa14d35f3c9197d83);
         
     
-    
-                marker_9255414ee65150cbb89318cb1fd20a25.setIcon(icon_172d8b688d2c3575517bf174993c5d98);
-            
-    
-            var marker_e55eee434b4fa052b90260000b5cbe19 = L.marker(
-                [23.9781, 52.2353],
-                {
-}
-            ).addTo(feature_group_1695b82d2a03e36ab3f4021118b9609b);
-        
-    
-            var icon_0edb69c1b5c776c102761d2c7adcef9e = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "blue",
-  "iconColor": "white",
-  "icon": "radiation",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_18e05930d927c057a9b5b4dc77763098 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_2373694ba673e433ec7ece241a748ba9 = $(`<div id="html_2373694ba673e433ec7ece241a748ba9" style="width: 100.0%; height: 100.0%;"><div style='width:200px; font-family:Arial;'><b>Barakah NPP</b><hr><b>País:</b> EAU<br><b>Tipo:</b> Central Nuclear Civil</div></div>`)[0];
-                popup_18e05930d927c057a9b5b4dc77763098.setContent(html_2373694ba673e433ec7ece241a748ba9);
-            
-        
-
-        marker_e55eee434b4fa052b90260000b5cbe19.bindPopup(popup_18e05930d927c057a9b5b4dc77763098)
-        ;
-
-        
-    
-    
-                marker_e55eee434b4fa052b90260000b5cbe19.setIcon(icon_0edb69c1b5c776c102761d2c7adcef9e);
-            
-    
-            feature_group_1695b82d2a03e36ab3f4021118b9609b.addTo(map_0feb378f849ab01b288e59396817b9f2);
-        
-    
-            var feature_group_5b8c8db7c8c7d7bab0006be83613f663 = L.featureGroup(
+            var feature_group_48846ea27492132b2de2fdc771f1650e = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_40a557f4d3c2469d01e40a333f6d4b4c = L.circleMarker(
-                [37.79792166666667, -25.487446666666667],
-                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
-            ).addTo(feature_group_5b8c8db7c8c7d7bab0006be83613f663);
-        
-    
-        var popup_162a39dc3ca60e9f8aaef7c675124f5c = L.popup({
-  "maxWidth": 200,
-});
-
-        
-            
-                var html_43f5c40dc1412b9e1aef9f1c8c04b674 = $(`<div id="html_43f5c40dc1412b9e1aef9f1c8c04b674" style="width: 100.0%; height: 100.0%;"><div style='width:150px;'><b>Sensor OSINT</b><br>Valor: 46.0 cpm<br>Fecha: 2021-02-02</div></div>`)[0];
-                popup_162a39dc3ca60e9f8aaef7c675124f5c.setContent(html_43f5c40dc1412b9e1aef9f1c8c04b674);
-            
-        
-
-        circle_marker_40a557f4d3c2469d01e40a333f6d4b4c.bindPopup(popup_162a39dc3ca60e9f8aaef7c675124f5c)
-        ;
-
-        
-    
-    
-            feature_group_5b8c8db7c8c7d7bab0006be83613f663.addTo(map_0feb378f849ab01b288e59396817b9f2);
-        
-    
-            var feature_group_6a842dd4872d3e7057ba5565992f84c6 = L.featureGroup(
-                {
-}
-            );
-        
-    
-            var circle_marker_2c995adef4152ca50868e0c2b0b06818 = L.circleMarker(
+            var circle_marker_eba5d196231a9bedee856df4f3c4b012 = L.circleMarker(
                 [30.8268, 50.0745],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.25, "stroke": true, "weight": 3}
-            ).addTo(feature_group_6a842dd4872d3e7057ba5565992f84c6);
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.299999999999999, "stroke": true, "weight": 3}
+            ).addTo(feature_group_48846ea27492132b2de2fdc771f1650e);
         
     
-        var popup_3400233f120b31800cd94589fae74628 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_0c753ecd0cf72fcaea8e2f0e06c8673a = $(`<div id="html_0c753ecd0cf72fcaea8e2f0e06c8673a" style="width: 100.0%; height: 100.0%;">                 <div style="font-family:monospace; width:220px; background:#111; color:#fff; padding:10px; border:1px solid blue; border-radius:4px;">                     <b style="color:blue; font-size:12px;">🔵 EVENTO TECTÓNICO (Dato Bruto)</b><hr style="border-color:#333; margin:6px 0;">                     <b style="color:#aaa;">Ubicación:</b> 27 km ENE of Aghajari, Iran<br>                     <b style="color:#aaa;">Magnitud:</b> 4.1<br>                     <b style="color:#aaa;">Profundidad:</b> <span style="color:white;">10 km</span><br>                     <b style="color:#aaa;">Dist. a Nodo Crítico:</b> 235.54 km<br>                     <div style="background:blue; color:#fff; text-align:center; padding:4px; margin-top:6px; font-weight:bold;">                         ANÁLISIS IA: 99.75% Certeza                     </div>                 </div>                 </div>`)[0];
-                popup_3400233f120b31800cd94589fae74628.setContent(html_0c753ecd0cf72fcaea8e2f0e06c8673a);
-            
-        
-
-        circle_marker_2c995adef4152ca50868e0c2b0b06818.bindPopup(popup_3400233f120b31800cd94589fae74628)
-        ;
-
-        
-    
-    
-            var circle_marker_33a125889146571472e9c80e76b7dfc0 = L.circleMarker(
+            var circle_marker_b552d14fb7f6a6532b8b4c5aa249f9da = L.circleMarker(
                 [27.3499, 52.6776],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.5, "stroke": true, "weight": 3}
-            ).addTo(feature_group_6a842dd4872d3e7057ba5565992f84c6);
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.600000000000001, "stroke": true, "weight": 3}
+            ).addTo(feature_group_48846ea27492132b2de2fdc771f1650e);
         
     
-        var popup_777abffef0d0ba73d3bef6a58171db83 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_ddd21eb88312b9cf2bbd8afd252d48d6 = $(`<div id="html_ddd21eb88312b9cf2bbd8afd252d48d6" style="width: 100.0%; height: 100.0%;">                 <div style="font-family:monospace; width:220px; background:#111; color:#fff; padding:10px; border:1px solid blue; border-radius:4px;">                     <b style="color:blue; font-size:12px;">🔵 EVENTO TECTÓNICO (Dato Bruto)</b><hr style="border-color:#333; margin:6px 0;">                     <b style="color:#aaa;">Ubicación:</b> 30 km SW of Mohr, Iran<br>                     <b style="color:#aaa;">Magnitud:</b> 4.2<br>                     <b style="color:#aaa;">Profundidad:</b> <span style="color:white;">10 km</span><br>                     <b style="color:#aaa;">Dist. a Nodo Crítico:</b> 240.79 km<br>                     <div style="background:blue; color:#fff; text-align:center; padding:4px; margin-top:6px; font-weight:bold;">                         ANÁLISIS IA: 99.79% Certeza                     </div>                 </div>                 </div>`)[0];
-                popup_777abffef0d0ba73d3bef6a58171db83.setContent(html_ddd21eb88312b9cf2bbd8afd252d48d6);
-            
-        
-
-        circle_marker_33a125889146571472e9c80e76b7dfc0.bindPopup(popup_777abffef0d0ba73d3bef6a58171db83)
-        ;
-
-        
-    
-    
-            var circle_marker_6e979eaa96160409e77e5632f1e499ce = L.circleMarker(
+            var circle_marker_1df8a717332826bfac055ac59010e566 = L.circleMarker(
                 [30.0431, 51.8139],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.75, "stroke": true, "weight": 3}
-            ).addTo(feature_group_6a842dd4872d3e7057ba5565992f84c6);
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.899999999999999, "stroke": true, "weight": 3}
+            ).addTo(feature_group_48846ea27492132b2de2fdc771f1650e);
         
     
-        var popup_c9ff512159c9ba0d0c2a44b72115d68f = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_48839c6ba1d0643849a195ce7e495ac7 = $(`<div id="html_48839c6ba1d0643849a195ce7e495ac7" style="width: 100.0%; height: 100.0%;">                 <div style="font-family:monospace; width:220px; background:#111; color:#fff; padding:10px; border:1px solid blue; border-radius:4px;">                     <b style="color:blue; font-size:12px;">🔵 EVENTO TECTÓNICO (Dato Bruto)</b><hr style="border-color:#333; margin:6px 0;">                     <b style="color:#aaa;">Ubicación:</b> 29 km ESE of Nūrābād, Iran<br>                     <b style="color:#aaa;">Magnitud:</b> 4.3<br>                     <b style="color:#aaa;">Profundidad:</b> <span style="color:white;">10 km</span><br>                     <b style="color:#aaa;">Dist. a Nodo Crítico:</b> 162.35 km<br>                     <div style="background:blue; color:#fff; text-align:center; padding:4px; margin-top:6px; font-weight:bold;">                         ANÁLISIS IA: 99.15% Certeza                     </div>                 </div>                 </div>`)[0];
-                popup_c9ff512159c9ba0d0c2a44b72115d68f.setContent(html_48839c6ba1d0643849a195ce7e495ac7);
-            
-        
-
-        circle_marker_6e979eaa96160409e77e5632f1e499ce.bindPopup(popup_c9ff512159c9ba0d0c2a44b72115d68f)
-        ;
-
-        
-    
-    
-            var circle_marker_a197106555ffcc35fa0effd3d428d542 = L.circleMarker(
+            var circle_marker_e02ae2a1a69ae6239887ad151eab786f = L.circleMarker(
                 [32.5097, 48.2144],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.0, "stroke": true, "weight": 3}
-            ).addTo(feature_group_6a842dd4872d3e7057ba5565992f84c6);
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.200000000000001, "stroke": true, "weight": 3}
+            ).addTo(feature_group_48846ea27492132b2de2fdc771f1650e);
         
     
-        var popup_5c867c3d5480fedcc9bcfffca80c75a5 = L.popup({
-  "maxWidth": 250,
-});
-
-        
-            
-                var html_329cd0069a1115a7ce9f4d01ec78141b = $(`<div id="html_329cd0069a1115a7ce9f4d01ec78141b" style="width: 100.0%; height: 100.0%;">                 <div style="font-family:monospace; width:220px; background:#111; color:#fff; padding:10px; border:1px solid blue; border-radius:4px;">                     <b style="color:blue; font-size:12px;">🔵 EVENTO TECTÓNICO (Dato Bruto)</b><hr style="border-color:#333; margin:6px 0;">                     <b style="color:#aaa;">Ubicación:</b> 29 km NW of Shahrak-e Kūlūrī, Iran<br>                     <b style="color:#aaa;">Magnitud:</b> 4.4<br>                     <b style="color:#aaa;">Profundidad:</b> <span style="color:white;">10 km</span><br>                     <b style="color:#aaa;">Dist. a Nodo Crítico:</b> 238.02 km<br>                     <div style="background:blue; color:#fff; text-align:center; padding:4px; margin-top:6px; font-weight:bold;">                         ANÁLISIS IA: 99.82% Certeza                     </div>                 </div>                 </div>`)[0];
-                popup_5c867c3d5480fedcc9bcfffca80c75a5.setContent(html_329cd0069a1115a7ce9f4d01ec78141b);
-            
-        
-
-        circle_marker_a197106555ffcc35fa0effd3d428d542.bindPopup(popup_5c867c3d5480fedcc9bcfffca80c75a5)
-        ;
-
+            feature_group_48846ea27492132b2de2fdc771f1650e.addTo(map_42072971ee53e83aa14d35f3c9197d83);
         
     
-    
-            feature_group_6a842dd4872d3e7057ba5565992f84c6.addTo(map_0feb378f849ab01b288e59396817b9f2);
-        
-    
-            var feature_group_ca681590c0273899b08172673b485f35 = L.featureGroup(
+            var feature_group_6c016b1a72db1854bfd464d9bd28f908 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_ca681590c0273899b08172673b485f35.addTo(map_0feb378f849ab01b288e59396817b9f2);
+            feature_group_6c016b1a72db1854bfd464d9bd28f908.addTo(map_42072971ee53e83aa14d35f3c9197d83);
         
     
-            var layer_control_e48b28a1769b9e1f48db689e1c484d49_layers = {
+            var layer_control_d1618f05ab65c87ffe11bf546686c946_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_7f15792672ec642b151a089c2d4065ce,
+                    "cartodbdarkmatter" : tile_layer_b02a4dc1a1a39486e62cf6cbba7bb750,
                 },
                 overlays :  {
-                    "\ud83c\udfd7\ufe0f Ciudadelas y Reactores" : feature_group_1695b82d2a03e36ab3f4021118b9609b,
-                    "\ud83d\udfe2 Datos Brutos: Sensores SafeCast" : feature_group_5b8c8db7c8c7d7bab0006be83613f663,
-                    "\ud83d\udd35 Datos Brutos: Sismos USGS" : feature_group_6a842dd4872d3e7057ba5565992f84c6,
-                    "\ud83d\udd34 An\u00e1lisis IA (Anomal\u00edas)" : feature_group_ca681590c0273899b08172673b485f35,
+                    "\ud83d\udfe2 Sensores SafeCast (DATOS BRUTOS)" : feature_group_f7cda9d4bdb6294be92c6ae2a5d9e969,
+                    "\ud83d\udd35 Sismos USGS" : feature_group_48846ea27492132b2de2fdc771f1650e,
+                    "\ud83d\udd34 Alertas IA" : feature_group_6c016b1a72db1854bfd464d9bd28f908,
                 },
             };
-            let layer_control_e48b28a1769b9e1f48db689e1c484d49 = L.control.layers(
-                layer_control_e48b28a1769b9e1f48db689e1c484d49_layers.base_layers,
-                layer_control_e48b28a1769b9e1f48db689e1c484d49_layers.overlays,
+            let layer_control_d1618f05ab65c87ffe11bf546686c946 = L.control.layers(
+                layer_control_d1618f05ab65c87ffe11bf546686c946_layers.base_layers,
+                layer_control_d1618f05ab65c87ffe11bf546686c946_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_0feb378f849ab01b288e59396817b9f2);
+            ).addTo(map_42072971ee53e83aa14d35f3c9197d83);
 
         
 </script>

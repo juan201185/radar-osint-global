@@ -9,27 +9,17 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
-# --- LA GEOGRAFÍA DE LAS SOMBRAS: TODAS LAS CENTRALES Y CIUDADELAS ---
+# --- CONFIGURACIÓN ESTRATÉGICA ---
 INSTALACIONES_NUCLEAR_ME = {
-    # Irán - Ciudadelas y Centrifugadoras Subterráneas
-    "Natanz (SUB)": {"coords": [33.7233, 51.7267], "pais": "Irán", "sub": 1, "desc": "Enriquecimiento Subterráneo"},
-    "Fordow (SUB)": {"coords": [34.8858, 50.9958], "pais": "Irán", "sub": 1, "desc": "Centrifugadoras de Montaña (80m)"},
-    "Parchin (SUB)": {"coords": [35.5156, 51.8311], "pais": "Irán", "sub": 1, "desc": "Complejo Militar / Pruebas"},
-    "Mes-e Sarcheshmeh": {"coords": [29.9692, 55.8719], "pais": "Irán", "sub": 1, "desc": "Mina / Túneles Logísticos"},
-    # Irán - Superficie
-    "Isfahan": {"coords": [32.6804, 51.6861], "pais": "Irán", "sub": 0, "desc": "Conversión de Uranio"},
-    "Bushehr": {"coords": [28.8283, 50.8839], "pais": "Irán", "sub": 0, "desc": "Reactor de Potencia Civil"},
-    "Arak": {"coords": [34.3747, 49.4736], "pais": "Irán", "sub": 0, "desc": "Reactor de Agua Pesada"},
-    # Israel
-    "Dimona (NNRC)": {"coords": [31.0011, 35.1469], "pais": "Israel", "sub": 0, "desc": "Centro de Investigación Nuclear (Armas)"},
-    "Soreq": {"coords": [31.9054, 34.7820], "pais": "Israel", "sub": 0, "desc": "Centro Nuclear de Soreq"},
-    # Resto de Medio Oriente
-    "Akkuyu NPP": {"coords": [36.1436, 33.5411], "pais": "Turquía", "sub": 0, "desc": "Central Nuclear (Rusa)"},
-    "Barakah NPP": {"coords": [23.9781, 52.2353], "pais": "EAU", "sub": 0, "desc": "Central Nuclear Civil"}
+    "Natanz (SUB)": {"coords": [33.7233, 51.7267], "sub": 1},
+    "Fordow (SUB)": {"coords": [34.8858, 50.9958], "sub": 1},
+    "Bushehr": {"coords": [28.8283, 50.8839], "sub": 0},
+    "Dimona (IL)": {"coords": [31.0011, 35.1469], "sub": 0},
+    "Barakah (EAU)": {"coords": [23.9781, 52.2353], "sub": 0}
 }
 
 def calcular_distancia(lat1, lon1, lat2, lon2):
-    R = 6371.0 
+    R = 6371.0
     dlat, dlon = math.radians(lat2 - lat1), math.radians(lon2 - lon1)
     a = math.sin(dlat / 2)**2 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * math.sin(dlon / 2)**2
     return R * (2 * math.atan2(math.sqrt(a), math.sqrt(1 - a)))
@@ -38,18 +28,11 @@ class CerebroNeuronalETB:
     def __init__(self):
         self.modelo = MLPClassifier(hidden_layer_sizes=(32, 16), activation='relu', max_iter=3000, random_state=42)
         self.scaler = StandardScaler()
-        self.entrenar_ia()
-
-    def entrenar_ia(self):
-        # [Magnitud, Profundidad_km, Distancia_Nodo, Rad_uSv, Es_Subterraneo(1/0)]
-        X_train = np.array([
-            [4.5, 15.0, 10.0, 0.15, 1], [5.1, 20.0, 5.0, 0.12, 0], [6.0, 30.0, 100.0, 0.11, 0], # Naturales
-            [3.5, 0.0, 2.0, 0.15, 1], [4.2, 0.5, 1.0, 0.16, 1], # Cinético Bunker Buster
-            [5.3, 0.0, 0.2, 45.0, 1], [0.0, 0.0, 2.0, 15.0, 0] # Fuga/Nuclear
-        ])
-        y_train = np.array([0, 0, 0, 1, 1, 2, 2])
-        self.X_train_scaled = self.scaler.fit_transform(X_train)
-        self.modelo.fit(self.X_train_scaled, y_train)
+        # Features: [Mag, Prof, Dist, Rad, Sub]
+        X = np.array([[4.5, 15, 10, 0.15, 1], [3.5, 0, 2, 0.15, 1], [5.3, 0, 0.2, 45, 1]])
+        y = np.array([0, 1, 2])
+        self.scaler.fit(X)
+        self.modelo.fit(self.scaler.transform(X), y)
 
     def evaluar(self, mag, prof, lat, lon):
         dist_min, es_sub = 9999, 0
@@ -57,125 +40,78 @@ class CerebroNeuronalETB:
             dist = calcular_distancia(lat, lon, d['coords'][0], d['coords'][1])
             if dist < dist_min: dist_min, es_sub = dist, d['sub']
         datos = self.scaler.transform([[mag, prof, dist_min, 0.15, es_sub]])
-        return self.modelo.predict(datos)[0], round(max(self.modelo.predict_proba(datos)[0])*100, 2), round(dist_min, 2)
+        return self.modelo.predict(datos)[0], round(max(self.modelo.predict_proba(datos)[0])*100, 1), round(dist_min, 1)
 
-class RadarVisiónTotal:
+class RadarETB_v11:
     def __init__(self):
         self.ia = CerebroNeuronalETB()
         
     def generar_mapa(self):
-        print("\n" + "="*70 + "\nRADAR E.T.B. v10.0 - MODO VISIÓN TOTAL (DATOS BRUTOS + IA)\n" + "="*70)
+        print("\n" + "="*70 + "\nRADAR E.T.B. v11.0 - FORZANDO TELEMETRÍA RADIACTIVA\n" + "="*70)
+        mapa = folium.Map(location=[30.0, 45.0], zoom_start=5, tiles='CartoDB dark_matter')
         
-        # Mapa centrado para ver desde Turquía hasta Omán
-        mapa = folium.Map(location=[31.0, 45.0], zoom_start=5, tiles='CartoDB dark_matter')
-        
-        # Capas separadas para que puedas encenderlas/apagarlas
-        capa_ciudadelas = folium.FeatureGroup(name="🏗️ Ciudadelas y Reactores").add_to(mapa)
-        capa_sensores = folium.FeatureGroup(name="🟢 Datos Brutos: Sensores SafeCast").add_to(mapa)
-        capa_tectonica = folium.FeatureGroup(name="🔵 Datos Brutos: Sismos USGS").add_to(mapa)
-        capa_alertas = folium.FeatureGroup(name="🔴 Análisis IA (Anomalías)").add_to(mapa)
+        capa_rad = folium.FeatureGroup(name="🟢 Sensores SafeCast (DATOS BRUTOS)").add_to(mapa)
+        capa_tectonica = folium.FeatureGroup(name="🔵 Sismos USGS").add_to(mapa)
+        capa_alertas = folium.FeatureGroup(name="🔴 Alertas IA").add_to(mapa)
 
-        # 1. PINTAR TODAS LAS CIUDADELAS Y CENTRALES
-        for nom, d in INSTALACIONES_NUCLEAR_ME.items():
-            color_icono = "darkred" if d['sub'] == 1 else "blue"
-            icono_fa = "mountain" if d['sub'] == 1 else "radiation"
-            html_nodo = f"<div style='width:200px; font-family:Arial;'><b>{nom}</b><hr><b>País:</b> {d['pais']}<br><b>Tipo:</b> {d['desc']}</div>"
-            folium.Marker(
-                location=d['coords'], 
-                icon=folium.Icon(color=color_icono, icon=icono_fa, prefix="fa"),
-                popup=folium.Popup(html_nodo, max_width=250)
-            ).add_to(capa_ciudadelas)
-
-        # 2. PINTAR DATOS BRUTOS: SENSORES DE RADIACIÓN (SafeCast)
+        # 1. TRACCIÓN FORZADA DE RADIACIÓN
         rad_count = 0
         try:
-            print("Descargando telemetría de radiación OSINT...")
-            url_rad = "https://api.safecast.org/measurements.json?limit=500&min_latitude=20&max_latitude=45&min_longitude=25&max_longitude=65"
-            rad_resp = requests.get(url_rad, timeout=10).json()
+            # Pedimos más datos (1000) para asegurar que tras el filtro de estaciones únicas queden bastantes
+            url_rad = "https://api.safecast.org/measurements.json?limit=1000&min_latitude=15&max_latitude=45&min_longitude=25&max_longitude=65"
+            rad_resp = requests.get(url_rad, timeout=15).json()
             estaciones = {}
             for r in rad_resp:
-                # Filtrar coordenadas exactas repetidas para no apilar, pero mostrar TODAS las ubicaciones únicas
-                id_est = f"{round(r['latitude'],3)}_{round(r['longitude'],3)}"
-                if id_est not in estaciones:
-                    estaciones[id_est] = r
-                    html_rad = f"<div style='width:150px;'><b>Sensor OSINT</b><br>Valor: {r['value']} {r['unit']}<br>Fecha: {r['captured_at'][:10]}</div>"
+                # Filtro por precisión de 3 decimales para evitar el stacking
+                sid = f"{round(r['latitude'],3)}_{round(r['longitude'],3)}"
+                if sid not in estaciones:
+                    estaciones[sid] = r
                     folium.CircleMarker(
-                        [r['latitude'], r['longitude']], radius=4, color="lime", fill=True, fillOpacity=0.7,
-                        popup=folium.Popup(html_rad, max_width=200)
-                    ).add_to(capa_sensores)
+                        [r['latitude'], r['longitude']], radius=4, color="lime", fill=True, fillOpacity=0.8,
+                        tooltip=f"{r['value']} {r['unit']}"
+                    ).add_to(capa_rad)
             rad_count = len(estaciones)
-            print(f"-> {rad_count} sensores verdes plasmados en el mapa.")
-        except Exception as e: print(f"-> Error cargando radiación: {e}")
+            print(f"-> EXITO: {rad_count} estaciones de radiación únicas ubicadas.")
+        except Exception as e: print(f"-> ERROR API RAD: {e}")
 
-        # 3. PINTAR DATOS BRUTOS: MOVIMIENTOS TECTÓNICOS (USGS) + ANÁLISIS IA
+        # 2. SISMOS
         sismos_total, alertas_ia = 0, 0
         try:
-            print("Descargando telemetría sísmica del USGS...")
             start = (datetime.datetime.now() - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
-            url_sismos = f"https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime={start}&minmagnitude=2.5&minlatitude=20&maxlatitude=45&minlongitude=25&maxlongitude=65"
-            sismos_data = requests.get(url_sismos, timeout=10).json()
-            
+            url_sismos = f"https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime={start}&minmagnitude=2.5&minlatitude=15&maxlatitude=45&minlongitude=25&maxlongitude=65"
+            sismos_data = requests.get(url_sismos, timeout=15).json()
             for f in sismos_data['features']:
                 sismos_total += 1
                 lat, lon, prof = f['geometry']['coordinates'][1], f['geometry']['coordinates'][0], f['geometry']['coordinates'][2]
                 mag = f['properties']['mag']
-                lugar = f['properties']['place']
+                tipo, cert, dist = self.ia.evaluar(mag, prof, lat, lon)
                 
-                # Pasar por la IA
-                tipo_ia, certeza, dist_nodo = self.ia.evaluar(mag, prof, lat, lon)
-                
-                if tipo_ia > 0:
+                color = "blue"
+                capa = capa_tectonica
+                if tipo > 0:
                     alertas_ia += 1
-                    color = "orange" if tipo_ia == 1 else "red"
-                    clasif = "⚠️ POSIBLE IMPACTO CINÉTICO" if tipo_ia == 1 else "☢️ ALERTA CRÍTICA (FUGA/NUCLEAR)"
-                    capa_destino = capa_alertas
-                    radio = mag * 4
-                else:
-                    color = "blue"
-                    clasif = "🔵 EVENTO TECTÓNICO (Dato Bruto)"
-                    capa_destino = capa_tectonica
-                    radio = mag * 2.5 # Sismos normales un poco más pequeños
+                    color, capa = ("orange", capa_alertas) if tipo == 1 else ("red", capa_alertas)
+                
+                folium.CircleMarker([lat, lon], radius=mag*3, color=color, fill=True).add_to(capa)
+            print(f"-> EXITO: {sismos_total} sismos procesados.")
+        except Exception as e: print(f"-> ERROR API SISMOS: {e}")
 
-                # Etiqueta con todos los datos brutos + Análisis
-                html_sismo = f"""
-                <div style="font-family:monospace; width:220px; background:#111; color:#fff; padding:10px; border:1px solid {color}; border-radius:4px;">
-                    <b style="color:{color}; font-size:12px;">{clasif}</b><hr style="border-color:#333; margin:6px 0;">
-                    <b style="color:#aaa;">Ubicación:</b> {lugar}<br>
-                    <b style="color:#aaa;">Magnitud:</b> {mag}<br>
-                    <b style="color:#aaa;">Profundidad:</b> <span style="color:{'red' if prof < 3 else 'white'};">{prof} km</span><br>
-                    <b style="color:#aaa;">Dist. a Nodo Crítico:</b> {dist_nodo} km<br>
-                    <div style="background:{color}; color:#fff; text-align:center; padding:4px; margin-top:6px; font-weight:bold;">
-                        ANÁLISIS IA: {certeza}% Certeza
-                    </div>
-                </div>
-                """
-                folium.CircleMarker(
-                    [lat, lon], radius=radio, color=color, fill=True, fillOpacity=0.6,
-                    popup=folium.Popup(html_sismo, max_width=250)
-                ).add_to(capa_destino)
-            print(f"-> {sismos_total} sismos brutos plasmados en el mapa.")
-        except Exception as e: print(f"-> Error cargando sismos: {e}")
-
-        # --- HUD DE PATÍA GLOBAL ---
-        panel_html = f"""
-        <div style="position: fixed; top: 20px; right: 20px; width: 340px; background: rgba(0,0,0,0.9); border: 2px solid {'red' if alertas_ia > 0 else 'lime'}; padding: 15px; color: #fff; font-family: monospace; z-index: 9999;">
-            <b style="font-size:16px; color:{'red' if alertas_ia > 0 else 'lime'};">🌐 E.T.B. v10.0 - VISIÓN TOTAL</b><br>
-            <span style="font-size:10px; color:#aaa;">DATOS BRUTOS + ANÁLISIS DE RED NEURONAL</span><hr style="border-color:#444;">
-            Nodos y Ciudadelas Vigiladas: <b>{len(INSTALACIONES_NUCLEAR_ME)}</b><br>
-            Sensores OSINT en el mapa: <b style="color:lime;">{rad_count}</b><br>
-            Sismos Brutos (7 días): <b style="color:#4287f5;">{sismos_total}</b><br>
-            Anomalías Detectadas (IA): <b style="color:red; font-size:14px;">{alertas_ia}</b><br>
-            <div style="margin-top: 10px; border-top: 1px solid #333; padding-top: 5px; font-size: 9px; color: #888; text-align: center;">
+        # HUD v11.0
+        panel = f"""
+        <div style="position: fixed; top: 20px; right: 20px; width: 320px; background: rgba(0,0,0,0.9); border: 2px solid lime; padding: 15px; color: #fff; font-family: monospace; z-index: 9999;">
+            <b style="color:lime;">🌐 E.T.B. v11.0 - VISIÓN TOTAL</b><hr>
+            Sensores OSINT (SafeCast): <b style="color:lime;">{rad_count}</b><br>
+            Sismos Brutos (7d): <b style="color:cyan;">{sismos_total}</b><br>
+            Alertas IA: <b style="color:red;">{alertas_ia}</b><br>
+            <div style="margin-top: 10px; font-size: 9px; color: #888; text-align: center;">
                 Sincronizado: {datetime.datetime.now().strftime('%H:%M')}
             </div>
         </div>
         """
-        mapa.get_root().html.add_child(folium.Element(panel_html))
-        
-        # Activar el control de capas para que puedas filtrar lo que ves con tus propios ojos
+        mapa.get_root().html.add_child(folium.Element(panel))
         folium.LayerControl(collapsed=False).add_to(mapa)
         mapa.save("radar_nuclear_estrategico.html")
-        print("\n[✅ RADAR VISIÓN TOTAL GENERADO: radar_nuclear_estrategico.html]")
+        print("[✅ MAPA GENERADO]")
 
 if __name__ == "__main__":
-    RadarVisiónTotal().generar_mapa()
+    RadarETB_v11().generar_mapa()
