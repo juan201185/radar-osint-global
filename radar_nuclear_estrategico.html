@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_d976ecac3fd3f69601e51488e2eea32d {
+                #map_448b08f67922cdf8630a273a3ad82fd7 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,24 +54,28 @@
 <body>
     
     
-        <div style="position: fixed; bottom: 20px; left: 20px; width: 300px; background: rgba(0,0,0,0.9); 
-                    border: 1px solid #00ff41; padding: 10px; color: #fff; font-family: monospace; z-index: 9999;">
-            <b style="color:#00ff41;">CEREBRO NEURONAL E.T.B. ACTIVO</b><br>
-            <hr style="border-color:#333; margin:5px 0;">
-            Eventos procesados (7d): 4<br>
-            Alertas Críticas detectadas: <b style="color:red;">0</b><br>
-            <i>La IA clasifica los eventos cruzando profundidad, potencia y vectores de distancia estratégica.</i>
+        <div style="position: fixed; top: 20px; right: 20px; width: 330px; background: rgba(0,0,0,0.9); 
+                    border: 2px solid #00ff41; padding: 15px; color: #fff; font-family: monospace; z-index: 9999;">
+            <b style="color:#00ff41; font-size:14px;">🧠 CEREBRO NEURONAL E.T.B. v6.0</b><br>
+            <span style="font-size:10px; color:#aaa;">Fusión de Datos: USGS (Sísmico) + SafeCast (Radiológico)</span><hr style="border-color:#444;">
+            Sismos Procesados: <b>4</b><br>
+            Nodos Radiación OSINT: <b style="color:lime;">20</b><br>
+            Amenazas Detectadas: <b style="color:#00ff41; font-size:14px;">0</b><br>
+            
+            <div style="margin-top: 12px; border-top: 1px solid #333; padding-top: 8px; font-size: 9px; color: #888; text-align: center;">
+                Sistema E.T.B. v6.0 | Sincronizado: 21:05
+            </div>
         </div>
         
     
-            <div class="folium-map" id="map_d976ecac3fd3f69601e51488e2eea32d" ></div>
+            <div class="folium-map" id="map_448b08f67922cdf8630a273a3ad82fd7" ></div>
         
 </body>
 <script>
     
     
-            var map_d976ecac3fd3f69601e51488e2eea32d = L.map(
-                "map_d976ecac3fd3f69601e51488e2eea32d",
+            var map_448b08f67922cdf8630a273a3ad82fd7 = L.map(
+                "map_448b08f67922cdf8630a273a3ad82fd7",
                 {
                     center: [32.0, 45.0],
                     crs: L.CRS.EPSG3857,
@@ -88,7 +92,7 @@
 
         
     
-            var tile_layer_f0448efe17e0a914c3b14c7c1ef380fc = L.tileLayer(
+            var tile_layer_89a2256da2806468a25b879754ab8575 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -105,25 +109,25 @@
             );
         
     
-            tile_layer_f0448efe17e0a914c3b14c7c1ef380fc.addTo(map_d976ecac3fd3f69601e51488e2eea32d);
+            tile_layer_89a2256da2806468a25b879754ab8575.addTo(map_448b08f67922cdf8630a273a3ad82fd7);
         
     
-            var feature_group_cd0b3be870739bb227c3442b73b6da1b = L.featureGroup(
+            var feature_group_9bb506608af2e2797e8a89ff55348b2b = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_edc16d7395d05eee22ed862d77823c2b = L.marker(
+            var marker_566226f1122193700eec0417690ee994 = L.marker(
                 [33.7233, 51.7267],
                 {
 }
-            ).addTo(feature_group_cd0b3be870739bb227c3442b73b6da1b);
+            ).addTo(feature_group_9bb506608af2e2797e8a89ff55348b2b);
         
     
-            var icon_1f9279794fc71d07a8ef5e29aea67fd1 = L.AwesomeMarkers.icon(
+            var icon_daaced1bf45526124ea37646c5539649 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "red",
+  "markerColor": "darkred",
   "iconColor": "white",
   "icon": "shield",
   "prefix": "fa",
@@ -132,7 +136,7 @@
             );
         
     
-            marker_edc16d7395d05eee22ed862d77823c2b.bindTooltip(
+            marker_566226f1122193700eec0417690ee994.bindTooltip(
                 `<div>
                      Natanz (IR)
                  </div>`,
@@ -142,19 +146,19 @@
             );
         
     
-                marker_edc16d7395d05eee22ed862d77823c2b.setIcon(icon_1f9279794fc71d07a8ef5e29aea67fd1);
+                marker_566226f1122193700eec0417690ee994.setIcon(icon_daaced1bf45526124ea37646c5539649);
             
     
-            var marker_c4c8cb5e0ce7f42b9ef323113c066c41 = L.marker(
+            var marker_f751923c36775a4ba575ac55d2d16a09 = L.marker(
                 [34.8858, 50.9958],
                 {
 }
-            ).addTo(feature_group_cd0b3be870739bb227c3442b73b6da1b);
+            ).addTo(feature_group_9bb506608af2e2797e8a89ff55348b2b);
         
     
-            var icon_c738464dc798a68bb761a5c28ecc2f7c = L.AwesomeMarkers.icon(
+            var icon_a8326a87e1fb2215dbb9e542dec6903d = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "red",
+  "markerColor": "darkred",
   "iconColor": "white",
   "icon": "shield",
   "prefix": "fa",
@@ -163,7 +167,7 @@
             );
         
     
-            marker_c4c8cb5e0ce7f42b9ef323113c066c41.bindTooltip(
+            marker_f751923c36775a4ba575ac55d2d16a09.bindTooltip(
                 `<div>
                      Fordow (IR)
                  </div>`,
@@ -173,19 +177,19 @@
             );
         
     
-                marker_c4c8cb5e0ce7f42b9ef323113c066c41.setIcon(icon_c738464dc798a68bb761a5c28ecc2f7c);
+                marker_f751923c36775a4ba575ac55d2d16a09.setIcon(icon_a8326a87e1fb2215dbb9e542dec6903d);
             
     
-            var marker_5af3ee9e155049d2e427350edfcba28b = L.marker(
+            var marker_80a5c8621bfb5fc0b5341f366e716fc5 = L.marker(
                 [32.6804, 51.6861],
                 {
 }
-            ).addTo(feature_group_cd0b3be870739bb227c3442b73b6da1b);
+            ).addTo(feature_group_9bb506608af2e2797e8a89ff55348b2b);
         
     
-            var icon_4caa473037aa6a2c7b4602d121cdb36a = L.AwesomeMarkers.icon(
+            var icon_bdab274a4b35afeda0a83e1ade143e01 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "red",
+  "markerColor": "darkred",
   "iconColor": "white",
   "icon": "shield",
   "prefix": "fa",
@@ -194,7 +198,7 @@
             );
         
     
-            marker_5af3ee9e155049d2e427350edfcba28b.bindTooltip(
+            marker_80a5c8621bfb5fc0b5341f366e716fc5.bindTooltip(
                 `<div>
                      Isfahan (IR)
                  </div>`,
@@ -204,19 +208,19 @@
             );
         
     
-                marker_5af3ee9e155049d2e427350edfcba28b.setIcon(icon_4caa473037aa6a2c7b4602d121cdb36a);
+                marker_80a5c8621bfb5fc0b5341f366e716fc5.setIcon(icon_bdab274a4b35afeda0a83e1ade143e01);
             
     
-            var marker_429330bfc42c78a05d2df72627544147 = L.marker(
+            var marker_4f28a2d7d45b5c264414b5cc2ce85807 = L.marker(
                 [34.3747, 49.4736],
                 {
 }
-            ).addTo(feature_group_cd0b3be870739bb227c3442b73b6da1b);
+            ).addTo(feature_group_9bb506608af2e2797e8a89ff55348b2b);
         
     
-            var icon_f09db1a7b3998e8eff9936ceb1742b58 = L.AwesomeMarkers.icon(
+            var icon_3b2ed55e92305e3b6501b00439ba2112 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "red",
+  "markerColor": "darkred",
   "iconColor": "white",
   "icon": "shield",
   "prefix": "fa",
@@ -225,7 +229,7 @@
             );
         
     
-            marker_429330bfc42c78a05d2df72627544147.bindTooltip(
+            marker_4f28a2d7d45b5c264414b5cc2ce85807.bindTooltip(
                 `<div>
                      Arak (IR)
                  </div>`,
@@ -235,19 +239,19 @@
             );
         
     
-                marker_429330bfc42c78a05d2df72627544147.setIcon(icon_f09db1a7b3998e8eff9936ceb1742b58);
+                marker_4f28a2d7d45b5c264414b5cc2ce85807.setIcon(icon_3b2ed55e92305e3b6501b00439ba2112);
             
     
-            var marker_013338db9184868c2ab579dfe76b41ae = L.marker(
+            var marker_765619ec269917f621fd7b2bdfcbfbde = L.marker(
                 [28.8283, 50.8839],
                 {
 }
-            ).addTo(feature_group_cd0b3be870739bb227c3442b73b6da1b);
+            ).addTo(feature_group_9bb506608af2e2797e8a89ff55348b2b);
         
     
-            var icon_57953b2d96d7ea830bb877070f66b855 = L.AwesomeMarkers.icon(
+            var icon_856ea502e5a2bbb44ba955068b8028a9 = L.AwesomeMarkers.icon(
                 {
-  "markerColor": "red",
+  "markerColor": "darkred",
   "iconColor": "white",
   "icon": "shield",
   "prefix": "fa",
@@ -256,7 +260,7 @@
             );
         
     
-            marker_013338db9184868c2ab579dfe76b41ae.bindTooltip(
+            marker_765619ec269917f621fd7b2bdfcbfbde.bindTooltip(
                 `<div>
                      Bushehr (IR)
                  </div>`,
@@ -266,17 +270,17 @@
             );
         
     
-                marker_013338db9184868c2ab579dfe76b41ae.setIcon(icon_57953b2d96d7ea830bb877070f66b855);
+                marker_765619ec269917f621fd7b2bdfcbfbde.setIcon(icon_856ea502e5a2bbb44ba955068b8028a9);
             
     
-            var marker_9c7ec4abd9a59c1e142bbe0dbf9cbfba = L.marker(
+            var marker_ba9273866a1c42e5c9229caadce4a9ab = L.marker(
                 [31.0011, 35.1469],
                 {
 }
-            ).addTo(feature_group_cd0b3be870739bb227c3442b73b6da1b);
+            ).addTo(feature_group_9bb506608af2e2797e8a89ff55348b2b);
         
     
-            var icon_09e363ac1c375a49e1d22c501609a25e = L.AwesomeMarkers.icon(
+            var icon_8d5f7f75eaea961e667d7f0891bc5027 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkblue",
   "iconColor": "white",
@@ -287,7 +291,7 @@
             );
         
     
-            marker_9c7ec4abd9a59c1e142bbe0dbf9cbfba.bindTooltip(
+            marker_ba9273866a1c42e5c9229caadce4a9ab.bindTooltip(
                 `<div>
                      Dimona (IL)
                  </div>`,
@@ -297,17 +301,17 @@
             );
         
     
-                marker_9c7ec4abd9a59c1e142bbe0dbf9cbfba.setIcon(icon_09e363ac1c375a49e1d22c501609a25e);
+                marker_ba9273866a1c42e5c9229caadce4a9ab.setIcon(icon_8d5f7f75eaea961e667d7f0891bc5027);
             
     
-            var marker_da316593f5ae701378d785864cd22282 = L.marker(
+            var marker_a06f87f8243e234f67f6b1ad32ce91b4 = L.marker(
                 [31.9054, 34.782],
                 {
 }
-            ).addTo(feature_group_cd0b3be870739bb227c3442b73b6da1b);
+            ).addTo(feature_group_9bb506608af2e2797e8a89ff55348b2b);
         
     
-            var icon_416ac607bda9a5edbed25d64000bb2fc = L.AwesomeMarkers.icon(
+            var icon_f91d6fcd0dbe16c665605474282b1e66 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkblue",
   "iconColor": "white",
@@ -318,7 +322,7 @@
             );
         
     
-            marker_da316593f5ae701378d785864cd22282.bindTooltip(
+            marker_a06f87f8243e234f67f6b1ad32ce91b4.bindTooltip(
                 `<div>
                      Soreq (IL)
                  </div>`,
@@ -328,141 +332,461 @@
             );
         
     
-                marker_da316593f5ae701378d785864cd22282.setIcon(icon_416ac607bda9a5edbed25d64000bb2fc);
+                marker_a06f87f8243e234f67f6b1ad32ce91b4.setIcon(icon_f91d6fcd0dbe16c665605474282b1e66);
             
     
-            feature_group_cd0b3be870739bb227c3442b73b6da1b.addTo(map_d976ecac3fd3f69601e51488e2eea32d);
+            feature_group_9bb506608af2e2797e8a89ff55348b2b.addTo(map_448b08f67922cdf8630a273a3ad82fd7);
         
     
-            var feature_group_48f9858b9138737362622ae5de2e1fff = L.featureGroup(
+            var feature_group_c24eb367c9be17320f33045dabf7b4b7 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_a71790bd8a0fbc5b888f8d0d90d89a0e = L.circleMarker(
+            var circle_marker_e3dfc4e1c1bef526d47aa728eee46679 = L.circleMarker(
+                [23.590046666666666, 58.289451666666665],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_e3dfc4e1c1bef526d47aa728eee46679.bindTooltip(
+                `<div>
+                     Sensor OSINT: 36.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f700268cf6f6fde20a67c2f0a1ee0586 = L.circleMarker(
+                [23.589816666666668, 58.28890666666667],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_f700268cf6f6fde20a67c2f0a1ee0586.bindTooltip(
+                `<div>
+                     Sensor OSINT: 33.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_40a76ece5b6780a4d215a2be8ed35f1a = L.circleMarker(
+                [23.589836666666667, 58.28891333333333],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_40a76ece5b6780a4d215a2be8ed35f1a.bindTooltip(
+                `<div>
+                     Sensor OSINT: 30.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_35e503f2ffa6ac89d3f30e525308b6db = L.circleMarker(
+                [23.589826666666667, 58.28890666666667],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_35e503f2ffa6ac89d3f30e525308b6db.bindTooltip(
+                `<div>
+                     Sensor OSINT: 20.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0bbc52fa133da82b16bc4355fb503c3b = L.circleMarker(
+                [23.589888333333334, 58.288956666666664],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_0bbc52fa133da82b16bc4355fb503c3b.bindTooltip(
+                `<div>
+                     Sensor OSINT: 25.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3678e9c6fe30dffe5908d8c72da0b7e2 = L.circleMarker(
+                [23.589813333333332, 58.28890333333333],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_3678e9c6fe30dffe5908d8c72da0b7e2.bindTooltip(
+                `<div>
+                     Sensor OSINT: 32.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_82fdcdb4c4fedd4d3de61b1b654a0da7 = L.circleMarker(
+                [23.589815, 58.28890333333333],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_82fdcdb4c4fedd4d3de61b1b654a0da7.bindTooltip(
+                `<div>
+                     Sensor OSINT: 29.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3c9e79ccca4bddb9b8e8ef28912fb066 = L.circleMarker(
+                [23.589821666666666, 58.28890833333333],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_3c9e79ccca4bddb9b8e8ef28912fb066.bindTooltip(
+                `<div>
+                     Sensor OSINT: 28.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2bb01a5e6478fb935123be324d6eaac6 = L.circleMarker(
+                [23.589843333333334, 58.28892166666667],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_2bb01a5e6478fb935123be324d6eaac6.bindTooltip(
+                `<div>
+                     Sensor OSINT: 27.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_53585fdd2b2520804d856cda4e65d20e = L.circleMarker(
+                [23.589891666666666, 58.28896833333334],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_53585fdd2b2520804d856cda4e65d20e.bindTooltip(
+                `<div>
+                     Sensor OSINT: 38.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6a96cb830b634efadf7ac7fa4f615f05 = L.circleMarker(
+                [23.589816666666668, 58.28891],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_6a96cb830b634efadf7ac7fa4f615f05.bindTooltip(
+                `<div>
+                     Sensor OSINT: 27.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_14d772b4aeb0616ce872512ddc45f9df = L.circleMarker(
+                [23.589815, 58.28891],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_14d772b4aeb0616ce872512ddc45f9df.bindTooltip(
+                `<div>
+                     Sensor OSINT: 20.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b893e5bbf3ec27f08244e02648b50fc0 = L.circleMarker(
+                [23.589835, 58.288918333333335],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_b893e5bbf3ec27f08244e02648b50fc0.bindTooltip(
+                `<div>
+                     Sensor OSINT: 20.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c85f146df06788bd76ab2a0282a9fd55 = L.circleMarker(
+                [23.589856666666666, 58.28895833333333],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_c85f146df06788bd76ab2a0282a9fd55.bindTooltip(
+                `<div>
+                     Sensor OSINT: 31.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_23224ffab01a1e0d0bbd6be806dee03c = L.circleMarker(
+                [23.589815, 58.288916666666665],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_23224ffab01a1e0d0bbd6be806dee03c.bindTooltip(
+                `<div>
+                     Sensor OSINT: 41.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2b51506a1240a5d4d764c8cd4118a56a = L.circleMarker(
+                [23.589815, 58.288925],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_2b51506a1240a5d4d764c8cd4118a56a.bindTooltip(
+                `<div>
+                     Sensor OSINT: 28.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b44d0027afff20f091d7fba00205d9c8 = L.circleMarker(
+                [23.58983, 58.288936666666665],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_b44d0027afff20f091d7fba00205d9c8.bindTooltip(
+                `<div>
+                     Sensor OSINT: 25.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a556c30d2ec853ef8f1c10bd6e65a893 = L.circleMarker(
+                [23.58984, 58.28892666666667],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_a556c30d2ec853ef8f1c10bd6e65a893.bindTooltip(
+                `<div>
+                     Sensor OSINT: 28.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de7e8a4087d02ec3a66bc2a6ed50e3b8 = L.circleMarker(
+                [23.589825, 58.288905],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_de7e8a4087d02ec3a66bc2a6ed50e3b8.bindTooltip(
+                `<div>
+                     Sensor OSINT: 22.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e4d39a40da4435fae60081a0bbcbf9eb = L.circleMarker(
+                [23.58982, 58.28892333333334],
+                {"bubblingMouseEvents": true, "color": "lime", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lime", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_c24eb367c9be17320f33045dabf7b4b7);
+        
+    
+            circle_marker_e4d39a40da4435fae60081a0bbcbf9eb.bindTooltip(
+                `<div>
+                     Sensor OSINT: 31.0 cpm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_c24eb367c9be17320f33045dabf7b4b7.addTo(map_448b08f67922cdf8630a273a3ad82fd7);
+        
+    
+            var feature_group_78cac7086686fc6f9d665dc7051bc3fd = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_1801b9d400bd01eb6837c1f1e7d74bd5 = L.circleMarker(
                 [30.8268, 50.0745],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.299999999999999, "stroke": true, "weight": 3}
-            ).addTo(feature_group_48f9858b9138737362622ae5de2e1fff);
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.349999999999998, "stroke": true, "weight": 3}
+            ).addTo(feature_group_78cac7086686fc6f9d665dc7051bc3fd);
         
     
-        var popup_bae743974e94551f1c315d4d4a37b208 = L.popup({
-  "maxWidth": 250,
+        var popup_a8b211c8a7649335407dbfadd9b54fc1 = L.popup({
+  "maxWidth": 260,
 });
 
         
             
-                var html_eb2cc090a2b0b74a1fef604f44bc3732 = $(`<div id="html_eb2cc090a2b0b74a1fef604f44bc3732" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; font-size: 11px; width: 220px;">                 <b style="color:blue; font-size:12px;">🔵 Evento Tectónico Normal</b><br><hr style="margin:4px 0;">                 <b>Lugar:</b> 27 km ENE of Aghajari, Iran<br>                 <b>Magnitud:</b> 4.1<br>                 <b>Profundidad:</b> 10 km<br>                 <b>Distancia a Nodo Crítico:</b> 235.54 km<br>                 <div style="background:#222; color:#fff; padding:5px; margin-top:5px; border-radius:3px;">                     <b>Predicción IA:</b> 0.31% Probabilidad de evento no-natural                 </div>             </div>             </div>`)[0];
-                popup_bae743974e94551f1c315d4d4a37b208.setContent(html_eb2cc090a2b0b74a1fef604f44bc3732);
+                var html_d84641c5cddf75b0dd7730dc7114f582 = $(`<div id="html_d84641c5cddf75b0dd7730dc7114f582" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; font-size: 11px; width: 240px; background-color:#111; color:#eee; padding:10px; border:1px solid blue; border-radius:5px;">                 <b style="color:blue; font-size:12px;">🔵 EVENTO TECTÓNICO SEGURO</b><hr style="border-color:#333; margin:5px 0;">                 <b>Lugar:</b> 27 km ENE of Aghajari, Iran<br>                 <b>Magnitud:</b> 4.1 | <b>Profundidad:</b> 10 km<br>                 <b>Nivel Radiación:</b> <span style="color:lime;">0.15 uSv/h</span><br>                 <div style="background:blue; color:#fff; padding:5px; margin-top:5px; text-align:center;">                     <b>Certeza IA: 95.06%</b>                 </div>             </div>             </div>`)[0];
+                popup_a8b211c8a7649335407dbfadd9b54fc1.setContent(html_d84641c5cddf75b0dd7730dc7114f582);
             
         
 
-        circle_marker_a71790bd8a0fbc5b888f8d0d90d89a0e.bindPopup(popup_bae743974e94551f1c315d4d4a37b208)
+        circle_marker_1801b9d400bd01eb6837c1f1e7d74bd5.bindPopup(popup_a8b211c8a7649335407dbfadd9b54fc1)
         ;
 
         
     
     
-            var circle_marker_09c893b078a2dba53f7d4e492e5edc0f = L.circleMarker(
+            var circle_marker_eb82540c404dacd0f7bec21fec53b1bb = L.circleMarker(
                 [27.3499, 52.6776],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.600000000000001, "stroke": true, "weight": 3}
-            ).addTo(feature_group_48f9858b9138737362622ae5de2e1fff);
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.700000000000001, "stroke": true, "weight": 3}
+            ).addTo(feature_group_78cac7086686fc6f9d665dc7051bc3fd);
         
     
-        var popup_3d21ffbf31b26d892adedff0fc7cb9cc = L.popup({
-  "maxWidth": 250,
+        var popup_9e82aa799c9350f6d440cf228e5c70f3 = L.popup({
+  "maxWidth": 260,
 });
 
         
             
-                var html_303c2a4a55c861fbc2b1629e37de4e42 = $(`<div id="html_303c2a4a55c861fbc2b1629e37de4e42" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; font-size: 11px; width: 220px;">                 <b style="color:blue; font-size:12px;">🔵 Evento Tectónico Normal</b><br><hr style="margin:4px 0;">                 <b>Lugar:</b> 30 km SW of Mohr, Iran<br>                 <b>Magnitud:</b> 4.2<br>                 <b>Profundidad:</b> 10 km<br>                 <b>Distancia a Nodo Crítico:</b> 240.79 km<br>                 <div style="background:#222; color:#fff; padding:5px; margin-top:5px; border-radius:3px;">                     <b>Predicción IA:</b> 0.23% Probabilidad de evento no-natural                 </div>             </div>             </div>`)[0];
-                popup_3d21ffbf31b26d892adedff0fc7cb9cc.setContent(html_303c2a4a55c861fbc2b1629e37de4e42);
+                var html_08eadbcab27dc3cbb0f25b62a69e6367 = $(`<div id="html_08eadbcab27dc3cbb0f25b62a69e6367" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; font-size: 11px; width: 240px; background-color:#111; color:#eee; padding:10px; border:1px solid blue; border-radius:5px;">                 <b style="color:blue; font-size:12px;">🔵 EVENTO TECTÓNICO SEGURO</b><hr style="border-color:#333; margin:5px 0;">                 <b>Lugar:</b> 30 km SW of Mohr, Iran<br>                 <b>Magnitud:</b> 4.2 | <b>Profundidad:</b> 10 km<br>                 <b>Nivel Radiación:</b> <span style="color:lime;">0.15 uSv/h</span><br>                 <div style="background:blue; color:#fff; padding:5px; margin-top:5px; text-align:center;">                     <b>Certeza IA: 95.7%</b>                 </div>             </div>             </div>`)[0];
+                popup_9e82aa799c9350f6d440cf228e5c70f3.setContent(html_08eadbcab27dc3cbb0f25b62a69e6367);
             
         
 
-        circle_marker_09c893b078a2dba53f7d4e492e5edc0f.bindPopup(popup_3d21ffbf31b26d892adedff0fc7cb9cc)
+        circle_marker_eb82540c404dacd0f7bec21fec53b1bb.bindPopup(popup_9e82aa799c9350f6d440cf228e5c70f3)
         ;
 
         
     
     
-            var circle_marker_647cf697504fd5c6933281dbe0ad9507 = L.circleMarker(
+            var circle_marker_58bcb0bf80be6103b4d193099545ac81 = L.circleMarker(
                 [30.0431, 51.8139],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.899999999999999, "stroke": true, "weight": 3}
-            ).addTo(feature_group_48f9858b9138737362622ae5de2e1fff);
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.049999999999999, "stroke": true, "weight": 3}
+            ).addTo(feature_group_78cac7086686fc6f9d665dc7051bc3fd);
         
     
-        var popup_8538fc6bfa77de5d438af96f533e9ceb = L.popup({
-  "maxWidth": 250,
+        var popup_04761582b45065e297958291ba3f6ea1 = L.popup({
+  "maxWidth": 260,
 });
 
         
             
-                var html_b8d59a1e186bee0262c91d0880a6dbbd = $(`<div id="html_b8d59a1e186bee0262c91d0880a6dbbd" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; font-size: 11px; width: 220px;">                 <b style="color:blue; font-size:12px;">🔵 Evento Tectónico Normal</b><br><hr style="margin:4px 0;">                 <b>Lugar:</b> 29 km ESE of Nūrābād, Iran<br>                 <b>Magnitud:</b> 4.3<br>                 <b>Profundidad:</b> 10 km<br>                 <b>Distancia a Nodo Crítico:</b> 162.35 km<br>                 <div style="background:#222; color:#fff; padding:5px; margin-top:5px; border-radius:3px;">                     <b>Predicción IA:</b> 6.51% Probabilidad de evento no-natural                 </div>             </div>             </div>`)[0];
-                popup_8538fc6bfa77de5d438af96f533e9ceb.setContent(html_b8d59a1e186bee0262c91d0880a6dbbd);
+                var html_e0ecc9969600222d82a1aaa6065aee84 = $(`<div id="html_e0ecc9969600222d82a1aaa6065aee84" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; font-size: 11px; width: 240px; background-color:#111; color:#eee; padding:10px; border:1px solid blue; border-radius:5px;">                 <b style="color:blue; font-size:12px;">🔵 EVENTO TECTÓNICO SEGURO</b><hr style="border-color:#333; margin:5px 0;">                 <b>Lugar:</b> 29 km ESE of Nūrābād, Iran<br>                 <b>Magnitud:</b> 4.3 | <b>Profundidad:</b> 10 km<br>                 <b>Nivel Radiación:</b> <span style="color:lime;">0.15 uSv/h</span><br>                 <div style="background:blue; color:#fff; padding:5px; margin-top:5px; text-align:center;">                     <b>Certeza IA: 82.44%</b>                 </div>             </div>             </div>`)[0];
+                popup_04761582b45065e297958291ba3f6ea1.setContent(html_e0ecc9969600222d82a1aaa6065aee84);
             
         
 
-        circle_marker_647cf697504fd5c6933281dbe0ad9507.bindPopup(popup_8538fc6bfa77de5d438af96f533e9ceb)
+        circle_marker_58bcb0bf80be6103b4d193099545ac81.bindPopup(popup_04761582b45065e297958291ba3f6ea1)
         ;
 
         
     
     
-            var circle_marker_07fd51bd4788c4849a1b36ff62853dc3 = L.circleMarker(
+            var circle_marker_8411eb354fc641c8a739d6b801a96f34 = L.circleMarker(
                 [32.5097, 48.2144],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.200000000000001, "stroke": true, "weight": 3}
-            ).addTo(feature_group_48f9858b9138737362622ae5de2e1fff);
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.400000000000002, "stroke": true, "weight": 3}
+            ).addTo(feature_group_78cac7086686fc6f9d665dc7051bc3fd);
         
     
-        var popup_99591605c7b6d6f58aeb2885e3f3b974 = L.popup({
-  "maxWidth": 250,
+        var popup_c61c5733348582e4e6b2a6b6901c5d42 = L.popup({
+  "maxWidth": 260,
 });
 
         
             
-                var html_8b5c92331d93accf816d3fbadb62ac8f = $(`<div id="html_8b5c92331d93accf816d3fbadb62ac8f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; font-size: 11px; width: 220px;">                 <b style="color:blue; font-size:12px;">🔵 Evento Tectónico Normal</b><br><hr style="margin:4px 0;">                 <b>Lugar:</b> 29 km NW of Shahrak-e Kūlūrī, Iran<br>                 <b>Magnitud:</b> 4.4<br>                 <b>Profundidad:</b> 10 km<br>                 <b>Distancia a Nodo Crítico:</b> 238.02 km<br>                 <div style="background:#222; color:#fff; padding:5px; margin-top:5px; border-radius:3px;">                     <b>Predicción IA:</b> 0.19% Probabilidad de evento no-natural                 </div>             </div>             </div>`)[0];
-                popup_99591605c7b6d6f58aeb2885e3f3b974.setContent(html_8b5c92331d93accf816d3fbadb62ac8f);
+                var html_e77e810e10842f4c5a5a95569bb643c1 = $(`<div id="html_e77e810e10842f4c5a5a95569bb643c1" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; font-size: 11px; width: 240px; background-color:#111; color:#eee; padding:10px; border:1px solid blue; border-radius:5px;">                 <b style="color:blue; font-size:12px;">🔵 EVENTO TECTÓNICO SEGURO</b><hr style="border-color:#333; margin:5px 0;">                 <b>Lugar:</b> 29 km NW of Shahrak-e Kūlūrī, Iran<br>                 <b>Magnitud:</b> 4.4 | <b>Profundidad:</b> 10 km<br>                 <b>Nivel Radiación:</b> <span style="color:lime;">0.15 uSv/h</span><br>                 <div style="background:blue; color:#fff; padding:5px; margin-top:5px; text-align:center;">                     <b>Certeza IA: 95.76%</b>                 </div>             </div>             </div>`)[0];
+                popup_c61c5733348582e4e6b2a6b6901c5d42.setContent(html_e77e810e10842f4c5a5a95569bb643c1);
             
         
 
-        circle_marker_07fd51bd4788c4849a1b36ff62853dc3.bindPopup(popup_99591605c7b6d6f58aeb2885e3f3b974)
+        circle_marker_8411eb354fc641c8a739d6b801a96f34.bindPopup(popup_c61c5733348582e4e6b2a6b6901c5d42)
         ;
 
         
     
     
-            feature_group_48f9858b9138737362622ae5de2e1fff.addTo(map_d976ecac3fd3f69601e51488e2eea32d);
+            feature_group_78cac7086686fc6f9d665dc7051bc3fd.addTo(map_448b08f67922cdf8630a273a3ad82fd7);
         
     
-            var feature_group_c711e2dab7d3bbbf00b4692541fa954c = L.featureGroup(
-                {
-}
-            );
-        
-    
-            feature_group_c711e2dab7d3bbbf00b4692541fa954c.addTo(map_d976ecac3fd3f69601e51488e2eea32d);
-        
-    
-            var layer_control_0f59e5487340d21572745e4855297a19_layers = {
+            var layer_control_bf1a09e0a2d4e202f6c3f169da51a0ca_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_f0448efe17e0a914c3b14c7c1ef380fc,
+                    "cartodbdarkmatter" : tile_layer_89a2256da2806468a25b879754ab8575,
                 },
                 overlays :  {
-                    "\u2622\ufe0f Nodos Estrat\u00e9gicos" : feature_group_cd0b3be870739bb227c3442b73b6da1b,
-                    "\ud83d\udd35 Sismos Tect\u00f3nicos (IA: Seguro)" : feature_group_48f9858b9138737362622ae5de2e1fff,
-                    "\ud83d\udd34 Alertas Anomal\u00eda (IA: Peligro)" : feature_group_c711e2dab7d3bbbf00b4692541fa954c,
+                    "\ud83c\udfd7\ufe0f Instalaciones Cr\u00edticas" : feature_group_9bb506608af2e2797e8a89ff55348b2b,
+                    "\u2622\ufe0f Sensores OSINT SafeCast" : feature_group_c24eb367c9be17320f33045dabf7b4b7,
+                    "\ud83d\udd34 Motor de IA (Anomal\u00edas)" : feature_group_78cac7086686fc6f9d665dc7051bc3fd,
                 },
             };
-            let layer_control_0f59e5487340d21572745e4855297a19 = L.control.layers(
-                layer_control_0f59e5487340d21572745e4855297a19_layers.base_layers,
-                layer_control_0f59e5487340d21572745e4855297a19_layers.overlays,
+            let layer_control_bf1a09e0a2d4e202f6c3f169da51a0ca = L.control.layers(
+                layer_control_bf1a09e0a2d4e202f6c3f169da51a0ca_layers.base_layers,
+                layer_control_bf1a09e0a2d4e202f6c3f169da51a0ca_layers.overlays,
                 {
   "position": "topright",
-  "collapsed": true,
+  "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_d976ecac3fd3f69601e51488e2eea32d);
+            ).addTo(map_448b08f67922cdf8630a273a3ad82fd7);
 
         
 </script>
