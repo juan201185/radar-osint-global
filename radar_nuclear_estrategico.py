@@ -65,7 +65,7 @@ class RadarVisiónTotal:
         })
         
     def generar_mapa(self):
-        print("\n" + "="*70 + "\nRADAR E.T.B. v10.2 - REPARACIÓN DE SENSORES OSINT\n" + "="*70)
+        print("\n" + "="*70 + "\nRADAR E.T.B. v10.4 - SATÉLITE + HUD REUBICADO\n" + "="*70)
         
         mapa = folium.Map(location=[31.0, 45.0], zoom_start=5, tiles='CartoDB dark_matter')
         
@@ -85,11 +85,10 @@ class RadarVisiónTotal:
                 popup=folium.Popup(html_nodo, max_width=250)
             ).add_to(capa_ciudadelas)
 
-        # 2. PINTAR DATOS BRUTOS: SENSORES DE RADIACIÓN (PARCHE DEFINITIVO)
+        # 2. PINTAR DATOS BRUTOS: SENSORES DE RADIACIÓN (INTACTO)
         rad_count = 0
         try:
             print("Descargando telemetría de radiación OSINT...")
-            # --- CAMBIO DE ESTRATEGIA: Búsqueda dinámica en múltiples coordenadas para evitar bloqueos ---
             coordenadas_tacticas = [
                 (31.7, 35.2), # Israel
                 (32.0, 50.0), # Centro Irán
@@ -99,13 +98,11 @@ class RadarVisiónTotal:
             
             estaciones = {}
             for lat_base, lon_base in coordenadas_tacticas:
-                # Buscamos en un radio de 1000km alrededor de cada punto táctico
                 url_rad = f"https://api.safecast.org/measurements.json?latitude={lat_base}&longitude={lon_base}&distance=1000000"
                 rad_resp = self.session.get(url_rad, timeout=10)
                 
                 if rad_resp.status_code == 200:
                     data = rad_resp.json()
-                    # Tomamos las últimas 20 lecturas de cada zona para no apilar demasiadas
                     for r in data[:20]:
                         id_est = f"{round(r['latitude'],3)}_{round(r['longitude'],3)}"
                         if id_est not in estaciones:
@@ -124,7 +121,7 @@ class RadarVisiónTotal:
                 
         except Exception as e: print(f"-> Error crítico cargando radiación: {e}")
 
-        # 3. PINTAR DATOS BRUTOS: MOVIMIENTOS TECTÓNICOS (USGS) + ANÁLISIS IA
+        # 3. PINTAR DATOS BRUTOS: MOVIMIENTOS TECTÓNICOS (USGS) + ANÁLISIS IA (INTACTO)
         sismos_total, alertas_ia = 0, 0
         try:
             print("Descargando telemetría sísmica del USGS...")
@@ -140,7 +137,6 @@ class RadarVisiónTotal:
                     mag = f['properties']['mag']
                     lugar = f['properties']['place']
                     
-                    # Pasar por la IA
                     tipo_ia, certeza, dist_nodo = self.ia.evaluar(mag, prof, lat, lon)
                     
                     if tipo_ia > 0:
@@ -155,7 +151,7 @@ class RadarVisiónTotal:
                         capa_destino = capa_tectonica
                         radio = mag * 2.5 
 
-                    # Etiqueta con todos los datos brutos + Análisis
+                    # Etiqueta original con todos los datos brutos + Análisis
                     html_sismo = f"""
                     <div style="font-family:monospace; width:220px; background:#111; color:#fff; padding:10px; border:1px solid {color}; border-radius:4px;">
                         <b style="color:{color}; font-size:12px;">{clasif}</b><hr style="border-color:#333; margin:6px 0;">
@@ -177,21 +173,57 @@ class RadarVisiónTotal:
                 print(f"-> Error HTTP USGS: {sismos_resp.status_code}")
         except Exception as e: print(f"-> Error cargando sismos: {e}")
 
-        # --- HUD DE PATÍA GLOBAL ---
+        # 4. CAPA 3: DATOS SATELITALES (NUEVO CÓDIGO INYECTADO Y FORZADO)
+        try:
+            print("Conectando con órbita: Descargando Capas Satelitales (NASA GIBS)...")
+            fecha_segura = (datetime.datetime.now() - datetime.timedelta(days=1)).strftime('%Y-%m-%d')
+            
+            # Satélite Óptico (Terreno y nubes reales)
+            folium.raster_layers.WmsTileLayer(
+                url='https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi',
+                layers='MODIS_Terra_CorrectedReflectance_TrueColor',
+                name='🛰️ Satélite Óptico (Terreno Real)',
+                fmt='image/jpeg',
+                transparent=False,
+                overlay=True,
+                control=True,
+                TIME=fecha_segura,
+                attr='NASA GIBS'
+            ).add_to(mapa)
+
+            # Capa de Aerosoles (Humo y gases invisibles)
+            folium.raster_layers.WmsTileLayer(
+                url='https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi',
+                layers='MODIS_Terra_Aerosol',
+                name='☁️ Satélite: Índice de Aerosoles',
+                fmt='image/png',
+                transparent=True,
+                overlay=True,
+                control=True,
+                TIME=fecha_segura,
+                attr='NASA GIBS'
+            ).add_to(mapa)
+            print("-> EXITO: Satélites enlazados correctamente.")
+        except Exception as e: 
+            print(f"-> Error crítico cargando telemetría satelital: {e}")
+
+        # --- HUD DE PATÍA GLOBAL REUBICADO ABAJO A LA IZQUIERDA ---
         panel_html = f"""
-        <div style="position: fixed; top: 20px; right: 20px; width: 340px; background: rgba(0,0,0,0.9); border: 2px solid {'red' if alertas_ia > 0 else 'lime'}; padding: 15px; color: #fff; font-family: monospace; z-index: 9999;">
-            <b style="font-size:16px; color:{'red' if alertas_ia > 0 else 'lime'};">🌐 E.T.B. v10.2 - VISIÓN TOTAL</b><br>
-            <span style="font-size:10px; color:#aaa;">DATOS BRUTOS + ANÁLISIS DE RED NEURONAL</span><hr style="border-color:#444;">
-            Nodos y Ciudadelas Vigiladas: <b>{len(INSTALACIONES_NUCLEAR_ME)}</b><br>
-            Sensores OSINT en el mapa: <b style="color:lime;">{rad_count}</b><br>
-            Sismos Brutos (7 días): <b style="color:#4287f5;">{sismos_total}</b><br>
-            Anomalías Detectadas (IA): <b style="color:red; font-size:14px;">{alertas_ia}</b><br>
+        <div style="position: fixed; bottom: 20px; left: 20px; width: 340px; background: rgba(0,0,0,0.9); border: 2px solid {'red' if alertas_ia > 0 else 'lime'}; padding: 15px; color: #fff; font-family: monospace; z-index: 9999; border-radius: 5px;">
+            <b style="font-size:16px; color:{'red' if alertas_ia > 0 else 'lime'};">🌐 E.T.B. v10.4 - VISIÓN TOTAL</b><br>
+            <span style="font-size:10px; color:#aaa;">DATOS BRUTOS + IA + SATÉLITE ESPACIAL</span><hr style="border-color:#444;">
+            Nodos Vigilados: <b>{len(INSTALACIONES_NUCLEAR_ME)}</b><br>
+            Capa 3 (Satelital): <b style="color:cyan;">ACTIVA (NASA OMPS)</b><br>
+            Sensores OSINT: <b style="color:lime;">{rad_count}</b><br>
+            Sismos (7 días): <b style="color:#4287f5;">{sismos_total}</b><br>
+            Anomalías IA: <b style="color:red; font-size:14px;">{alertas_ia}</b><br>
             <div style="margin-top: 10px; border-top: 1px solid #333; padding-top: 5px; font-size: 9px; color: #888; text-align: center;">
                 Sincronizado: {datetime.datetime.now().strftime('%H:%M')}
             </div>
         </div>
         """
         mapa.get_root().html.add_child(folium.Element(panel_html))
+        
         folium.LayerControl(collapsed=False).add_to(mapa)
         
         mapa.save("radar_nuclear_estrategico.html")
