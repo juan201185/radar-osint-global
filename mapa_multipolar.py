@@ -487,7 +487,7 @@ def generar_mapa_volumen_maximo():
     mapa.get_root().html.add_child(folium.Element(leyenda))
     
     panel = f"""
-    <div style="position:fixed;bottom:30px;left:20px;width:240px;background:rgba(0,0,0,0.95);border:2px solid {color_dinamico};padding:15px;border-radius:10px;z-index:9999;color:#fff;font-family:'Courier New',monospace;">
+    <div style="position:fixed;top:270px;right:20px;width:240px;background:rgba(0,0,0,0.95);border:2px solid {color_dinamico};padding:15px;border-radius:10px;z-index:9999;color:#fff;font-family:'Courier New',monospace;">
         <b style="color:#ffcc00;font-size:11px;letter-spacing:1px;">⛽ CENTRO DE ENERGÍA</b>
         <hr style="border:0.5px solid #444;margin:10px 0;">
         <span style="font-size:14px;">BRENT: <b style="color:#fff;">${p_brent:.2f}</b></span><br>
