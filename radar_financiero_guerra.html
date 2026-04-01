@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_91984b8e3f52a9b483de1158ca097480 {
+                #map_44a8405e873638122238e6de82cae224 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -55,39 +55,41 @@
 <body>
     
     
-        <div style="position: fixed; top: 20px; right: 20px; width: 300px; background: rgba(10,10,10,0.95); 
-                    color: #fff; border: 2px solid #ffcc00; padding: 15px; border-radius: 10px; 
+        <div style="position: fixed; top: 20px; right: 20px; width: 320px; background: rgba(10,10,10,0.95); 
+                    color: #fff; border: 2px solid #ff4444; padding: 15px; border-radius: 10px; 
                     font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;">
             <h4 style="color:#ffcc00; text-align:center; margin:0 0 10px 0;">💰 RADAR FINANCIERO E.T.B.</h4>
             <div style="border-bottom: 1px solid #333; padding-bottom: 8px; margin-bottom: 10px;">
-                <b>MERCADO EN VIVO:</b><br>
+                <b>MERCADO EN VIVO (HFT SENSOR):</b><br>
                 <div style="display:flex; justify-content:space-between; margin-top:5px;">
-                    <span>🛢️ Brent:</span> <span style="color:#00ff41;">$101.6</span>
+                    <span>🛢️ Brent:</span> 
+                    <span style="color:#00ff41;">$101.04 <small style="color:#ff4444;">(-2.82%)</small></span>
                 </div>
                 <div style="display:flex; justify-content:space-between;">
-                    <span>🔥 Gas Natural:</span> <span style="color:#00ff41;">$2.83</span>
+                    <span>🔥 Gas Natural:</span> 
+                    <span style="color:#00ff41;">$2.81 <small>(-2.5%)</small></span>
                 </div>
                 <div style="display:flex; justify-content:space-between;">
-                    <span>🇮🇷 Iran Heavy:</span> <span style="color:#ff4444;">$86.36</span>
+                    <span>🇮🇷 Iran Heavy:</span> <span style="color:#ff4444;">$85.88</span>
                 </div>
             </div>
             <div style="font-size: 10px; line-height: 1.4;">
-                <b>ESTADO DE SANCIONES:</b><br>
-                Rutas Activas: 3 detectadas<br>
-                Sistema Evasión: Activo (Bypass SWIFT)<br>
-                Actualizado: 2026-04-01 10:29
+                <b>ESTADO SISTÉMICO:</b><br>
+                Volatilidad HFT: <span style="color:#ff4444; font-weight:bold;">ESTRÉS ALGORÍTMICO</span><br>
+                Rutas OSINT Activas: 3 detectadas<br>
+                Actualizado: 2026-04-01 13:56
             </div>
         </div>
         
     
-            <div class="folium-map" id="map_91984b8e3f52a9b483de1158ca097480" ></div>
+            <div class="folium-map" id="map_44a8405e873638122238e6de82cae224" ></div>
         
 </body>
 <script>
     
     
-            var map_91984b8e3f52a9b483de1158ca097480 = L.map(
-                "map_91984b8e3f52a9b483de1158ca097480",
+            var map_44a8405e873638122238e6de82cae224 = L.map(
+                "map_44a8405e873638122238e6de82cae224",
                 {
                     center: [20.0, 40.0],
                     crs: L.CRS.EPSG3857,
@@ -104,7 +106,7 @@
 
         
     
-            var tile_layer_505395f540ce73f560966359ded3ea0f = L.tileLayer(
+            var tile_layer_2e4ba06f462560b7bb2348ccc1abe3a0 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -121,16 +123,16 @@
             );
         
     
-            tile_layer_505395f540ce73f560966359ded3ea0f.addTo(map_91984b8e3f52a9b483de1158ca097480);
+            tile_layer_2e4ba06f462560b7bb2348ccc1abe3a0.addTo(map_44a8405e873638122238e6de82cae224);
         
     
-            var feature_group_00dd0aac8238628b3e614c95fb51d1aa = L.featureGroup(
+            var feature_group_248c33975592273d048ace65904f9a36 = L.featureGroup(
                 {
 }
             );
         
     
-            ant_path_142781ab6b42209ec3b9e3a4424ea596 = L.polyline.antPath(
+            ant_path_31d633a17ed37760e67690e3a43e78f3 = L.polyline.antPath(
               [[35.18, 35.93], [34.73, 36.7]],
               {
   "stroke": true,
@@ -157,10 +159,10 @@
   "delay": 1000,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_00dd0aac8238628b3e614c95fb51d1aa);
+        ).addTo(feature_group_248c33975592273d048ace65904f9a36);
         
     
-            ant_path_142781ab6b42209ec3b9e3a4424ea596.bindTooltip(
+            ant_path_31d633a17ed37760e67690e3a43e78f3.bindTooltip(
                 `<div>
                      Suministro Regional Eje Resistencia
                  </div>`,
@@ -170,14 +172,14 @@
             );
         
     
-            var marker_65385b7e4e85e0123cd80e0f8cc49ef8 = L.marker(
+            var marker_991a3ddb87a6846d5b7ecb6b5b59120d = L.marker(
                 [35.18, 35.93],
                 {
 }
-            ).addTo(feature_group_00dd0aac8238628b3e614c95fb51d1aa);
+            ).addTo(feature_group_248c33975592273d048ace65904f9a36);
         
     
-            var icon_80fb3f93eedc6be3058773fdac87bd7e = L.AwesomeMarkers.icon(
+            var icon_553fbd779d87b60e30d751fa39b238d2 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -188,34 +190,34 @@
             );
         
     
-        var popup_08c4517350d516749867e80926d75efc = L.popup({
+        var popup_6f090eff8323305b3420b101a18ea54a = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_98a9cd75b6c753da6c3bba9af9ed8525 = $(`<div id="html_98a9cd75b6c753da6c3bba9af9ed8525" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DE FLUJO</b><br><br>                 <b>Estatus:</b> Suministro Regional Eje Resistencia<br>                 <b>Reporte:</b> U.S. forces seize another oil tanker by March 31? Cuotas de apuestas y pred...             </div>             </div>`)[0];
-                popup_08c4517350d516749867e80926d75efc.setContent(html_98a9cd75b6c753da6c3bba9af9ed8525);
+                var html_32bca7d6488caed514bd16758d9f9a56 = $(`<div id="html_32bca7d6488caed514bd16758d9f9a56" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DE FLUJO</b><br><br>                 <b>Estatus:</b> Suministro Regional Eje Resistencia<br>                 <b>Reporte:</b> U.S. forces seize another oil tanker by March 31? Cuotas de apuestas y pred...             </div>             </div>`)[0];
+                popup_6f090eff8323305b3420b101a18ea54a.setContent(html_32bca7d6488caed514bd16758d9f9a56);
             
         
 
-        marker_65385b7e4e85e0123cd80e0f8cc49ef8.bindPopup(popup_08c4517350d516749867e80926d75efc)
+        marker_991a3ddb87a6846d5b7ecb6b5b59120d.bindPopup(popup_6f090eff8323305b3420b101a18ea54a)
         ;
 
         
     
     
-                marker_65385b7e4e85e0123cd80e0f8cc49ef8.setIcon(icon_80fb3f93eedc6be3058773fdac87bd7e);
+                marker_991a3ddb87a6846d5b7ecb6b5b59120d.setIcon(icon_553fbd779d87b60e30d751fa39b238d2);
             
     
-            var marker_0cee4ba66febd66c166e3fa5c4df9e5b = L.marker(
+            var marker_5b3f039184d257f08ef2d75e4b245a91 = L.marker(
                 [34.73, 36.7],
                 {
 }
-            ).addTo(feature_group_00dd0aac8238628b3e614c95fb51d1aa);
+            ).addTo(feature_group_248c33975592273d048ace65904f9a36);
         
     
-            var icon_fc853fd8753452745a84430d712e14ef = L.AwesomeMarkers.icon(
+            var icon_9cfc0dcc12c628cf2c57c7501354b567 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -226,10 +228,10 @@
             );
         
     
-                marker_0cee4ba66febd66c166e3fa5c4df9e5b.setIcon(icon_fc853fd8753452745a84430d712e14ef);
+                marker_5b3f039184d257f08ef2d75e4b245a91.setIcon(icon_9cfc0dcc12c628cf2c57c7501354b567);
             
     
-            ant_path_445604ba837ed24898dfa8da1fffc101 = L.polyline.antPath(
+            ant_path_268e2e7e40eee37369adebb8775916bb = L.polyline.antPath(
               [[35.18, 35.93], [34.73, 36.7]],
               {
   "stroke": true,
@@ -256,10 +258,10 @@
   "delay": 1000,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_00dd0aac8238628b3e614c95fb51d1aa);
+        ).addTo(feature_group_248c33975592273d048ace65904f9a36);
         
     
-            ant_path_445604ba837ed24898dfa8da1fffc101.bindTooltip(
+            ant_path_268e2e7e40eee37369adebb8775916bb.bindTooltip(
                 `<div>
                      Suministro Regional Eje Resistencia
                  </div>`,
@@ -269,14 +271,14 @@
             );
         
     
-            var marker_f2e175cd18e0e781f71ec728d1a67ef3 = L.marker(
+            var marker_bcc6bf8b27eb03ea804a75a32a41dc2b = L.marker(
                 [35.18, 35.93],
                 {
 }
-            ).addTo(feature_group_00dd0aac8238628b3e614c95fb51d1aa);
+            ).addTo(feature_group_248c33975592273d048ace65904f9a36);
         
     
-            var icon_22b82ed90da5f3d708e3814aa73f22a4 = L.AwesomeMarkers.icon(
+            var icon_73f7b05bbfd14062a9162b4ab257c9a0 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -287,34 +289,34 @@
             );
         
     
-        var popup_8d4d6af33f96d866c529a83d2f096db9 = L.popup({
+        var popup_4cfc075b98e72bd1a981638ef43b711b = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_984288329d94bd36b1ab5219a642f267 = $(`<div id="html_984288329d94bd36b1ab5219a642f267" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DE FLUJO</b><br><br>                 <b>Estatus:</b> Suministro Regional Eje Resistencia<br>                 <b>Reporte:</b> US military boards sanctioned oil tanker in the Indian Ocean after pursuit ...             </div>             </div>`)[0];
-                popup_8d4d6af33f96d866c529a83d2f096db9.setContent(html_984288329d94bd36b1ab5219a642f267);
+                var html_0aafecdeb76acb07d679417011f83cba = $(`<div id="html_0aafecdeb76acb07d679417011f83cba" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DE FLUJO</b><br><br>                 <b>Estatus:</b> Suministro Regional Eje Resistencia<br>                 <b>Reporte:</b> France investigates Russian ‘shadow fleet’ tanker anchored off coast...             </div>             </div>`)[0];
+                popup_4cfc075b98e72bd1a981638ef43b711b.setContent(html_0aafecdeb76acb07d679417011f83cba);
             
         
 
-        marker_f2e175cd18e0e781f71ec728d1a67ef3.bindPopup(popup_8d4d6af33f96d866c529a83d2f096db9)
+        marker_bcc6bf8b27eb03ea804a75a32a41dc2b.bindPopup(popup_4cfc075b98e72bd1a981638ef43b711b)
         ;
 
         
     
     
-                marker_f2e175cd18e0e781f71ec728d1a67ef3.setIcon(icon_22b82ed90da5f3d708e3814aa73f22a4);
+                marker_bcc6bf8b27eb03ea804a75a32a41dc2b.setIcon(icon_73f7b05bbfd14062a9162b4ab257c9a0);
             
     
-            var marker_77c9459a049959c7ee11dbabd87ea7f6 = L.marker(
+            var marker_6877370247db1e6f024f8c4c6211d085 = L.marker(
                 [34.73, 36.7],
                 {
 }
-            ).addTo(feature_group_00dd0aac8238628b3e614c95fb51d1aa);
+            ).addTo(feature_group_248c33975592273d048ace65904f9a36);
         
     
-            var icon_0beca9afd5b0197d33614106f1de7b44 = L.AwesomeMarkers.icon(
+            var icon_310acf04949db9b7503b3106ebe4c4e7 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -325,11 +327,11 @@
             );
         
     
-                marker_77c9459a049959c7ee11dbabd87ea7f6.setIcon(icon_0beca9afd5b0197d33614106f1de7b44);
+                marker_6877370247db1e6f024f8c4c6211d085.setIcon(icon_310acf04949db9b7503b3106ebe4c4e7);
             
     
-            ant_path_ac4c33f94341910f9540de7f648d4831 = L.polyline.antPath(
-              [[25.63, 57.76], [10.06, -64.83]],
+            ant_path_82611540a3baece8205a0c1419540b0b = L.polyline.antPath(
+              [[35.18, 35.93], [34.73, 36.7]],
               {
   "stroke": true,
   "color": "#ffcc00",
@@ -355,12 +357,12 @@
   "delay": 1000,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_00dd0aac8238628b3e614c95fb51d1aa);
+        ).addTo(feature_group_248c33975592273d048ace65904f9a36);
         
     
-            ant_path_ac4c33f94341910f9540de7f648d4831.bindTooltip(
+            ant_path_82611540a3baece8205a0c1419540b0b.bindTooltip(
                 `<div>
-                     Ruta Transatlántica (Trueque/Barter)
+                     Suministro Regional Eje Resistencia
                  </div>`,
                 {
   "sticky": true,
@@ -368,14 +370,14 @@
             );
         
     
-            var marker_21844c283ffdad8ce44b458d00542c9b = L.marker(
-                [25.63, 57.76],
+            var marker_79059385b1f1e0b325f772e88e4694f2 = L.marker(
+                [35.18, 35.93],
                 {
 }
-            ).addTo(feature_group_00dd0aac8238628b3e614c95fb51d1aa);
+            ).addTo(feature_group_248c33975592273d048ace65904f9a36);
         
     
-            var icon_2972ff09b7d5b7c9e99986b3f210d1c2 = L.AwesomeMarkers.icon(
+            var icon_b558632d47e43183a9eefe424f8a70c1 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -386,34 +388,34 @@
             );
         
     
-        var popup_4f3a638b49985b71f3440e2753cdbbf2 = L.popup({
+        var popup_4a40d9a4aaff47eadbd20b164ebadc15 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_7fd3e9310405536ac9e61ee74c6c38aa = $(`<div id="html_7fd3e9310405536ac9e61ee74c6c38aa" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DE FLUJO</b><br><br>                 <b>Estatus:</b> Ruta Transatlántica (Trueque/Barter)<br>                 <b>Reporte:</b> Top ship recycler GMS says it is in talks to buy Venezuela-linked ships sei...             </div>             </div>`)[0];
-                popup_4f3a638b49985b71f3440e2753cdbbf2.setContent(html_7fd3e9310405536ac9e61ee74c6c38aa);
+                var html_78bf69078b980854cf781457c862115a = $(`<div id="html_78bf69078b980854cf781457c862115a" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DE FLUJO</b><br><br>                 <b>Estatus:</b> Suministro Regional Eje Resistencia<br>                 <b>Reporte:</b> US military boards sanctioned oil tanker in the Indian Ocean after pursuit ...             </div>             </div>`)[0];
+                popup_4a40d9a4aaff47eadbd20b164ebadc15.setContent(html_78bf69078b980854cf781457c862115a);
             
         
 
-        marker_21844c283ffdad8ce44b458d00542c9b.bindPopup(popup_4f3a638b49985b71f3440e2753cdbbf2)
+        marker_79059385b1f1e0b325f772e88e4694f2.bindPopup(popup_4a40d9a4aaff47eadbd20b164ebadc15)
         ;
 
         
     
     
-                marker_21844c283ffdad8ce44b458d00542c9b.setIcon(icon_2972ff09b7d5b7c9e99986b3f210d1c2);
+                marker_79059385b1f1e0b325f772e88e4694f2.setIcon(icon_b558632d47e43183a9eefe424f8a70c1);
             
     
-            var marker_b8a5f1e1ad261b1efb2ec463e8d8de00 = L.marker(
-                [10.06, -64.83],
+            var marker_22b99ae8b740d4ac4ce4525c5877f4b3 = L.marker(
+                [34.73, 36.7],
                 {
 }
-            ).addTo(feature_group_00dd0aac8238628b3e614c95fb51d1aa);
+            ).addTo(feature_group_248c33975592273d048ace65904f9a36);
         
     
-            var icon_8ab643b757a5f98cc8b4cf9e3e06d499 = L.AwesomeMarkers.icon(
+            var icon_89875ef1dd80ae806f8fa3cff74b0def = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -424,108 +426,187 @@
             );
         
     
-                marker_b8a5f1e1ad261b1efb2ec463e8d8de00.setIcon(icon_8ab643b757a5f98cc8b4cf9e3e06d499);
+                marker_22b99ae8b740d4ac4ce4525c5877f4b3.setIcon(icon_89875ef1dd80ae806f8fa3cff74b0def);
             
     
-            feature_group_00dd0aac8238628b3e614c95fb51d1aa.addTo(map_91984b8e3f52a9b483de1158ca097480);
+            feature_group_248c33975592273d048ace65904f9a36.addTo(map_44a8405e873638122238e6de82cae224);
         
     
-            var feature_group_9c3db93d5e82d90205c2af672949bfe8 = L.featureGroup(
+            var feature_group_a01644c7bdd34e74b5d0f1c18e313a61 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_5c0402445c4a2f1efbd441e4ea1133b6 = L.circleMarker(
+            var circle_marker_2de3281ab51b7ecb6dfdadb30b055456 = L.circleMarker(
                 [25.2, 55.2],
                 {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
-            ).addTo(feature_group_9c3db93d5e82d90205c2af672949bfe8);
+            ).addTo(feature_group_a01644c7bdd34e74b5d0f1c18e313a61);
         
     
-        var popup_821e5df32485a96b72f617ebce200c42 = L.popup({
+        var popup_624a08c66eebd27d6df88a4847d8088c = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_e7242c8c68e91d1fda62446fb0feb648 = $(`<div id="html_e7242c8c68e91d1fda62446fb0feb648" style="width: 100.0%; height: 100.0%;">Dubai (Hawala)</div>`)[0];
-                popup_821e5df32485a96b72f617ebce200c42.setContent(html_e7242c8c68e91d1fda62446fb0feb648);
+                var html_d58b78cd5d5450833befa5408b7bb20c = $(`<div id="html_d58b78cd5d5450833befa5408b7bb20c" style="width: 100.0%; height: 100.0%;">Dubai (Hawala)</div>`)[0];
+                popup_624a08c66eebd27d6df88a4847d8088c.setContent(html_d58b78cd5d5450833befa5408b7bb20c);
             
         
 
-        circle_marker_5c0402445c4a2f1efbd441e4ea1133b6.bindPopup(popup_821e5df32485a96b72f617ebce200c42)
+        circle_marker_2de3281ab51b7ecb6dfdadb30b055456.bindPopup(popup_624a08c66eebd27d6df88a4847d8088c)
         ;
 
         
     
     
-            var circle_marker_e1237b39210c9a68bd189466c2264ad8 = L.circleMarker(
+            var circle_marker_d96e2442886f0cc4b38db1520914badc = L.circleMarker(
                 [55.7, 37.6],
                 {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
-            ).addTo(feature_group_9c3db93d5e82d90205c2af672949bfe8);
+            ).addTo(feature_group_a01644c7bdd34e74b5d0f1c18e313a61);
         
     
-        var popup_3b694b57577e467646001ed1cde2fe9b = L.popup({
+        var popup_20be7db292a9a757d5175244a0783e8c = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_ced4b95939fb7d57015bda1e9b6170de = $(`<div id="html_ced4b95939fb7d57015bda1e9b6170de" style="width: 100.0%; height: 100.0%;">Moscú (SPFS)</div>`)[0];
-                popup_3b694b57577e467646001ed1cde2fe9b.setContent(html_ced4b95939fb7d57015bda1e9b6170de);
+                var html_2a82c4dd9e3384d38f3031d69fc4869d = $(`<div id="html_2a82c4dd9e3384d38f3031d69fc4869d" style="width: 100.0%; height: 100.0%;">Moscú (SPFS)</div>`)[0];
+                popup_20be7db292a9a757d5175244a0783e8c.setContent(html_2a82c4dd9e3384d38f3031d69fc4869d);
             
         
 
-        circle_marker_e1237b39210c9a68bd189466c2264ad8.bindPopup(popup_3b694b57577e467646001ed1cde2fe9b)
+        circle_marker_d96e2442886f0cc4b38db1520914badc.bindPopup(popup_20be7db292a9a757d5175244a0783e8c)
         ;
 
         
     
     
-            var circle_marker_55a36ad0338e05e6d034bf6d18d702fd = L.circleMarker(
+            var circle_marker_1fa3ef47db11de63ee618646b5ccd00a = L.circleMarker(
                 [39.9, 116.4],
                 {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
-            ).addTo(feature_group_9c3db93d5e82d90205c2af672949bfe8);
+            ).addTo(feature_group_a01644c7bdd34e74b5d0f1c18e313a61);
         
     
-        var popup_c296bcb70e33dae4c3795926f91335e3 = L.popup({
+        var popup_d86b060807dae3334cfec83d7d8d3a1c = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_67cf57e8410eaeaa76f5e7afbd73d073 = $(`<div id="html_67cf57e8410eaeaa76f5e7afbd73d073" style="width: 100.0%; height: 100.0%;">Pekín (CIPS)</div>`)[0];
-                popup_c296bcb70e33dae4c3795926f91335e3.setContent(html_67cf57e8410eaeaa76f5e7afbd73d073);
+                var html_3775bb7470dee3a7d7fdf1096d39bda1 = $(`<div id="html_3775bb7470dee3a7d7fdf1096d39bda1" style="width: 100.0%; height: 100.0%;">Pekín (CIPS)</div>`)[0];
+                popup_d86b060807dae3334cfec83d7d8d3a1c.setContent(html_3775bb7470dee3a7d7fdf1096d39bda1);
             
         
 
-        circle_marker_55a36ad0338e05e6d034bf6d18d702fd.bindPopup(popup_c296bcb70e33dae4c3795926f91335e3)
+        circle_marker_1fa3ef47db11de63ee618646b5ccd00a.bindPopup(popup_d86b060807dae3334cfec83d7d8d3a1c)
         ;
 
         
     
     
-            feature_group_9c3db93d5e82d90205c2af672949bfe8.addTo(map_91984b8e3f52a9b483de1158ca097480);
+            feature_group_a01644c7bdd34e74b5d0f1c18e313a61.addTo(map_44a8405e873638122238e6de82cae224);
         
     
-            var layer_control_57688b337d1538ce41318505fe79e658_layers = {
+            var feature_group_e1957c757de20a5601c911a884b29167 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_30be15bf105a59371d34c0dc3a993103 = L.circleMarker(
+                [40.71, -74.0],
+                {"bubblingMouseEvents": true, "color": "#00ff41", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00ff41", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1957c757de20a5601c911a884b29167);
+        
+    
+        var popup_c3ae1b9e06f208105264525bcbed0075 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d30095413aad76833d3e86668752fe1d = $(`<div id="html_d30095413aad76833d3e86668752fe1d" style="width: 100.0%; height: 100.0%;"><b>SERVIDOR HFT:</b> NY-Server (ICE)<br>Monitoreo Algorítmico Activo</div>`)[0];
+                popup_c3ae1b9e06f208105264525bcbed0075.setContent(html_d30095413aad76833d3e86668752fe1d);
+            
+        
+
+        circle_marker_30be15bf105a59371d34c0dc3a993103.bindPopup(popup_c3ae1b9e06f208105264525bcbed0075)
+        ;
+
+        
+    
+    
+            var circle_marker_3229bf9b93852313a9b81ddfcc9aea58 = L.circleMarker(
+                [51.5, -0.12],
+                {"bubblingMouseEvents": true, "color": "#00ff41", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00ff41", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1957c757de20a5601c911a884b29167);
+        
+    
+        var popup_8d10e0b78df265df3bcf8dfd08f610aa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_500d467529f67d6c661b43f7692011f9 = $(`<div id="html_500d467529f67d6c661b43f7692011f9" style="width: 100.0%; height: 100.0%;"><b>SERVIDOR HFT:</b> LDN-Server (LME)<br>Monitoreo Algorítmico Activo</div>`)[0];
+                popup_8d10e0b78df265df3bcf8dfd08f610aa.setContent(html_500d467529f67d6c661b43f7692011f9);
+            
+        
+
+        circle_marker_3229bf9b93852313a9b81ddfcc9aea58.bindPopup(popup_8d10e0b78df265df3bcf8dfd08f610aa)
+        ;
+
+        
+    
+    
+            var circle_marker_c0c054cd1654b5d6929a34c4600d5cfe = L.circleMarker(
+                [1.35, 103.81],
+                {"bubblingMouseEvents": true, "color": "#00ff41", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00ff41", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e1957c757de20a5601c911a884b29167);
+        
+    
+        var popup_9c0f3e2cbe6d8f65bb664c8999703f7d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a40f962e9dedecf483946ce3a5cfb648 = $(`<div id="html_a40f962e9dedecf483946ce3a5cfb648" style="width: 100.0%; height: 100.0%;"><b>SERVIDOR HFT:</b> SG-Server (SGX)<br>Monitoreo Algorítmico Activo</div>`)[0];
+                popup_9c0f3e2cbe6d8f65bb664c8999703f7d.setContent(html_a40f962e9dedecf483946ce3a5cfb648);
+            
+        
+
+        circle_marker_c0c054cd1654b5d6929a34c4600d5cfe.bindPopup(popup_9c0f3e2cbe6d8f65bb664c8999703f7d)
+        ;
+
+        
+    
+    
+            feature_group_e1957c757de20a5601c911a884b29167.addTo(map_44a8405e873638122238e6de82cae224);
+        
+    
+            var layer_control_22ee04ebb49135d988766d6ff7b36bcc_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_505395f540ce73f560966359ded3ea0f,
+                    "cartodbdarkmatter" : tile_layer_2e4ba06f462560b7bb2348ccc1abe3a0,
                 },
                 overlays :  {
-                    "\ud83d\udee2\ufe0f Flujos Energ\u00e9ticos (OSINT)" : feature_group_00dd0aac8238628b3e614c95fb51d1aa,
-                    "\ud83d\udcb0 Nodos de Evasi\u00f3n SWIFT" : feature_group_9c3db93d5e82d90205c2af672949bfe8,
+                    "\ud83d\udee2\ufe0f Flujos F\u00edsicos (OSINT)" : feature_group_248c33975592273d048ace65904f9a36,
+                    "\ud83d\udcb0 Nodos de Evasi\u00f3n SWIFT" : feature_group_a01644c7bdd34e74b5d0f1c18e313a61,
+                    "\u26a1 Servidores Alta Frecuencia (HFT)" : feature_group_e1957c757de20a5601c911a884b29167,
                 },
             };
-            let layer_control_57688b337d1538ce41318505fe79e658 = L.control.layers(
-                layer_control_57688b337d1538ce41318505fe79e658_layers.base_layers,
-                layer_control_57688b337d1538ce41318505fe79e658_layers.overlays,
+            let layer_control_22ee04ebb49135d988766d6ff7b36bcc = L.control.layers(
+                layer_control_22ee04ebb49135d988766d6ff7b36bcc_layers.base_layers,
+                layer_control_22ee04ebb49135d988766d6ff7b36bcc_layers.overlays,
                 {
-  "position": "topright",
+  "position": "bottomleft",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_91984b8e3f52a9b483de1158ca097480);
+            ).addTo(map_44a8405e873638122238e6de82cae224);
 
         
 </script>

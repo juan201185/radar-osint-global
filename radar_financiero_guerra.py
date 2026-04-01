@@ -179,7 +179,7 @@ class RadarFinancieroGuerra:
         
         # Control de capas abajo a la izquierda para que no estorbe
         folium.LayerControl(position='bottomleft').add_to(mapa)
-        mapa.save("radar_financiero_hft_real.html")
+        mapa.save("radar_financiero_guerra.html")
         print(f"[✅ RADAR FINANCIERO + HFT GENERADO]")
 
 if __name__ == "__main__":
