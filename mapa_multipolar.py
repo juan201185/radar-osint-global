@@ -497,8 +497,8 @@ def generar_mapa_volumen_maximo():
     """
     mapa.get_root().html.add_child(folium.Element(panel))
     
-    # Agregamos el control de capas para encender/apagar la Capa 3 y la Térmica
-    folium.LayerControl(collapsed=False).add_to(mapa)
+    # Agregamos el control de capas con la posición modificada (abajo a la izquierda)
+    folium.LayerControl(position='bottomleft', collapsed=False).add_to(mapa)
     mapa.save("mapa_multipolar.html")
     
     print(f"\n{'='*70}")
