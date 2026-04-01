@@ -497,7 +497,7 @@ def generar_mapa_volumen_maximo():
     """
     mapa.get_root().html.add_child(folium.Element(panel))
     
-    # Agregamos el control de capas mandándolo abajo a la izquierda para despejar el radar principal
+    # Agregamos el control de capas con la posición modificada (abajo a la izquierda)
     folium.LayerControl(position='bottomleft', collapsed=False).add_to(mapa)
     mapa.save("mapa_multipolar.html")
     
