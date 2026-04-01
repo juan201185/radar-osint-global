@@ -324,7 +324,7 @@ def generar_mapa_volumen_maximo():
     mapa.add_child(capa_sigint)
 
     # --- LLAMADA AL MOTOR SATELITAL REAL ---
-    total_termicas = descargar_termica_nasa(capa_termica) # <-- Modifica esta línea
+    total_termicas = descargar_termica_nasa(capa_termica)
 
     # CLÚSTER ASIGNADO A LA CAPA DE NOTICIAS
     cluster_maestro = MarkerCluster(
@@ -466,39 +466,42 @@ def generar_mapa_volumen_maximo():
     else: 
         color_dinamico, signo, texto_etiqueta, valor_mostrar = "#ffcc00", "", "PROY. VARIACIÓN GASOLINA:", 0
         
-    leyenda = f"""
-    <div style="position:fixed;top:20px;right:20px;width:260px;background:rgba(10,10,10,0.95);border:2px solid #444;padding:15px;border-radius:10px;font-family:'Courier New',monospace;font-size:10px;color:#fff;z-index:9999;">
-        <h4 style="color:#00ff41;margin:0 0 10px 0;text-align:center;font-size:13px;">🛰️ RADAR E.T.B. v4.0</h4>
-        <div style="border-top:1px solid #333;padding-top:10px;line-height:1.6;">
-            <span style="color:#ff4444;">🔴</span> Eje Resistencia (MO+África+LatAm)<br>
-            <span style="color:#8b0000;">🔴</span> Rusia/Aliados<br>
-            <span style="color:#00008b;">🔵</span> China<br>
-            <span style="color:#ffa500;">🟠</span> Occidente<br>
-            <span style="color:#32cd32;">🟢</span> Independientes<br>
-            <span style="color:#800080;">🟣</span> Capa 3 (Guerra E. / Spoofing)
+    # --- PANEL INTEGRADO: LEYENDA + CENTRO DE ENERGÍA ---
+    panel_unificado = f"""
+    <div style="position:fixed;top:20px;right:20px;width:260px;background:rgba(10,10,10,0.95);border:2px solid #444;padding:15px;border-radius:10px;font-family:'Courier New',monospace;font-size:10px;color:#fff;z-index:9999; display: flex; flex-direction: column; gap: 10px;">
+        
+        <div>
+            <h4 style="color:#00ff41;margin:0 0 10px 0;text-align:center;font-size:13px;">🛰️ RADAR E.T.B. v4.0</h4>
+            <div style="border-top:1px solid #333;padding-top:10px;line-height:1.6;">
+                <span style="color:#ff4444;">🔴</span> Eje Resistencia (MO+África+LatAm)<br>
+                <span style="color:#8b0000;">🔴</span> Rusia/Aliados<br>
+                <span style="color:#00008b;">🔵</span> China<br>
+                <span style="color:#ffa500;">🟠</span> Occidente<br>
+                <span style="color:#32cd32;">🟢</span> Independientes<br>
+                <span style="color:#800080;">🟣</span> Capa 3 (Guerra E. / Spoofing)
+            </div>
+            <div style="margin-top:10px;border-top:1px solid #333;padding-top:8px;color:#888;font-size:9px;">
+                Fuentes activas: {feeds_activos}<br>
+                Noticias filtradas: {total_filtrados:,}<br>
+                <span style="color:#ff4444;">🔥 Firmas Térmicas: {total_termicas:,}</span><br> 
+                Actualizado: {datetime.datetime.now().strftime('%H:%M')}
+            </div>
         </div>
-        <div style="margin-top:10px;border-top:1px solid #333;padding-top:8px;color:#888;font-size:9px;">
-            Fuentes activas: {feeds_activos}<br>
-            Noticias filtradas: {total_filtrados:,}<br>
-            <span style="color:#ff4444;">🔥 Firmas Térmicas: {total_termicas:,}</span><br> Actualizado: {datetime.datetime.now().strftime('%H:%M')}
+
+        <div style="border:1px solid {color_dinamico}; padding:10px; border-radius:6px; background:rgba(0,0,0,0.5); text-align: center;">
+            <b style="color:#ffcc00;font-size:11px;letter-spacing:1px;">⛽ CENTRO DE ENERGÍA</b>
+            <hr style="border:0.5px solid #444;margin:8px 0;">
+            <span style="font-size:12px;">BRENT: <b style="color:#fff;">${p_brent:.2f}</b></span><br>
+            <span style="font-size:9px;color:{color_dinamico};font-weight:bold;">{texto_etiqueta}</span><br>
+            <span style="font-size:16px;color:{color_dinamico};font-weight:bold;">{signo}${valor_mostrar}</span> <small style="font-size:9px;">/gal</small>
         </div>
+
     </div>
     """
-    mapa.get_root().html.add_child(folium.Element(leyenda))
+    mapa.get_root().html.add_child(folium.Element(panel_unificado))
     
-    panel = f"""
-    <div style="position:fixed;bottom:30px;left:20px;width:240px;background:rgba(0,0,0,0.95);border:2px solid {color_dinamico};padding:15px;border-radius:10px;z-index:9999;color:#fff;font-family:'Courier New',monospace;">
-        <b style="color:#ffcc00;font-size:11px;letter-spacing:1px;">⛽ CENTRO DE ENERGÍA</b>
-        <hr style="border:0.5px solid #444;margin:10px 0;">
-        <span style="font-size:14px;">BRENT: <b style="color:#fff;">${p_brent:.2f}</b></span><br>
-        <span style="font-size:10px;color:{color_dinamico};font-weight:bold;">{texto_etiqueta}</span><br>
-        <span style="font-size:20px;color:{color_dinamico};font-weight:bold;">{signo}${valor_mostrar}</span> <small style="font-size:9px;">/gal</small>
-    </div>
-    """
-    mapa.get_root().html.add_child(folium.Element(panel))
-    
-    # Agregamos el control de capas mandándolo abajo a la izquierda para despejar el radar principal
-    folium.LayerControl(position='bottomleft', collapsed=False).add_to(mapa)
+    # Agregamos el control de capas 
+    folium.LayerControl(collapsed=False).add_to(mapa)
     mapa.save("mapa_multipolar.html")
     
     print(f"\n{'='*70}")
