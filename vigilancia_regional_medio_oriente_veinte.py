@@ -1,0 +1,504 @@
+import pandas as pd
+import folium
+from folium.plugins import MarkerCluster, HeatMap
+import requests
+from io import StringIO
+import datetime
+import json
+import feedparser
+import random
+import numpy as np
+from scipy.spatial.distance import pdist, squareform
+from sklearn.cluster import DBSCAN
+
+# --- CONFIGURACIÓN ESTRATÉGICA E.T.B. v3.0 ---
+MAP_KEY_NASA = "c7d1ad2cb48cfb61a3b6653a1cf98ea9"
+# Zona expandida: W=25, S=-10, E=75, N=40 (Cubre Chipre, Medio Oriente, Cuerno de África y Diego García)
+ZONA_REGIONAL = "25,-10,75,40"
+
+# --- CAPA 3: ZONAS DE BLOQUEO GPS (GUERRA ELECTRÓNICA) ---
+# Nodos principales de emisión de interferencia para spoofing de drones y censura de datos
+ZONAS_JAMMING = [
+    {"nombre": "Paraguas EW Norte (Haifa/Líbano)", "coords": [32.9, 35.2], "radio": 60000}, # 60km radio
+    {"nombre": "Paraguas EW Centro (Tel Aviv/Jerusalén)", "coords": [31.9, 34.9], "radio": 50000},
+    {"nombre": "Escudo EW Sur (Eilat/Mar Rojo)", "coords": [29.65, 34.95], "radio": 40000},
+    {"nombre": "Censura GPS (Golán)", "coords": [33.1, 35.7], "radio": 35000}
+]
+
+# --- BASES ESTRATÉGICAS OTAN / COALICIÓN ---
+BASES_ESTRATEGICAS = [
+    {"nombre": "Base Aérea Al Udeid (EEUU)", "coords": [25.116, 51.314], "tipo": "Cuartel General CENTCOM (Qatar)"},
+    {"nombre": "Naval Support Activity (EEUU)", "coords": [26.208, 50.606], "tipo": "Base de la 5ta Flota Naval (Bahréin)"},
+    {"nombre": "Base Aérea Al Dhafra (EEUU/Francia)", "coords": [24.248, 54.547], "tipo": "Centro de Cazas F-35 y Drones (EAU)"},
+    {"nombre": "Camp Arifjan / Ali Al Salem (EEUU)", "coords": [29.346, 47.521], "tipo": "Cubo Logístico Terrestre (Kuwait)"},
+    {"nombre": "Base Aérea Prince Sultan (EEUU)", "coords": [24.064, 47.563], "tipo": "Defensa Antiaérea Patriot/THAAD (Arabia Saudita)"},
+    {"nombre": "Base Aérea Muwaffaq Salti (EEUU/UK)", "coords": [31.835, 36.788], "tipo": "Operaciones de Drones (Jordania)"},
+    {"nombre": "Base Aérea Incirlik (EEUU/OTAN)", "coords": [37.001, 35.425], "tipo": "Almacén de Armas Nucleares Tácticas (Turquía)"},
+    {"nombre": "Camp Lemonnier (EEUU)", "coords": [11.549, 43.148], "tipo": "Control del Mar Rojo / Cuerno de África (Yibuti)"},
+    {"nombre": "Base Aérienne 188 (Francia)", "coords": [11.544, 43.149], "tipo": "Operaciones Conjuntas Mar Rojo (Yibuti)"},
+    {"nombre": "Base Navale de la Paix (Francia)", "coords": [24.502, 54.380], "tipo": "Despliegue Naval Francés (EAU)"},
+    {"nombre": "HMS Jufair (Reino Unido)", "coords": [26.209, 50.607], "tipo": "Base Naval Británica Permanente (Bahréin)"},
+    {"nombre": "Base Naval/Aérea Diego García (UK/EEUU)", "coords": [-7.3195, 72.4228], "tipo": "Centro Logístico y Bombarderos Estratégicos"},
+    {"nombre": "Base Aérea RAF Akrotiri (UK/EEUU)", "coords": [34.5714, 32.9405], "tipo": "Proyección de Cazas y Drones (Chipre)"}
+]
+
+# Zonas de refinerías/petróleo para EXCLUIR (ruido térmico conocido)
+REFINERIAS_RUIDO = [
+    {"nombre": "Refinería Abadan", "coords": [30.3475, 48.2934], "radio_km": 15},
+    {"nombre": "Refinería Basra", "coords": [30.5156, 47.7804], "radio_km": 12},
+    {"nombre": "Refinería Beiji", "coords": [34.9311, 43.4931], "radio_km": 10},
+    {"nombre": "Refinería Homs", "coords": [34.7308, 36.7094], "radio_km": 8},
+    {"nombre": "Refinería Tripoli Líbano", "coords": [34.4333, 35.8333], "radio_km": 6},
+    {"nombre": "Zona Industrial Haifa", "coords": [32.8184, 35.0019], "radio_km": 8},
+    {"nombre": "Campos Petroleros Kuwait", "coords": [29.3917, 47.9774], "radio_km": 20},
+    {"nombre": "Refinería Yanbu", "coords": [23.8936, 38.0608], "radio_km": 15},
+    {"nombre": "Zona Ras Tanura", "coords": [26.7731, 50.0600], "radio_km": 18},
+    {"nombre": "Zona Industrial Damasco", "coords": [33.5138, 36.2765], "radio_km": 5},
+    {"nombre": "Refinería Teherán", "coords": [35.6892, 51.3890], "radio_km": 10},
+    {"nombre": "Complejo Jamnagar (India)", "coords": [22.342, 69.866], "radio_km": 25}, # Filtro para limpiar el ruido agrícola/industrial en India
+]
+
+ZONAS_ISRAEL = {
+    "Tel Aviv": [32.0853, 34.7818],
+    "Jerusalem": [31.7683, 35.2137],
+    "Haifa": [32.7940, 34.9896],
+    "Upper Galilee": [33.0111, 35.4386],
+    "Gaza Envelope": [31.5017, 34.4668],
+    "Ashkelon": [31.6693, 34.5715],
+    "Ashdod": [31.8014, 34.6435],
+    "Golan": [33.0000, 35.7000],
+    "Eilat": [29.5577, 34.9519],
+    "Beersheba": [31.2518, 34.7913],
+    "Netivot": [31.4167, 34.5833],
+    "Ofakim": [31.3167, 34.6167],
+    "Sderot": [31.5167, 34.6000],
+    "Kiryat Shmona": [33.2075, 35.5694],
+    "Nahariya": [33.0058, 35.0941],
+    "Rishon LeZion": [31.9718, 34.7894],
+    "Rehovot": [31.8928, 34.8113]
+}
+
+def haversine_distance(lat1, lon1, lat2, lon2):
+    """Calcula distancia en km entre dos puntos geográficos"""
+    R = 6371  
+    lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+    a = np.sin(dlat/2)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon/2)**2
+    c = 2 * np.arcsin(np.sqrt(a))
+    return R * c
+
+def filtrar_refinerias(df):
+    """Algoritmo de filtrado de ruido térmico industrial"""
+    if df is None or df.empty:
+        return df
+    
+    df_filtrado = df.copy()
+    mascara_ruido = pd.Series([False] * len(df_filtrado))
+    
+    for ref in REFINERIAS_RUIDO:
+        lat_ref, lon_ref = ref["coords"]
+        
+        distancias = df_filtrado.apply(
+            lambda row: haversine_distance(row['latitude'], row['longitude'], lat_ref, lon_ref),
+            axis=1
+        )
+        
+        mascara_ruido |= (distancias < ref["radio_km"])
+    
+    puntos_filtrados = mascara_ruido.sum()
+    if puntos_filtrados > 0:
+        print(f"   [FILTRO] Eliminados {puntos_filtrados} puntos de ruido industrial")
+    
+    return df_filtrado[~mascara_ruido]
+
+def detectar_anomalias_explosiones(df):
+    """Algoritmo DBSCAN para clasificar eventos térmicos"""
+    if df is None or len(df) < 3:
+        if df is not None:
+            df['tipo_evento'] = 'DESCONOCIDO'
+            df['confianza'] = 'BAJA'
+        return df
+    
+    coords = df[['latitude', 'longitude']].values
+    
+    # DBSCAN: eps=0.03 (≈3km), min_samples=2
+    clustering = DBSCAN(eps=0.03, min_samples=2).fit(coords)
+    df['cluster'] = clustering.labels_
+    
+    for cluster_id in set(clustering.labels_):
+        if cluster_id == -1:
+            continue
+        
+        cluster_data = df[df['cluster'] == cluster_id]
+        temp_max = cluster_data['bright_ti4'].max()
+        n_puntos = len(cluster_data)
+        
+        if n_puntos > 1:
+            dispersion = np.mean(pdist(cluster_data[['latitude', 'longitude']].values))
+        else:
+            dispersion = 0
+        
+        if temp_max > 380 and n_puntos <= 3 and dispersion < 0.01:
+            tipo, conf = 'EXPLOSION_CONFIRMADA', 'ALTA'
+        elif temp_max > 360 and n_puntos <= 5:
+            tipo, conf = 'POSIBLE_EXPLOSION', 'MEDIA'
+        elif temp_max > 340:
+            tipo, conf = 'INCENDIO_ESTRUCTURAL', 'MEDIA'
+        else:
+            tipo, conf = 'INCENDIO_NATURAL', 'BAJA'
+        
+        df.loc[cluster_data.index, 'tipo_evento'] = tipo
+        df.loc[cluster_data.index, 'confianza'] = conf
+    
+    puntos_aislados = df[df['cluster'] == -1]
+    explosiones_aisladas = puntos_aislados[puntos_aislados['bright_ti4'] > 400]
+    
+    df.loc[explosiones_aisladas.index, 'tipo_evento'] = 'EXPLOSION_AISLADA'
+    df.loc[explosiones_aisladas.index, 'confianza'] = 'ALTA'
+    
+    otros_aislados = puntos_aislados[puntos_aislados['bright_ti4'] <= 400]
+    df.loc[otros_aislados.index, 'tipo_evento'] = 'ANOMALIA_MENOR'
+    df.loc[otros_aislados.index, 'confianza'] = 'BAJA'
+    
+    return df
+
+def obtener_datos_nasa(rango_dias=2):
+    """Capa 1: NASA VIIRS con filtrado avanzado"""
+    url = f"https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY_NASA}/VIIRS_SNPP_NRT/{ZONA_REGIONAL}/{rango_dias}"
+    print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Escaneando VIIRS NASA...")
+    
+    try:
+        response = requests.get(url, timeout=15)
+        if response.status_code == 200:
+            df = pd.read_csv(StringIO(response.text))
+            print(f"   -> Raw data: {len(df)} anomalías térmicas brutas")
+            
+            df = filtrar_refinerias(df)
+            df = detectar_anomalias_explosiones(df)
+            
+            df_tactico = df[
+                (df['bright_ti4'] > 340) | 
+                (df['tipo_evento'].isin(['EXPLOSION_CONFIRMADA', 'EXPLOSION_AISLADA', 'POSIBLE_EXPLOSION']))
+            ].copy()
+            
+            print(f"   -> Filtrado táctico: {len(df_tactico)} eventos de interés militar")
+            return df_tactico
+            
+        else:
+            print(f"   [!] NASA offline: HTTP {response.status_code}")
+            return None
+    except Exception as e:
+        print(f"   [!] Error NASA: {str(e)[:60]}")
+        return None
+
+def obtener_alertas_aereas_mejorado():
+    """Capa 2: Sirenas antiaéreas con múltiples fuentes"""
+    print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Interceptando red de sirenas multicanal...")
+    
+    feedparser.USER_AGENT = random.choice([
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+    ])
+    
+    fuentes_sirenas = [
+        "https://news.google.com/rss/search?q=red+alert+israel+rocket+when:1d&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=iron+dome+interception+israel+when:1d&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=rocket+sirens+gaza+envelope+when:1d&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=hezbollah+rockets+north+israel+when:1d&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=missile+attack+israel+when:1d&hl=en-US&gl=US&ceid=US:en",
+    ]
+    
+    alertas_totales = []
+    alertas_ids = set()
+    
+    for url in fuentes_sirenas:
+        try:
+            flujo = feedparser.parse(url)
+            for entrada in flujo.entries[:10]:
+                alerta_id = hash(entrada.title[:50])
+                if alerta_id in alertas_ids:
+                    continue
+                alertas_ids.add(alerta_id)
+                
+                texto = (entrada.title + " " + entrada.get('description', '')).lower()
+                coords, zona_texto = geolocalizar_alerta(texto)
+                
+                if 'hezbollah' in texto or 'lebanon' in texto:
+                    lat_offset = random.uniform(-0.12, 0.12)
+                    lon_offset = random.uniform(-0.12, 0.12)
+                else:
+                    lat_offset = random.uniform(-0.06, 0.06)
+                    lon_offset = random.uniform(-0.06, 0.06)
+                
+                titulo_limpio = entrada.title.split(' - ')[0][:80]
+                
+                alertas_totales.append({
+                    'fecha': entrada.get('published', 'Reciente'),
+                    'titulo': titulo_limpio,
+                    'zona': zona_texto,
+                    'lat': coords[0] + lat_offset,
+                    'lon': coords[1] + lon_offset,
+                    'fuente': 'SIRENA_MULTICANAL',
+                    'tipo_ataque': 'Hezbollah' if 'hezbollah' in texto else 'Hamas' if 'hamas' in texto else 'Desconocido'
+                })
+        except Exception as e:
+            continue
+            
+    print(f"   -> Éxito: {len(alertas_totales)} alertas únicas detectadas")
+    return alertas_totales
+
+def geolocalizar_alerta(texto):
+    """Sistema de geolocalización granular"""
+    texto = texto.lower()
+    
+    if any(x in texto for x in ['kiryat shmona', 'kiryat shmonah', 'galilee', 'galil', 'north', 'lebanon', 'hezbollah', 'nazareth illit']):
+        return ZONAS_ISRAEL["Kiryat Shmona"], "Kiryat Shmona / Norte"
+    elif any(x in texto for x in ['nahariya', 'acre', 'akko', 'western galilee']):
+        return ZONAS_ISRAEL["Nahariya"], "Nahariya / Norte"
+    elif any(x in texto for x in ['golan', 'quneitra', 'katzrin', 'syria border']):
+        return ZONAS_ISRAEL["Golan"], "Altos del Golán"
+    elif any(x in texto for x in ['sderot', 'netivot', 'ofakim', 'shaar hanegev', 'otfaz']):
+        return ZONAS_ISRAEL["Sderot"], "Sderot / Frontera Gaza"
+    elif any(x in texto for x in ['gaza envelope', 'envelope', 'negev']):
+        return ZONAS_ISRAEL["Gaza Envelope"], "Frontera con Gaza"
+    elif 'ashkelon' in texto:
+        return ZONAS_ISRAEL["Ashkelon"], "Ascalón"
+    elif 'ashdod' in texto:
+        return ZONAS_ISRAEL["Ashdod"], "Ashdod"
+    elif any(x in texto for x in ['rishon', 'rishon lezion']):
+        return ZONAS_ISRAEL["Rishon LeZion"], "Rishon LeZion"
+    elif 'rehovot' in texto:
+        return ZONAS_ISRAEL["Rehovot"], "Rehovot"
+    elif 'haifa' in texto:
+        return ZONAS_ISRAEL["Haifa"], "Haifa"
+    elif any(x in texto for x in ['jerusalem', 'al quds', 'modiin']):
+        return ZONAS_ISRAEL["Jerusalem"], "Jerusalén"
+    elif 'eilat' in texto:
+        return ZONAS_ISRAEL["Eilat"], "Eilat"
+    elif any(x in texto for x in ['beersheba', 'beer sheva', 'rahovat']):
+        return ZONAS_ISRAEL["Beersheba"], "Beersheba"
+    elif any(x in texto for x in ['tel aviv', 'yafo', 'jaffa', 'gush dan', 'center']):
+        return ZONAS_ISRAEL["Tel Aviv"], "Tel Aviv / Centro"
+    else:
+        coords = [32.0853 + random.uniform(-0.15, 0.15), 34.7818 + random.uniform(-0.15, 0.15)]
+        return coords, "Área Central (Estimado)"
+
+def generar_mapa_fusionado_v3():
+    print("\n" + "="*60)
+    print("INICIANDO FUSIÓN MULTISENSOR E.T.B. v3.0")
+    print("="*60)
+    print("Sensores: NASA VIIRS | Red de Sirenas | Bases Estratégicas | Guerra Electrónica")
+    
+    df_nasa = obtener_datos_nasa(rango_dias=2)
+    alertas_israel = obtener_alertas_aereas_mejorado()
+
+    # Ajuste de ubicación inicial y zoom para abarcar Medio Oriente y Cuerno de África
+    mapa = folium.Map(location=[24.0, 50.0], zoom_start=5, tiles='CartoDB dark_matter')
+    
+    capa_ew = folium.FeatureGroup(name="🧲 Guerra Electrónica (Jamming GPS)").add_to(mapa)
+    capa_bases = folium.FeatureGroup(name="🛡️ Bases Estratégicas (Coalición)").add_to(mapa)
+    capa_nasa = folium.FeatureGroup(name="🔥 NASA: Explosiones/Incendios").add_to(mapa)
+    capa_sirenas = folium.FeatureGroup(name="🚨 Israel: Sirenas Antiaéreas").add_to(mapa)
+    capa_calor = folium.FeatureGroup(name="🌡️ Mapa de Calor (Fusión)").add_to(mapa)
+
+    puntos_calor = []
+
+    # --- CAPA 3: GUERRA ELECTRÓNICA (ZONAS JAMMING) ---
+    for jam in ZONAS_JAMMING:
+        folium.Circle(
+            location=jam["coords"],
+            radius=jam["radio"],
+            color="#aa00ff",
+            weight=1,
+            fill_opacity=0.15,
+            fill_color="#aa00ff",
+            tooltip=f"🧲 {jam['nombre']} (Bloqueo de Datos Activo)",
+            popup="Censura térmica y desviación de coordenadas GPS activa en este perímetro."
+        ).add_to(capa_ew)
+
+    # --- 0. BASES ESTRATÉGICAS ---
+    for base in BASES_ESTRATEGICAS:
+        lat, lon = base["coords"]
+        
+        # Determinar el color del escudo basado en el país
+        if "EEUU" in base["nombre"] and not "UK" in base["nombre"] and not "Francia" in base["nombre"]:
+            color_escudo = "#3399ff" # Azul claro para EEUU
+        elif "Francia" in base["nombre"]:
+            color_escudo = "#ffffff" # Blanco para Francia
+        elif "UK" in base["nombre"] or "Reino Unido" in base["nombre"]:
+            color_escudo = "#ff3333" # Rojo para UK
+        else:
+            color_escudo = "#00ffcc" # Turquesa mixto
+            
+        info_base = f"""
+        <div style="font-family: 'Courier New', monospace; width: 250px; 
+                    background: rgba(0,0,0,0.95); color: #fff; padding: 12px; 
+                    border-radius: 8px; border-left: 5px solid {color_escudo};">
+            <b style="color:{color_escudo}; font-size: 14px;">🛡️ {base['nombre']}</b><br>
+            <hr style="border-color: #333; margin: 8px 0;">
+            <b>📍 Coordenadas:</b> {lat}, {lon}<br>
+            <b>📌 Rol:</b> {base['tipo']}<br>
+        </div>
+        """
+        folium.Marker(
+            location=[lat, lon],
+            popup=folium.Popup(info_base, max_width=300),
+            icon=folium.Icon(color='black', icon='shield', prefix='fa'),
+            tooltip=base['nombre']
+        ).add_to(capa_bases)
+
+    # --- 1. DATOS NASA ---
+    if df_nasa is not None and not df_nasa.empty:
+        for _, fila in df_nasa.iterrows():
+            temp_c = round(fila['bright_ti4'] - 273.15, 1)
+            lat, lon = fila['latitude'], fila['longitude']
+            puntos_calor.append([lat, lon, min(fila['bright_ti4']/400, 1.0)])
+            
+            tipo = fila.get('tipo_evento', 'DESCONOCIDO')
+            confianza = fila.get('confianza', 'BAJA')
+            
+            if 'CONFIRMADA' in tipo:
+                color, radio, opacidad = '#ff0000', 10, 0.9
+            elif 'POSIBLE' in tipo:
+                color, radio, opacidad = '#ff6600', 8, 0.8
+            elif 'ESTRUCTURAL' in tipo:
+                color, radio, opacidad = '#ffaa00', 6, 0.7
+            else:
+                color, radio, opacidad = '#888888', 4, 0.6
+            
+            info = f"""
+            <div style="font-family: 'Courier New', monospace; width: 280px; 
+                        background: rgba(0,0,0,0.95); color: #fff; padding: 12px; 
+                        border-radius: 8px; border-left: 5px solid {color};">
+                <b style="color:{color}; font-size: 16px;">🔥 {tipo}</b><br>
+                <hr style="border-color: #333; margin: 8px 0;">
+                <b>📍 Coordenadas:</b> {round(lat, 5)}, {round(lon, 5)}<br>
+                <b>🌡️ Temperatura:</b> <span style="color:#ff6666; font-size: 14px;">{temp_c}°C</span><br>
+                <b>🎯 Confianza:</b> {confianza}<br>
+                <b>🛰️ Fuente:</b> NASA VIIRS<br>
+                <b>📅 Fecha:</b> {fila.get('acq_date', 'N/A')} {str(fila.get('acq_time', ''))[:4]}
+            </div>
+            """
+            
+            folium.CircleMarker(
+                location=[lat, lon],
+                radius=radio,
+                popup=folium.Popup(info, max_width=300),
+                color=color,
+                fill=True,
+                fillColor=color,
+                fillOpacity=opacidad,
+                weight=2
+            ).add_to(capa_nasa)
+
+    # --- 2. ALERTAS DE SIRENAS ---
+    if alertas_israel:
+        for alerta in alertas_israel:
+            lat, lon = alerta['lat'], alerta['lon']
+            puntos_calor.append([lat, lon, 0.9])
+            
+            color_sirena = '#cc0000' if alerta['tipo_ataque'] == 'Hezbollah' else '#0066cc'
+            
+            info = f"""
+            <div style="font-family: 'Courier New', monospace; width: 280px; 
+                        background: rgba(0,0,0,0.95); color: #fff; padding: 12px; 
+                        border-radius: 8px; border-left: 5px solid {color_sirena};">
+                <b style="color:{color_sirena}; font-size: 16px;">🚨 ALERTA ANTIAÉREA</b><br>
+                <hr style="border-color: #333; margin: 8px 0;">
+                <b>📍 Zona:</b> {alerta['zona']}<br>
+                <b>📍 Coordenadas:</b> {round(lat, 5)}, {round(lon, 5)}<br>
+                <b>🚀 Agresor:</b> {alerta['tipo_ataque']}<br>
+                <b>📰 Evento:</b> {alerta['titulo']}<br>
+                <b>🕐 Hora:</b> {alerta['fecha'][:25]}<br>
+                <b>📡 Fuente:</b> {alerta['fuente']}
+            </div>
+            """
+            
+            folium.Marker(
+                location=[lat, lon],
+                popup=folium.Popup(info, max_width=300),
+                icon=folium.Icon(
+                    color='darkblue' if alerta['tipo_ataque'] == 'Hezbollah' else 'blue',
+                    icon='rocket',
+                    prefix='fa'
+                ),
+                tooltip=f"{alerta['tipo_ataque']}: {alerta['zona']}"
+            ).add_to(capa_sirenas)
+
+    # --- 4. MAPA DE CALOR ---
+    if puntos_calor:
+        HeatMap(
+            puntos_calor, 
+            radius=20, 
+            blur=15, 
+            max_zoom=10,
+            gradient={0.4: 'blue', 0.65: 'lime', 0.8: 'yellow', 1: 'red'}
+        ).add_to(capa_calor)
+
+    # Controles y Panel HTML
+    folium.LayerControl(collapsed=False).add_to(mapa)
+    
+    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    info_html = f"""
+    <div style="position: fixed; top: 20px; right: 20px; width: 300px; 
+                background-color: rgba(10,10,10,0.95); color: #fff; 
+                border: 2px solid #444; padding: 15px; border-radius: 10px; 
+                font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;
+                box-shadow: 0 0 20px rgba(0,0,0,0.8);">
+        <h4 style="color:#ff3333; margin-top:0; text-align:center; font-size: 14px; 
+                   border-bottom: 2px solid #333; padding-bottom: 8px;">
+            🛰️ RADAR E.T.B. v3.0
+        </h4>
+        <div style="line-height: 1.8; margin-top: 10px;">
+            <div style="display: flex; align-items: center;">
+                <span style="color:#aa00ff; font-size: 16px; margin-right: 8px;">🧲</span>
+                <div>
+                    <b style="color:#aa00ff;">Guerra Electrónica</b><br>
+                    <span style="font-size: 9px; color: #888;">Censura GPS/Spoofing (Capa 3)</span>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; margin-top: 8px;">
+                <span style="color:#00ffcc; font-size: 16px; margin-right: 8px;">🛡️</span>
+                <div>
+                    <b style="color:#00ffcc;">Bases Estratégicas</b><br>
+                    <span style="font-size: 9px; color: #888;">Posiciones de la Coalición</span>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; margin-top: 8px;">
+                <span style="color:#ff0000; font-size: 16px; margin-right: 8px;">🔥</span>
+                <div>
+                    <b style="color:#ff6666;">NASA VIIRS</b><br>
+                    <span style="font-size: 9px; color: #888;">Anomalías Térmicas Físicas</span>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; margin-top: 8px;">
+                <span style="color:#0066cc; font-size: 16px; margin-right: 8px;">🚨</span>
+                <div>
+                    <b style="color:#0066cc;">Red de Sirenas</b><br>
+                    <span style="font-size: 9px; color: #888;">OSINT Acústico Activo</span>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 12px; border-top: 2px solid #333; padding-top: 10px; 
+                    font-size: 10px; color: #666; text-align: center;">
+            <b>Última actualización:</b><br>
+            {timestamp}<br>
+            <span style="color: #444;">Sistema E.T.B. v3.0 (Verificado)</span>
+        </div>
+    </div>
+    """
+    mapa.get_root().html.add_child(folium.Element(info_html))
+    
+    nombre_mapa = "radar_regional_medio_oriente.html"
+    mapa.save(nombre_mapa)
+    
+    print("\n" + "="*60)
+    print(f"[✅ MAPA MULTISENSOR v3.0 GENERADO]")
+    print(f"Archivo: {nombre_mapa}")
+    print(f"Capas: EW/Jamming | Bases | NASA VIIRS | Sirenas | Heatmap")
+    print("="*60 + "\n")
+
+if __name__ == "__main__":
+    generar_mapa_fusionado_v3()

@@ -442,7 +442,7 @@ def generar_mapa_fusionado_v3():
     
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     info_html = f"""
-    <div style="position: fixed; top: 20px; right: 20px; width: 300px; 
+    <div style="position: fixed; bottom: 30px; left: 20px; width: 300px; 
                 background-color: rgba(10,10,10,0.95); color: #fff; 
                 border: 2px solid #444; padding: 15px; border-radius: 10px; 
                 font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;
