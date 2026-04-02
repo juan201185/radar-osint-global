@@ -387,7 +387,7 @@ def generar_mapa_puente_aereo():
     
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     panel_info = f"""
-    <div style="position: fixed; bottom: 20px; left: 20px; width: 320px; 
+    <div style="position: fixed; top: 20px; right: 20px; width: 320px; 
                 background-color: rgba(10,10,10,0.95); color: #fff; 
                 border: 2px solid #444; padding: 15px; border-radius: 10px; 
                 font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999;
