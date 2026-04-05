@@ -511,7 +511,7 @@ def generar_mapa_volumen_maximo():
     
     # Agregamos el control de capas con la posición modificada (abajo a la izquierda)
     folium.LayerControl(position='bottomleft', collapsed=False).add_to(mapa)
-    mapa.save("mapa_multipolar.html")
+    mapa.save("/home/fatreber85/mapa_multipolar.html")
     
     print(f"\n{'='*70}")
     print(f"[✅ MAPA GENERADO EXITOSAMENTE: mapa_multipolar.html]")

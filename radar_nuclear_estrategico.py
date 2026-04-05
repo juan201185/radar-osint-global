@@ -127,16 +127,34 @@ class RadarVisiónTotal:
                 
         except Exception as e: print(f"-> Error crítico cargando radiación: {e}")
 
-        # 3. PINTAR DATOS BRUTOS: MOVIMIENTOS TECTÓNICOS (USGS) + ANÁLISIS IA (INTACTO)
+        # 3. PINTAR DATOS BRUTOS: MOVIMIENTOS TECTÓNICOS (USGS) + ANÁLISIS IA (BLINDADO)
         sismos_total, alertas_ia = 0, 0
         try:
-            print("Descargando telemetría sísmica del USGS...")
+            print("Descargando telemetría sísmica del USGS (Forzando conexión)...")
             start = (datetime.datetime.now() - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
-            url_sismos = f"https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime={start}&minmagnitude=2.5&minlatitude=20&maxlatitude=45&minlongitude=25&maxlongitude=65"
-            sismos_resp = self.session.get(url_sismos, timeout=10)
+            # Bajamos la magnitud a 1.5 para detectar "Bunker Busters" pequeños
+            url_sismos = f"https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime={start}&minmagnitude=1.5&minlatitude=20&maxlatitude=45&minlongitude=25&maxlongitude=65"
             
-            if sismos_resp.status_code == 200:
-                sismos_data = sismos_resp.json()
+            # SISTEMA DE REINTENTOS ANTIFALLAS (Bypass de bloqueos temporales)
+            intentos = 0
+            exito = False
+            sismos_data = None
+            
+            while intentos < 3 and not exito:
+                try:
+                    sismos_resp = self.session.get(url_sismos, timeout=15)
+                    if sismos_resp.status_code == 200:
+                        sismos_data = sismos_resp.json()
+                        exito = True
+                    else:
+                        intentos += 1
+                        time.sleep(2) # Espera antes de golpear la puerta de nuevo
+                except Exception as req_err:
+                    print(f"   [!] Falla de red USGS (Intento {intentos+1}/3). Reintentando...")
+                    intentos += 1
+                    time.sleep(2)
+
+            if exito and sismos_data:
                 for f in sismos_data.get('features', []):
                     sismos_total += 1
                     lat, lon, prof = f['geometry']['coordinates'][1], f['geometry']['coordinates'][0], f['geometry']['coordinates'][2]
@@ -150,12 +168,12 @@ class RadarVisiónTotal:
                         color = "orange" if tipo_ia == 1 else "red"
                         clasif = "⚠️ POSIBLE IMPACTO CINÉTICO" if tipo_ia == 1 else "☢️ ALERTA CRÍTICA (FUGA/NUCLEAR)"
                         capa_destino = capa_alertas
-                        radio = mag * 4
+                        radio = max(mag * 4, 5) # Asegura un tamaño mínimo visible
                     else:
                         color = "blue"
                         clasif = "🔵 EVENTO TECTÓNICO (Dato Bruto)"
                         capa_destino = capa_tectonica
-                        radio = mag * 2.5 
+                        radio = max(mag * 2.5, 3) 
 
                     # Etiqueta original con todos los datos brutos + Análisis
                     html_sismo = f"""
@@ -176,7 +194,8 @@ class RadarVisiónTotal:
                     ).add_to(capa_destino)
                 print(f"-> EXITO: {sismos_total} sismos brutos plasmados en el mapa.")
             else:
-                print(f"-> Error HTTP USGS: {sismos_resp.status_code}")
+                print("-> ERROR FATAL: Imposible conectar con la red sísmica (USGS) tras 3 intentos. Posible bloqueo regional o caída de DNS.")
+                
         except Exception as e: print(f"-> Error cargando sismos: {e}")
 
         # 4. CAPA 3: DATOS SATELITALES (NUEVO CÓDIGO INYECTADO Y FORZADO)
