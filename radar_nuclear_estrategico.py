@@ -127,13 +127,69 @@ class RadarVisiónTotal:
                 
         except Exception as e: print(f"-> Error crítico cargando radiación: {e}")
 
-        # 3. PINTAR DATOS BRUTOS: MOVIMIENTOS TECTÓNICOS (USGS) + ANÁLISIS IA (BLINDADO)
+        # 3. PINTAR DATOS BRUTOS: MOVIMIENTOS TECTÓNICOS (USGS) + ANÁLISIS IA
         sismos_total, alertas_ia = 0, 0
         try:
-            print("Descargando telemetría sísmica del USGS (Forzando conexión)...")
+            print("Descargando telemetría sísmica del USGS (Filtro Irán/ME)...")
             start = (datetime.datetime.now() - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
-            # Bajamos la magnitud a 1.5 para detectar "Bunker Busters" pequeños
             url_sismos = f"https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime={start}&minmagnitude=1.5&minlatitude=20&maxlatitude=45&minlongitude=25&maxlongitude=65"
+            
+            sismos_resp = self.session.get(url_sismos, timeout=15)
+            if sismos_resp.status_code == 200:
+                sismos_data = sismos_resp.json()
+                
+                for f in sismos_data.get('features', []):
+                    # EXTRAER DATOS DEL GEOJSON
+                    prop = f['properties']
+                    geom = f['geometry']
+                    lon, lat, prof = geom['coordinates'] # USGS da [lon, lat, prof]
+                    mag = prop['mag']
+                    lugar = prop['place']
+                    fecha = datetime.datetime.fromtimestamp(prop['time']/1000).strftime('%Y-%m-%d %H:%M')
+
+                    # ANÁLISIS DE INTELIGENCIA E.T.B.
+                    tipo_ia, certeza, dist_nodo = self.ia.evaluar(mag, prof, lat, lon)
+                    sismos_total += 1
+
+                    # LÓGICA DE COLORES RESCATADA
+                    # Si la IA detecta algo raro o es muy superficial (< 2km), es PÚRPURA
+                    if tipo_ia > 0 or prof < 2.0:
+                        alertas_ia += 1
+                        color_sismo = 'purple'
+                        sospecha = "⚠️ ANOMALÍA / POSIBLE CINÉTICO"
+                        capa_actual = capa_alertas
+                    else:
+                        color_sismo = 'blue'
+                        sospecha = "🔵 EVENTO TECTÓNICO"
+                        capa_actual = capa_tectonica
+
+                    # CREAR EL MARCADOR (Usando tu estilo original)
+                    popup_html = f"""
+                    <div style='width:200px; font-family:monospace;'>
+                        <b style='color:{color_sismo};'>{sospecha}</b><hr>
+                        <b>Mag:</b> {mag}<br>
+                        <b>Prof:</b> {prof} km<br>
+                        <b>Nodo más cercano:</b> {dist_nodo} km<br>
+                        <b>Fecha:</b> {fecha}<br>
+                        <div style='margin-top:5px; background:#333; color:white; text-align:center;'>IA: {certeza}%</div>
+                    </div>
+                    """
+                    
+                    folium.CircleMarker(
+                        location=[lat, lon], 
+                        radius=mag * 3, 
+                        color=color_sismo, 
+                        fill=True, 
+                        fill_opacity=0.7,
+                        popup=folium.Popup(popup_html, max_width=250)
+                    ).add_to(capa_actual)
+
+                print(f"-> EXITO: {sismos_total} sismos detectados y procesados.")
+            else:
+                print(f"-> Error de conexión USGS: {sismos_resp.status_code}")
+                
+        except Exception as e:
+            print(f"-> Error crítico en Radar Nuclear: {e}")
             
             # SISTEMA DE REINTENTOS ANTIFALLAS (Bypass de bloqueos temporales)
             intentos = 0
