@@ -100,7 +100,7 @@ def traducir_texto(texto):
 
 def obtener_datos_petroleo():
     print("\n[*] Obteniendo cotización de energía (Bypass total: Cambio de proveedor)...")
-    print("    [📡] Conectando a los servidores de CNBC Markets (Nivel Institucional)...")
+    print("   [📡] Conectando a los servidores de CNBC Markets (Nivel Institucional)...")
     
     # El símbolo @LCO.1 corresponde al ICE Brent Crude Oil en la red de CNBC
     url_cnbc = "https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols=@LCO.1&requestMethod=itv&noform=1&exthrs=1&output=json"
@@ -120,52 +120,43 @@ def obtener_datos_petroleo():
         variacion_pct = (precio - 74.0) / 74.0
         alza = int(15600 * (variacion_pct * 0.65))
         
-        print(f"    [✓] Extracción limpia y sin bloqueos. Brent: ${precio:.2f}")
+        print(f"   [✓] Extracción limpia y sin bloqueos. Brent: ${precio:.2f}")
         return round(precio, 2), max(0, alza)
         
     except Exception as e:
-        print(f"    [❌] Falla en la red satelital secundaria: {str(e)[:30]}")
+        print(f"   [❌] Falla en la red satelital secundaria: {str(e)[:30]}")
         return 93.06, 2561
 
 def descargar_termica_nasa(capa_termica):
-    """Descarga datos reales del satélite Suomi NPP VIIRS de las últimas 24h - BLINDADO CONTRA ERRORES"""
-    print("    [🛰️] Conectando a los servidores de NASA FIRMS (VIIRS 24h)...")
+    """Descarga datos reales del satélite Suomi NPP VIIRS de las últimas 24h"""
+    print("   [🛰️] Conectando a los servidores de NASA FIRMS (VIIRS 24h)...")
     url_nasa = "https://firms.modaps.eosdis.nasa.gov/data/active_fire/suomi-npp-viirs-c2/csv/SUOMI_VIIRS_C2_Global_24h.csv"
     
     try:
         headers = {'User-Agent': random.choice(USER_AGENTS)}
         req = requests.get(url_nasa, headers=headers, timeout=20)
-        
-        # VALIDACIÓN: Si la NASA bloquea o manda HTML de error, abortamos para no romper el mapa
-        if req.status_code != 200 or 'latitude' not in req.text[:50]:
-            print("    [⚠️] Acceso restringido a NASA FIRMS temporalmente. Saltando capa térmica...")
-            return 0
-
         lector = csv.DictReader(io.StringIO(req.text))
         
         impactos_reales = 0
         for fila in lector:
-            try:
-                frp = float(fila['frp'])
-                # Solo potencias de fuego extremas (Ignoramos pequeñas fogatas)
-                if frp > 50.0:
-                    lat = float(fila['latitude'])
-                    lon = float(fila['longitude'])
-                    radio = calcular_radio_impacto(frp)
-                    
-                    folium.CircleMarker(
-                        location=[lat, lon], radius=radio, color='#ff4444', fill=True,
-                        fill_color='#ff4444', fill_opacity=0.6, 
-                        popup=f"<div style='width:160px;font-family:Arial;'><b style='color:red;'>🔥 IMPACTO FÍSICO</b><br><b>FRP:</b> {frp} MW<br><b>Satélite:</b> Suomi NPP<br><b>Hora (UTC):</b> {fila['acq_time']}</div>"
-                    ).add_to(capa_termica)
-                    impactos_reales += 1
-            except Exception:
-                continue
+            frp = float(fila['frp'])
+            # Solo potencias de fuego extremas (Ignoramos pequeñas fogatas)
+            if frp > 50.0:
+                lat = float(fila['latitude'])
+                lon = float(fila['longitude'])
+                radio = calcular_radio_impacto(frp)
                 
-        print(f"    [✓] {impactos_reales} firmas térmicas masivas descargadas y geolocalizadas.")
+                folium.CircleMarker(
+                    location=[lat, lon], radius=radio, color='#ff4444', fill=True,
+                    fill_color='#ff4444', fill_opacity=0.6, 
+                    popup=f"<div style='width:160px;font-family:Arial;'><b style='color:red;'>🔥 IMPACTO FÍSICO</b><br><b>FRP:</b> {frp} MW<br><b>Satélite:</b> Suomi NPP<br><b>Hora (UTC):</b> {fila['acq_time']}</div>"
+                ).add_to(capa_termica)
+                impactos_reales += 1
+                
+        print(f"   [✓] {impactos_reales} firmas térmicas masivas descargadas y geolocalizadas.")
         return impactos_reales  
     except Exception as e:
-        print(f"    [❌] Interferencia con satélite NASA: {str(e)[:30]}")
+        print(f"   [❌] Interferencia con satélite NASA: {str(e)[:30]}")
         return 0  
 
 def obtener_feeds_masivos():
@@ -333,7 +324,7 @@ def generar_mapa_volumen_maximo():
     mapa.add_child(capa_sigint)
 
     # --- LLAMADA AL MOTOR SATELITAL REAL ---
-    total_termicas = descargar_termica_nasa(capa_termica) 
+    total_termicas = descargar_termica_nasa(capa_termica) # <-- Modifica esta línea
 
     # CLÚSTER ASIGNADO A LA CAPA DE NOTICIAS
     cluster_maestro = MarkerCluster(
@@ -382,9 +373,6 @@ def generar_mapa_volumen_maximo():
                     titulo_es = traducir_texto(titulo)
                     if not titulo_es or titulo_es == titulo: titulo_es = titulo[:100]
                     
-                    # --- LIMPIEZA DE CARACTERES CRÍTICA PARA EVITAR MAPA EN BLANCO ---
-                    titulo_limpio = titulo_es.replace("'", "´").replace('"', '“').replace("\n", " ")
-                    
                     coords, ciudad = detectar_ciudad(texto_completo)
                     
                     if not coords:
@@ -402,7 +390,7 @@ def generar_mapa_volumen_maximo():
                     
                     color, icono = color_y_icono(bloque, agencia)
                     url_original = entry.get('link', url)
-                    btns = generar_enlaces(titulo_limpio, agencia, url_original, bloque)
+                    btns = generar_enlaces(titulo_es, agencia, url_original, bloque)
                     
                     # ACTUALIZACIÓN BOT DE CENSURA
                     if bloque == 'occidental': noticias_occidente += 1
@@ -413,7 +401,7 @@ def generar_mapa_volumen_maximo():
                         folium.Circle(
                             location=coords, radius=150000, color='#800080', fill=True,
                             fill_color='#800080', fill_opacity=0.35, 
-                            popup=f"<div style='width:200px;font-family:Arial;'><b style='color:#800080;'>🔮 ALERTA SIGINT (GUERRA E.)</b><br><small>{titulo_limpio[:120]}</small></div>"
+                            popup=f"<div style='width:200px;font-family:Arial;'><b style='color:#800080;'>🔮 ALERTA SIGINT (GUERRA E.)</b><br><small>{titulo_es[:120]}</small></div>"
                         ).add_to(capa_sigint)
 
                     # --- CONSTRUCCIÓN VISUAL DEL POPUP (FORMATO LIMPIO Y VERTICAL) ---
@@ -431,7 +419,7 @@ def generar_mapa_volumen_maximo():
                             {agencia}
                         </div>
                         <div style="font-size:11px;color:#eee;margin:6px 0;line-height:1.3;">
-                            {titulo_limpio[:120]}{'...' if len(titulo_limpio) > 120 else ''}
+                            {titulo_es[:120]}{'...' if len(titulo_es) > 120 else ''}
                         </div>
                         <div style="font-size:8px;color:#666;text-align:center;margin-bottom:5px;letter-spacing:0.5px;">
                             📍 {ciudad.upper()}
@@ -444,7 +432,7 @@ def generar_mapa_volumen_maximo():
                         location=coords, 
                         popup=folium.Popup(popup_html, max_width=270), 
                         icon=folium.Icon(color=color, icon=icono, prefix='glyphicon'), 
-                        tooltip=f"{agencia[:18]}: {titulo_limpio[:32]}..."
+                        tooltip=f"{agencia[:18]}: {titulo_es[:32]}..."
                     ).add_to(cluster_maestro)
                     
                     filtrados_feed += 1
