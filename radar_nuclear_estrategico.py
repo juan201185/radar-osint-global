@@ -127,69 +127,67 @@ class RadarVisiónTotal:
                 
         except Exception as e: print(f"-> Error crítico cargando radiación: {e}")
 
-        # 3. PINTAR DATOS BRUTOS: MOVIMIENTOS TECTÓNICOS (USGS) + ANÁLISIS IA
-        sismos_total, alertas_ia = 0, 0
+        # 3. SISMOS - MODO CLÁSICO (EL MOTOR ORIGINAL RESTAURADO)
+        sismos_total = 0
         try:
-            print("Descargando telemetría sísmica del USGS (Filtro Irán/ME)...")
+            # La ventana temporal clásica (7 días) y el umbral táctico original (Mag 1.5)
             start = (datetime.datetime.now() - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
             url_sismos = f"https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime={start}&minmagnitude=1.5&minlatitude=20&maxlatitude=45&minlongitude=25&maxlongitude=65"
             
-            sismos_resp = self.session.get(url_sismos, timeout=15)
-            if sismos_resp.status_code == 200:
-                sismos_data = sismos_resp.json()
-                
-                for f in sismos_data.get('features', []):
-                    # EXTRAER DATOS DEL GEOJSON
-                    prop = f['properties']
-                    geom = f['geometry']
-                    lon, lat, prof = geom['coordinates'] # USGS da [lon, lat, prof]
-                    mag = prop['mag']
-                    lugar = prop['place']
-                    fecha = datetime.datetime.fromtimestamp(prop['time']/1000).strftime('%Y-%m-%d %H:%M')
+            print("-> Desplegando red sísmica clásica sobre Medio Oriente...")
+            respuesta = requests.get(url_sismos, timeout=15)
+            datos_usgs = respuesta.json()
+            
+            for sismo in datos_usgs.get('features', []):
+                try:
+                    # 1. Extracción Cruda y Directa (Como en el v1)
+                    coords = sismo['geometry']['coordinates']
+                    lon = coords[0]
+                    lat = coords[1]
+                    # Si no hay profundidad, asumimos 0 (anomalía de superficie)
+                    prof = coords[2] if len(coords) > 2 else 0.0 
+                    
+                    props = sismo['properties']
+                    mag = props.get('mag')
+                    if mag is None: continue # Si no hay magnitud, lo ignoramos
+                    
+                    lugar = props.get('place', 'Ubicación desconocida')
+                    # Limpiamos posibles comillas en el lugar para evitar el mapa en blanco
+                    lugar = lugar.replace("'", "´").replace('"', '“')
 
-                    # ANÁLISIS DE INTELIGENCIA E.T.B.
-                    tipo_ia, certeza, dist_nodo = self.ia.evaluar(mag, prof, lat, lon)
-                    sismos_total += 1
-
-                    # LÓGICA DE COLORES RESCATADA
-                    # Si la IA detecta algo raro o es muy superficial (< 2km), es PÚRPURA
-                    if tipo_ia > 0 or prof < 2.0:
-                        alertas_ia += 1
+                    # 2. La Lógica de Detección Original
+                    # Cualquier cosa a menos de 5km de profundidad es roja/púrpura (sospechoso)
+                    if prof < 5.0:
                         color_sismo = 'purple'
-                        sospecha = "⚠️ ANOMALÍA / POSIBLE CINÉTICO"
-                        capa_actual = capa_alertas
+                        etiqueta = "⚠️ ANOMALÍA SUPERFICIAL"
+                        capa = capa_alertas
                     else:
                         color_sismo = 'blue'
-                        sospecha = "🔵 EVENTO TECTÓNICO"
-                        capa_actual = capa_tectonica
+                        etiqueta = "🔵 Sismo Tectónico"
+                        capa = capa_tectonica
 
-                    # CREAR EL MARCADOR (Usando tu estilo original)
-                    popup_html = f"""
-                    <div style='width:200px; font-family:monospace;'>
-                        <b style='color:{color_sismo};'>{sospecha}</b><hr>
-                        <b>Mag:</b> {mag}<br>
-                        <b>Prof:</b> {prof} km<br>
-                        <b>Nodo más cercano:</b> {dist_nodo} km<br>
-                        <b>Fecha:</b> {fecha}<br>
-                        <div style='margin-top:5px; background:#333; color:white; text-align:center;'>IA: {certeza}%</div>
-                    </div>
-                    """
+                    # 3. Pintar en el mapa directamente
+                    popup_html = f"<b>{etiqueta}</b><br>Mag: {mag}<br>Prof: {prof} km<br>Lugar: {lugar}"
                     
                     folium.CircleMarker(
-                        location=[lat, lon], 
-                        radius=mag * 3, 
-                        color=color_sismo, 
-                        fill=True, 
-                        fill_opacity=0.7,
+                        location=[lat, lon], # Folium siempre pide [Lat, Lon]
+                        radius=mag * 3,
+                        color=color_sismo,
+                        fill=True,
+                        fillOpacity=0.6,
                         popup=folium.Popup(popup_html, max_width=250)
-                    ).add_to(capa_actual)
+                    ).add_to(capa)
+                    
+                    sismos_total += 1
 
-                print(f"-> EXITO: {sismos_total} sismos detectados y procesados.")
-            else:
-                print(f"-> Error de conexión USGS: {sismos_resp.status_code}")
-                
+                except Exception as e_interno:
+                    # Si un sismo viene dañado de fábrica, lo ignoramos en silencio
+                    continue
+
+            print(f"-> EXITO TOTAL: {sismos_total} sismos marcados en el terreno.")
+            
         except Exception as e:
-            print(f"-> Error crítico en Radar Nuclear: {e}")
+            print(f"-> ERROR DE ENLACE USGS: {e}")
             
             # SISTEMA DE REINTENTOS ANTIFALLAS (Bypass de bloqueos temporales)
             intentos = 0
