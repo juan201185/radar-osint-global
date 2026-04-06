@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_f0602001fe2f3333e1127661045e616f {
+                #map_5c9a3b22eda99d12fda88aac83ebe6ef {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -64,33 +64,33 @@
             </div>
             <div style="line-height: 1.5;">
                 <b style="color:#ff6666;">BAB EL-MANDEB (Ruta Comercial):</b><br>
-                Incidentes (24h): 0 Detectados<br>
+                Incidentes (24h): 5 Detectados<br>
                 Estado: BLOQUEO ACTIVO<br><br>
                 
                 <b style="color:#ffcc00;">ESTRECHO DE ORMUZ (Ruta Energía):</b><br>
-                Contactos VLCC: 0 Rastreados<br>
+                Contactos VLCC: 5 Rastreados<br>
                 Estado: VIGILANCIA TÁCTICA<br><br>
                 
                 <hr style="border-color:#333; margin: 8px 0;">
                 <b>IMPACTO ECONÓMICO GLOBAL:</b><br>
-                Brent Ref (Hoy): <span style="color:#00ff41;">$93.06</span><br>
-                Sobrecosto/Buque: <span style="color:#ffcc00;">2.3M USD</span><br>
+                Brent Ref (Hoy): <span style="color:#00ff41;">$109.87</span><br>
+                Sobrecosto/Buque: <span style="color:#ffcc00;">2.71M USD</span><br>
                 Demora Est: 10-14 días adicionales
             </div>
             <div style="margin-top: 12px; border-top: 1px solid #333; padding-top: 8px; font-size: 9px; color: #666; text-align: center;">
-                Sincronizado: 22:53 | Ingeniería Trejos
+                Sincronizado: 01:08 | Ingeniería Trejos
             </div>
         </div>
         
     
-            <div class="folium-map" id="map_f0602001fe2f3333e1127661045e616f" ></div>
+            <div class="folium-map" id="map_5c9a3b22eda99d12fda88aac83ebe6ef" ></div>
         
 </body>
 <script>
     
     
-            var map_f0602001fe2f3333e1127661045e616f = L.map(
-                "map_f0602001fe2f3333e1127661045e616f",
+            var map_5c9a3b22eda99d12fda88aac83ebe6ef = L.map(
+                "map_5c9a3b22eda99d12fda88aac83ebe6ef",
                 {
                     center: [19.0, 48.0],
                     crs: L.CRS.EPSG3857,
@@ -107,7 +107,7 @@
 
         
     
-            var tile_layer_f38db5efcd179b8859ed6dcfbc5810f7 = L.tileLayer(
+            var tile_layer_fa5e67b070a0b8ed674d5c8d3f2bc48e = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -124,34 +124,414 @@
             );
         
     
-            tile_layer_f38db5efcd179b8859ed6dcfbc5810f7.addTo(map_f0602001fe2f3333e1127661045e616f);
+            tile_layer_fa5e67b070a0b8ed674d5c8d3f2bc48e.addTo(map_5c9a3b22eda99d12fda88aac83ebe6ef);
         
     
-            var feature_group_551f19ebd4775ee0bd5268ce1ad60768 = L.featureGroup(
+            var feature_group_0e17eb79fccd380734aa628a8d381bc8 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_551f19ebd4775ee0bd5268ce1ad60768.addTo(map_f0602001fe2f3333e1127661045e616f);
+            var marker_8c7ef94fdb04b4d31d6e03c8dde135fe = L.marker(
+                [12.670349601155003, 45.11270983857633],
+                {
+}
+            ).addTo(feature_group_0e17eb79fccd380734aa628a8d381bc8);
         
     
-            var feature_group_ac9d23bf5ec36198dc0f3ca2c6c675fd = L.featureGroup(
+            var icon_5e03b831a5d2c8d95beabee9783bcd2a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "ship",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a9155f97d9b2edbe60ed26fb98ec0ce6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c96193b780fb8a7bcda42ea2c64c856 = $(`<div id="html_9c96193b780fb8a7bcda42ea2c64c856" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid red;">                 <b style="color:red; font-size:12px;">🚢 ALERTA CRÍTICA NAVAL</b><br><br>                 <b>Reporte:</b> Houthi attacks on Israel open new front in Mideast war, threaten Red Sea shipping - F...<br>                 <b>Zona:</b> Bab el-Mandeb / Mar Rojo             </div>             </div>`)[0];
+                popup_a9155f97d9b2edbe60ed26fb98ec0ce6.setContent(html_9c96193b780fb8a7bcda42ea2c64c856);
+            
+        
+
+        marker_8c7ef94fdb04b4d31d6e03c8dde135fe.bindPopup(popup_a9155f97d9b2edbe60ed26fb98ec0ce6)
+        ;
+
+        
+    
+    
+                marker_8c7ef94fdb04b4d31d6e03c8dde135fe.setIcon(icon_5e03b831a5d2c8d95beabee9783bcd2a);
+            
+    
+            var marker_4a4fbc5f7bc417181fbac17b88f12dc6 = L.marker(
+                [13.483600347094377, 43.12059401804812],
+                {
+}
+            ).addTo(feature_group_0e17eb79fccd380734aa628a8d381bc8);
+        
+    
+            var icon_0cc1d32f2490f13c276924581bfb1d45 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "ship",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_79d03992d26ff27b9239c823992609a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5773357c95ece3a04c8a34658a8b9811 = $(`<div id="html_5773357c95ece3a04c8a34658a8b9811" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid orange;">                 <b style="color:orange; font-size:12px;">🚢 DESVÍO TÁCTICO</b><br><br>                 <b>Reporte:</b> Oil tanker 'armada' moves to Red Sea with closure of Strait of Hormuz - Middle East E...<br>                 <b>Zona:</b> Bab el-Mandeb / Mar Rojo             </div>             </div>`)[0];
+                popup_79d03992d26ff27b9239c823992609a6.setContent(html_5773357c95ece3a04c8a34658a8b9811);
+            
+        
+
+        marker_4a4fbc5f7bc417181fbac17b88f12dc6.bindPopup(popup_79d03992d26ff27b9239c823992609a6)
+        ;
+
+        
+    
+    
+                marker_4a4fbc5f7bc417181fbac17b88f12dc6.setIcon(icon_0cc1d32f2490f13c276924581bfb1d45);
+            
+    
+            var marker_b3228e62efc5fe7dee4dc43e2ddfb565 = L.marker(
+                [11.855985845433118, 45.24338777764419],
+                {
+}
+            ).addTo(feature_group_0e17eb79fccd380734aa628a8d381bc8);
+        
+    
+            var icon_2c9da85b78ce33f739e648949bf1bafe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "ship",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61a3baec73f650c985d6142d5bc97cbe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8e1532b4bdbf3e54b65fa050c720a0f2 = $(`<div id="html_8e1532b4bdbf3e54b65fa050c720a0f2" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid orange;">                 <b style="color:orange; font-size:12px;">🚢 DESVÍO TÁCTICO</b><br><br>                 <b>Reporte:</b> Why Iran war makes Red Sea shipping a bigger worry - The Straits Times...<br>                 <b>Zona:</b> Bab el-Mandeb / Mar Rojo             </div>             </div>`)[0];
+                popup_61a3baec73f650c985d6142d5bc97cbe.setContent(html_8e1532b4bdbf3e54b65fa050c720a0f2);
+            
+        
+
+        marker_b3228e62efc5fe7dee4dc43e2ddfb565.bindPopup(popup_61a3baec73f650c985d6142d5bc97cbe)
+        ;
+
+        
+    
+    
+                marker_b3228e62efc5fe7dee4dc43e2ddfb565.setIcon(icon_2c9da85b78ce33f739e648949bf1bafe);
+            
+    
+            var marker_7a7c8fed9d91fb92a45b5a30f86a1ad1 = L.marker(
+                [14.778127619065438, 42.38784384383813],
+                {
+}
+            ).addTo(feature_group_0e17eb79fccd380734aa628a8d381bc8);
+        
+    
+            var icon_041660827a7ec2b23ba169df9b7997c3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "ship",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a640162c94faf326e2e8490df5bc4a62 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9bcd21c8c840ae249997ffef549b5d3a = $(`<div id="html_9bcd21c8c840ae249997ffef549b5d3a" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid orange;">                 <b style="color:orange; font-size:12px;">🚢 DESVÍO TÁCTICO</b><br><br>                 <b>Reporte:</b> Shipping companies divert vessels around Cape of Good Hope after strikes on Iran - re...<br>                 <b>Zona:</b> Bab el-Mandeb / Mar Rojo             </div>             </div>`)[0];
+                popup_a640162c94faf326e2e8490df5bc4a62.setContent(html_9bcd21c8c840ae249997ffef549b5d3a);
+            
+        
+
+        marker_7a7c8fed9d91fb92a45b5a30f86a1ad1.bindPopup(popup_a640162c94faf326e2e8490df5bc4a62)
+        ;
+
+        
+    
+    
+                marker_7a7c8fed9d91fb92a45b5a30f86a1ad1.setIcon(icon_041660827a7ec2b23ba169df9b7997c3);
+            
+    
+            var marker_b07023cac8ef69857ff851d9476ba76f = L.marker(
+                [12.244162621491407, 46.32857789370757],
+                {
+}
+            ).addTo(feature_group_0e17eb79fccd380734aa628a8d381bc8);
+        
+    
+            var icon_5b328b37cb6a57a99bacc6e51ff1b442 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "ship",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dace352a9dbac5dcffa1f181ec2035d5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0fa5faf8194145cf22a7630fc58ee2a9 = $(`<div id="html_0fa5faf8194145cf22a7630fc58ee2a9" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid red;">                 <b style="color:red; font-size:12px;">🚢 ALERTA CRÍTICA NAVAL</b><br><br>                 <b>Reporte:</b> Yemen’s Houthis To Resume Missile And Drone Attacks On Ships Transiting The Red Sea -...<br>                 <b>Zona:</b> Bab el-Mandeb / Mar Rojo             </div>             </div>`)[0];
+                popup_dace352a9dbac5dcffa1f181ec2035d5.setContent(html_0fa5faf8194145cf22a7630fc58ee2a9);
+            
+        
+
+        marker_b07023cac8ef69857ff851d9476ba76f.bindPopup(popup_dace352a9dbac5dcffa1f181ec2035d5)
+        ;
+
+        
+    
+    
+                marker_b07023cac8ef69857ff851d9476ba76f.setIcon(icon_5b328b37cb6a57a99bacc6e51ff1b442);
+            
+    
+            feature_group_0e17eb79fccd380734aa628a8d381bc8.addTo(map_5c9a3b22eda99d12fda88aac83ebe6ef);
+        
+    
+            var feature_group_4702a72c410499545a85a970f4041852 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_ac9d23bf5ec36198dc0f3ca2c6c675fd.addTo(map_f0602001fe2f3333e1127661045e616f);
+            var marker_28210627aec0112060a94fb58f5381f5 = L.marker(
+                [28.413996545315744, 53.65116420747392],
+                {
+}
+            ).addTo(feature_group_4702a72c410499545a85a970f4041852);
         
     
-            var feature_group_ddb4d844352aaf50f01181be2368fef9 = L.featureGroup(
+            var icon_9d906b4900c4ed486a24825f9a76a6bc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "tint",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_adb874f15d4cadddf28a56b9cd682bbf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91999018ec0817a1d53b60aec1174306 = $(`<div id="html_91999018ec0817a1d53b60aec1174306" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid cadetblue;">                 <b style="color:cadetblue; font-size:12px;">🛢️ FLUJO ENERGÉTICO VIGILADO</b><br><br>                 <b>Reporte:</b> HORMUZ TRACKER: Iraq-Linked Oil Tanker Exits Hormuz Via Iran - Bloomberg.com...<br>                 <b>Zona:</b> Estrecho de Ormuz / Golfo Pérsico             </div>             </div>`)[0];
+                popup_adb874f15d4cadddf28a56b9cd682bbf.setContent(html_91999018ec0817a1d53b60aec1174306);
+            
+        
+
+        marker_28210627aec0112060a94fb58f5381f5.bindPopup(popup_adb874f15d4cadddf28a56b9cd682bbf)
+        ;
+
+        
+    
+    
+                marker_28210627aec0112060a94fb58f5381f5.setIcon(icon_9d906b4900c4ed486a24825f9a76a6bc);
+            
+    
+            var marker_7d9272632bc6bbcc054049cac5e7bc96 = L.marker(
+                [25.538966780775134, 57.08023123906233],
+                {
+}
+            ).addTo(feature_group_4702a72c410499545a85a970f4041852);
+        
+    
+            var icon_d3b92a2dccb92f5f3a7522d8c9ea2f3d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "tint",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_15a6b6181f36f1ef9a0bff561fdcaea6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dc2d15d61b8833ed878f0129af989686 = $(`<div id="html_dc2d15d61b8833ed878f0129af989686" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid cadetblue;">                 <b style="color:cadetblue; font-size:12px;">🛢️ ACTIVIDAD NAVAL</b><br><br>                 <b>Reporte:</b> Traffic is trickling through Strait of Hormuz: Who's moving and who's stranded - cnbc...<br>                 <b>Zona:</b> Estrecho de Ormuz / Golfo Pérsico             </div>             </div>`)[0];
+                popup_15a6b6181f36f1ef9a0bff561fdcaea6.setContent(html_dc2d15d61b8833ed878f0129af989686);
+            
+        
+
+        marker_7d9272632bc6bbcc054049cac5e7bc96.bindPopup(popup_15a6b6181f36f1ef9a0bff561fdcaea6)
+        ;
+
+        
+    
+    
+                marker_7d9272632bc6bbcc054049cac5e7bc96.setIcon(icon_d3b92a2dccb92f5f3a7522d8c9ea2f3d);
+            
+    
+            var marker_4fe67e0808aaf25dff4b8f73b4cf67e0 = L.marker(
+                [24.92727376372368, 54.61035201742345],
+                {
+}
+            ).addTo(feature_group_4702a72c410499545a85a970f4041852);
+        
+    
+            var icon_ab3e71e2bf3166650ef6f33e67791c31 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "tint",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5559dfa5d1339245343ee8464a450718 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6005e72b2d96a1f127db88fc67731264 = $(`<div id="html_6005e72b2d96a1f127db88fc67731264" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid cadetblue;">                 <b style="color:cadetblue; font-size:12px;">🛢️ ACTIVIDAD NAVAL</b><br><br>                 <b>Reporte:</b> 'You're going to run the strait': The financial incentive for braving Iran's blockade...<br>                 <b>Zona:</b> Estrecho de Ormuz / Golfo Pérsico             </div>             </div>`)[0];
+                popup_5559dfa5d1339245343ee8464a450718.setContent(html_6005e72b2d96a1f127db88fc67731264);
+            
+        
+
+        marker_4fe67e0808aaf25dff4b8f73b4cf67e0.bindPopup(popup_5559dfa5d1339245343ee8464a450718)
+        ;
+
+        
+    
+    
+                marker_4fe67e0808aaf25dff4b8f73b4cf67e0.setIcon(icon_ab3e71e2bf3166650ef6f33e67791c31);
+            
+    
+            var marker_3051dc13407870e340229746b454c5e0 = L.marker(
+                [26.81008220235255, 56.54166685337074],
+                {
+}
+            ).addTo(feature_group_4702a72c410499545a85a970f4041852);
+        
+    
+            var icon_54265d105c9accbd269ba8f53a49f976 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "tint",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_56b3a83b27b3684c889bea877e915f29 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f9c2bc8d2e22e8ed49784040d0814d43 = $(`<div id="html_f9c2bc8d2e22e8ed49784040d0814d43" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid cadetblue;">                 <b style="color:cadetblue; font-size:12px;">🛢️ ACTIVIDAD NAVAL</b><br><br>                 <b>Reporte:</b> Trump Calls on Other Nations to Secure the Strait of Hormuz: 'We Will Help' - Time Ma...<br>                 <b>Zona:</b> Estrecho de Ormuz / Golfo Pérsico             </div>             </div>`)[0];
+                popup_56b3a83b27b3684c889bea877e915f29.setContent(html_f9c2bc8d2e22e8ed49784040d0814d43);
+            
+        
+
+        marker_3051dc13407870e340229746b454c5e0.bindPopup(popup_56b3a83b27b3684c889bea877e915f29)
+        ;
+
+        
+    
+    
+                marker_3051dc13407870e340229746b454c5e0.setIcon(icon_54265d105c9accbd269ba8f53a49f976);
+            
+    
+            var marker_808bec6ed2e4b1f3cdf25b96a2ed0220 = L.marker(
+                [26.273102876858786, 57.16460041277936],
+                {
+}
+            ).addTo(feature_group_4702a72c410499545a85a970f4041852);
+        
+    
+            var icon_194357c6c6f6e180b86ab599a19d47bb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "tint",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_69d413fc8733482136195736ce738c11 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ee7037d3eb190961bfc54899be361a0c = $(`<div id="html_ee7037d3eb190961bfc54899be361a0c" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px; background: #000; color: #fff; padding: 10px; border-left: 5px solid cadetblue;">                 <b style="color:cadetblue; font-size:12px;">🛢️ ACTIVIDAD NAVAL</b><br><br>                 <b>Reporte:</b> Top 5 carriers diverting containers from Strait of Hormuz - Kpler...<br>                 <b>Zona:</b> Estrecho de Ormuz / Golfo Pérsico             </div>             </div>`)[0];
+                popup_69d413fc8733482136195736ce738c11.setContent(html_ee7037d3eb190961bfc54899be361a0c);
+            
+        
+
+        marker_808bec6ed2e4b1f3cdf25b96a2ed0220.bindPopup(popup_69d413fc8733482136195736ce738c11)
+        ;
+
+        
+    
+    
+                marker_808bec6ed2e4b1f3cdf25b96a2ed0220.setIcon(icon_194357c6c6f6e180b86ab599a19d47bb);
+            
+    
+            feature_group_4702a72c410499545a85a970f4041852.addTo(map_5c9a3b22eda99d12fda88aac83ebe6ef);
+        
+    
+            var feature_group_7198a3d15872e4d60c500c506189b1d7 = L.featureGroup(
                 {
 }
             );
         
     
-            ant_path_bb33181b6d6ff0fe0e3ed5289fdb9215 = L.polyline.antPath(
+            ant_path_4abe01c772088cdbff3774b539af2f8e = L.polyline.antPath(
               [[31.5, 32.3], [12.0, 45.0], [-34.0, 18.0]],
               {
   "stroke": true,
@@ -178,10 +558,10 @@
   "delay": 1200,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_ddb4d844352aaf50f01181be2368fef9);
+        ).addTo(feature_group_7198a3d15872e4d60c500c506189b1d7);
         
     
-            ant_path_bb33181b6d6ff0fe0e3ed5289fdb9215.bindTooltip(
+            ant_path_4abe01c772088cdbff3774b539af2f8e.bindTooltip(
                 `<div>
                      Ruta del Cabo (Desvío Logístico)
                  </div>`,
@@ -191,16 +571,16 @@
             );
         
     
-            feature_group_ddb4d844352aaf50f01181be2368fef9.addTo(map_f0602001fe2f3333e1127661045e616f);
+            feature_group_7198a3d15872e4d60c500c506189b1d7.addTo(map_5c9a3b22eda99d12fda88aac83ebe6ef);
         
     
-            var circle_509fe8da06f46819b0e24e6e543c7f6a = L.circle(
+            var circle_280a4882f78be86b1701b98946b2a5d0 = L.circle(
                 [12.58, 43.33],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150000, "stroke": true, "weight": 3}
-            ).addTo(map_f0602001fe2f3333e1127661045e616f);
+            ).addTo(map_5c9a3b22eda99d12fda88aac83ebe6ef);
         
     
-            circle_509fe8da06f46819b0e24e6e543c7f6a.bindTooltip(
+            circle_280a4882f78be86b1701b98946b2a5d0.bindTooltip(
                 `<div>
                      CHOKEPOINT: Bab el-Mandeb (Bloqueado)
                  </div>`,
@@ -210,13 +590,13 @@
             );
         
     
-            var circle_a8a5908a4763da4b10c1a5899fdea9df = L.circle(
+            var circle_592eed6afdf8005bd9ff5ab6a5d28155 = L.circle(
                 [26.1, 55.5],
                 {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 120000, "stroke": true, "weight": 3}
-            ).addTo(map_f0602001fe2f3333e1127661045e616f);
+            ).addTo(map_5c9a3b22eda99d12fda88aac83ebe6ef);
         
     
-            circle_a8a5908a4763da4b10c1a5899fdea9df.bindTooltip(
+            circle_592eed6afdf8005bd9ff5ab6a5d28155.bindTooltip(
                 `<div>
                      CHOKEPOINT: Estrecho de Ormuz (Vigilancia)
                  </div>`,
@@ -226,25 +606,25 @@
             );
         
     
-            var layer_control_9208127c3ee8c77d56af6450db394778_layers = {
+            var layer_control_7cad783053f1139bbc6763cad5095d14_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_f38db5efcd179b8859ed6dcfbc5810f7,
+                    "cartodbdarkmatter" : tile_layer_fa5e67b070a0b8ed674d5c8d3f2bc48e,
                 },
                 overlays :  {
-                    "\u26a0\ufe0f Sector Bab el-Mandeb (Bloqueo)" : feature_group_551f19ebd4775ee0bd5268ce1ad60768,
-                    "\ud83d\udee2\ufe0f Sector Ormuz (Proxy Energ\u00eda)" : feature_group_ac9d23bf5ec36198dc0f3ca2c6c675fd,
-                    "\ud83d\udee3\ufe0f Rutas de Suministro" : feature_group_ddb4d844352aaf50f01181be2368fef9,
+                    "\u26a0\ufe0f Sector Bab el-Mandeb (Bloqueo)" : feature_group_0e17eb79fccd380734aa628a8d381bc8,
+                    "\ud83d\udee2\ufe0f Sector Ormuz (Proxy Energ\u00eda)" : feature_group_4702a72c410499545a85a970f4041852,
+                    "\ud83d\udee3\ufe0f Rutas de Suministro" : feature_group_7198a3d15872e4d60c500c506189b1d7,
                 },
             };
-            let layer_control_9208127c3ee8c77d56af6450db394778 = L.control.layers(
-                layer_control_9208127c3ee8c77d56af6450db394778_layers.base_layers,
-                layer_control_9208127c3ee8c77d56af6450db394778_layers.overlays,
+            let layer_control_7cad783053f1139bbc6763cad5095d14 = L.control.layers(
+                layer_control_7cad783053f1139bbc6763cad5095d14_layers.base_layers,
+                layer_control_7cad783053f1139bbc6763cad5095d14_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_f0602001fe2f3333e1127661045e616f);
+            ).addTo(map_5c9a3b22eda99d12fda88aac83ebe6ef);
 
         
 </script>

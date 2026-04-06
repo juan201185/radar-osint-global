@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_58288a3e30291c671383b2aa7b50fae6 {
+                #map_c34fb5e11d1a5e2f26f16e151b047e3e {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -50,6 +50,7 @@
             </script>
 
         
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
 </head>
 <body>
     
@@ -60,21 +61,21 @@
             <h4 style="color:#ff4444; text-align:center; margin:0 0 10px 0;">⛑️ RADAR HUMANITARIO E.T.B.</h4>
             <div style="text-align:center; line-height:1.6;">
                 NIVEL: CRÍTICO REGIONAL<br>
-                Alertas Activas: 0<br>
+                Alertas Activas: 6<br>
                 <hr style="border-color:#333;">
-                Sincronizado: 2026-04-05 22:55
+                Sincronizado: 2026-04-06 01:08
             </div>
         </div>
         
     
-            <div class="folium-map" id="map_58288a3e30291c671383b2aa7b50fae6" ></div>
+            <div class="folium-map" id="map_c34fb5e11d1a5e2f26f16e151b047e3e" ></div>
         
 </body>
 <script>
     
     
-            var map_58288a3e30291c671383b2aa7b50fae6 = L.map(
-                "map_58288a3e30291c671383b2aa7b50fae6",
+            var map_c34fb5e11d1a5e2f26f16e151b047e3e = L.map(
+                "map_c34fb5e11d1a5e2f26f16e151b047e3e",
                 {
                     center: [25.0, 40.0],
                     crs: L.CRS.EPSG3857,
@@ -91,7 +92,7 @@
 
         
     
-            var tile_layer_6e98ef0481e8eb9167b44aad030bb6bb = L.tileLayer(
+            var tile_layer_26f150315bfe8805cdcdda582e89542e = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -108,23 +109,23 @@
             );
         
     
-            tile_layer_6e98ef0481e8eb9167b44aad030bb6bb.addTo(map_58288a3e30291c671383b2aa7b50fae6);
+            tile_layer_26f150315bfe8805cdcdda582e89542e.addTo(map_c34fb5e11d1a5e2f26f16e151b047e3e);
         
     
-            var feature_group_e9b7e23b57431b4ba442b181c046ce82 = L.featureGroup(
+            var feature_group_e1a255e0d3c8d3a5944276b402cf6ac7 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_cca0eca4bcee52cf02231a7559ca8f3a = L.marker(
+            var marker_0640c712b08f73f6ef84960e18c1076e = L.marker(
                 [31.2968, 34.2435],
                 {
 }
-            ).addTo(feature_group_e9b7e23b57431b4ba442b181c046ce82);
+            ).addTo(feature_group_e1a255e0d3c8d3a5944276b402cf6ac7);
         
     
-            var icon_44d50af10158dfd8a2b738d07479e514 = L.AwesomeMarkers.icon(
+            var icon_9aafd1c58264886dca55d6c6e0d1f04c = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -135,24 +136,24 @@
             );
         
     
-        var popup_60f97aa9ee0c7c1d56feaa307014c105 = L.popup({
+        var popup_4843d755896863736d19a1c54d6c108f = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_105bdb0839d4b07c1b6d44780c084e7c = $(`<div id="html_105bdb0839d4b07c1b6d44780c084e7c" style="width: 100.0%; height: 100.0%;"><b>Paso de Rafah (Egipto/Gaza)</b></div>`)[0];
-                popup_60f97aa9ee0c7c1d56feaa307014c105.setContent(html_105bdb0839d4b07c1b6d44780c084e7c);
+                var html_37a786dcd335d1cdb8e1b40e000d6927 = $(`<div id="html_37a786dcd335d1cdb8e1b40e000d6927" style="width: 100.0%; height: 100.0%;"><b>Paso de Rafah (Egipto/Gaza)</b></div>`)[0];
+                popup_4843d755896863736d19a1c54d6c108f.setContent(html_37a786dcd335d1cdb8e1b40e000d6927);
             
         
 
-        marker_cca0eca4bcee52cf02231a7559ca8f3a.bindPopup(popup_60f97aa9ee0c7c1d56feaa307014c105)
+        marker_0640c712b08f73f6ef84960e18c1076e.bindPopup(popup_4843d755896863736d19a1c54d6c108f)
         ;
 
         
     
     
-            marker_cca0eca4bcee52cf02231a7559ca8f3a.bindTooltip(
+            marker_0640c712b08f73f6ef84960e18c1076e.bindTooltip(
                 `<div>
                      Paso de Rafah (Egipto/Gaza)
                  </div>`,
@@ -162,17 +163,17 @@
             );
         
     
-                marker_cca0eca4bcee52cf02231a7559ca8f3a.setIcon(icon_44d50af10158dfd8a2b738d07479e514);
+                marker_0640c712b08f73f6ef84960e18c1076e.setIcon(icon_9aafd1c58264886dca55d6c6e0d1f04c);
             
     
-            var marker_da18b6d5cf7923aed7374c83f2321e20 = L.marker(
+            var marker_c53abd781420bc1738c57d4f257b1ac4 = L.marker(
                 [31.2333, 34.2833],
                 {
 }
-            ).addTo(feature_group_e9b7e23b57431b4ba442b181c046ce82);
+            ).addTo(feature_group_e1a255e0d3c8d3a5944276b402cf6ac7);
         
     
-            var icon_28afd9b08c9b13dddeaa5c13eacf8434 = L.AwesomeMarkers.icon(
+            var icon_7d43e6db40926a4486cf7f7a9eef1bac = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -183,24 +184,24 @@
             );
         
     
-        var popup_e009d42df7a4b3ec32a07ee1f6857e1f = L.popup({
+        var popup_21e852cdc0aa969e2da3dc1211049f79 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_2df70443ad3f0a07d28748222e294d22 = $(`<div id="html_2df70443ad3f0a07d28748222e294d22" style="width: 100.0%; height: 100.0%;"><b>Paso Kerem Shalom (ISR/Gaza)</b></div>`)[0];
-                popup_e009d42df7a4b3ec32a07ee1f6857e1f.setContent(html_2df70443ad3f0a07d28748222e294d22);
+                var html_b8c9af70c7cd65ba97cb089b54920b4c = $(`<div id="html_b8c9af70c7cd65ba97cb089b54920b4c" style="width: 100.0%; height: 100.0%;"><b>Paso Kerem Shalom (ISR/Gaza)</b></div>`)[0];
+                popup_21e852cdc0aa969e2da3dc1211049f79.setContent(html_b8c9af70c7cd65ba97cb089b54920b4c);
             
         
 
-        marker_da18b6d5cf7923aed7374c83f2321e20.bindPopup(popup_e009d42df7a4b3ec32a07ee1f6857e1f)
+        marker_c53abd781420bc1738c57d4f257b1ac4.bindPopup(popup_21e852cdc0aa969e2da3dc1211049f79)
         ;
 
         
     
     
-            marker_da18b6d5cf7923aed7374c83f2321e20.bindTooltip(
+            marker_c53abd781420bc1738c57d4f257b1ac4.bindTooltip(
                 `<div>
                      Paso Kerem Shalom (ISR/Gaza)
                  </div>`,
@@ -210,17 +211,17 @@
             );
         
     
-                marker_da18b6d5cf7923aed7374c83f2321e20.setIcon(icon_28afd9b08c9b13dddeaa5c13eacf8434);
+                marker_c53abd781420bc1738c57d4f257b1ac4.setIcon(icon_7d43e6db40926a4486cf7f7a9eef1bac);
             
     
-            var marker_02c72f9236a45df449aa094387c568e0 = L.marker(
+            var marker_734e524dfaa857c7fcc5ffb04339fa64 = L.marker(
                 [31.8014, 34.6435],
                 {
 }
-            ).addTo(feature_group_e9b7e23b57431b4ba442b181c046ce82);
+            ).addTo(feature_group_e1a255e0d3c8d3a5944276b402cf6ac7);
         
     
-            var icon_e7102f08c1fcde02b185f92ca506dec5 = L.AwesomeMarkers.icon(
+            var icon_c59b75c7eb03db116f2d79d2a0a97e5a = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -231,24 +232,24 @@
             );
         
     
-        var popup_db681112d256bb8a593440fe4887f0f6 = L.popup({
+        var popup_e7caaff7aee37d0e8a343b3441d70528 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_713a5ac068dcf84d3c43156d3cc41724 = $(`<div id="html_713a5ac068dcf84d3c43156d3cc41724" style="width: 100.0%; height: 100.0%;"><b>Puerto de Ashdod (Hub Ayuda)</b></div>`)[0];
-                popup_db681112d256bb8a593440fe4887f0f6.setContent(html_713a5ac068dcf84d3c43156d3cc41724);
+                var html_ee5395756c74ef884269a7b77a780470 = $(`<div id="html_ee5395756c74ef884269a7b77a780470" style="width: 100.0%; height: 100.0%;"><b>Puerto de Ashdod (Hub Ayuda)</b></div>`)[0];
+                popup_e7caaff7aee37d0e8a343b3441d70528.setContent(html_ee5395756c74ef884269a7b77a780470);
             
         
 
-        marker_02c72f9236a45df449aa094387c568e0.bindPopup(popup_db681112d256bb8a593440fe4887f0f6)
+        marker_734e524dfaa857c7fcc5ffb04339fa64.bindPopup(popup_e7caaff7aee37d0e8a343b3441d70528)
         ;
 
         
     
     
-            marker_02c72f9236a45df449aa094387c568e0.bindTooltip(
+            marker_734e524dfaa857c7fcc5ffb04339fa64.bindTooltip(
                 `<div>
                      Puerto de Ashdod (Hub Ayuda)
                  </div>`,
@@ -258,17 +259,17 @@
             );
         
     
-                marker_02c72f9236a45df449aa094387c568e0.setIcon(icon_e7102f08c1fcde02b185f92ca506dec5);
+                marker_734e524dfaa857c7fcc5ffb04339fa64.setIcon(icon_c59b75c7eb03db116f2d79d2a0a97e5a);
             
     
-            var marker_c23f138a5fe450ba83ae8461d6ddbcc4 = L.marker(
+            var marker_49eb36794298672b95e8a12269740287 = L.marker(
                 [14.7979, 42.953],
                 {
 }
-            ).addTo(feature_group_e9b7e23b57431b4ba442b181c046ce82);
+            ).addTo(feature_group_e1a255e0d3c8d3a5944276b402cf6ac7);
         
     
-            var icon_a9f9174fbb9d7b9c37abf2e4ddf722a4 = L.AwesomeMarkers.icon(
+            var icon_985c1f332d3e32cac2fa6d8432ade7cb = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -279,24 +280,24 @@
             );
         
     
-        var popup_6620c4231f8c3116cb14268095b33849 = L.popup({
+        var popup_e94fbf67270b71e69e4e8a4b4828f05a = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_99513540a6dd3d655d052beea6a76d1a = $(`<div id="html_99513540a6dd3d655d052beea6a76d1a" style="width: 100.0%; height: 100.0%;"><b>Puerto de Hodeida (Yemen)</b></div>`)[0];
-                popup_6620c4231f8c3116cb14268095b33849.setContent(html_99513540a6dd3d655d052beea6a76d1a);
+                var html_46f88706c1e3d9239987de2ac28c41c8 = $(`<div id="html_46f88706c1e3d9239987de2ac28c41c8" style="width: 100.0%; height: 100.0%;"><b>Puerto de Hodeida (Yemen)</b></div>`)[0];
+                popup_e94fbf67270b71e69e4e8a4b4828f05a.setContent(html_46f88706c1e3d9239987de2ac28c41c8);
             
         
 
-        marker_c23f138a5fe450ba83ae8461d6ddbcc4.bindPopup(popup_6620c4231f8c3116cb14268095b33849)
+        marker_49eb36794298672b95e8a12269740287.bindPopup(popup_e94fbf67270b71e69e4e8a4b4828f05a)
         ;
 
         
     
     
-            marker_c23f138a5fe450ba83ae8461d6ddbcc4.bindTooltip(
+            marker_49eb36794298672b95e8a12269740287.bindTooltip(
                 `<div>
                      Puerto de Hodeida (Yemen)
                  </div>`,
@@ -306,17 +307,17 @@
             );
         
     
-                marker_c23f138a5fe450ba83ae8461d6ddbcc4.setIcon(icon_a9f9174fbb9d7b9c37abf2e4ddf722a4);
+                marker_49eb36794298672b95e8a12269740287.setIcon(icon_985c1f332d3e32cac2fa6d8432ade7cb);
             
     
-            var marker_2b1562d17db10e88e4d8a2530da77a6b = L.marker(
+            var marker_f067ac6e914ed5655e81bba1e53c016d = L.marker(
                 [33.7011, 35.9472],
                 {
 }
-            ).addTo(feature_group_e9b7e23b57431b4ba442b181c046ce82);
+            ).addTo(feature_group_e1a255e0d3c8d3a5944276b402cf6ac7);
         
     
-            var icon_70a1b228640ef6ab0124fe5ae12aa2c0 = L.AwesomeMarkers.icon(
+            var icon_5768f03d8428a20e5bddea891b00a383 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -327,24 +328,24 @@
             );
         
     
-        var popup_928739158bc7b997d303c66acbf902da = L.popup({
+        var popup_789e7d11eee4ff945216e95baba629cb = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_0d2286c23b5236672a0d7afc4305dddc = $(`<div id="html_0d2286c23b5236672a0d7afc4305dddc" style="width: 100.0%; height: 100.0%;"><b>Frontera Masnaa (Líbano/Siria)</b></div>`)[0];
-                popup_928739158bc7b997d303c66acbf902da.setContent(html_0d2286c23b5236672a0d7afc4305dddc);
+                var html_46deac94135d273db61f9cb2cd4b99f2 = $(`<div id="html_46deac94135d273db61f9cb2cd4b99f2" style="width: 100.0%; height: 100.0%;"><b>Frontera Masnaa (Líbano/Siria)</b></div>`)[0];
+                popup_789e7d11eee4ff945216e95baba629cb.setContent(html_46deac94135d273db61f9cb2cd4b99f2);
             
         
 
-        marker_2b1562d17db10e88e4d8a2530da77a6b.bindPopup(popup_928739158bc7b997d303c66acbf902da)
+        marker_f067ac6e914ed5655e81bba1e53c016d.bindPopup(popup_789e7d11eee4ff945216e95baba629cb)
         ;
 
         
     
     
-            marker_2b1562d17db10e88e4d8a2530da77a6b.bindTooltip(
+            marker_f067ac6e914ed5655e81bba1e53c016d.bindTooltip(
                 `<div>
                      Frontera Masnaa (Líbano/Siria)
                  </div>`,
@@ -354,17 +355,17 @@
             );
         
     
-                marker_2b1562d17db10e88e4d8a2530da77a6b.setIcon(icon_70a1b228640ef6ab0124fe5ae12aa2c0);
+                marker_f067ac6e914ed5655e81bba1e53c016d.setIcon(icon_5768f03d8428a20e5bddea891b00a383);
             
     
-            var marker_35f0c62628fd32a379a7a16873216dd7 = L.marker(
+            var marker_1c4e8003ad5d172a700624df044e367d = L.marker(
                 [35.5311, 35.7878],
                 {
 }
-            ).addTo(feature_group_e9b7e23b57431b4ba442b181c046ce82);
+            ).addTo(feature_group_e1a255e0d3c8d3a5944276b402cf6ac7);
         
     
-            var icon_1f5ef89436b9cf8ad2ae1c1fed8e1a3e = L.AwesomeMarkers.icon(
+            var icon_560e6c84b20cb61835cf5819c7aee9eb = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -375,24 +376,24 @@
             );
         
     
-        var popup_fd9774449cab7c659de80d5a12e00c82 = L.popup({
+        var popup_91ce6ef5c2110ca8f4deadf2c4f4c9e2 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_af5cebc6cd4f0c681e2d6a4ddfdcedec = $(`<div id="html_af5cebc6cd4f0c681e2d6a4ddfdcedec" style="width: 100.0%; height: 100.0%;"><b>Puerto de Latakia (Siria)</b></div>`)[0];
-                popup_fd9774449cab7c659de80d5a12e00c82.setContent(html_af5cebc6cd4f0c681e2d6a4ddfdcedec);
+                var html_29e54d86612dffe6523e959efbc115ac = $(`<div id="html_29e54d86612dffe6523e959efbc115ac" style="width: 100.0%; height: 100.0%;"><b>Puerto de Latakia (Siria)</b></div>`)[0];
+                popup_91ce6ef5c2110ca8f4deadf2c4f4c9e2.setContent(html_29e54d86612dffe6523e959efbc115ac);
             
         
 
-        marker_35f0c62628fd32a379a7a16873216dd7.bindPopup(popup_fd9774449cab7c659de80d5a12e00c82)
+        marker_1c4e8003ad5d172a700624df044e367d.bindPopup(popup_91ce6ef5c2110ca8f4deadf2c4f4c9e2)
         ;
 
         
     
     
-            marker_35f0c62628fd32a379a7a16873216dd7.bindTooltip(
+            marker_1c4e8003ad5d172a700624df044e367d.bindTooltip(
                 `<div>
                      Puerto de Latakia (Siria)
                  </div>`,
@@ -402,17 +403,17 @@
             );
         
     
-                marker_35f0c62628fd32a379a7a16873216dd7.setIcon(icon_1f5ef89436b9cf8ad2ae1c1fed8e1a3e);
+                marker_1c4e8003ad5d172a700624df044e367d.setIcon(icon_560e6c84b20cb61835cf5819c7aee9eb);
             
     
-            var marker_93a4fbdcd69a91676e35ace6902653c6 = L.marker(
+            var marker_0221797373785870756cb2f57b196337 = L.marker(
                 [31.9454, 35.9284],
                 {
 }
-            ).addTo(feature_group_e9b7e23b57431b4ba442b181c046ce82);
+            ).addTo(feature_group_e1a255e0d3c8d3a5944276b402cf6ac7);
         
     
-            var icon_f645c4acffb9979ebe7235718ebec5d9 = L.AwesomeMarkers.icon(
+            var icon_64753aad81cbf95378dacb11bef8d47c = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -423,24 +424,24 @@
             );
         
     
-        var popup_26c09702678c3411554676bc32fbd18b = L.popup({
+        var popup_2fc9525371a65a71e168516734d3a0cb = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_a827089869397a75a35a931df068c67f = $(`<div id="html_a827089869397a75a35a931df068c67f" style="width: 100.0%; height: 100.0%;"><b>Amán (Logística UN)</b></div>`)[0];
-                popup_26c09702678c3411554676bc32fbd18b.setContent(html_a827089869397a75a35a931df068c67f);
+                var html_63bd5739d8582735e6e332842b42c1bb = $(`<div id="html_63bd5739d8582735e6e332842b42c1bb" style="width: 100.0%; height: 100.0%;"><b>Amán (Logística UN)</b></div>`)[0];
+                popup_2fc9525371a65a71e168516734d3a0cb.setContent(html_63bd5739d8582735e6e332842b42c1bb);
             
         
 
-        marker_93a4fbdcd69a91676e35ace6902653c6.bindPopup(popup_26c09702678c3411554676bc32fbd18b)
+        marker_0221797373785870756cb2f57b196337.bindPopup(popup_2fc9525371a65a71e168516734d3a0cb)
         ;
 
         
     
     
-            marker_93a4fbdcd69a91676e35ace6902653c6.bindTooltip(
+            marker_0221797373785870756cb2f57b196337.bindTooltip(
                 `<div>
                      Amán (Logística UN)
                  </div>`,
@@ -450,49 +451,291 @@
             );
         
     
-                marker_93a4fbdcd69a91676e35ace6902653c6.setIcon(icon_f645c4acffb9979ebe7235718ebec5d9);
+                marker_0221797373785870756cb2f57b196337.setIcon(icon_64753aad81cbf95378dacb11bef8d47c);
             
     
-            feature_group_e9b7e23b57431b4ba442b181c046ce82.addTo(map_58288a3e30291c671383b2aa7b50fae6);
+            feature_group_e1a255e0d3c8d3a5944276b402cf6ac7.addTo(map_c34fb5e11d1a5e2f26f16e151b047e3e);
         
     
-            var feature_group_d0a3ae697690710c8bd29e40448ce41c = L.featureGroup(
+            var feature_group_76a9389f8ce07800cc743c97010fb375 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_d0a3ae697690710c8bd29e40448ce41c.addTo(map_58288a3e30291c671383b2aa7b50fae6);
+            var marker_367f5d70c26e688f8a9ace06fd9fdbd3 = L.marker(
+                [33.728230882582295, 35.52196077806127],
+                {
+}
+            ).addTo(feature_group_76a9389f8ce07800cc743c97010fb375);
         
     
-            var feature_group_679b30df3d7d893bc1a8a02c4c82b419 = L.featureGroup(
+            var icon_4a235a980dbb005b97b25803692501e8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "exclamation-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a8777de40987a9d08da1ab3157adf2df = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_038b11588d9a18f93f1b4b52b32c9362 = $(`<div id="html_038b11588d9a18f93f1b4b52b32c9362" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkred;">                 <b style="color:darkred; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> Lebanon’s political elites are using displacement and humanitarian crisis to delay el...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_a8777de40987a9d08da1ab3157adf2df.setContent(html_038b11588d9a18f93f1b4b52b32c9362);
+            
+        
+
+        marker_367f5d70c26e688f8a9ace06fd9fdbd3.bindPopup(popup_a8777de40987a9d08da1ab3157adf2df)
+        ;
+
+        
+    
+    
+                marker_367f5d70c26e688f8a9ace06fd9fdbd3.setIcon(icon_4a235a980dbb005b97b25803692501e8);
+            
+    
+            var marker_7285f1296e4990a94663de91673e56e4 = L.marker(
+                [31.581486847886776, 34.5449148356246],
+                {
+}
+            ).addTo(feature_group_76a9389f8ce07800cc743c97010fb375);
+        
+    
+            var icon_0d05ee0218e3157d27e326bb388ab219 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_69f6b1ae79420a4fad08866d68b28dc3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d3b6c55f1d7e9beae6988d2d3bf45310 = $(`<div id="html_d3b6c55f1d7e9beae6988d2d3bf45310" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> UNRWA Situation Report #215 on the Humanitarian Crisis in the Gaza Strip and the Occu...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_69f6b1ae79420a4fad08866d68b28dc3.setContent(html_d3b6c55f1d7e9beae6988d2d3bf45310);
+            
+        
+
+        marker_7285f1296e4990a94663de91673e56e4.bindPopup(popup_69f6b1ae79420a4fad08866d68b28dc3)
+        ;
+
+        
+    
+    
+                marker_7285f1296e4990a94663de91673e56e4.setIcon(icon_0d05ee0218e3157d27e326bb388ab219);
+            
+    
+            var marker_792bb1a781fb39080d5192bfd64ee875 = L.marker(
+                [33.84873604275832, 35.68314009063109],
+                {
+}
+            ).addTo(feature_group_76a9389f8ce07800cc743c97010fb375);
+        
+    
+            var icon_e252212b70da392565155a7cb03277da = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "exclamation-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e77c8e4d72b0dc01568a57ff5c35ece0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0abc3d7feb2c3da1824d81c03acc7af9 = $(`<div id="html_0abc3d7feb2c3da1824d81c03acc7af9" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkred;">                 <b style="color:darkred; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> Lebanon Refugee Crisis Explained...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_e77c8e4d72b0dc01568a57ff5c35ece0.setContent(html_0abc3d7feb2c3da1824d81c03acc7af9);
+            
+        
+
+        marker_792bb1a781fb39080d5192bfd64ee875.bindPopup(popup_e77c8e4d72b0dc01568a57ff5c35ece0)
+        ;
+
+        
+    
+    
+                marker_792bb1a781fb39080d5192bfd64ee875.setIcon(icon_e252212b70da392565155a7cb03277da);
+            
+    
+            var marker_b128b093e587ca43694d2f563297a656 = L.marker(
+                [33.68868780274796, 35.601925594844275],
+                {
+}
+            ).addTo(feature_group_76a9389f8ce07800cc743c97010fb375);
+        
+    
+            var icon_5f124cc0739a81f293b74809e0e1e5b7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "exclamation-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e9dd618d794be4611fe2faf99b60f33f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7f7efe43168bd733f3931443db8e772f = $(`<div id="html_7f7efe43168bd733f3931443db8e772f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkred;">                 <b style="color:darkred; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> Lebanon at ‘breaking point’ as displacement soars and strikes intensify...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_e9dd618d794be4611fe2faf99b60f33f.setContent(html_7f7efe43168bd733f3931443db8e772f);
+            
+        
+
+        marker_b128b093e587ca43694d2f563297a656.bindPopup(popup_e9dd618d794be4611fe2faf99b60f33f)
+        ;
+
+        
+    
+    
+                marker_b128b093e587ca43694d2f563297a656.setIcon(icon_5f124cc0739a81f293b74809e0e1e5b7);
+            
+    
+            var marker_22f78c47f7f7d307a340a13b51198c70 = L.marker(
+                [33.9326567761035, 35.531755519374755],
+                {
+}
+            ).addTo(feature_group_76a9389f8ce07800cc743c97010fb375);
+        
+    
+            var icon_9acde9598a6b74d69f9c66b8d84b88ad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "exclamation-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bfec33c62154d980f18a5942b006d049 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_acade1b280fcbfa9c7f7ff719642c350 = $(`<div id="html_acade1b280fcbfa9c7f7ff719642c350" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid darkred;">                 <b style="color:darkred; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> Lebanon crisis: What is happening and how to help...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_bfec33c62154d980f18a5942b006d049.setContent(html_acade1b280fcbfa9c7f7ff719642c350);
+            
+        
+
+        marker_22f78c47f7f7d307a340a13b51198c70.bindPopup(popup_bfec33c62154d980f18a5942b006d049)
+        ;
+
+        
+    
+    
+                marker_22f78c47f7f7d307a340a13b51198c70.setIcon(icon_9acde9598a6b74d69f9c66b8d84b88ad);
+            
+    
+            var marker_ad0d954a483047e92c7d3536bfff5319 = L.marker(
+                [31.483682483455254, 34.44938739911263],
+                {
+}
+            ).addTo(feature_group_76a9389f8ce07800cc743c97010fb375);
+        
+    
+            var icon_fb18b293b35c16e576f08a64a273c696 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "exclamation-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e3befc616ae8e04e6d4d45445a35c0ed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5fd2b00551c5a8ac889972bbb442f23f = $(`<div id="html_5fd2b00551c5a8ac889972bbb442f23f" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 260px;                          background: rgba(0,0,0,0.95); color: #fff; padding: 12px;                          border-radius: 8px; border-left: 5px solid red;">                 <b style="color:red; font-size: 14px;">🚨 ALERTA HUMANITARIA</b><br>                 <hr style="border-color: #333; margin: 8px 0;">                 <b>Reporte:</b> Gaza's Collapsed Infrastructure Has Created a Rodent Crisis That Humanitarian Aid Can...<br>                 <b>Fuente:</b> ReliefWeb OSINT             </div>             </div>`)[0];
+                popup_e3befc616ae8e04e6d4d45445a35c0ed.setContent(html_5fd2b00551c5a8ac889972bbb442f23f);
+            
+        
+
+        marker_ad0d954a483047e92c7d3536bfff5319.bindPopup(popup_e3befc616ae8e04e6d4d45445a35c0ed)
+        ;
+
+        
+    
+    
+                marker_ad0d954a483047e92c7d3536bfff5319.setIcon(icon_fb18b293b35c16e576f08a64a273c696);
+            
+    
+            feature_group_76a9389f8ce07800cc743c97010fb375.addTo(map_c34fb5e11d1a5e2f26f16e151b047e3e);
+        
+    
+            var feature_group_8de449cbda8145184f9732574014b807 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_679b30df3d7d893bc1a8a02c4c82b419.addTo(map_58288a3e30291c671383b2aa7b50fae6);
+            var heat_map_f4fbdec46b3cbb08f1912ae59a8a2842 = L.heatLayer(
+                [[33.728230882582295, 35.52196077806127, 1.0], [31.581486847886776, 34.5449148356246, 1.0], [33.84873604275832, 35.68314009063109, 1.0], [33.68868780274796, 35.601925594844275, 1.0], [33.9326567761035, 35.531755519374755, 1.0], [31.483682483455254, 34.44938739911263, 1.0]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 30,
+  "blur": 20,
+}
+            );
         
     
-            var layer_control_a07fb42304799a397bc53c0cdb68ffae_layers = {
+            heat_map_f4fbdec46b3cbb08f1912ae59a8a2842.addTo(feature_group_8de449cbda8145184f9732574014b807);
+        
+    
+            feature_group_8de449cbda8145184f9732574014b807.addTo(map_c34fb5e11d1a5e2f26f16e151b047e3e);
+        
+    
+            var layer_control_7e7b93813b76cbed342186f7b533cd95_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_6e98ef0481e8eb9167b44aad030bb6bb,
+                    "cartodbdarkmatter" : tile_layer_26f150315bfe8805cdcdda582e89542e,
                 },
                 overlays :  {
-                    "\ud83d\udeaa Cruces y Puertos de Ayuda" : feature_group_e9b7e23b57431b4ba442b181c046ce82,
-                    "\u26a0\ufe0f Crisis Detectadas (OSINT)" : feature_group_d0a3ae697690710c8bd29e40448ce41c,
-                    "\ud83c\udf21\ufe0f Mapa de Calor (Desplazamientos)" : feature_group_679b30df3d7d893bc1a8a02c4c82b419,
+                    "\ud83d\udeaa Cruces y Puertos de Ayuda" : feature_group_e1a255e0d3c8d3a5944276b402cf6ac7,
+                    "\u26a0\ufe0f Crisis Detectadas (OSINT)" : feature_group_76a9389f8ce07800cc743c97010fb375,
+                    "\ud83c\udf21\ufe0f Mapa de Calor (Desplazamientos)" : feature_group_8de449cbda8145184f9732574014b807,
                 },
             };
-            let layer_control_a07fb42304799a397bc53c0cdb68ffae = L.control.layers(
-                layer_control_a07fb42304799a397bc53c0cdb68ffae_layers.base_layers,
-                layer_control_a07fb42304799a397bc53c0cdb68ffae_layers.overlays,
+            let layer_control_7e7b93813b76cbed342186f7b533cd95 = L.control.layers(
+                layer_control_7e7b93813b76cbed342186f7b533cd95_layers.base_layers,
+                layer_control_7e7b93813b76cbed342186f7b533cd95_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_58288a3e30291c671383b2aa7b50fae6);
+            ).addTo(map_c34fb5e11d1a5e2f26f16e151b047e3e);
 
         
 </script>
