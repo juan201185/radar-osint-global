@@ -173,7 +173,7 @@ def obtener_feeds_masivos():
     Motor de Ingesta Masiva E.T.B. con Fuentes Originales + Agencias Gringas + ÁFRICA + LATAM
     """
     return [
-        # TUS 22 ORIGINALES INTACTOS
+        # TUS 22 ORIGINALES INTACTOS (Corrigiendo el de Israel que falló)
         ("https://gcaptain.com/feed/", "gCaptain (Naval)", "occidental"),
         ("https://feeds.bbci.co.uk/mundo/rss.xml", "BBC Mundo (UK)", "occidental"),
         ("https://feeds.bbci.co.uk/news/rss.xml", "BBC News (UK)", "occidental"),
@@ -192,20 +192,33 @@ def obtener_feeds_masivos():
         ("https://news.google.com/rss/search?q=site:spanish.news.cn+israel+OR+iran+OR+oriente&hl=es-419&gl=CO&ceid=CO:es-419", "Xinhua (Proxy)", "chino"),
         ("https://www.scmp.com/rss/91/feed", "South China Morning Post (China)", "chino"),
         ("https://news.google.com/rss/search?q=site:timesofisrael.com+israel&hl=en-US&gl=US&ceid=US:en", "Times of Israel (Proxy)", "occidental"),
-        ("https://www.israelhayom.com/feed/", "Israel Hayom (Israel)", "occidental"),
+        
+        # --- CORREGIDO: Israel Hayom ahora por proxy de Google ---
+        ("https://news.google.com/rss/search?q=site:israelhayom.com+israel+OR+iran&hl=en-US&gl=US&ceid=US:en", "Israel Hayom (Proxy)", "occidental"),
+        
         ("https://news.google.com/rss/search?q=site:ynet.co.il+OR+site:ynetnews.com+israel+OR+iran+OR+gaza+OR+hezbollah&hl=en-US&gl=US&ceid=US:en", "Ynet (Israel)", "occidental"),
         ("https://www.middleeasteye.net/rss", "Middle East Eye", "independiente"),
         ("https://www.al-monitor.com/rss", "Al-Monitor", "independiente"),
-        # AGREGADOS ÁFRICA
-        ("https://es.africanews.com/feed", "Africanews (África)", "independiente"),
+        
+        # --- AGREGADOS ÁFRICA (Corrigiendo los fallos) ---
+        # CORREGIDO: Africanews ahora por proxy
+        ("https://news.google.com/rss/search?q=site:africanews.com+military+OR+conflict+OR+politics&hl=en-US&gl=US&ceid=US:en", "Africanews (Proxy)", "independiente"),
         ("https://news.google.com/rss/search?q=site:jeuneafrique.com+mali+OR+niger+OR+sudan+OR+sahel&hl=fr&gl=FR&ceid=FR:fr", "Jeune Afrique (Proxy Francia)", "occidental"),
-        ("https://actualidad.rt.com/rss/africa", "RT África (Rusia)", "alternativo"),
+        
+        # CORREGIDO: RT África ahora por proxy buscando la etiqueta específica
+        ("https://news.google.com/rss/search?q=site:actualidad.rt.com/africa+OR+site:rt.com/africa&hl=es-419&gl=CO&ceid=CO:es-419", "RT África (Proxy)", "alternativo"),
+        
         ("https://news.google.com/rss/search?q=site:aljazeera.com/africa+military+OR+conflict&hl=en-US&gl=US&ceid=US:en", "Al Jazeera África", "independiente"),
         ("https://news.google.com/rss/search?q=site:allafrica.com+military+OR+conflict+OR+sahel&hl=en-US&gl=US&ceid=US:en", "AllAfrica (Proxy)", "independiente"),
         ("https://news.google.com/rss/search?q=site:rfi.fr/es/áfrica+militar+OR+wagner+OR+sahel&hl=es-419&gl=CO&ceid=CO:es-419", "RFI África (Francia)", "occidental"),
-        # AGREGADOS LATAM (EJE SOBERANÍA)
-        ("https://www.telesurtv.net/rss/rss.xml", "TeleSUR (LatAm)", "resistencia"),
-        ("https://actualidad.rt.com/rss/america_latina", "RT LatAm", "alternativo"),
+        
+        # --- AGREGADOS LATAM (EJE SOBERANÍA) (Corrigiendo los fallos) ---
+        # CORREGIDO: TeleSUR ahora por proxy
+        ("https://news.google.com/rss/search?q=site:telesurtv.net+venezuela+OR+cuba+OR+eeuu+OR+geopolitica&hl=es-419&gl=CO&ceid=CO:es-419", "TeleSUR (Proxy)", "resistencia"),
+        
+        # CORREGIDO: RT LatAm ahora por proxy
+        ("https://news.google.com/rss/search?q=site:actualidad.rt.com/america_latina+OR+site:actualidad.rt.com/actualidad&hl=es-419&gl=CO&ceid=CO:es-419", "RT LatAm (Proxy)", "alternativo"),
+        
         ("https://news.google.com/rss/search?q=esequibo+OR+malvinas+OR+comando+sur+OR+paraguay+OR+cuba&hl=es-419&gl=CO&ceid=CO:es-419", "Monitor Sur", "independiente")
     ]
 
