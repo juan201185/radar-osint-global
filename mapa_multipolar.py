@@ -130,7 +130,7 @@ def obtener_datos_petroleo():
 def descargar_termica_nasa(capa_termica):
     """Descarga datos reales del satélite Suomi NPP VIIRS de las últimas 24h - BLINDADO CONTRA ERRORES"""
     print("    [🛰️] Conectando a los servidores de NASA FIRMS (VIIRS 24h)...")
-    url_nasa = "https://firms.modaps.eosdis.nasa.gov/api/area/csv/c4e0307e5b22ebffb907106dcbf8b8dc/VIIRS_SNPP_NRT/world/1"
+    url_nasa = "https://firms.modaps.eosdis.nasa.gov/data/active_fire/suomi-npp-viirs-c2/csv/SUOMI_VIIRS_C2_Global_24h.csv"
     
     try:
         headers = {'User-Agent': random.choice(USER_AGENTS)}
