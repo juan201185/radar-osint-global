@@ -165,7 +165,7 @@ def detectar_anomalias_explosiones(df):
 
 def obtener_datos_nasa(rango_dias=2):
     """Capa 1: NASA VIIRS con filtrado avanzado"""
-    url = f"https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY_NASA}/VIIRS_SNPP_NRT/{ZONA_REGIONAL}/{rango_dias}"
+    url = f"https://firms.modaps.eosdis.nasa.gov/api/country/csv/{MAP_KEY_NASA}/VIIRS_SNPP_NRT/WLD/1"
     print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Escaneando VIIRS NASA...")
     
     try:
