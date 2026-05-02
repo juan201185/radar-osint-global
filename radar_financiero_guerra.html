@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_a1c67af78457c05af6d5a7e92a5ba80d {
+                #map_6fe4f6e8e56d5f9e104dc467bc0315fd {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -75,19 +75,19 @@
                 <b>ESTADO SISTÉMICO:</b><br>
                 Volatilidad HFT: <span style="color:#ff4444; font-weight:bold;">ESTRÉS ALGORÍTMICO</span><br>
                 Rutas OSINT Activas: 5 vectores únicos<br>
-                Actualizado: 2026-05-02 08:57
+                Actualizado: 2026-05-02 10:44
             </div>
         </div>
         
     
-            <div class="folium-map" id="map_a1c67af78457c05af6d5a7e92a5ba80d" ></div>
+            <div class="folium-map" id="map_6fe4f6e8e56d5f9e104dc467bc0315fd" ></div>
         
 </body>
 <script>
     
     
-            var map_a1c67af78457c05af6d5a7e92a5ba80d = L.map(
-                "map_a1c67af78457c05af6d5a7e92a5ba80d",
+            var map_6fe4f6e8e56d5f9e104dc467bc0315fd = L.map(
+                "map_6fe4f6e8e56d5f9e104dc467bc0315fd",
                 {
                     center: [20.0, 40.0],
                     crs: L.CRS.EPSG3857,
@@ -104,7 +104,7 @@
 
         
     
-            var tile_layer_de89d72536ea37bab4c55f0f12494874 = L.tileLayer(
+            var tile_layer_fa29d247524e487d42bb31be41f901ea = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -121,17 +121,17 @@
             );
         
     
-            tile_layer_de89d72536ea37bab4c55f0f12494874.addTo(map_a1c67af78457c05af6d5a7e92a5ba80d);
+            tile_layer_fa29d247524e487d42bb31be41f901ea.addTo(map_6fe4f6e8e56d5f9e104dc467bc0315fd);
         
     
-            var feature_group_369ae76ed6ee4aae52a6644c1505438f = L.featureGroup(
+            var feature_group_022cf450e42bb85ecaaea2ca2dec2e8d = L.featureGroup(
                 {
 }
             );
         
     
-            ant_path_12c6264bfd5f2028fa184964aa18e5f5 = L.polyline.antPath(
-              [[27.836931003608775, 44.037260220916316], [32.836931003608775, 54.037260220916316]],
+            ant_path_4865e7dc37baa41872887a15b6fcbfcc = L.polyline.antPath(
+              [[31.247420514943656, 94.42444041752255], [36.247420514943656, 104.42444041752255]],
               {
   "stroke": true,
   "color": "#ffcc00",
@@ -157,10 +157,109 @@
   "delay": 1000,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+        ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            ant_path_12c6264bfd5f2028fa184964aa18e5f5.bindTooltip(
+            ant_path_4865e7dc37baa41872887a15b6fcbfcc.bindTooltip(
+                `<div>
+                     Llegada a China
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_8780cf706d5a36862df30f4da64c1827 = L.marker(
+                [31.247420514943656, 94.42444041752255],
+                {
+}
+            ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
+        
+    
+            var icon_8f1d434238f6733669b56d760a74ab1e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "oil-can",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_98afbdad931f8a5db570cad573cfe354 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_771544c26beb84626bf48c30e8c6ebfe = $(`<div id="html_771544c26beb84626bf48c30e8c6ebfe" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DINÁMICA</b><br><br>                 <b>Vector:</b> Llegada a China<br>                 <b>Reporte:</b> La flota fantasma en el punto de mira: el cierre del estrecho por parte de Irán podrí...             </div>             </div>`)[0];
+                popup_98afbdad931f8a5db570cad573cfe354.setContent(html_771544c26beb84626bf48c30e8c6ebfe);
+            
+        
+
+        marker_8780cf706d5a36862df30f4da64c1827.bindPopup(popup_98afbdad931f8a5db570cad573cfe354)
+        ;
+
+        
+    
+    
+                marker_8780cf706d5a36862df30f4da64c1827.setIcon(icon_8f1d434238f6733669b56d760a74ab1e);
+            
+    
+            var marker_12304183ec7e840f2142f09a3e78b3d3 = L.marker(
+                [36.247420514943656, 104.42444041752255],
+                {
+}
+            ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
+        
+    
+            var icon_35c5a61c4ba30b22805ff8b13e2f4807 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "industry",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+                marker_12304183ec7e840f2142f09a3e78b3d3.setIcon(icon_35c5a61c4ba30b22805ff8b13e2f4807);
+            
+    
+            ant_path_90ec59219d238fadd8c5c267b19bb6c1 = L.polyline.antPath(
+              [[27.64641694760637, 43.52941879511415], [32.64641694760637, 53.52941879511415]],
+              {
+  "stroke": true,
+  "color": "#ffcc00",
+  "weight": 3,
+  "opacity": 0.8,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": [
+10,
+20,
+],
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#ffcc00",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "smoothFactor": 1.0,
+  "noClip": false,
+  "paused": false,
+  "reverse": false,
+  "hardwareAcceleration": false,
+  "delay": 1000,
+  "pulseColor": "#FFFFFF",
+}
+        ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
+        
+    
+            ant_path_90ec59219d238fadd8c5c267b19bb6c1.bindTooltip(
                 `<div>
                      Llegada a Iran
                  </div>`,
@@ -170,14 +269,14 @@
             );
         
     
-            var marker_c27dc55527f802b20ec18918c4852336 = L.marker(
-                [27.836931003608775, 44.037260220916316],
+            var marker_71475aea7c010cf70d0c5f488403abac = L.marker(
+                [27.64641694760637, 43.52941879511415],
                 {
 }
-            ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+            ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            var icon_2b6c1538fd89a3b9c1dde83b323e33af = L.AwesomeMarkers.icon(
+            var icon_a2ce12b68e0e2dd899d896052726229d = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -188,34 +287,34 @@
             );
         
     
-        var popup_fb9d211056c1a62a3f24106ade7d48a8 = L.popup({
+        var popup_8ff4084d5a1ca99caf1ff6a9d14ff720 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_426f361bec6ef2101160f26d4efc37db = $(`<div id="html_426f361bec6ef2101160f26d4efc37db" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DINÁMICA</b><br><br>                 <b>Vector:</b> Llegada a Iran<br>                 <b>Reporte:</b> Iran’s shadow fleet disrupted by Middle East war...             </div>             </div>`)[0];
-                popup_fb9d211056c1a62a3f24106ade7d48a8.setContent(html_426f361bec6ef2101160f26d4efc37db);
+                var html_d6ad6e9eeeca562638479e37f75a9354 = $(`<div id="html_d6ad6e9eeeca562638479e37f75a9354" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DINÁMICA</b><br><br>                 <b>Vector:</b> Llegada a Iran<br>                 <b>Reporte:</b> Iran’s shadow fleet disrupted by Middle East war...             </div>             </div>`)[0];
+                popup_8ff4084d5a1ca99caf1ff6a9d14ff720.setContent(html_d6ad6e9eeeca562638479e37f75a9354);
             
         
 
-        marker_c27dc55527f802b20ec18918c4852336.bindPopup(popup_fb9d211056c1a62a3f24106ade7d48a8)
+        marker_71475aea7c010cf70d0c5f488403abac.bindPopup(popup_8ff4084d5a1ca99caf1ff6a9d14ff720)
         ;
 
         
     
     
-                marker_c27dc55527f802b20ec18918c4852336.setIcon(icon_2b6c1538fd89a3b9c1dde83b323e33af);
+                marker_71475aea7c010cf70d0c5f488403abac.setIcon(icon_a2ce12b68e0e2dd899d896052726229d);
             
     
-            var marker_b102107075ff71b37c5509923a10cbc6 = L.marker(
-                [32.836931003608775, 54.037260220916316],
+            var marker_210df53b51a995e9f8ed67aa0d55fd13 = L.marker(
+                [32.64641694760637, 53.52941879511415],
                 {
 }
-            ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+            ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            var icon_ec35b52f3b26e31a014ad6a394a8ce3f = L.AwesomeMarkers.icon(
+            var icon_ff12a9d98487cfc675261fe57079ed21 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -226,11 +325,11 @@
             );
         
     
-                marker_b102107075ff71b37c5509923a10cbc6.setIcon(icon_ec35b52f3b26e31a014ad6a394a8ce3f);
+                marker_210df53b51a995e9f8ed67aa0d55fd13.setIcon(icon_ff12a9d98487cfc675261fe57079ed21);
             
     
-            ant_path_198c493c73f2e606754ecd31f755d036 = L.polyline.antPath(
-              [[32.84991264443851, 53.910595454833704], [35.67012913897281, 103.75579164236655]],
+            ant_path_b33d87def9b3b84977bc83fe3708f440 = L.polyline.antPath(
+              [[32.37876090591523, 54.09746278185754], [35.59840746652426, 103.74116432607607]],
               {
   "stroke": true,
   "color": "#ffcc00",
@@ -256,10 +355,10 @@
   "delay": 1000,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+        ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            ant_path_198c493c73f2e606754ecd31f755d036.bindTooltip(
+            ant_path_b33d87def9b3b84977bc83fe3708f440.bindTooltip(
                 `<div>
                      Ruta Iran-China
                  </div>`,
@@ -269,14 +368,14 @@
             );
         
     
-            var marker_6cadc536a85f20d424affe53e89728d5 = L.marker(
-                [32.84991264443851, 53.910595454833704],
+            var marker_2086e6d0413d6459c5503c834b755def = L.marker(
+                [32.37876090591523, 54.09746278185754],
                 {
 }
-            ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+            ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            var icon_0382af8796aa209ab3861cd4252b1d36 = L.AwesomeMarkers.icon(
+            var icon_560b73983700743fd28631764a1e2ee6 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -287,34 +386,34 @@
             );
         
     
-        var popup_f488254bddf9fecd6ab3a88933a31236 = L.popup({
+        var popup_5e9f39e8a319ecd967f2887f72b8ecf4 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_3ab3b22fd9091336aa22eeb9e92740ca = $(`<div id="html_3ab3b22fd9091336aa22eeb9e92740ca" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DINÁMICA</b><br><br>                 <b>Vector:</b> Ruta Iran-China<br>                 <b>Reporte:</b> China's quiet win in the Iran crisis...             </div>             </div>`)[0];
-                popup_f488254bddf9fecd6ab3a88933a31236.setContent(html_3ab3b22fd9091336aa22eeb9e92740ca);
+                var html_40f2d5dac81fcd27da96762957896de6 = $(`<div id="html_40f2d5dac81fcd27da96762957896de6" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DINÁMICA</b><br><br>                 <b>Vector:</b> Ruta Iran-China<br>                 <b>Reporte:</b> China's quiet win in the Iran crisis...             </div>             </div>`)[0];
+                popup_5e9f39e8a319ecd967f2887f72b8ecf4.setContent(html_40f2d5dac81fcd27da96762957896de6);
             
         
 
-        marker_6cadc536a85f20d424affe53e89728d5.bindPopup(popup_f488254bddf9fecd6ab3a88933a31236)
+        marker_2086e6d0413d6459c5503c834b755def.bindPopup(popup_5e9f39e8a319ecd967f2887f72b8ecf4)
         ;
 
         
     
     
-                marker_6cadc536a85f20d424affe53e89728d5.setIcon(icon_0382af8796aa209ab3861cd4252b1d36);
+                marker_2086e6d0413d6459c5503c834b755def.setIcon(icon_560b73983700743fd28631764a1e2ee6);
             
     
-            var marker_43dedfa762e4d8dfc55700e76d2f9550 = L.marker(
-                [35.67012913897281, 103.75579164236655],
+            var marker_dbe98a643ddbdb8caea2a32a6a9cc79f = L.marker(
+                [35.59840746652426, 103.74116432607607],
                 {
 }
-            ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+            ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            var icon_c7e82bb2be0907a41adae6c273283c43 = L.AwesomeMarkers.icon(
+            var icon_e0051ea16813debccc3eed3efa532cbe = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -325,11 +424,11 @@
             );
         
     
-                marker_43dedfa762e4d8dfc55700e76d2f9550.setIcon(icon_c7e82bb2be0907a41adae6c273283c43);
+                marker_dbe98a643ddbdb8caea2a32a6a9cc79f.setIcon(icon_e0051ea16813debccc3eed3efa532cbe);
             
     
-            ant_path_a304858f10785b03d9fe21e0d6855325 = L.polyline.antPath(
-              [[15.772258347304426, 69.36887288520627], [20.772258347304426, 79.36887288520627]],
+            ant_path_56b12b92e58f946f39b66ab067530467 = L.polyline.antPath(
+              [[15.940419716042591, 68.5514263649097], [20.94041971604259, 78.5514263649097]],
               {
   "stroke": true,
   "color": "#ffcc00",
@@ -355,10 +454,10 @@
   "delay": 1000,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+        ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            ant_path_a304858f10785b03d9fe21e0d6855325.bindTooltip(
+            ant_path_56b12b92e58f946f39b66ab067530467.bindTooltip(
                 `<div>
                      Llegada a India
                  </div>`,
@@ -368,14 +467,14 @@
             );
         
     
-            var marker_5a71e99ff7320a641494f29ee52ba754 = L.marker(
-                [15.772258347304426, 69.36887288520627],
+            var marker_0cf7bdcaf9e03a2eb6c9150ed1bc96d3 = L.marker(
+                [15.940419716042591, 68.5514263649097],
                 {
 }
-            ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+            ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            var icon_0e4f1fe8f1a2b7c4d94cd39376bae336 = L.AwesomeMarkers.icon(
+            var icon_1f7093ad0776ca605d41443f4dfb1b43 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -386,34 +485,34 @@
             );
         
     
-        var popup_e30e3d39bee4978cf17421b8e075fc32 = L.popup({
+        var popup_26ff282d0e9dd03b6d043724289fefd0 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_c01f40e3b3f39efae1de0797911d2941 = $(`<div id="html_c01f40e3b3f39efae1de0797911d2941" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DINÁMICA</b><br><br>                 <b>Vector:</b> Llegada a India<br>                 <b>Reporte:</b> US military boards sanctioned oil tanker in the Indian Ocean after pursuit from the C...             </div>             </div>`)[0];
-                popup_e30e3d39bee4978cf17421b8e075fc32.setContent(html_c01f40e3b3f39efae1de0797911d2941);
+                var html_88c293e2b73c5916b838819f03d7bbad = $(`<div id="html_88c293e2b73c5916b838819f03d7bbad" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DINÁMICA</b><br><br>                 <b>Vector:</b> Llegada a India<br>                 <b>Reporte:</b> US military boards sanctioned oil tanker in the Indian Ocean after pursuit from the C...             </div>             </div>`)[0];
+                popup_26ff282d0e9dd03b6d043724289fefd0.setContent(html_88c293e2b73c5916b838819f03d7bbad);
             
         
 
-        marker_5a71e99ff7320a641494f29ee52ba754.bindPopup(popup_e30e3d39bee4978cf17421b8e075fc32)
+        marker_0cf7bdcaf9e03a2eb6c9150ed1bc96d3.bindPopup(popup_26ff282d0e9dd03b6d043724289fefd0)
         ;
 
         
     
     
-                marker_5a71e99ff7320a641494f29ee52ba754.setIcon(icon_0e4f1fe8f1a2b7c4d94cd39376bae336);
+                marker_0cf7bdcaf9e03a2eb6c9150ed1bc96d3.setIcon(icon_1f7093ad0776ca605d41443f4dfb1b43);
             
     
-            var marker_ed239b86f46dd2aad501af31908030f2 = L.marker(
-                [20.772258347304426, 79.36887288520627],
+            var marker_08f81d8a36e10b98f474c203db7e5d2c = L.marker(
+                [20.94041971604259, 78.5514263649097],
                 {
 }
-            ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+            ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            var icon_109e70038478d675ea91762c093d380e = L.AwesomeMarkers.icon(
+            var icon_5739c58d62b2cf11cea7f8b2a03a46a2 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -424,11 +523,11 @@
             );
         
     
-                marker_ed239b86f46dd2aad501af31908030f2.setIcon(icon_109e70038478d675ea91762c093d380e);
+                marker_08f81d8a36e10b98f474c203db7e5d2c.setIcon(icon_5739c58d62b2cf11cea7f8b2a03a46a2);
             
     
-            ant_path_c347b279a0967f52d792a19d36b33d75 = L.polyline.antPath(
-              [[35.68209267944832, 104.46658563407466], [6.832068002504558, -66.74228394891676]],
+            ant_path_bc4b3f3563adb3214b8ba03f2dc5d0e1 = L.polyline.antPath(
+              [[35.89658333648696, 104.24821567179718], [6.903315078790254, -66.15765904756474]],
               {
   "stroke": true,
   "color": "#ffcc00",
@@ -454,10 +553,10 @@
   "delay": 1000,
   "pulseColor": "#FFFFFF",
 }
-        ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+        ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            ant_path_c347b279a0967f52d792a19d36b33d75.bindTooltip(
+            ant_path_bc4b3f3563adb3214b8ba03f2dc5d0e1.bindTooltip(
                 `<div>
                      Ruta China-Venezuela
                  </div>`,
@@ -467,113 +566,14 @@
             );
         
     
-            var marker_edb2c1316672e7cb379da05a4f8a6c6f = L.marker(
-                [35.68209267944832, 104.46658563407466],
+            var marker_46f0032ec15f901487224455598f6f4a = L.marker(
+                [35.89658333648696, 104.24821567179718],
                 {
 }
-            ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+            ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            var icon_d9a6e94c7a46a7836a84f456904eb2ef = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "red",
-  "iconColor": "white",
-  "icon": "oil-can",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_1bb244853beb01bc8ba5af053a6a7c27 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_8122faa0b4d2f8c127d5c891e25e3096 = $(`<div id="html_8122faa0b4d2f8c127d5c891e25e3096" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DINÁMICA</b><br><br>                 <b>Vector:</b> Ruta China-Venezuela<br>                 <b>Reporte:</b> US Venezuelan Oil Seizure: 600 kbd China Supply at Risk...             </div>             </div>`)[0];
-                popup_1bb244853beb01bc8ba5af053a6a7c27.setContent(html_8122faa0b4d2f8c127d5c891e25e3096);
-            
-        
-
-        marker_edb2c1316672e7cb379da05a4f8a6c6f.bindPopup(popup_1bb244853beb01bc8ba5af053a6a7c27)
-        ;
-
-        
-    
-    
-                marker_edb2c1316672e7cb379da05a4f8a6c6f.setIcon(icon_d9a6e94c7a46a7836a84f456904eb2ef);
-            
-    
-            var marker_ad660a86c085d5a8136eabff04b25659 = L.marker(
-                [6.832068002504558, -66.74228394891676],
-                {
-}
-            ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
-        
-    
-            var icon_6d4870a2a69eb69a5a181296c8524be5 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "orange",
-  "iconColor": "white",
-  "icon": "industry",
-  "prefix": "fa",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-                marker_ad660a86c085d5a8136eabff04b25659.setIcon(icon_6d4870a2a69eb69a5a181296c8524be5);
-            
-    
-            ant_path_b5e27a95b0b224e42b985675a7d775e0 = L.polyline.antPath(
-              [[1.3753552243434992, -76.70403807488125], [6.375355224343499, -66.70403807488125]],
-              {
-  "stroke": true,
-  "color": "#ffcc00",
-  "weight": 3,
-  "opacity": 0.8,
-  "lineCap": "round",
-  "lineJoin": "round",
-  "dashArray": [
-10,
-20,
-],
-  "dashOffset": null,
-  "fill": false,
-  "fillColor": "#ffcc00",
-  "fillOpacity": 0.2,
-  "fillRule": "evenodd",
-  "bubblingMouseEvents": true,
-  "smoothFactor": 1.0,
-  "noClip": false,
-  "paused": false,
-  "reverse": false,
-  "hardwareAcceleration": false,
-  "delay": 1000,
-  "pulseColor": "#FFFFFF",
-}
-        ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
-        
-    
-            ant_path_b5e27a95b0b224e42b985675a7d775e0.bindTooltip(
-                `<div>
-                     Llegada a Venezuela
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-            var marker_b18f7c39ae1aaba8fec1a1657f160f5f = L.marker(
-                [1.3753552243434992, -76.70403807488125],
-                {
-}
-            ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
-        
-    
-            var icon_93be3a0a696e86e6283eac1708119ecf = L.AwesomeMarkers.icon(
+            var icon_36a31d9fe9ae05cbfe127a61bcbc3835 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -584,34 +584,34 @@
             );
         
     
-        var popup_c79640bde95c598a78f0b13d8ad80157 = L.popup({
+        var popup_a170be4b26bfdb491778f1365b8f25db = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_693224bffb5f59b7382f532779545dd1 = $(`<div id="html_693224bffb5f59b7382f532779545dd1" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DINÁMICA</b><br><br>                 <b>Vector:</b> Llegada a Venezuela<br>                 <b>Reporte:</b> Top ship recycler GMS says it is in talks to buy Venezuela-linked ships seized by US...             </div>             </div>`)[0];
-                popup_c79640bde95c598a78f0b13d8ad80157.setContent(html_693224bffb5f59b7382f532779545dd1);
+                var html_775640bf1488982dcb0cc00321636a04 = $(`<div id="html_775640bf1488982dcb0cc00321636a04" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 250px; background: #000; color: #fff; padding: 10px; border-left: 4px solid #ffcc00;">                 <b style="color:#ffcc00;">DETECCIÓN DINÁMICA</b><br><br>                 <b>Vector:</b> Ruta China-Venezuela<br>                 <b>Reporte:</b> US Venezuelan Oil Seizure: 600 kbd China Supply at Risk...             </div>             </div>`)[0];
+                popup_a170be4b26bfdb491778f1365b8f25db.setContent(html_775640bf1488982dcb0cc00321636a04);
             
         
 
-        marker_b18f7c39ae1aaba8fec1a1657f160f5f.bindPopup(popup_c79640bde95c598a78f0b13d8ad80157)
+        marker_46f0032ec15f901487224455598f6f4a.bindPopup(popup_a170be4b26bfdb491778f1365b8f25db)
         ;
 
         
     
     
-                marker_b18f7c39ae1aaba8fec1a1657f160f5f.setIcon(icon_93be3a0a696e86e6283eac1708119ecf);
+                marker_46f0032ec15f901487224455598f6f4a.setIcon(icon_36a31d9fe9ae05cbfe127a61bcbc3835);
             
     
-            var marker_e47f74bb0f919d193567edbf04a0e1ae = L.marker(
-                [6.375355224343499, -66.70403807488125],
+            var marker_2454c8f6a45ddbd2e50a743c97b25eb9 = L.marker(
+                [6.903315078790254, -66.15765904756474],
                 {
 }
-            ).addTo(feature_group_369ae76ed6ee4aae52a6644c1505438f);
+            ).addTo(feature_group_022cf450e42bb85ecaaea2ca2dec2e8d);
         
     
-            var icon_794873559b24ae02050f0b7d497ddc80 = L.AwesomeMarkers.icon(
+            var icon_d79d42c4f42b4c1cfdaa305a612770a1 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -622,187 +622,187 @@
             );
         
     
-                marker_e47f74bb0f919d193567edbf04a0e1ae.setIcon(icon_794873559b24ae02050f0b7d497ddc80);
+                marker_2454c8f6a45ddbd2e50a743c97b25eb9.setIcon(icon_d79d42c4f42b4c1cfdaa305a612770a1);
             
     
-            feature_group_369ae76ed6ee4aae52a6644c1505438f.addTo(map_a1c67af78457c05af6d5a7e92a5ba80d);
+            feature_group_022cf450e42bb85ecaaea2ca2dec2e8d.addTo(map_6fe4f6e8e56d5f9e104dc467bc0315fd);
         
     
-            var feature_group_e7dedaadd419a0450f8799136845d7e3 = L.featureGroup(
+            var feature_group_56d4cf37cb0f4f5f43db7096df683b09 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_9fb644e4a8484ee796b3bbb42bab5220 = L.circleMarker(
+            var circle_marker_3b2efd940f5160cd6df39a3ec01213de = L.circleMarker(
                 [25.2, 55.2],
                 {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
-            ).addTo(feature_group_e7dedaadd419a0450f8799136845d7e3);
+            ).addTo(feature_group_56d4cf37cb0f4f5f43db7096df683b09);
         
     
-        var popup_1ce22708ade7730c916964066efc5da6 = L.popup({
+        var popup_11b097729e4d8e6ac4a0f0802220df60 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_49fef511e966333a51fd283c1ee4703b = $(`<div id="html_49fef511e966333a51fd283c1ee4703b" style="width: 100.0%; height: 100.0%;">Dubai (Hawala)</div>`)[0];
-                popup_1ce22708ade7730c916964066efc5da6.setContent(html_49fef511e966333a51fd283c1ee4703b);
+                var html_860f26c74b74dd731c8227e4c26243c1 = $(`<div id="html_860f26c74b74dd731c8227e4c26243c1" style="width: 100.0%; height: 100.0%;">Dubai (Hawala)</div>`)[0];
+                popup_11b097729e4d8e6ac4a0f0802220df60.setContent(html_860f26c74b74dd731c8227e4c26243c1);
             
         
 
-        circle_marker_9fb644e4a8484ee796b3bbb42bab5220.bindPopup(popup_1ce22708ade7730c916964066efc5da6)
+        circle_marker_3b2efd940f5160cd6df39a3ec01213de.bindPopup(popup_11b097729e4d8e6ac4a0f0802220df60)
         ;
 
         
     
     
-            var circle_marker_eac19c1e66818f79fbfaa26ba3495926 = L.circleMarker(
+            var circle_marker_e977770fbe20d852e47e3b6dbf3eadf4 = L.circleMarker(
                 [55.7, 37.6],
                 {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
-            ).addTo(feature_group_e7dedaadd419a0450f8799136845d7e3);
+            ).addTo(feature_group_56d4cf37cb0f4f5f43db7096df683b09);
         
     
-        var popup_11e1105710cd72f2da4a053bf670a53b = L.popup({
+        var popup_5e566184491295a0b31554ff95e0215d = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_0faca5f033f117e263767d08e97ac66f = $(`<div id="html_0faca5f033f117e263767d08e97ac66f" style="width: 100.0%; height: 100.0%;">Moscú (SPFS)</div>`)[0];
-                popup_11e1105710cd72f2da4a053bf670a53b.setContent(html_0faca5f033f117e263767d08e97ac66f);
+                var html_8936dc1bf21b0c1b44b445979b8987df = $(`<div id="html_8936dc1bf21b0c1b44b445979b8987df" style="width: 100.0%; height: 100.0%;">Moscú (SPFS)</div>`)[0];
+                popup_5e566184491295a0b31554ff95e0215d.setContent(html_8936dc1bf21b0c1b44b445979b8987df);
             
         
 
-        circle_marker_eac19c1e66818f79fbfaa26ba3495926.bindPopup(popup_11e1105710cd72f2da4a053bf670a53b)
+        circle_marker_e977770fbe20d852e47e3b6dbf3eadf4.bindPopup(popup_5e566184491295a0b31554ff95e0215d)
         ;
 
         
     
     
-            var circle_marker_1b0dafe52478f0ad029712d63d869697 = L.circleMarker(
+            var circle_marker_2f824baa4fdd74eab072fb3c545653e4 = L.circleMarker(
                 [39.9, 116.4],
                 {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
-            ).addTo(feature_group_e7dedaadd419a0450f8799136845d7e3);
+            ).addTo(feature_group_56d4cf37cb0f4f5f43db7096df683b09);
         
     
-        var popup_0e39d01734b22d164e73019e11dca31a = L.popup({
+        var popup_949c22c702771a8c7858bd10a8be0c66 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_888de4dab115f176356975f007643b54 = $(`<div id="html_888de4dab115f176356975f007643b54" style="width: 100.0%; height: 100.0%;">Pekín (CIPS)</div>`)[0];
-                popup_0e39d01734b22d164e73019e11dca31a.setContent(html_888de4dab115f176356975f007643b54);
+                var html_f67dfc81f2c6fb61a2cce0c802ae3132 = $(`<div id="html_f67dfc81f2c6fb61a2cce0c802ae3132" style="width: 100.0%; height: 100.0%;">Pekín (CIPS)</div>`)[0];
+                popup_949c22c702771a8c7858bd10a8be0c66.setContent(html_f67dfc81f2c6fb61a2cce0c802ae3132);
             
         
 
-        circle_marker_1b0dafe52478f0ad029712d63d869697.bindPopup(popup_0e39d01734b22d164e73019e11dca31a)
+        circle_marker_2f824baa4fdd74eab072fb3c545653e4.bindPopup(popup_949c22c702771a8c7858bd10a8be0c66)
         ;
 
         
     
     
-            feature_group_e7dedaadd419a0450f8799136845d7e3.addTo(map_a1c67af78457c05af6d5a7e92a5ba80d);
+            feature_group_56d4cf37cb0f4f5f43db7096df683b09.addTo(map_6fe4f6e8e56d5f9e104dc467bc0315fd);
         
     
-            var feature_group_1154b015e25f00983f68bc0129c01b8c = L.featureGroup(
+            var feature_group_1ef3e06c487695d7344d08dc20f3e9bc = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_733fba7beb4f27c60019e73820e9e096 = L.circleMarker(
+            var circle_marker_7b9597393f118777f150ab0a21c69127 = L.circleMarker(
                 [40.71, -74.0],
                 {"bubblingMouseEvents": true, "color": "#00ff41", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00ff41", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
-            ).addTo(feature_group_1154b015e25f00983f68bc0129c01b8c);
+            ).addTo(feature_group_1ef3e06c487695d7344d08dc20f3e9bc);
         
     
-        var popup_3d6f14bafe8f9cc89f33f6d959593a17 = L.popup({
+        var popup_e3c0fa376fae2904c83750145ddebb04 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_0e7c7414ec72f6418a82a7d58acb0b9b = $(`<div id="html_0e7c7414ec72f6418a82a7d58acb0b9b" style="width: 100.0%; height: 100.0%;"><b>SERVIDOR HFT:</b> NY-Server (ICE)</div>`)[0];
-                popup_3d6f14bafe8f9cc89f33f6d959593a17.setContent(html_0e7c7414ec72f6418a82a7d58acb0b9b);
+                var html_1e6a9cc6770ff45647076a4dddf50690 = $(`<div id="html_1e6a9cc6770ff45647076a4dddf50690" style="width: 100.0%; height: 100.0%;"><b>SERVIDOR HFT:</b> NY-Server (ICE)</div>`)[0];
+                popup_e3c0fa376fae2904c83750145ddebb04.setContent(html_1e6a9cc6770ff45647076a4dddf50690);
             
         
 
-        circle_marker_733fba7beb4f27c60019e73820e9e096.bindPopup(popup_3d6f14bafe8f9cc89f33f6d959593a17)
+        circle_marker_7b9597393f118777f150ab0a21c69127.bindPopup(popup_e3c0fa376fae2904c83750145ddebb04)
         ;
 
         
     
     
-            var circle_marker_727e641ce5d9178766673bac54d55675 = L.circleMarker(
+            var circle_marker_63126305b62fa2715d9fc51279067262 = L.circleMarker(
                 [51.5, -0.12],
                 {"bubblingMouseEvents": true, "color": "#00ff41", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00ff41", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
-            ).addTo(feature_group_1154b015e25f00983f68bc0129c01b8c);
+            ).addTo(feature_group_1ef3e06c487695d7344d08dc20f3e9bc);
         
     
-        var popup_a6d0f5fb51a20c386b73000e9c288486 = L.popup({
+        var popup_ee5581e750b17d51c0356bdb22871684 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_015e5925f1be8b6adfb8ea519c47c630 = $(`<div id="html_015e5925f1be8b6adfb8ea519c47c630" style="width: 100.0%; height: 100.0%;"><b>SERVIDOR HFT:</b> LDN-Server (LME)</div>`)[0];
-                popup_a6d0f5fb51a20c386b73000e9c288486.setContent(html_015e5925f1be8b6adfb8ea519c47c630);
+                var html_0f70c8b7a5dac0accabadad73f588f0a = $(`<div id="html_0f70c8b7a5dac0accabadad73f588f0a" style="width: 100.0%; height: 100.0%;"><b>SERVIDOR HFT:</b> LDN-Server (LME)</div>`)[0];
+                popup_ee5581e750b17d51c0356bdb22871684.setContent(html_0f70c8b7a5dac0accabadad73f588f0a);
             
         
 
-        circle_marker_727e641ce5d9178766673bac54d55675.bindPopup(popup_a6d0f5fb51a20c386b73000e9c288486)
+        circle_marker_63126305b62fa2715d9fc51279067262.bindPopup(popup_ee5581e750b17d51c0356bdb22871684)
         ;
 
         
     
     
-            var circle_marker_5e29d864c70805667dae69776e8382fc = L.circleMarker(
+            var circle_marker_2a75a2aed4b2d1967104c31d2d1680ae = L.circleMarker(
                 [1.35, 103.81],
                 {"bubblingMouseEvents": true, "color": "#00ff41", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00ff41", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
-            ).addTo(feature_group_1154b015e25f00983f68bc0129c01b8c);
+            ).addTo(feature_group_1ef3e06c487695d7344d08dc20f3e9bc);
         
     
-        var popup_0a6447ad9b7da5cf6a808879da211888 = L.popup({
+        var popup_28db621e17e07c81cfed9fc4cd92c6cb = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_e5c97dd1f14f16775883e994ded7e2c5 = $(`<div id="html_e5c97dd1f14f16775883e994ded7e2c5" style="width: 100.0%; height: 100.0%;"><b>SERVIDOR HFT:</b> SG-Server (SGX)</div>`)[0];
-                popup_0a6447ad9b7da5cf6a808879da211888.setContent(html_e5c97dd1f14f16775883e994ded7e2c5);
+                var html_514d2e13b64aa966ae3ede320bffcd77 = $(`<div id="html_514d2e13b64aa966ae3ede320bffcd77" style="width: 100.0%; height: 100.0%;"><b>SERVIDOR HFT:</b> SG-Server (SGX)</div>`)[0];
+                popup_28db621e17e07c81cfed9fc4cd92c6cb.setContent(html_514d2e13b64aa966ae3ede320bffcd77);
             
         
 
-        circle_marker_5e29d864c70805667dae69776e8382fc.bindPopup(popup_0a6447ad9b7da5cf6a808879da211888)
+        circle_marker_2a75a2aed4b2d1967104c31d2d1680ae.bindPopup(popup_28db621e17e07c81cfed9fc4cd92c6cb)
         ;
 
         
     
     
-            feature_group_1154b015e25f00983f68bc0129c01b8c.addTo(map_a1c67af78457c05af6d5a7e92a5ba80d);
+            feature_group_1ef3e06c487695d7344d08dc20f3e9bc.addTo(map_6fe4f6e8e56d5f9e104dc467bc0315fd);
         
     
-            var layer_control_c4e61f0cf04ef9cf504709dc6d4468ba_layers = {
+            var layer_control_b4e798fd1051948212a50227d9be6f89_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_de89d72536ea37bab4c55f0f12494874,
+                    "cartodbdarkmatter" : tile_layer_fa29d247524e487d42bb31be41f901ea,
                 },
                 overlays :  {
-                    "\ud83d\udee2\ufe0f Flujos Din\u00e1micos (OSINT)" : feature_group_369ae76ed6ee4aae52a6644c1505438f,
-                    "\ud83d\udcb0 Nodos de Evasi\u00f3n SWIFT" : feature_group_e7dedaadd419a0450f8799136845d7e3,
-                    "\u26a1 Servidores Alta Frecuencia (HFT)" : feature_group_1154b015e25f00983f68bc0129c01b8c,
+                    "\ud83d\udee2\ufe0f Flujos Din\u00e1micos (OSINT)" : feature_group_022cf450e42bb85ecaaea2ca2dec2e8d,
+                    "\ud83d\udcb0 Nodos de Evasi\u00f3n SWIFT" : feature_group_56d4cf37cb0f4f5f43db7096df683b09,
+                    "\u26a1 Servidores Alta Frecuencia (HFT)" : feature_group_1ef3e06c487695d7344d08dc20f3e9bc,
                 },
             };
-            let layer_control_c4e61f0cf04ef9cf504709dc6d4468ba = L.control.layers(
-                layer_control_c4e61f0cf04ef9cf504709dc6d4468ba_layers.base_layers,
-                layer_control_c4e61f0cf04ef9cf504709dc6d4468ba_layers.overlays,
+            let layer_control_b4e798fd1051948212a50227d9be6f89 = L.control.layers(
+                layer_control_b4e798fd1051948212a50227d9be6f89_layers.base_layers,
+                layer_control_b4e798fd1051948212a50227d9be6f89_layers.overlays,
                 {
   "position": "bottomleft",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_a1c67af78457c05af6d5a7e92a5ba80d);
+            ).addTo(map_6fe4f6e8e56d5f9e104dc467bc0315fd);
 
         
 </script>
