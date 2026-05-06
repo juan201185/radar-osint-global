@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_cf0eae30feb94359f6db1b65f2864c25 {
+                #map_e2acce41231ade7f6d3815c13ce727f1 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -50,41 +50,40 @@
             </script>
 
         
-    <script src="https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.1.2/dist/leaflet-ant-path.min.js"></script>
 </head>
 <body>
     
     
         <div style="position: fixed; top: 20px; right: 20px; width: 320px; background: rgba(10,10,10,0.95); 
-                    color: #fff; border: 2px solid #ff0000; padding: 15px; border-radius: 10px; 
-                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999; box-shadow: 0 0 20px #ff000066;">
-            <h4 style="color:#ff0000; text-align:center; margin:0 0 10px 0;">💻 RADAR CIBERNÉTICO E.T.B.</h4>
-            <div style="background: #ff000033; padding: 8px; border-radius: 5px; text-align: center; border: 1px solid #ff0000;">
-                <b style="color:#fff;">ESTADO RED: AMENAZA CRÍTICA</b>
+                    color: #fff; border: 2px solid #b000ff; padding: 15px; border-radius: 10px; 
+                    font-family: 'Courier New', monospace; font-size: 11px; z-index: 9999; box-shadow: 0 0 20px #b000ff66;">
+            <h4 style="color:#b000ff; text-align:center; margin:0 0 10px 0;">💻 RADAR CIBERNÉTICO E.T.B.</h4>
+            <div style="background: #b000ff33; padding: 8px; border-radius: 5px; text-align: center; border: 1px solid #b000ff;">
+                <b style="color:#fff;">ESTADO RED: AMENAZA ELEVADA</b>
             </div>
             <div style="margin-top: 10px; line-height: 1.4;">
                 <b>TELEMETRÍA DE ATAQUE:</b><br>
-                Incidentes Críticos (24h): 5<br>
-                Botnets DDoS Activos: 9<br>
-                Pings de Intrusión: 9,495<br><br>
+                Incidentes Críticos (24h): 0<br>
+                Botnets DDoS Activos: 6<br>
+                Pings de Intrusión: 2,010<br><br>
                 <b>INTELIGENCIA TÉCNICA:</b><br>
-                Foco: ESPIONAJE / DATA LEAK<br>
+                Foco: Escaneo de Red<br>
                 Infraestructura en Riesgo: SCADA / Energía
             </div>
             <div style="margin-top: 12px; border-top: 1px solid #333; padding-top: 8px; font-size: 9px; color: #666; text-align: center;">
-                Sincronizado: 13:35 | Ingeniería Trejos
+                Sincronizado: 14:28 | Ingeniería Trejos
             </div>
         </div>
         
     
-            <div class="folium-map" id="map_cf0eae30feb94359f6db1b65f2864c25" ></div>
+            <div class="folium-map" id="map_e2acce41231ade7f6d3815c13ce727f1" ></div>
         
 </body>
 <script>
     
     
-            var map_cf0eae30feb94359f6db1b65f2864c25 = L.map(
-                "map_cf0eae30feb94359f6db1b65f2864c25",
+            var map_e2acce41231ade7f6d3815c13ce727f1 = L.map(
+                "map_e2acce41231ade7f6d3815c13ce727f1",
                 {
                     center: [30.0, 45.0],
                     crs: L.CRS.EPSG3857,
@@ -101,7 +100,7 @@
 
         
     
-            var tile_layer_cd655239b05aaaaac48f8da0e5bc6f2d = L.tileLayer(
+            var tile_layer_22d470e25fe2c588f06d95289b492fac = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -118,23 +117,23 @@
             );
         
     
-            tile_layer_cd655239b05aaaaac48f8da0e5bc6f2d.addTo(map_cf0eae30feb94359f6db1b65f2864c25);
+            tile_layer_22d470e25fe2c588f06d95289b492fac.addTo(map_e2acce41231ade7f6d3815c13ce727f1);
         
     
-            var feature_group_87075211f4bff5b18c30d45231cd22d8 = L.featureGroup(
+            var feature_group_bdd545846e5e7302818d73fc317c74fe = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_53e46e2becd865c638de92d617a7b10a = L.marker(
+            var marker_b33436a87ad8f6c2d4acc76a101ade59 = L.marker(
                 [35.6, 51.3],
                 {
 }
-            ).addTo(feature_group_87075211f4bff5b18c30d45231cd22d8);
+            ).addTo(feature_group_bdd545846e5e7302818d73fc317c74fe);
         
     
-            var icon_34f7fe73a05e93d02b3343225c29416f = L.AwesomeMarkers.icon(
+            var icon_ef979e7ce5f015303e6dd1cadedfa1b5 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -145,7 +144,7 @@
             );
         
     
-            marker_53e46e2becd865c638de92d617a7b10a.bindTooltip(
+            marker_b33436a87ad8f6c2d4acc76a101ade59.bindTooltip(
                 `<div>
                      GRUPO: APT35 (Charming Kitten)
                  </div>`,
@@ -155,17 +154,17 @@
             );
         
     
-                marker_53e46e2becd865c638de92d617a7b10a.setIcon(icon_34f7fe73a05e93d02b3343225c29416f);
+                marker_b33436a87ad8f6c2d4acc76a101ade59.setIcon(icon_ef979e7ce5f015303e6dd1cadedfa1b5);
             
     
-            var marker_97599ee869b127304ff33ddc2d8b704c = L.marker(
+            var marker_9293752fbd04c39c13754b9fdaa043a1 = L.marker(
                 [32.6, 51.6],
                 {
 }
-            ).addTo(feature_group_87075211f4bff5b18c30d45231cd22d8);
+            ).addTo(feature_group_bdd545846e5e7302818d73fc317c74fe);
         
     
-            var icon_f25c551407c9049a7e0d8d58f0e4ebe2 = L.AwesomeMarkers.icon(
+            var icon_a508b0c2cf56829afefa4b6f0dfb341f = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkred",
   "iconColor": "white",
@@ -176,7 +175,7 @@
             );
         
     
-            marker_97599ee869b127304ff33ddc2d8b704c.bindTooltip(
+            marker_9293752fbd04c39c13754b9fdaa043a1.bindTooltip(
                 `<div>
                      GRUPO: APT33 (Elfin - SCADA)
                  </div>`,
@@ -186,17 +185,17 @@
             );
         
     
-                marker_97599ee869b127304ff33ddc2d8b704c.setIcon(icon_f25c551407c9049a7e0d8d58f0e4ebe2);
+                marker_9293752fbd04c39c13754b9fdaa043a1.setIcon(icon_a508b0c2cf56829afefa4b6f0dfb341f);
             
     
-            var marker_e69d4bcb48531f7b3dc745b2b2832231 = L.marker(
+            var marker_7fcdc17d7e3ba825f2b0f122162c1999 = L.marker(
                 [32.0, 34.7],
                 {
 }
-            ).addTo(feature_group_87075211f4bff5b18c30d45231cd22d8);
+            ).addTo(feature_group_bdd545846e5e7302818d73fc317c74fe);
         
     
-            var icon_f439a43cfdd8488bff64a0d8f77a7a53 = L.AwesomeMarkers.icon(
+            var icon_c7335aeecde229219432bc6414442728 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -207,7 +206,7 @@
             );
         
     
-            marker_e69d4bcb48531f7b3dc745b2b2832231.bindTooltip(
+            marker_7fcdc17d7e3ba825f2b0f122162c1999.bindTooltip(
                 `<div>
                      GRUPO: Unit 8200 (ISR)
                  </div>`,
@@ -217,17 +216,17 @@
             );
         
     
-                marker_e69d4bcb48531f7b3dc745b2b2832231.setIcon(icon_f439a43cfdd8488bff64a0d8f77a7a53);
+                marker_7fcdc17d7e3ba825f2b0f122162c1999.setIcon(icon_c7335aeecde229219432bc6414442728);
             
     
-            var marker_f5f2466bf1391d8bcfbfb3119686d0fa = L.marker(
+            var marker_e4a98b4d2d7a7f395947de7413bcddd4 = L.marker(
                 [31.7, 35.2],
                 {
 }
-            ).addTo(feature_group_87075211f4bff5b18c30d45231cd22d8);
+            ).addTo(feature_group_bdd545846e5e7302818d73fc317c74fe);
         
     
-            var icon_ba9e1e57c29a78af42f9fece0faccdc6 = L.AwesomeMarkers.icon(
+            var icon_5a8d4930d5ea114aa41027418910f1be = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkblue",
   "iconColor": "white",
@@ -238,7 +237,7 @@
             );
         
     
-            marker_f5f2466bf1391d8bcfbfb3119686d0fa.bindTooltip(
+            marker_e4a98b4d2d7a7f395947de7413bcddd4.bindTooltip(
                 `<div>
                      GRUPO: Unit 81 (Ciber-Física)
                  </div>`,
@@ -248,17 +247,17 @@
             );
         
     
-                marker_f5f2466bf1391d8bcfbfb3119686d0fa.setIcon(icon_ba9e1e57c29a78af42f9fece0faccdc6);
+                marker_e4a98b4d2d7a7f395947de7413bcddd4.setIcon(icon_5a8d4930d5ea114aa41027418910f1be);
             
     
-            var marker_7dbc5132edb7e8c7c6e6aa46735c3714 = L.marker(
+            var marker_6cbeb9ec9ef9adab5c07fc8ef4b9ff85 = L.marker(
                 [55.7, 37.6],
                 {
 }
-            ).addTo(feature_group_87075211f4bff5b18c30d45231cd22d8);
+            ).addTo(feature_group_bdd545846e5e7302818d73fc317c74fe);
         
     
-            var icon_03ccb6af0959b727bbb33799c6bc846e = L.AwesomeMarkers.icon(
+            var icon_063c350a88e9a42851d27e7ce2ca9495 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -269,7 +268,7 @@
             );
         
     
-            marker_7dbc5132edb7e8c7c6e6aa46735c3714.bindTooltip(
+            marker_6cbeb9ec9ef9adab5c07fc8ef4b9ff85.bindTooltip(
                 `<div>
                      GRUPO: KillNet / Anonymous Sudan
                  </div>`,
@@ -279,314 +278,49 @@
             );
         
     
-                marker_7dbc5132edb7e8c7c6e6aa46735c3714.setIcon(icon_03ccb6af0959b727bbb33799c6bc846e);
+                marker_6cbeb9ec9ef9adab5c07fc8ef4b9ff85.setIcon(icon_063c350a88e9a42851d27e7ce2ca9495);
             
     
-            feature_group_87075211f4bff5b18c30d45231cd22d8.addTo(map_cf0eae30feb94359f6db1b65f2864c25);
+            feature_group_bdd545846e5e7302818d73fc317c74fe.addTo(map_e2acce41231ade7f6d3815c13ce727f1);
         
     
-            var feature_group_95889c1454c92c1ffe8a1c64a7df3b7e = L.featureGroup(
+            var feature_group_6ace2139b6e88fcf4600a9c3c324f66c = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_66ddbbc21f439117c655678aa27cafba = L.circleMarker(
-                [31.79305299385156, 47.17395831269202],
-                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
-            ).addTo(feature_group_95889c1454c92c1ffe8a1c64a7df3b7e);
+            feature_group_6ace2139b6e88fcf4600a9c3c324f66c.addTo(map_e2acce41231ade7f6d3815c13ce727f1);
         
     
-        var popup_32ca45c75bda8f5b3c6f840b6db62812 = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_ae69bebb5412106b4b4310f68ffcfee0 = $(`<div id="html_ae69bebb5412106b4b4310f68ffcfee0" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px; background: #000; color: #fff; padding: 10px; border-left: 5px solid orange;">                 <b style="color:orange;">💥 ESPIONAJE / DATA LEAK</b><br><br>                 <b>Reporte:</b> Expect Iran to Launch Cyber-Attacks Globally, Warns Google Head of Threat Intel...<br>                 <b>Estado:</b> Bajo Análisis OSINT             </div>             </div>`)[0];
-                popup_32ca45c75bda8f5b3c6f840b6db62812.setContent(html_ae69bebb5412106b4b4310f68ffcfee0);
-            
-        
-
-        circle_marker_66ddbbc21f439117c655678aa27cafba.bindPopup(popup_32ca45c75bda8f5b3c6f840b6db62812)
-        ;
-
-        
-    
-    
-            var circle_marker_f1fea74af33d46364008a9fb5f785a48 = L.circleMarker(
-                [32.434988746568436, 38.53657084893564],
-                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
-            ).addTo(feature_group_95889c1454c92c1ffe8a1c64a7df3b7e);
-        
-    
-        var popup_1cdce4599e3e358b4825b88d9cadee4f = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_ec239820966a68d82ed3d6be9fbf3c31 = $(`<div id="html_ec239820966a68d82ed3d6be9fbf3c31" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px; background: #000; color: #fff; padding: 10px; border-left: 5px solid orange;">                 <b style="color:orange;">💥 ESPIONAJE / DATA LEAK</b><br><br>                 <b>Reporte:</b> Cyber fallout from the Iran war: What to have on your radar...<br>                 <b>Estado:</b> Bajo Análisis OSINT             </div>             </div>`)[0];
-                popup_1cdce4599e3e358b4825b88d9cadee4f.setContent(html_ec239820966a68d82ed3d6be9fbf3c31);
-            
-        
-
-        circle_marker_f1fea74af33d46364008a9fb5f785a48.bindPopup(popup_1cdce4599e3e358b4825b88d9cadee4f)
-        ;
-
-        
-    
-    
-            var circle_marker_94b2fb32211ae90918408950b69f87bd = L.circleMarker(
-                [33.58924274757309, 43.41782237056469],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
-            ).addTo(feature_group_95889c1454c92c1ffe8a1c64a7df3b7e);
-        
-    
-        var popup_614f563c51a0e709980eac099a16c094 = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_4c35a773c28dec98656c5b045036dd55 = $(`<div id="html_4c35a773c28dec98656c5b045036dd55" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px; background: #000; color: #fff; padding: 10px; border-left: 5px solid red;">                 <b style="color:red;">💥 SABOTAJE INDUSTRIAL (SCADA)</b><br><br>                 <b>Reporte:</b> Iran-Linked Hackers Are Sabotaging US Energy and Water Infrastructure...<br>                 <b>Estado:</b> Bajo Análisis OSINT             </div>             </div>`)[0];
-                popup_614f563c51a0e709980eac099a16c094.setContent(html_4c35a773c28dec98656c5b045036dd55);
-            
-        
-
-        circle_marker_94b2fb32211ae90918408950b69f87bd.bindPopup(popup_614f563c51a0e709980eac099a16c094)
-        ;
-
-        
-    
-    
-            var circle_marker_5a74c7f61bd93d875f0d738bb47d591d = L.circleMarker(
-                [33.71599656175061, 42.9227272087944],
-                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
-            ).addTo(feature_group_95889c1454c92c1ffe8a1c64a7df3b7e);
-        
-    
-        var popup_8739b6221e3ed867bc8e9a768c7b5919 = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_bf18d7dbf3daea1440ee34693e00fbab = $(`<div id="html_bf18d7dbf3daea1440ee34693e00fbab" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px; background: #000; color: #fff; padding: 10px; border-left: 5px solid orange;">                 <b style="color:orange;">💥 ESPIONAJE / DATA LEAK</b><br><br>                 <b>Reporte:</b> Middle East, over 1,000 cyber attacks since the beginning of the war. Israel, the Emi...<br>                 <b>Estado:</b> Bajo Análisis OSINT             </div>             </div>`)[0];
-                popup_8739b6221e3ed867bc8e9a768c7b5919.setContent(html_bf18d7dbf3daea1440ee34693e00fbab);
-            
-        
-
-        circle_marker_5a74c7f61bd93d875f0d738bb47d591d.bindPopup(popup_8739b6221e3ed867bc8e9a768c7b5919)
-        ;
-
-        
-    
-    
-            var circle_marker_be274f7a3d934a42f6363845b6802ef3 = L.circleMarker(
-                [31.94028983430269, 40.81389959968865],
-                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 3}
-            ).addTo(feature_group_95889c1454c92c1ffe8a1c64a7df3b7e);
-        
-    
-        var popup_2edbe331aaeaa6e88852f317458fbecf = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_434bfbfca3d7593418847303b3ef8615 = $(`<div id="html_434bfbfca3d7593418847303b3ef8615" style="width: 100.0%; height: 100.0%;">             <div style="font-family: 'Courier New', monospace; width: 280px; background: #000; color: #fff; padding: 10px; border-left: 5px solid orange;">                 <b style="color:orange;">💥 ESPIONAJE / DATA LEAK</b><br><br>                 <b>Reporte:</b> Pro-Iranian Actors Launch Barrage of Cyberattacks...<br>                 <b>Estado:</b> Bajo Análisis OSINT             </div>             </div>`)[0];
-                popup_2edbe331aaeaa6e88852f317458fbecf.setContent(html_434bfbfca3d7593418847303b3ef8615);
-            
-        
-
-        circle_marker_be274f7a3d934a42f6363845b6802ef3.bindPopup(popup_2edbe331aaeaa6e88852f317458fbecf)
-        ;
-
-        
-    
-    
-            feature_group_95889c1454c92c1ffe8a1c64a7df3b7e.addTo(map_cf0eae30feb94359f6db1b65f2864c25);
-        
-    
-            var feature_group_988dd5d94657bb579898896998a56099 = L.featureGroup(
+            var feature_group_01d18c928584fcf366f0021a16b68384 = L.featureGroup(
                 {
 }
             );
         
     
-            ant_path_02acdc8df9cb4cc2c74bcfd20f27061c = L.polyline.antPath(
-              [[55.7, 37.6], [31.79305299385156, 47.17395831269202]],
-              {
-  "stroke": true,
-  "color": "orange",
-  "weight": 2,
-  "opacity": 0.5,
-  "lineCap": "round",
-  "lineJoin": "round",
-  "dashArray": [
-10,
-20,
-],
-  "dashOffset": null,
-  "fill": false,
-  "fillColor": "orange",
-  "fillOpacity": 0.2,
-  "fillRule": "evenodd",
-  "bubblingMouseEvents": true,
-  "smoothFactor": 1.0,
-  "noClip": false,
-  "paused": false,
-  "reverse": false,
-  "hardwareAcceleration": false,
-  "delay": 600,
-  "pulseColor": "#FFFFFF",
-}
-        ).addTo(feature_group_988dd5d94657bb579898896998a56099);
+            feature_group_01d18c928584fcf366f0021a16b68384.addTo(map_e2acce41231ade7f6d3815c13ce727f1);
         
     
-            ant_path_c7ce39c08352e5b4b91ae420a8f260b9 = L.polyline.antPath(
-              [[31.7, 35.2], [32.434988746568436, 38.53657084893564]],
-              {
-  "stroke": true,
-  "color": "orange",
-  "weight": 2,
-  "opacity": 0.5,
-  "lineCap": "round",
-  "lineJoin": "round",
-  "dashArray": [
-10,
-20,
-],
-  "dashOffset": null,
-  "fill": false,
-  "fillColor": "orange",
-  "fillOpacity": 0.2,
-  "fillRule": "evenodd",
-  "bubblingMouseEvents": true,
-  "smoothFactor": 1.0,
-  "noClip": false,
-  "paused": false,
-  "reverse": false,
-  "hardwareAcceleration": false,
-  "delay": 600,
-  "pulseColor": "#FFFFFF",
-}
-        ).addTo(feature_group_988dd5d94657bb579898896998a56099);
-        
-    
-            ant_path_f41df37dabec778a0af66a3e3d948800 = L.polyline.antPath(
-              [[31.7, 35.2], [33.58924274757309, 43.41782237056469]],
-              {
-  "stroke": true,
-  "color": "red",
-  "weight": 2,
-  "opacity": 0.5,
-  "lineCap": "round",
-  "lineJoin": "round",
-  "dashArray": [
-10,
-20,
-],
-  "dashOffset": null,
-  "fill": false,
-  "fillColor": "red",
-  "fillOpacity": 0.2,
-  "fillRule": "evenodd",
-  "bubblingMouseEvents": true,
-  "smoothFactor": 1.0,
-  "noClip": false,
-  "paused": false,
-  "reverse": false,
-  "hardwareAcceleration": false,
-  "delay": 600,
-  "pulseColor": "#FFFFFF",
-}
-        ).addTo(feature_group_988dd5d94657bb579898896998a56099);
-        
-    
-            ant_path_267fa1f50e224900e7a6fadd877742f5 = L.polyline.antPath(
-              [[35.6, 51.3], [33.71599656175061, 42.9227272087944]],
-              {
-  "stroke": true,
-  "color": "orange",
-  "weight": 2,
-  "opacity": 0.5,
-  "lineCap": "round",
-  "lineJoin": "round",
-  "dashArray": [
-10,
-20,
-],
-  "dashOffset": null,
-  "fill": false,
-  "fillColor": "orange",
-  "fillOpacity": 0.2,
-  "fillRule": "evenodd",
-  "bubblingMouseEvents": true,
-  "smoothFactor": 1.0,
-  "noClip": false,
-  "paused": false,
-  "reverse": false,
-  "hardwareAcceleration": false,
-  "delay": 600,
-  "pulseColor": "#FFFFFF",
-}
-        ).addTo(feature_group_988dd5d94657bb579898896998a56099);
-        
-    
-            ant_path_e2d83abd2d8887ebdcc6f7ba8aa59d89 = L.polyline.antPath(
-              [[31.7, 35.2], [31.94028983430269, 40.81389959968865]],
-              {
-  "stroke": true,
-  "color": "orange",
-  "weight": 2,
-  "opacity": 0.5,
-  "lineCap": "round",
-  "lineJoin": "round",
-  "dashArray": [
-10,
-20,
-],
-  "dashOffset": null,
-  "fill": false,
-  "fillColor": "orange",
-  "fillOpacity": 0.2,
-  "fillRule": "evenodd",
-  "bubblingMouseEvents": true,
-  "smoothFactor": 1.0,
-  "noClip": false,
-  "paused": false,
-  "reverse": false,
-  "hardwareAcceleration": false,
-  "delay": 600,
-  "pulseColor": "#FFFFFF",
-}
-        ).addTo(feature_group_988dd5d94657bb579898896998a56099);
-        
-    
-            feature_group_988dd5d94657bb579898896998a56099.addTo(map_cf0eae30feb94359f6db1b65f2864c25);
-        
-    
-            var layer_control_c6ff96ec266455573d3fae9cf710485d_layers = {
+            var layer_control_61cbda9f7c07eeb041235b10ad2ecb0c_layers = {
                 base_layers : {
-                    "cartodbdarkmatter" : tile_layer_cd655239b05aaaaac48f8da0e5bc6f2d,
+                    "cartodbdarkmatter" : tile_layer_22d470e25fe2c588f06d95289b492fac,
                 },
                 overlays :  {
-                    "\ud83c\udfaf Nodos APT (Estatales)" : feature_group_87075211f4bff5b18c30d45231cd22d8,
-                    "\ud83d\udca5 Impactos Confirmados (OSINT)" : feature_group_95889c1454c92c1ffe8a1c64a7df3b7e,
-                    "\u26a1 Vectores de Propagaci\u00f3n" : feature_group_988dd5d94657bb579898896998a56099,
+                    "\ud83c\udfaf Nodos APT (Estatales)" : feature_group_bdd545846e5e7302818d73fc317c74fe,
+                    "\ud83d\udca5 Impactos Confirmados (OSINT)" : feature_group_6ace2139b6e88fcf4600a9c3c324f66c,
+                    "\u26a1 Vectores de Propagaci\u00f3n" : feature_group_01d18c928584fcf366f0021a16b68384,
                 },
             };
-            let layer_control_c6ff96ec266455573d3fae9cf710485d = L.control.layers(
-                layer_control_c6ff96ec266455573d3fae9cf710485d_layers.base_layers,
-                layer_control_c6ff96ec266455573d3fae9cf710485d_layers.overlays,
+            let layer_control_61cbda9f7c07eeb041235b10ad2ecb0c = L.control.layers(
+                layer_control_61cbda9f7c07eeb041235b10ad2ecb0c_layers.base_layers,
+                layer_control_61cbda9f7c07eeb041235b10ad2ecb0c_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_cf0eae30feb94359f6db1b65f2864c25);
+            ).addTo(map_e2acce41231ade7f6d3815c13ce727f1);
 
         
 </script>
